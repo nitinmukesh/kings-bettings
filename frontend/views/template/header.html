@@ -1,14 +1,28 @@
 <header hide-on-scroll>
-    <nav class="navbar navbar-expand-md bg-light navbar-light fixed-top">
-        <a class="navbar-brand" href="#">
-            <img src="img/logo.png" alt="logo" width="20">
+    <nav class="navbar navbar-expand-md bg-light navbar-light fixed-top ">
+        <div>
+            <a class="navbar-brand" href="#">
+            <img src="img/logo.png" alt="logo" width="100">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
+         <ul  class="list-inline d-inline-block">
+            <li class="list-inline-item">Mar 31, 2018</li>
+            <li  class="list-inline-item">11:26:30<span>(+0.5:12)</span></li>
+           </ul>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto" ng-include="template.menu"></ul>
+      </div>
+        <div class="collapse navbar-collapse content-justify" id="navbarSupportedContent">
+            <div>
+                <ul class="navbar-nav mr-auto">
+                    <li class="relative px-2"><i class="fas fa-search absolute" ></i><input type="text" placeholder="Search Events"></li>
+                    <li class="px-2">logged in as hk003<br> last logged in: 31/08/2018 08:50
+                    </li>
+                    <li class="px-2"><i class="fas fa-cog"></i>Account</li>
+                    <li class="px-2"><i class="fas fa-sign-out-alt"></i>Logout</li>
+                </ul>
+            </div>
         </div>
     </nav>
 </header>
