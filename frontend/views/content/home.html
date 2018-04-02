@@ -1,0 +1,43 @@
+<div class="container">
+    <h1>Form</h1>
+    <!--<pre>{{data|json}}</pre>-->
+    <!--<pre style="background: #b0deff;">{{formData.email|json}}</pre>-->
+    <form name="formData" class="form-group">
+        <div class="form-group">
+            <label for="name">name</label>
+            <input type="text" ng-model="data.name" class="form-control" id="name" placeholder="Name" required name="name">
+            <div class="pull-right" ng-repeat="(field,value) in formData.name.$error" ng-show="formData.name.$touched">
+                <span class="label label-danger" ng-if="field=='required' && value">Please Enter Name</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" ng-model="data.email" class="form-control" id="email" placeholder="Email" name="email" required>
+            <div class="pull-right" ng-repeat="(field,value) in formData.email.$error" ng-show="formData.email.$touched">
+                <span class="label label-danger" ng-if="field=='required' && value">Please Enter Email</span>
+                <span class="label label-danger" ng-if="field=='email' && value">Please Enter Valid Email</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" name="age" ng-model="data.age" class="form-control" id="age" placeholder="Age" min="18" max="50" required>
+            <div class="pull-right" ng-repeat="(field,value) in formData.age.$error" ng-show="formData.age.$touched">
+                <span class="label label-danger" ng-if="field=='required' && value">Please Enter Age</span>
+                <span class="label label-danger" ng-if="field=='min' && value">Age should be greater than 18</span>
+                <span class="label label-danger" ng-if="field=='max' && value">Age should be less than 50</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" ng-model="data.subject" class="form-control" id="subject" placeholder="Subject" name="subject">
+        </div>
+        <div class="form-group">
+            <label for="query">Query</label>
+            <textarea name="query" ng-model="data.query" id="query" cols="30" rows="10" class="form-control" required></textarea>
+            <div class="pull-right" ng-repeat="(field,value) in formData.query.$error" ng-show="formData.query.$touched">
+                <span class="label label-danger" ng-if="field=='required' && value">Please Enter Query</span>
+            </div>
+        </div>
+        <button ng-click="submitForm()" class="btn btn-default" ng-disabled="formData.$invalid" promise-btn>Submit</button>
+    </form>
+</div>

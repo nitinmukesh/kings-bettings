@@ -1,0 +1,111 @@
+{
+    "title": "Create User",
+    "name": "User",
+    "jsonPage": "viewUser",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["User"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter Name",
+        "id": "name",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Email",
+        "type": "text",
+        "tableRef": "email",
+        "placeholder": "Enter Email",
+        "id": "email",
+        "validation": ["", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "DOB",
+        "type": "date",
+        "tableRef": "dob",
+        "placeholder": "Enter DOB",
+        "id": "dob",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Photo",
+        "type": "image",
+        "tableRef": "photo",
+        "size": "250 x 250",
+        "placeholder": "Upload photo",
+        "id": "photo",
+        "view": true,
+        "disabled": true,
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Password",
+        "type": "password",
+        "tableRef": "password",
+        "placeholder": "Enter password",
+        "id": "password",
+        "validation": ["", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Forgot Password",
+        "type": "password",
+        "tableRef": "forgotPassword",
+        "placeholder": "Enter forgot password",
+        "id": "forgotPassword",
+        "validation": ["", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Mobile",
+        "type": "text",
+        "tableRef": "mobile",
+        "placeholder": "Enter mobile",
+        "id": "mobile",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "OTP",
+        "type": "text",
+        "tableRef": "otp",
+        "placeholder": "Enter Otp",
+        "id": "otp",
+        "disabled": false,
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "AccessLevel",
+        "type": "tags",
+        "tableRef": "accessLevel",
+        "placeholder": "Enter Title",
+        "id": "status",
+        "validation": ["", "trim", ""],
+        "url": "",
+        "dropDownField": "",
+        "dropDownType": "single",
+        "onView": true,
+        "dropDown": ["User", "Admin"]
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitUser",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewUser"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewUser"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "User/save"
+    }
+}

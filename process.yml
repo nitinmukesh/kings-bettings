@@ -1,0 +1,6 @@
+apps:
+  - script: "app.js"
+    name: "Cards for Fun - 80"
+    watch: false
+    args: "--prod"
+    exec_mode: "cluster"

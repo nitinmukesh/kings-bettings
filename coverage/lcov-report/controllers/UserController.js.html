@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for controllers/UserController.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">controllers/</a> UserController.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">6.52% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>3/46</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">6.52% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>3/46</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">module.exports = _.cloneDeep(require("sails-wohlig-controller"));
+var controller = {
+    index: <span class="fstat-no" title="function not covered" >function (req, res) {</span>
+<span class="cstat-no" title="statement not covered" >        res.json({</span>
+            name: "Hello World"
+        });
+    },
+    loginFacebook: <span class="fstat-no" title="function not covered" >function (req, res) {</span>
+<span class="cstat-no" title="statement not covered" >        passport.authenticate('facebook', {</span>
+            scope: ['public_profile', 'user_friends', 'email'],
+            failureRedirect: '/'
+        }, res.socialLogin)(req, res);
+    },
+&nbsp;
+    loginGoogle: <span class="fstat-no" title="function not covered" >function (req, res) {</span>
+<span class="cstat-no" title="statement not covered" >        if (req.query.returnUrl) {</span>
+<span class="cstat-no" title="statement not covered" >            req.session.returnUrl = req.query.returnUrl;</span>
+        } else {
+&nbsp;
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        passport.authenticate('google', {</span>
+            scope: ['openid', 'profile', 'email'],
+            failureRedirect: '/'
+        }, res.socialLogin)(req, res);
+    },
+    profile: <span class="fstat-no" title="function not covered" >function (req, res) {</span>
+<span class="cstat-no" title="statement not covered" >        if (req.body &amp;&amp; req.body.accessToken) {</span>
+<span class="cstat-no" title="statement not covered" >            User.profile(req.body, res.callback);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            res.callback("Please provide Valid AccessToken", null);</span>
+        }
+    },
+    pdf: <span class="fstat-no" title="function not covered" >function (req, res) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var html = fs.readFileSync('./views/pdf/demo.ejs', 'utf8');</span>
+<span class="cstat-no" title="statement not covered" >        var options = {</span>
+            format: 'A4'
+        };
+<span class="cstat-no" title="statement not covered" >        var id = mongoose.Types.ObjectId();</span>
+<span class="cstat-no" title="statement not covered" >        var newFilename = id + ".pdf";</span>
+<span class="cstat-no" title="statement not covered" >        var writestream = gfs.createWriteStream({</span>
+            filename: newFilename
+        });
+<span class="cstat-no" title="statement not covered" >        writestream.on('finish', <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            res.callback(null, {</span>
+                name: newFilename
+            });
+        });
+<span class="cstat-no" title="statement not covered" >        pdf.create(html).toStream(<span class="fstat-no" title="function not covered" >function (err, stream) {</span></span>
+<span class="cstat-no" title="statement not covered" >            stream.pipe(writestream);</span>
+        });
+    },
+    backupDatabase: <span class="fstat-no" title="function not covered" >function (req, res) {</span>
+<span class="cstat-no" title="statement not covered" >        res.connection.setTimeout(200000000);</span>
+<span class="cstat-no" title="statement not covered" >        req.connection.setTimeout(200000000);</span>
+<span class="cstat-no" title="statement not covered" >        var q = req.host.search("127.0.0.1");</span>
+<span class="cstat-no" title="statement not covered" >        if (q &gt;= 0) {</span>
+<span class="cstat-no" title="statement not covered" >            _.times(20, <span class="fstat-no" title="function not covered" >function (n) {</span></span>
+<span class="cstat-no" title="statement not covered" >                var name = moment().subtract(5 + n, "days").format("ddd-Do-MMM-YYYY");</span>
+<span class="cstat-no" title="statement not covered" >                exec("cd backup &amp;&amp; rm -rf " + name + "*", <span class="fstat-no" title="function not covered" >function (err, stdout, stderr) {</span>});</span>
+            });
+<span class="cstat-no" title="statement not covered" >            var jagz = _.map(mongoose.models, <span class="fstat-no" title="function not covered" >function (Model, key) {</span></span>
+<span class="cstat-no" title="statement not covered" >                var name = Model.collection.collectionName;</span>
+<span class="cstat-no" title="statement not covered" >                return {</span>
+                    key: key,
+                    name: name,
+                };
+            });
+<span class="cstat-no" title="statement not covered" >            res.json("Files deleted and new has to be created.");</span>
+<span class="cstat-no" title="statement not covered" >            jagz.push({</span>
+                "key": "fs.chunks",
+                "name": "fs.chunks"
+            }, {
+                "key": "fs.files",
+                "name": "fs.files"
+            });
+<span class="cstat-no" title="statement not covered" >            var isBackup = fs.existsSync("./backup");</span>
+<span class="cstat-no" title="statement not covered" >            if (!isBackup) {</span>
+<span class="cstat-no" title="statement not covered" >                fs.mkdirSync("./backup");</span>
+            }
+<span class="cstat-no" title="statement not covered" >            var mom = moment();</span>
+<span class="cstat-no" title="statement not covered" >            var folderName = "./backup/" + mom.format("ddd-Do-MMM-YYYY-HH-mm-SSSSS");</span>
+<span class="cstat-no" title="statement not covered" >            var retVal = [];</span>
+<span class="cstat-no" title="statement not covered" >            fs.mkdirSync(folderName);</span>
+<span class="cstat-no" title="statement not covered" >            async.eachSeries(jagz, <span class="fstat-no" title="function not covered" >function (obj, callback) {</span></span>
+<span class="cstat-no" title="statement not covered" >                exec("mongoexport --db " + database + " --collection " + obj.name + " --out " + folderName + "/" + obj.name + ".json", <span class="fstat-no" title="function not covered" >function (data1, data2, data3) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    retVal.push(data3 + " VALUES OF " + obj.name + " MODEL NAME " + obj.key);</span>
+<span class="cstat-no" title="statement not covered" >                    callback();</span>
+                });
+            }, <span class="fstat-no" title="function not covered" >function () {</span>
+                // res.json(retVal);
+            });
+        } else {
+<span class="cstat-no" title="statement not covered" >            res.callback("Access Denied for Database Backup");</span>
+        }
+    },
+    getAllMedia: <span class="fstat-no" title="function not covered" >function (req, res) {</span>
+<span class="cstat-no" title="statement not covered" >        Media.getAllMedia(req.body, res.callback);</span>
+    },
+    sendmail: <span class="fstat-no" title="function not covered" >function (req, res) {</span>
+<span class="cstat-no" title="statement not covered" >        Config.sendEmail("chintan@wohlig.com", "jagruti@wohlig.com", "first email from endgrid", "", "&lt;html&gt;&lt;body&gt;dome content&lt;/body&gt;&lt;/html&gt;");</span>
+    }
+&nbsp;
+};
+module.exports = _.assign(module.exports, controller);</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Sep 25 2017 21:40:48 GMT+0530 (IST)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
