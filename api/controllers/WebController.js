@@ -44,14 +44,5 @@ module.exports = {
         } else {
             res.notFound();
         }
-    },
-    demo: function (req, res) {
-        sails.renderView('email/welcome', {
-            name: "Wohlig",
-            lastname: "Wohlig",
-            hobbies: ["cricket", "name", "email", "phone"]
-        }, function (err, view) {
-            res.send(view);
-        });
     }
 };

@@ -474,44 +474,98 @@ myApp.controller('DashboardCtrl', function ($scope, TemplateService, NavigationS
 
             };
         }
-        if ($scope.type.type == "box") {
 
-            if (!_.isArray($scope.formData[$scope.type.tableRef]) && $scope.formData[$scope.type.tableRef] === '') {
-                $scope.formData[$scope.type.tableRef] = [];
-                $scope.model = [];
-            } else {
-                if ($scope.formData[$scope.type.tableRef]) {
-                    $scope.model = $scope.formData[$scope.type.tableRef];
-                }
-            }
-            $scope.search = {
-                text: ""
-            };
-        }
-        $scope.state = "";
-        $scope.createBox = function (state) {
-            $scope.state = state;
-            $scope.model.push({});
-            $scope.editBox("Create", $scope.model[$scope.model.length - 1]);
-        };
-        $scope.editBox = function (state, data) {
-            $scope.state = state;
-            $scope.data = data;
-            var modalInstance = $uibModal.open({
-                animation: $scope.animationsEnabled,
-                templateUrl: 'views/modal/modal.html',
-                size: 'lg',
-                scope: $scope
-            });
-            $scope.close = function (value) {
-                callback(value);
-                modalInstance.close("cancel");
-            };
-        };
-        $scope.deleteBox = function (index, data) {
-            console.log(data);
-            data.splice(index, 1);
-        };
+        //Box Changes By Avinash Start
+
+
+        if ($scope.type.type == "box") {
+            
+                        if (!_.isArray($scope.formData[$scope.type.tableRef]) && $scope.formData[$scope.type.tableRef] === '') {
+                            $scope.formData[$scope.type.tableRef] = [];
+                            $scope.model = [];
+                        } else {
+                            if ($scope.formData[$scope.type.tableRef]) {
+                                $scope.model = $scope.formData[$scope.type.tableRef];
+                            }
+                        }
+                        $scope.search = {
+                            text: ""
+                        };
+                    }
+                    $scope.state = "";
+                    $scope.createBox = function (state) {
+                        $scope.state = state;
+                        $scope.model.push({});
+                        $scope.editBox("Create", $scope.model[$scope.model.length - 1]);
+                    };
+                    $scope.editBox = function (state, data) {
+                        $scope.state = state;
+                        $scope.data = data;
+                        if (!$scope.formData[$scope.type.tableRef]) {
+                            $scope.formData[$scope.type.tableRef] = []
+                        }
+            
+                        if (state == 'Create' && $scope.json.json.pageType=="create") {
+                            $scope.formData[$scope.type.tableRef].push(data);
+                        }
+            
+                        var modalInstance = $uibModal.open({
+                            animation: $scope.animationsEnabled,
+                            templateUrl: 'views/modal/modal.html',
+                            size: 'lg',
+                            scope: $scope
+                        });
+                        $scope.close = function (value) {
+                            callback(value);
+                            modalInstance.close("cancel");
+                        };
+                    };
+                    $scope.deleteBox = function (index, data) {
+                        console.log(data);
+                        data.splice(index, 1);
+                    };
+            
+
+        //Box Changes By Avinash End
+
+        // if ($scope.type.type == "box") {
+
+        //     if (!_.isArray($scope.formData[$scope.type.tableRef]) && $scope.formData[$scope.type.tableRef] === '') {
+        //         $scope.formData[$scope.type.tableRef] = [];
+        //         $scope.model = [];
+        //     } else {
+        //         if ($scope.formData[$scope.type.tableRef]) {
+        //             $scope.model = $scope.formData[$scope.type.tableRef];
+        //         }
+        //     }
+        //     $scope.search = {
+        //         text: ""
+        //     };
+        // }
+        // $scope.state = "";
+        // $scope.createBox = function (state) {
+        //     $scope.state = state;
+        //     $scope.model.push({});
+        //     $scope.editBox("Create", $scope.model[$scope.model.length - 1]);
+        // };
+        // $scope.editBox = function (state, data) {
+        //     $scope.state = state;
+        //     $scope.data = data;
+        //     var modalInstance = $uibModal.open({
+        //         animation: $scope.animationsEnabled,
+        //         templateUrl: 'views/modal/modal.html',
+        //         size: 'lg',
+        //         scope: $scope
+        //     });
+        //     $scope.close = function (value) {
+        //         callback(value);
+        //         modalInstance.close("cancel");
+        //     };
+        // };
+        // $scope.deleteBox = function (index, data) {
+        //     console.log(data);
+        //     data.splice(index, 1);
+        // };
 
         //  TAGS STATIC AND FROM TABLE
         $scope.refreshTags = function (search) {

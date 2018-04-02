@@ -1,6 +1,6 @@
 apps:
   - script: "app.js"
-    name: "Cards for Fun - 80"
+    name: "Node Framework - 80"
     watch: false
     args: "--prod"
     exec_mode: "cluster"

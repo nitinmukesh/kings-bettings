@@ -1,5 +1,43 @@
 <div>
     <a class="btn btn-primary pull-right" ng-click="createBox('Create')">Add New</a>
+    <h4><label style="color: green;">{{type.name}} <span ng-show="type.required"></span></label>
+    </h4>
+    <span style="float:right;width:200px;">
+        <!-- <input type="search" class="form-control" placeholder="Search..." ng-model="search.text">  -->
+    </span>
+</div>
+<div class="error-msg" ng-show="formData[type.tableRef].length==0 && type.validation[0] != ''">No {{type.name}} Found.</div>
+<!-- {{type.fields}} -->
+<div class="sec">
+    <div>
+        <table class="table table-input" ng-if="model.length != 0">
+            <thead>
+                <tr>
+                    <th ng-repeat="field in type.fields" ng-if="field.onView">{{field.name}}</th>
+                    <th width="150px">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="data in model track by $index">
+                    <td ng-repeat="field2 in type.fields" ng-if="field2.onView">
+                        {{data[field2.tableRef]}}
+                    </td>
+                    <td>
+                        <a  class="btn btn-primary" ng-click="editBox('Edit',data)">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <!-- {{model}} -->
+                        <a class="btn btn-danger" ng-click="deleteBox($index, model)">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- <div>
+    <a class="btn btn-primary pull-right" ng-click="createBox('Create')">Add New</a>
     <label>{{type.name}} <span ng-show="type.required">*</span></label>
     <span style="float:right;width:200px;"><input type="search" class="form-control" placeholder="Search..." ng-model="search.text"> </span>
 </div>
@@ -33,4 +71,4 @@
             </tbody>
         </table>
     </div>
-</div>
+</div> -->

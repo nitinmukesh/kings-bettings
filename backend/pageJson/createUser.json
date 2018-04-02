@@ -85,6 +85,75 @@
         "dropDownType": "single",
         "onView": true,
         "dropDown": ["User", "Admin"]
+    }, {
+        "name": "All Addresses",
+        "type": "box",
+        "tableRef": "address",
+        "validation": ["required","trim",""],
+        "fields": [{
+            "name": "Line 1",
+            "type": "text",
+            "tableRef": "lineOne",
+            "placeholder": "Enter Address Line One",
+            "id": "lineOne",
+            "validation": ["", "trim"],
+            "url": "",
+            "onView":true
+        }, {
+            "name": "Line 2",
+            "type": "text",
+            "tableRef": "lineTwo",
+            "placeholder": "Enter Address Line Two",
+            "id": "lineTwo",
+            "validation": ["", "trim"],
+            "url": "",
+            "onView":true
+        }, {
+            "name": "Line 3",
+            "type": "text",
+            "tableRef": "lineThree",
+            "placeholder": "Enter Address Line Three",
+            "id": "lineThree",
+            "validation": ["", "trim"],
+            "url": "",
+            "onView":true
+        }, {
+            "name": "City",
+            "type": "text",
+            "tableRef": "city",
+            "placeholder": "Enter City",
+            "id": "city",
+            "validation": ["", "trim"],
+            "url": "",
+            "onView":true
+        }, {
+            "name": "District",
+            "type": "text",
+            "tableRef": "district",
+            "placeholder": "Enter district",
+            "id": "district",
+            "validation": ["", "trim"],
+            "url": "",
+            "onView":true
+        }, {
+            "name": "State",
+            "type": "text",
+            "tableRef": "state",
+            "placeholder": "Enter state",
+            "id": "state",
+            "validation": ["", "trim"],
+            "url": "",
+            "onView":true
+        }, {
+            "name": "Pincode",
+            "type": "text",
+            "tableRef": "pincode",
+            "placeholder": "Enter Pincode",
+            "id": "pincode",
+            "validation": ["", "trim"],
+            "url": "",
+            "onView":true
+        }]
     }],
     "action": [{
         "name": "submit",

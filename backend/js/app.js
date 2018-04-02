@@ -13,7 +13,6 @@ var myApp = angular.module('myApp', [
     'toastr',
     'textAngular',
     'ngSanitize',
-    'angular-flexslider',
     'ngMap',
     'toggle-switch',
     'cfp.hotkeys',

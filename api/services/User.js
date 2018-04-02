@@ -69,7 +69,16 @@ var schema = new Schema({
         type: String,
         default: "User",
         enum: ['User', 'Admin']
-    }
+    },
+    address: [{
+        lineOne: String,
+        lineTwo: String,
+        lineThree: String,
+        city: String,
+        district: String,
+        state: String,
+        pincode: String
+    }]
 });
 
 schema.plugin(deepPopulate, {

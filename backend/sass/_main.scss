@@ -1,4 +1,4 @@
- $blue: #1fc8ec;
+$blue: #1fc8ec;
 $orange: #f29c2c;
 $red: #ea5249;
 $green: #35c565;
@@ -11,7 +11,7 @@ $brand-warning: $orange;
 $brand-danger: $red;
 $brand-success: $green;
 $body-color-font: #505050;
-@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../../bower_components/bootstrap/scss/bootstrap";
 @import "template/icons";
 @import "template/main";
 @import "template/responsive";
@@ -198,9 +198,6 @@ $trans-black: rgba( black,
 }
 
 .btn-clear {
-    @include button-variant(white,
-    transparent,
-    transparent);
     padding: 0;
 }
 
@@ -927,8 +924,7 @@ img.uploadingImage {
     }
     .form-builder-hr {
         border-bottom: 1px solid $body-color-font;
-        margin-bottom: -1px;
-        // position: relative;
+        margin-bottom: -1px; // position: relative;
     }
     .form-repeater {
         +.form-repeater {
@@ -1186,6 +1182,42 @@ body {
     line-height: 120%;
 }
 
+.modal-title {
+    margin: 0 auto;
+}
+
+.pagination {
+    display: block;
+    li {
+        display: inline-block;
+        a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            border: 1px solid #ddd;
+        }
+        &.active {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
+    }
+}
+
+.pagination li a .pagination li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+.pagination li:first-child a {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.pagination li:last-child a {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
 
 /* Start writing sass here */
 
