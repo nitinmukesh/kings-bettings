@@ -32,7 +32,7 @@
     "angular-translate": "^2.12.1",
     "angular-toastr": "^2.0.0",
     "angular-ui-sortable": "~0.13.4",
-    "angular-ui-select": "^0.18.1",
+    "angular-ui-select": "^0.19.8",
     "angular-ui-tinymce": "https://github.com/angular-ui/ui-tinymce.git#^0.0.16",
     "angular-ui-router": "^0.3.2",
     "angularjs-imageupload-directive": "https://github.com/Mischi/angularjs-imageupload-directive.git",

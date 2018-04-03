@@ -1,47 +1,25 @@
-myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http) {
+myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http, uibDateParser) {
         $scope.template = TemplateService.getHTML("content/home.html");
         TemplateService.title = "Home"; //This is the Title of the Website
         $scope.navigation = NavigationService.getNavigation();
 
-        $scope.submitForm = function (data) {
-            console.log("This is it");
-            return new Promise(function (callback) {
-                $timeout(function () {
-                    callback();
-                }, 5000);
-            });
-        };
+   
+
+    $scope.itemArray = [
+        {id: 1, name: 'first'},
+        {id: 2, name: 'second'},
+        {id: 3, name: 'third'},
+        {id: 4, name: 'fourth'},
+        {id: 5, name: 'fifth'},
+    ];
+
+    $scope.selected = { value: $scope.itemArray[0] };
 
 
-        $scope.rate = 7;
-        $scope.max = 10;
-        $scope.isReadonly = false;
-
-        $scope.hoveringOver = function (value) {
-            $scope.overStar = value;
-            $scope.percent = 100 * (value / $scope.max);
-        };
-
-        $scope.ratingStates = [{
-                stateOn: 'glyphicon-ok-sign',
-                stateOff: 'glyphicon-ok-circle'
-            },
-            {
-                stateOn: 'glyphicon-star',
-                stateOff: 'glyphicon-star-empty'
-            },
-            {
-                stateOn: 'glyphicon-heart',
-                stateOff: 'glyphicon-ban-circle'
-            },
-            {
-                stateOn: 'glyphicon-heart'
-            },
-            {
-                stateOff: 'glyphicon-off'
-            }
-        ];
-
+ $scope.format = 'yyyy/MM/dd';
+  $scope.date = new Date();
+     
+       
     })
 
     .controller('LinksCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http) {
