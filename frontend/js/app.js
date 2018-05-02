@@ -23,6 +23,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'HomeCtrl'
         })
+        .state('placebet', {
+            url: "/placebet",
+            templateUrl: tempateURL,
+            controller: 'PlaceBetCtrl'
+        })
         .state('links', {
             url: "/links",
             templateUrl: tempateURL,
