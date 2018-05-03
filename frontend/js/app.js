@@ -28,15 +28,15 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'PlaceBetCtrl'
         })
-        .state('accountstatement', {
-            url: "/accountstatement",
+        .state('account-statement', {
+            url: "/account-statement",
             templateUrl: tempateURL,
             controller: 'AccountStatementCtrl'
         })
         .state('mybet', {
             url: "/mybet",
             templateUrl: tempateURL,
-            controller: 'MyBetCtrl'
+            controller: 'MybetCtrl'
         })
         .state('links', {
             url: "/links",

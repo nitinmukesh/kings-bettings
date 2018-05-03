@@ -45,9 +45,12 @@ module.exports = [
 
   // Contorllers
   'frontend/js/controllers/controller.js',
+  'frontend/views/content/home/home.js',
+  'frontend/views/content/account-statement/account-statement.js',
+  'frontend/views/content/mybet/mybet.js',
+  'frontend/views/content/placebet/placebet.js',
   'frontend/js/controllers/header-controller.js',
   'frontend/js/controllers/language-controller.js',
-  'frontend/js/controllers/placeBetCtrl.js',
   'frontend/js/controllers/accountStatementCtrl.js',
-  'frontend/js/controllers/myBetCtrl.js'
+
 ];
