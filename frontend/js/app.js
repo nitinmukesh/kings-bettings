@@ -28,6 +28,16 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'PlaceBetCtrl'
         })
+        .state('accountstatement', {
+            url: "/accountstatement",
+            templateUrl: tempateURL,
+            controller: 'AccountStatementCtrl'
+        })
+        .state('mybet', {
+            url: "/mybet",
+            templateUrl: tempateURL,
+            controller: 'MyBetCtrl'
+        })
         .state('links', {
             url: "/links",
             templateUrl: tempateURL,

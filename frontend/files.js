@@ -48,4 +48,6 @@ module.exports = [
   'frontend/js/controllers/header-controller.js',
   'frontend/js/controllers/language-controller.js',
   'frontend/js/controllers/placeBetCtrl.js',
+  'frontend/js/controllers/accountStatementCtrl.js',
+  'frontend/js/controllers/myBetCtrl.js'
 ];
