@@ -136,7 +136,7 @@ $dropdown-box-shadow: 0 .5rem 1rem rgba($black, .175) !default;
 @import "../../bower_components/bootstrap/scss/bootstrap";
 @import "other/font-fix";
 body {
-    padding-top: 70px;
+    // padding-top: 70px;
 }
 
 img.loading {
@@ -266,12 +266,14 @@ header {
 
 /*-----------------------common classes------------------------*/
 
-.content-justify{
+.content-justify {
     justify-content: flex-end;
 }
-.relative{
+
+.relative {
     position: relative;
 }
-.absolute{
+
+.absolute {
     position: absolute;
 }

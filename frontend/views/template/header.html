@@ -1,30 +1,147 @@
-<header hide-on-scroll>
-    
-    <nav class="navbar navbar-expand-md bg-light navbar-light fixed-top mx-4">
-        <div>
-            <a class="navbar-brand" href="#">
-            <img src="img/logo.png" alt="logo" width="100">
+<header class="header">
+    <div class="boxed-layout-wrapper">
+        <div class="logo-area">
+            <div class="logo" ng-click="homepage()"></div>
+        </div>
+
+        <div class="clock">
+            <time timestamp="timestamp" type="simpleDate" class="ng-binding ng-isolate-scope">May 3, 2018</time>
+            <time timestamp="timestamp" type="time" class="time ng-binding ng-isolate-scope">12:59:42</time>
+            <div class="clock-timezone-settings">
+                (
+                <div class="wrap-dd-menu ng-scope" ng-class="{'disabled': dropdownDisabled}"><a href="" dropdown-menu="timezones" dropdown-model="selectedZone" dropdown-onchange="changeTimezone(selected)"
+                        analytics-on="" analytics-category="Navigation" analytics-event="Timezone" analytics-label="M" class="ng-isolate-scope">
+            <span class="ng-binding">+05:30 <i class="apl-icon-angle-down"></i></span>
         </a>
-         <ul  class="list-inline d-inline-block">
-            <li class="list-inline-item">Mar 31, 2018</li>
-            <li  class="list-inline-item">11:26:30<span>(+0.5:12)</span></li>
-           </ul>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-        <div class="collapse navbar-collapse content-justify" id="navbarSupportedContent">
-            <div>
-                <ul class="navbar-nav mr-auto">
-                    <li class="relative px-2"><i class="fas fa-search absolute" ></i><input type="text" placeholder="Search Events"></li>
-                    <li class="px-2">logged in as hk003<br> last logged in: 31/08/2018 08:50
-                    </li>
-                    <li class="px-2"><i class="fas fa-cog"></i>Account</li>
-                    <li class="px-2"><i class="fas fa-sign-out-alt"></i>Logout</li>
-                </ul>
+                    <ul class="dropdown ng-scope">
+                        <!-- ngRepeat: item in dropdownMenu -->
+                        <li ng-class="{divider: dropdownMenuItem.divider, 'divider-label': dropdownMenuItem.divider &amp;&amp; dropdownMenuItem[dropdownItemLabel]}"
+                            ng-repeat="item in dropdownMenu" class="dropdown-item ng-isolate-scope" dropdown-item-label="labelField"
+                            dropdown-menu-item="item">
+                            <!-- ngIf: !dropdownMenuItem.divider --><a class="dropdown-item ng-binding ng-scope" ng-if="!dropdownMenuItem.divider" ng-href="" ng-click="selectItem()">System time - (GMT +00:00)</a>
+                            <!-- end ngIf: !dropdownMenuItem.divider -->
+                            <!-- ngIf: dropdownMenuItem.divider -->
+                        </li>
+                        <!-- end ngRepeat: item in dropdownMenu -->
+                        <li ng-class="{divider: dropdownMenuItem.divider, 'divider-label': dropdownMenuItem.divider &amp;&amp; dropdownMenuItem[dropdownItemLabel]}"
+                            ng-repeat="item in dropdownMenu" class="dropdown-item ng-isolate-scope" dropdown-item-label="labelField"
+                            dropdown-menu-item="item">
+                            <!-- ngIf: !dropdownMenuItem.divider --><a class="dropdown-item ng-binding ng-scope" ng-if="!dropdownMenuItem.divider" ng-href="" ng-click="selectItem()">Your computer time - (GMT +05:30)</a>
+                            <!-- end ngIf: !dropdownMenuItem.divider -->
+                            <!-- ngIf: dropdownMenuItem.divider -->
+                        </li>
+                        <!-- end ngRepeat: item in dropdownMenu -->
+                        <li ng-class="{divider: dropdownMenuItem.divider, 'divider-label': dropdownMenuItem.divider &amp;&amp; dropdownMenuItem[dropdownItemLabel]}"
+                            ng-repeat="item in dropdownMenu" class="dropdown-item ng-isolate-scope" dropdown-item-label="labelField"
+                            dropdown-menu-item="item">
+                            <!-- ngIf: !dropdownMenuItem.divider --><a class="dropdown-item ng-binding ng-scope" ng-if="!dropdownMenuItem.divider" ng-href="" ng-click="selectItem()">India Standard time - (GMT +05:30)</a>
+                            <!-- end ngIf: !dropdownMenuItem.divider -->
+                            <!-- ngIf: dropdownMenuItem.divider -->
+                        </li>
+                        <!-- end ngRepeat: item in dropdownMenu -->
+                    </ul>
+                </div>
+                )
             </div>
         </div>
-    </nav>
-   
+
+        <div class="infobar">
+            <ul class="linkbar">
+                <li class="search-container">
+                    <div class="apl-form search">
+                        <div class="placeholder-wrapper ng-isolate-scope animatable" ng-class="{'activated': isActive, 'animatable': isAnimatable}">
+                            <div class="placeholder ng-binding">Search Events</div>
+                            <div ng-transclude="">
+                                <div class="apl-form-icon ng-scope">
+                                    <i class="apl-icon-search" aria-hidden="true"></i>
+
+                                    <input type="text" class="apl-form-large -qa-search-bar ng-pristine ng-untouched ng-valid ng-empty" apl-placeholder="Search Events"
+                                        ng-model="searchText.name" ng-keyup="keyup($event)" ng-blur="isSearchChild($event)" analytics-on="focus"
+                                        analytics-category="'Header'" analytics-event="'Click'" analytics-label="'Search Bar'">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul ng-show="searchText.name.length > 2 &amp;&amp; isSearchDropdownVisible" class="-qa-search-results ng-hide">
+                        <!-- ngIf: searchResult.length === 0 -->
+                        <li ng-if="searchResult.length === 0" class="-qa-item-name search-link ng-scope">
+                            <p class="ng-binding">No events found matching ''</p>
+                        </li>
+                        <!-- end ngIf: searchResult.length === 0 -->
+
+                        <!-- ngRepeat: item in searchResult -->
+                    </ul>
+                </li>
+                <li>
+                    <p class="ng-binding">Logged in as hk0002</p>
+                    <p class="last-login ng-binding">Last logged in:
+                        <time timestamp="userData.user.lastLoginTime" type="dateSimpleTime" class="ng-binding ng-isolate-scope">03/05/2018 12:19</time>
+                    </p>
+                </li>
+                <li class="-qa-setting-dropdown">
+                    <div class="wrap-dd-menu ng-scope" ng-class="{'disabled': dropdownDisabled}"><a href="" analytics-on="" analytics-event="Open Dropdown" analytics-category="Account" dropdown-menu="ddMenuOptions"
+                            dropdown-model="ddMenuSelected" class="ng-isolate-scope">
+                        <i class="apl-icon-cog header-link"></i>
+                        <span translate="" class="ng-scope">Account</span>
+                    </a>
+                        <ul class="dropdown ng-scope">
+                            <!-- ngRepeat: item in dropdownMenu -->
+                            <li ng-class="{divider: dropdownMenuItem.divider, 'divider-label': dropdownMenuItem.divider &amp;&amp; dropdownMenuItem[dropdownItemLabel]}"
+                                ng-repeat="item in dropdownMenu" class="dropdown-item ng-scope ng-isolate-scope" dropdown-item-label="labelField"
+                                dropdown-menu-item="item">
+                                <!-- ngIf: !dropdownMenuItem.divider --><a href="#orderList" class="dropdown-item ng-binding ng-scope" ng-if="!dropdownMenuItem.divider"
+                                    ng-href="#orderList" ng-click="selectItem()">My Bets</a>
+                                <!-- end ngIf: !dropdownMenuItem.divider -->
+                                <!-- ngIf: dropdownMenuItem.divider -->
+                            </li>
+                            <!-- end ngRepeat: item in dropdownMenu -->
+                            <li ng-class="{divider: dropdownMenuItem.divider, 'divider-label': dropdownMenuItem.divider &amp;&amp; dropdownMenuItem[dropdownItemLabel]}"
+                                ng-repeat="item in dropdownMenu" class="dropdown-item ng-scope ng-isolate-scope" dropdown-item-label="labelField"
+                                dropdown-menu-item="item">
+                                <!-- ngIf: !dropdownMenuItem.divider --><a href="#betProfitLoss" class="dropdown-item ng-binding ng-scope" ng-if="!dropdownMenuItem.divider"
+                                    ng-href="#betProfitLoss" ng-click="selectItem()">Betting Profit and Loss</a>
+                                <!-- end ngIf: !dropdownMenuItem.divider -->
+                                <!-- ngIf: dropdownMenuItem.divider -->
+                            </li>
+                            <!-- end ngRepeat: item in dropdownMenu -->
+                            <li ng-class="{divider: dropdownMenuItem.divider, 'divider-label': dropdownMenuItem.divider &amp;&amp; dropdownMenuItem[dropdownItemLabel]}"
+                                ng-repeat="item in dropdownMenu" class="dropdown-item ng-scope ng-isolate-scope" dropdown-item-label="labelField"
+                                dropdown-menu-item="item">
+                                <!-- ngIf: !dropdownMenuItem.divider --><a href="#accountStatement" class="dropdown-item ng-binding ng-scope" ng-if="!dropdownMenuItem.divider"
+                                    ng-href="#accountStatement" ng-click="selectItem()">Account Statement</a>
+                                <!-- end ngIf: !dropdownMenuItem.divider -->
+                                <!-- ngIf: dropdownMenuItem.divider -->
+                            </li>
+                            <!-- end ngRepeat: item in dropdownMenu -->
+                            <li ng-class="{divider: dropdownMenuItem.divider, 'divider-label': dropdownMenuItem.divider &amp;&amp; dropdownMenuItem[dropdownItemLabel]}"
+                                ng-repeat="item in dropdownMenu" class="dropdown-item ng-scope ng-isolate-scope" dropdown-item-label="labelField"
+                                dropdown-menu-item="item">
+                                <!-- ngIf: !dropdownMenuItem.divider --><a href="#transferStatement" class="dropdown-item ng-binding ng-scope" ng-if="!dropdownMenuItem.divider"
+                                    ng-href="#transferStatement" ng-click="selectItem()">Transfer Statement</a>
+                                <!-- end ngIf: !dropdownMenuItem.divider -->
+                                <!-- ngIf: dropdownMenuItem.divider -->
+                            </li>
+                            <!-- end ngRepeat: item in dropdownMenu -->
+                            <li ng-class="{divider: dropdownMenuItem.divider, 'divider-label': dropdownMenuItem.divider &amp;&amp; dropdownMenuItem[dropdownItemLabel]}"
+                                ng-repeat="item in dropdownMenu" class="dropdown-item ng-scope ng-isolate-scope" dropdown-item-label="labelField"
+                                dropdown-menu-item="item">
+                                <!-- ngIf: !dropdownMenuItem.divider --><a href="#changePassword" class="dropdown-item ng-binding ng-scope" ng-if="!dropdownMenuItem.divider"
+                                    ng-href="#changePassword" ng-click="selectItem()">Change Password</a>
+                                <!-- end ngIf: !dropdownMenuItem.divider -->
+                                <!-- ngIf: dropdownMenuItem.divider -->
+                            </li>
+                            <!-- end ngRepeat: item in dropdownMenu -->
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="" class="qa-logout" ng-click="logout()">
+                        <i class="apl-icon-signout header-link"></i>
+                        <span translate="" class="ng-scope">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </header>
