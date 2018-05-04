@@ -38,6 +38,32 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'MybetCtrl'
         })
+        .state('cricket', {
+            url: "/cricket",
+            templateUrl: tempateURL,
+            controller: 'CricketCtrl'
+        })
+        .state('cricket-inner', {
+            url: "/cricket-inner",
+            templateUrl: tempateURL,
+            controller: 'CricketinnerCtrl'
+        })
+        .state('football', {
+            url: "/football",
+            templateUrl: tempateURL,
+            controller: 'FootballCtrl'
+        })
+
+        .state('ipl', {
+            url: "/ipl",
+            templateUrl: tempateURL,
+            controller: 'IplCtrl'
+        })
+        .state('favourites', {
+            url: "/favourites",
+            templateUrl: tempateURL,
+            controller: 'FavouritesCtrl'
+        })
         .state('links', {
             url: "/links",
             templateUrl: tempateURL,

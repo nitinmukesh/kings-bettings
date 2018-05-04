@@ -3044,7 +3044,7 @@ header.header .infobar>.linkbar {
 
 ._table-cell,
 .body>.content>.left-pane,
-.body>.content>.mid-pane,
+.mid-pane,
 .body>.content>.right-pane {
     display: table-cell;
     vertical-align: top;
@@ -4253,7 +4253,7 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
     border-right: 1px solid #ddd;
 }
 
-.body>.content>.mid-pane {
+.mid-pane {
     padding: 0 20px 20px;
 }
 
@@ -4274,7 +4274,7 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
     top: 0;
 }
 
-.body>.content h1 {
+.common-heading h1 {
     margin-bottom: 10px;
     padding: 10px 0 10px 0;
     border-bottom: 1px solid rgba(8, 78, 131, 0.4);
@@ -4286,7 +4286,7 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
     color: #084e83;
 }
 
-.body>.content h4,
+h4,
 .body>.content h5 {
     padding: 0 0 10px 0;
     margin-bottom: 10px;
@@ -4294,9 +4294,16 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
     color: #084e83;
 }
 
-.-negative {
+.body>.content .-negative {
     color: #d01901;
     font-weight: bold;
+}
+
+.icon-style {
+    width: 20px;
+    font-size: 15px;
+    display: inline-block;
+    color: #e4c41e;
 }
 
 .-positive {
@@ -5475,7 +5482,7 @@ input[type="text"].ng-invalid {
 }
 
 .consolidation-filter .pad-left {
-    padding-left: 20px;
+    padding-left: 8px;
 }
 
 .order-listing .selection .item {
@@ -7299,36 +7306,36 @@ body.ngdialog-open {
     float: right;
 }
 
-apl-session-runs>div {
+.apl-session-runs>div {
     margin-bottom: 8px !important;
 }
 
-apl-session-runs>div .market-listing-table {
+.apl-session-runs>div .market-listing-table {
     margin-bottom: 0 !important;
 }
 
-apl-session-runs>div .market-listing-table thead>tr th.market-name {
+.apl-session-runs>div .market-listing-table thead>tr th.market-name {
     text-align: left;
     padding-left: 2px !important;
 }
 
-apl-session-runs>div .market-listing-table tbody>tr td.market-name {
+.apl-session-runs>div .market-listing-table tbody>tr td.market-name {
     font-weight: bold;
     padding: 2px 8px;
     vertical-align: middle;
     border-right: none !important;
 }
 
-apl-session-runs>div .market-listing-table tbody>tr td.market-name .event-name,
-apl-session-runs>div .market-listing-table tbody>tr td.market-name .selection-pnl {
+.apl-session-runs>div .market-listing-table tbody>tr td.market-name .event-name,
+.apl-session-runs>div .market-listing-table tbody>tr td.market-name .selection-pnl {
     padding-right: 35px;
 }
 
-apl-session-runs>div .market-listing-table tbody>tr td.market-name:first-child {
+div .market-listing-table tbody>tr td.market-name:first-child {
     position: relative;
 }
 
-apl-session-runs>div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-ladder {
+div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-ladder {
     position: absolute;
     top: 50%;
     right: 0;
@@ -7338,69 +7345,69 @@ apl-session-runs>div .market-listing-table tbody>tr td.market-name:first-child i
     padding: 5px;
 }
 
-apl-session-runs>div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-ladder.open {
+.apl-session-runs>div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-ladder.open {
     color: #344e6b;
 }
 
-apl-session-runs>div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-ladder.disabled {
+.apl-session-runs>div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-ladder.disabled {
     color: #dddcdc;
     cursor: default;
 }
 
-apl-session-runs>div .market-listing-table tbody>tr td.main-container {
+.apl-session-runs>div .market-listing-table tbody>tr td.main-container {
     position: relative;
     width: 376px;
     padding: 0;
 }
 
-apl-session-runs>div .market-listing-table tbody>tr td.main-container .odds-container {
+.apl-session-runs>div .market-listing-table tbody>tr td.main-container .odds-container {
     width: 376px;
 }
 
-apl-session-runs>div .market-listing-table tbody>tr td.main-container .odds-container table {
+.apl-session-runs>div .market-listing-table tbody>tr td.main-container .odds-container table {
     margin-bottom: 0 !important;
 }
 
-apl-session-runs>div .market-listing-table tbody>tr td.main-container .odds-container table tbody>tr>td {
+.apl-session-runs>div .market-listing-table tbody>tr td.main-container .odds-container table tbody>tr>td {
     border-left: none;
     border-top: none;
     border-bottom: none;
 }
 
-apl-session-runs>div .market-listing-table tbody>tr td.main-container .odds-container table tbody>tr>td:last-child {
+.apl-session-runs>div .market-listing-table tbody>tr td.main-container .odds-container table tbody>tr>td:last-child {
     border-right: none;
 }
 
-apl-session-runs>div .market-listing-table tbody>tr td.main-container .odds-container table tbody>tr>td.odds-placeholder {
+.apl-session-runs>div .market-listing-table tbody>tr td.main-container .odds-container table tbody>tr>td.odds-placeholder {
     width: 126px;
     background: #f9f7f9;
     color: #565457;
     text-align: left;
 }
 
-apl-session-runs>div .market-listing-table tbody>tr td.main-container .odds-container table tbody>tr>td.odds-placeholder .max-liability {
+.apl-session-runs>div .market-listing-table tbody>tr td.main-container .odds-container table tbody>tr>td.odds-placeholder .max-liability {
     font-size: 11px;
     display: block;
 }
 
-apl-session-runs>div .market-listing-table tbody>tr td.main-container .odds-container table tbody>tr>td.odds-placeholder .max-liability:first-child {
+.apl-session-runs>div .market-listing-table tbody>tr td.main-container .odds-container table tbody>tr>td.odds-placeholder .max-liability:first-child {
     margin-bottom: 3px;
 }
 
-apl-session-runs>div .market-listing-table tbody>tr td.main-container .odds-container table tbody>tr>td.back:active,
-apl-session-runs>div .market-listing-table tbody>tr td.main-container .odds-container table tbody>tr>td.lay:active {
+.apl-session-runs>div .market-listing-table tbody>tr td.main-container .odds-container table tbody>tr>td.back:active,
+.apl-session-runs>div .market-listing-table tbody>tr td.main-container .odds-container table tbody>tr>td.lay:active {
     box-shadow: none;
 }
 
-apl-session-runs>div .market-listing-table tbody>tr td.main-container .odds-container table tbody>tr>td.back:hover {
+.apl-session-runs>div .market-listing-table tbody>tr td.main-container .odds-container table tbody>tr>td.back:hover {
     background-color: #f2f9ff;
 }
 
-apl-session-runs>div .market-listing-table tbody>tr td.main-container .odds-container table tbody>tr>td.lay:hover {
+.apl-session-runs>div .market-listing-table tbody>tr td.main-container .odds-container table tbody>tr>td.lay:hover {
     background-color: #fef7f9;
 }
 
-apl-session-runs>div .market-listing-table tbody>tr td.main-container .ball-running-overlay {
+.apl-session-runs>div .market-listing-table tbody>tr td.main-container .ball-running-overlay {
     background: #fff;
     opacity: 0.7;
     width: 100%;
@@ -7410,7 +7417,7 @@ apl-session-runs>div .market-listing-table tbody>tr td.main-container .ball-runn
     top: 0;
 }
 
-apl-session-runs>div .market-listing-table tbody>tr td.main-container .ball-running-overlay span {
+.apl-session-runs>div .market-listing-table tbody>tr td.main-container .ball-running-overlay span {
     font-weight: bold;
     position: absolute;
     top: 50%;
@@ -7418,12 +7425,12 @@ apl-session-runs>div .market-listing-table tbody>tr td.main-container .ball-runn
     transform: translate(-50%, -50%);
 }
 
-apl-session-runs>div .market-listing-table tbody>tr:hover .ball-running-overlay {
+.apl-session-runs>div .market-listing-table tbody>tr:hover .ball-running-overlay {
     transition: background ease 0.5s;
     background: #eee !important;
 }
 
-apl-session-runs>div .ladder-component-container {
+.apl-session-runs>div .ladder-component-container {
     display: block;
     overflow: hidden;
     transition: max-height 0.3s linear, opacity 0.3s linear;
@@ -7431,16 +7438,16 @@ apl-session-runs>div .ladder-component-container {
     opacity: 0;
 }
 
-apl-session-runs>div .ladder-component-container.visible {
+.apl-session-runs>div .ladder-component-container.visible {
     max-height: 200px;
     opacity: 1;
 }
 
-apl-session-runs-ladder {
+.apl-session-runs-ladder {
     color: #000;
 }
 
-apl-session-runs-ladder .ladder-container {
+.apl-session-runs-ladder .ladder-container {
     position: relative;
     display: inline-block;
     float: right;
@@ -7455,34 +7462,34 @@ apl-session-runs-ladder .ladder-container {
     overflow-x: hidden;
 }
 
-apl-session-runs-ladder .ladder-container div.row {
+.apl-session-runs-ladder .ladder-container div.row {
     display: block;
     position: relative;
     border-bottom: 1px solid #dddcdc;
 }
 
-apl-session-runs-ladder .ladder-container div.row div.col {
+.apl-session-runs-ladder .ladder-container div.row div.col {
     display: inline-block;
     position: relative;
     width: calc(50% - 2px);
     padding: 5px;
 }
 
-apl-session-runs-ladder .ladder-container div.row div.col:last-child {
+.apl-session-runs-ladder .ladder-container div.row div.col:last-child {
     border-left: 1px solid #dddcdc;
 }
 
-apl-session-runs-ladder .ladder-container .ladder-header {
+.apl-session-runs-ladder .ladder-container .ladder-header {
     background-color: #f6f6f6;
     font-weight: bold;
 }
 
-apl-session-runs-ladder .ladder-container .ladder-loader {
+.apl-session-runs-ladder .ladder-container .ladder-loader {
     position: relative;
     height: 100px;
 }
 
-apl-session-runs-ladder .ladder-container .ladder-loader .circular {
+.apl-session-runs-ladder .ladder-container .ladder-loader .circular {
     position: relative;
     width: auto;
     height: 30%;

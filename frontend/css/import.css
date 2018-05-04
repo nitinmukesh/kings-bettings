@@ -1337,7 +1337,7 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 @-ms-viewport {
   width: device-width; }
@@ -5766,12 +5766,15 @@ button.close {
   .bs-popover-top .arrow, .bs-popover-auto[x-placement^="top"] .arrow {
     bottom: calc((0.5rem + 1px) * -1); }
   .bs-popover-top .arrow::before, .bs-popover-auto[x-placement^="top"] .arrow::before,
-  .bs-popover-top .arrow::after, .bs-popover-auto[x-placement^="top"] .arrow::after {
+  .bs-popover-top .arrow::after,
+  .bs-popover-auto[x-placement^="top"] .arrow::after {
     border-width: 0.5rem 0.5rem 0; }
   .bs-popover-top .arrow::before, .bs-popover-auto[x-placement^="top"] .arrow::before {
     bottom: 0;
     border-top-color: rgba(0, 0, 0, 0.25); }
-  .bs-popover-top .arrow::after, .bs-popover-auto[x-placement^="top"] .arrow::after {
+  
+  .bs-popover-top .arrow::after,
+  .bs-popover-auto[x-placement^="top"] .arrow::after {
     bottom: 1px;
     border-top-color: #fff; }
 
@@ -5783,12 +5786,15 @@ button.close {
     height: 1rem;
     margin: 0.3rem 0; }
   .bs-popover-right .arrow::before, .bs-popover-auto[x-placement^="right"] .arrow::before,
-  .bs-popover-right .arrow::after, .bs-popover-auto[x-placement^="right"] .arrow::after {
+  .bs-popover-right .arrow::after,
+  .bs-popover-auto[x-placement^="right"] .arrow::after {
     border-width: 0.5rem 0.5rem 0.5rem 0; }
   .bs-popover-right .arrow::before, .bs-popover-auto[x-placement^="right"] .arrow::before {
     left: 0;
     border-right-color: rgba(0, 0, 0, 0.25); }
-  .bs-popover-right .arrow::after, .bs-popover-auto[x-placement^="right"] .arrow::after {
+  
+  .bs-popover-right .arrow::after,
+  .bs-popover-auto[x-placement^="right"] .arrow::after {
     left: 1px;
     border-right-color: #fff; }
 
@@ -5797,12 +5803,15 @@ button.close {
   .bs-popover-bottom .arrow, .bs-popover-auto[x-placement^="bottom"] .arrow {
     top: calc((0.5rem + 1px) * -1); }
   .bs-popover-bottom .arrow::before, .bs-popover-auto[x-placement^="bottom"] .arrow::before,
-  .bs-popover-bottom .arrow::after, .bs-popover-auto[x-placement^="bottom"] .arrow::after {
+  .bs-popover-bottom .arrow::after,
+  .bs-popover-auto[x-placement^="bottom"] .arrow::after {
     border-width: 0 0.5rem 0.5rem 0.5rem; }
   .bs-popover-bottom .arrow::before, .bs-popover-auto[x-placement^="bottom"] .arrow::before {
     top: 0;
     border-bottom-color: rgba(0, 0, 0, 0.25); }
-  .bs-popover-bottom .arrow::after, .bs-popover-auto[x-placement^="bottom"] .arrow::after {
+  
+  .bs-popover-bottom .arrow::after,
+  .bs-popover-auto[x-placement^="bottom"] .arrow::after {
     top: 1px;
     border-bottom-color: #fff; }
   .bs-popover-bottom .popover-header::before, .bs-popover-auto[x-placement^="bottom"] .popover-header::before {
@@ -5823,12 +5832,15 @@ button.close {
     height: 1rem;
     margin: 0.3rem 0; }
   .bs-popover-left .arrow::before, .bs-popover-auto[x-placement^="left"] .arrow::before,
-  .bs-popover-left .arrow::after, .bs-popover-auto[x-placement^="left"] .arrow::after {
+  .bs-popover-left .arrow::after,
+  .bs-popover-auto[x-placement^="left"] .arrow::after {
     border-width: 0.5rem 0 0.5rem 0.5rem; }
   .bs-popover-left .arrow::before, .bs-popover-auto[x-placement^="left"] .arrow::before {
     right: 0;
     border-left-color: rgba(0, 0, 0, 0.25); }
-  .bs-popover-left .arrow::after, .bs-popover-auto[x-placement^="left"] .arrow::after {
+  
+  .bs-popover-left .arrow::after,
+  .bs-popover-auto[x-placement^="left"] .arrow::after {
     right: 1px;
     border-left-color: #fff; }
 
@@ -8966,12 +8978,7 @@ figure {
 
 /* Headings
  ========================================================================== */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   margin: 0 0 13px 0;
   font-family: Lato, Avenir, Verdana, Nunito;
   font-weight: normal;
@@ -10909,7 +10916,7 @@ header.header .infobar > .linkbar {
 
 ._table-cell,
 .body > .content > .left-pane,
-.body > .content > .mid-pane,
+.mid-pane,
 .body > .content > .right-pane {
   display: table-cell;
   vertical-align: top; }
@@ -10980,6 +10987,9 @@ header.header .infobar > .linkbar {
           box-shadow: inset 0 1px 0 #ffffff;
   cursor: pointer;
   color: #000; }
+
+.dropdown-item {
+  color: #000 !important; }
 
 .wrap-dd-select .dropdown li i,
 .wrap-dd-menu .dropdown li i {
@@ -11317,12 +11327,7 @@ figure {
 
 /* Headings
  ========================================================================== */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   margin: 0 0 13px 0; }
 
 /*
@@ -11435,7 +11440,7 @@ header.header .logo-area {
   padding: 34px 0 0 20px; }
 
 header.header .logo-area .logo {
-  background: url(2d173160cd10d0e5e8b78c5414e5bde8.png) no-repeat center center;
+  background: url("https://member.play7s.com/d/2d173160cd10d0e5e8b78c5414e5bde8.png") no-repeat center center;
   background-size: contain;
   width: 100%;
   height: 23px; }
@@ -11633,7 +11638,7 @@ aside.menu > nav.tree-menu > ul > li > ul > li {
 .left-menu-inner .menu-lvl-0 .favourites-link .sport-icon,
 .left-menu-inner .menu-lvl-0 .menu-link .favourites-icon,
 .left-menu-inner .menu-lvl-0 .favourites-link .favourites-icon {
-  font-size: 20px;
+  font-size: 30px;
   display: inline;
   float: none;
   position: relative;
@@ -11922,13 +11927,13 @@ aside.menu > nav.tree-menu > ul > li > ul > li {
   width: 100%;
   padding: 0; }
 
-.body > .content > .left-pane {
+.left-pane {
   height: 100%;
-  width: 178px;
+  width: 180px;
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd; }
 
-.body > .content > .mid-pane {
+.mid-pane {
   padding: 0 20px 20px; }
 
 .body > .content > .right-floating {
@@ -11945,7 +11950,7 @@ aside.menu > nav.tree-menu > ul > li > ul > li {
   width: 312px;
   top: 0; }
 
-.body > .content h1 {
+.common-heading h1 {
   margin-bottom: 10px;
   padding: 10px 0 10px 0;
   border-bottom: 1px solid rgba(8, 78, 131, 0.4); }
@@ -11955,16 +11960,22 @@ aside.menu > nav.tree-menu > ul > li > ul > li {
 .body > .content h3 {
   color: #084e83; }
 
-.body > .content h4,
+h4,
 .body > .content h5 {
   padding: 0 0 10px 0;
   margin-bottom: 10px;
   border-bottom: 1px solid rgba(8, 78, 131, 0.4);
   color: #084e83; }
 
-.-negative {
+.body > .content .-negative {
   color: #d01901;
   font-weight: bold; }
+
+.icon-style {
+  width: 20px;
+  font-size: 15px;
+  display: inline-block;
+  color: #e4c41e; }
 
 .-positive {
   color: #2aa033;
@@ -12195,7 +12206,7 @@ input[type="text"].ng-invalid {
           box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); }
 
 .login-view {
-  background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.1) 100%); }
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 100%); }
 
 .login-form {
   position: relative;
@@ -12212,7 +12223,7 @@ input[type="text"].ng-invalid {
   margin-bottom: 20px; }
 
 .login-form .login-panel .panel-heading .logo {
-  background: url(441e4c5aa207da2023dfcf02c58719c6.svg) no-repeat center center;
+  background: url("https://member.play7s.com/d/2d173160cd10d0e5e8b78c5414e5bde8.png") no-repeat center center;
   background-size: contain;
   width: 100%;
   height: 49px; }
@@ -12524,7 +12535,7 @@ input[type="text"].ng-invalid {
   width: 68px;
   padding: 3px;
   text-align: right;
-  border-color: transparent; }
+  border-color: rgba(0, 0, 0, 0); }
 
 .bets table input[type="number"].updated,
 .bets table input[type="text"].updated {
@@ -12958,7 +12969,7 @@ input[type="text"].ng-invalid {
   vertical-align: middle; }
 
 .consolidation-filter .pad-left {
-  padding-left: 20px; }
+  padding-left: 8px; }
 
 .order-listing .selection .item {
   width: 100px;
@@ -14524,30 +14535,30 @@ body.ngdialog-open {
   clear: right;
   float: right; }
 
-apl-session-runs > div {
+.apl-session-runs > div {
   margin-bottom: 8px !important; }
 
-apl-session-runs > div .market-listing-table {
+.apl-session-runs > div .market-listing-table {
   margin-bottom: 0 !important; }
 
-apl-session-runs > div .market-listing-table thead > tr th.market-name {
+.apl-session-runs > div .market-listing-table thead > tr th.market-name {
   text-align: left;
   padding-left: 2px !important; }
 
-apl-session-runs > div .market-listing-table tbody > tr td.market-name {
+.apl-session-runs > div .market-listing-table tbody > tr td.market-name {
   font-weight: bold;
   padding: 2px 8px;
   vertical-align: middle;
   border-right: none !important; }
 
-apl-session-runs > div .market-listing-table tbody > tr td.market-name .event-name,
-apl-session-runs > div .market-listing-table tbody > tr td.market-name .selection-pnl {
+.apl-session-runs > div .market-listing-table tbody > tr td.market-name .event-name,
+.apl-session-runs > div .market-listing-table tbody > tr td.market-name .selection-pnl {
   padding-right: 35px; }
 
-apl-session-runs > div .market-listing-table tbody > tr td.market-name:first-child {
+div .market-listing-table tbody > tr td.market-name:first-child {
   position: relative; }
 
-apl-session-runs > div .market-listing-table tbody > tr td.market-name:first-child i.apl-icon-custom-ladder {
+div .market-listing-table tbody > tr td.market-name:first-child i.apl-icon-custom-ladder {
   position: absolute;
   top: 50%;
   right: 0;
@@ -14557,57 +14568,57 @@ apl-session-runs > div .market-listing-table tbody > tr td.market-name:first-chi
   cursor: pointer;
   padding: 5px; }
 
-apl-session-runs > div .market-listing-table tbody > tr td.market-name:first-child i.apl-icon-custom-ladder.open {
+.apl-session-runs > div .market-listing-table tbody > tr td.market-name:first-child i.apl-icon-custom-ladder.open {
   color: #344e6b; }
 
-apl-session-runs > div .market-listing-table tbody > tr td.market-name:first-child i.apl-icon-custom-ladder.disabled {
+.apl-session-runs > div .market-listing-table tbody > tr td.market-name:first-child i.apl-icon-custom-ladder.disabled {
   color: #dddcdc;
   cursor: default; }
 
-apl-session-runs > div .market-listing-table tbody > tr td.main-container {
+.apl-session-runs > div .market-listing-table tbody > tr td.main-container {
   position: relative;
   width: 376px;
   padding: 0; }
 
-apl-session-runs > div .market-listing-table tbody > tr td.main-container .odds-container {
+.apl-session-runs > div .market-listing-table tbody > tr td.main-container .odds-container {
   width: 376px; }
 
-apl-session-runs > div .market-listing-table tbody > tr td.main-container .odds-container table {
+.apl-session-runs > div .market-listing-table tbody > tr td.main-container .odds-container table {
   margin-bottom: 0 !important; }
 
-apl-session-runs > div .market-listing-table tbody > tr td.main-container .odds-container table tbody > tr > td {
+.apl-session-runs > div .market-listing-table tbody > tr td.main-container .odds-container table tbody > tr > td {
   border-left: none;
   border-top: none;
   border-bottom: none; }
 
-apl-session-runs > div .market-listing-table tbody > tr td.main-container .odds-container table tbody > tr > td:last-child {
+.apl-session-runs > div .market-listing-table tbody > tr td.main-container .odds-container table tbody > tr > td:last-child {
   border-right: none; }
 
-apl-session-runs > div .market-listing-table tbody > tr td.main-container .odds-container table tbody > tr > td.odds-placeholder {
+.apl-session-runs > div .market-listing-table tbody > tr td.main-container .odds-container table tbody > tr > td.odds-placeholder {
   width: 126px;
   background: #f9f7f9;
   color: #565457;
   text-align: left; }
 
-apl-session-runs > div .market-listing-table tbody > tr td.main-container .odds-container table tbody > tr > td.odds-placeholder .max-liability {
+.apl-session-runs > div .market-listing-table tbody > tr td.main-container .odds-container table tbody > tr > td.odds-placeholder .max-liability {
   font-size: 11px;
   display: block; }
 
-apl-session-runs > div .market-listing-table tbody > tr td.main-container .odds-container table tbody > tr > td.odds-placeholder .max-liability:first-child {
+.apl-session-runs > div .market-listing-table tbody > tr td.main-container .odds-container table tbody > tr > td.odds-placeholder .max-liability:first-child {
   margin-bottom: 3px; }
 
-apl-session-runs > div .market-listing-table tbody > tr td.main-container .odds-container table tbody > tr > td.back:active,
-apl-session-runs > div .market-listing-table tbody > tr td.main-container .odds-container table tbody > tr > td.lay:active {
+.apl-session-runs > div .market-listing-table tbody > tr td.main-container .odds-container table tbody > tr > td.back:active,
+.apl-session-runs > div .market-listing-table tbody > tr td.main-container .odds-container table tbody > tr > td.lay:active {
   -webkit-box-shadow: none;
           box-shadow: none; }
 
-apl-session-runs > div .market-listing-table tbody > tr td.main-container .odds-container table tbody > tr > td.back:hover {
+.apl-session-runs > div .market-listing-table tbody > tr td.main-container .odds-container table tbody > tr > td.back:hover {
   background-color: #f2f9ff; }
 
-apl-session-runs > div .market-listing-table tbody > tr td.main-container .odds-container table tbody > tr > td.lay:hover {
+.apl-session-runs > div .market-listing-table tbody > tr td.main-container .odds-container table tbody > tr > td.lay:hover {
   background-color: #fef7f9; }
 
-apl-session-runs > div .market-listing-table tbody > tr td.main-container .ball-running-overlay {
+.apl-session-runs > div .market-listing-table tbody > tr td.main-container .ball-running-overlay {
   background: #fff;
   opacity: 0.7;
   width: 100%;
@@ -14616,7 +14627,7 @@ apl-session-runs > div .market-listing-table tbody > tr td.main-container .ball-
   z-index: 100;
   top: 0; }
 
-apl-session-runs > div .market-listing-table tbody > tr td.main-container .ball-running-overlay span {
+.apl-session-runs > div .market-listing-table tbody > tr td.main-container .ball-running-overlay span {
   font-weight: bold;
   position: absolute;
   top: 50%;
@@ -14624,12 +14635,12 @@ apl-session-runs > div .market-listing-table tbody > tr td.main-container .ball-
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%); }
 
-apl-session-runs > div .market-listing-table tbody > tr:hover .ball-running-overlay {
+.apl-session-runs > div .market-listing-table tbody > tr:hover .ball-running-overlay {
   -webkit-transition: background ease 0.5s;
   transition: background ease 0.5s;
   background: #eee !important; }
 
-apl-session-runs > div .ladder-component-container {
+.apl-session-runs > div .ladder-component-container {
   display: block;
   overflow: hidden;
   -webkit-transition: max-height 0.3s linear, opacity 0.3s linear;
@@ -14637,14 +14648,14 @@ apl-session-runs > div .ladder-component-container {
   max-height: 0;
   opacity: 0; }
 
-apl-session-runs > div .ladder-component-container.visible {
+.apl-session-runs > div .ladder-component-container.visible {
   max-height: 200px;
   opacity: 1; }
 
-apl-session-runs-ladder {
+.apl-session-runs-ladder {
   color: #000; }
 
-apl-session-runs-ladder .ladder-container {
+.apl-session-runs-ladder .ladder-container {
   position: relative;
   display: inline-block;
   float: right;
@@ -14659,29 +14670,29 @@ apl-session-runs-ladder .ladder-container {
   overflow-y: auto;
   overflow-x: hidden; }
 
-apl-session-runs-ladder .ladder-container div.row {
+.apl-session-runs-ladder .ladder-container div.row {
   display: block;
   position: relative;
   border-bottom: 1px solid #dddcdc; }
 
-apl-session-runs-ladder .ladder-container div.row div.col {
+.apl-session-runs-ladder .ladder-container div.row div.col {
   display: inline-block;
   position: relative;
   width: calc(50% - 2px);
   padding: 5px; }
 
-apl-session-runs-ladder .ladder-container div.row div.col:last-child {
+.apl-session-runs-ladder .ladder-container div.row div.col:last-child {
   border-left: 1px solid #dddcdc; }
 
-apl-session-runs-ladder .ladder-container .ladder-header {
+.apl-session-runs-ladder .ladder-container .ladder-header {
   background-color: #f6f6f6;
   font-weight: bold; }
 
-apl-session-runs-ladder .ladder-container .ladder-loader {
+.apl-session-runs-ladder .ladder-container .ladder-loader {
   position: relative;
   height: 100px; }
 
-apl-session-runs-ladder .ladder-container .ladder-loader .circular {
+.apl-session-runs-ladder .ladder-container .ladder-loader .circular {
   position: relative;
   width: auto;
   height: 30%;
