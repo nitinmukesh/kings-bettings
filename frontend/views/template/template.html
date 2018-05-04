@@ -1,12 +1,11 @@
 <div ng-include="template.header" class="template header">
 </div>
 <div class="container-fluid">
-    <div class="row">
-        <div ng-include="template.sidemenu" class=" col-sm-2 template sidemenu"></div>
-        <div ng-include="template.sidemenu2" class=" col-sm-2 template sidemenu2"></div>
-        <div ng-include="template.content" class=" col-sm-10 template content"></div>
+    <div class="row no-gutters">
+        <div ng-include="template.sidemenu" class=" col-sm-2 template sidemenu no-gutters"></div>
+        <div ng-include="template.sidemenu2" class=" col-sm-2 template sidemenu2 no-gutters"></div>
+        <div ng-include="template.content" class=" col-sm-7 template content no-gutters"></div>
+        <div ng-include="template.rightsidemenu" class=" col-sm-3 template rightsidemenu no-gutters"></div>
     </div>
 </div>
-
-
 <div ng-include="template.footer" class="template footer"></div>

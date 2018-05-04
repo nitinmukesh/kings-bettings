@@ -1,1 +1,113 @@
-<h1>hiiiii</h1>
+<div class="left-pane">
+    <aside class="menu">
+        <nav class="tree-menu">
+            <div class="left-menu-inner  current-lvl-0">
+
+                <ul class="menu-column menu-prev sport-type- menu-lvl-">
+                    <li>
+                        <a href="#/display/FAVORITES" class="favourites-link">
+                        <i class="favourites-icon apl-icon-star-o"></i>
+                        <span class="link-name ng-scope" translate="">Favourites</span>
+                    </a>
+                    </li>
+                    <li>
+                        <a href="#/" class="home-link">
+                        <i class="favourites-icon apl-icon-home"></i>
+                        <span class="link-name ng-scope" translate="">Sports</span>
+                    </a>
+                    </li>
+                    <!-- ngIf: menuLvlPrev.parent -->
+                    <!-- ngIf: menuLvlPrev.parent -->
+                    <!-- ngRepeat: node in menuLvlPrev.children -->
+                </ul>
+
+                <ul class="menu-column menu-lvl-0 sport-type-">
+                    <li>
+                        <a href="#/display/FAVORITES" class="favourites-link">
+                        <i class="favourites-icon apl-icon-star-o"></i> <span class="link-name ng-scope" translate="">Favourites</span>
+                    </a>
+                    </li>
+                    <li>
+                        <a href="#/" class="home-link">
+                        <i class="favourites-icon apl-icon-home"></i> <span class="link-name ng-scope" translate="">Sports</span>
+                    </a>
+                    </li>
+                    <!-- ngIf: menuLvlCurrent.parent -->
+                    <!-- ngIf: menuLvlCurrent.parent -->
+                    <!-- ngRepeat: node in menuLvlCurrent.children -->
+                    <li ng-repeat="node in menuLvlCurrent.children" class="ng-scope">
+                        <a class="menu-link sport-type-Cricket" ng-class="{ selected: node.type === 'RACE' &amp;&amp; selectedMenuId === node.id }"
+                            ng-href="#/display/EVENT_TYPE/4" href="#/display/EVENT_TYPE/4">
+                       
+                        <i class="sport-icon apl-icon-sport-cricket"></i>
+                        <!-- ngIf: node.type !== 'RACE' --><span ng-if="node.type !== 'RACE'" class="link-name ng-binding ng-scope">Cricket</span><!-- end ngIf: node.type !== 'RACE' -->
+                        <!-- ngIf: node.type === 'RACE' -->
+                        <i class="indicator-icon apl-icon-chevron-right"></i>
+                    </a>
+                    </li>
+                    <!-- end ngRepeat: node in menuLvlCurrent.children -->
+                    <li ng-repeat="node in menuLvlCurrent.children" class="ng-scope">
+                        <a class="menu-link sport-type-Football" ng-class="{ selected: node.type === 'RACE' &amp;&amp; selectedMenuId === node.id }"
+                            ng-href="#/display/EVENT_TYPE/1" href="#/display/EVENT_TYPE/1">
+                       
+                        <i class="sport-icon apl-icon-sport-football"></i>
+                        <!-- ngIf: node.type !== 'RACE' --><span ng-if="node.type !== 'RACE'" class="link-name ng-binding ng-scope">Football</span><!-- end ngIf: node.type !== 'RACE' -->
+                        <!-- ngIf: node.type === 'RACE' -->
+                        <i class="indicator-icon apl-icon-chevron-right"></i>
+                    </a>
+                    </li>
+                    <!-- end ngRepeat: node in menuLvlCurrent.children -->
+                    <li ng-repeat="node in menuLvlCurrent.children" class="ng-scope">
+                        <a class="menu-link sport-type-Tennis" ng-class="{ selected: node.type === 'RACE' &amp;&amp; selectedMenuId === node.id }"
+                            ng-href="#/display/EVENT_TYPE/2" href="#/display/EVENT_TYPE/2">
+                       
+                        <i class="sport-icon apl-icon-sport-tennis"></i>
+                        <!-- ngIf: node.type !== 'RACE' --><span ng-if="node.type !== 'RACE'" class="link-name ng-binding ng-scope">Tennis</span><!-- end ngIf: node.type !== 'RACE' -->
+                        <!-- ngIf: node.type === 'RACE' -->
+                        <i class="indicator-icon apl-icon-chevron-right"></i>
+                    </a>
+                    </li>
+                    <!-- end ngRepeat: node in menuLvlCurrent.children -->
+                    <li ng-repeat="node in menuLvlCurrent.children" class="ng-scope">
+                        <a class="menu-link sport-type-Horse-Racing" ng-class="{ selected: node.type === 'RACE' &amp;&amp; selectedMenuId === node.id }"
+                            ng-href="#/display/EVENT_TYPE/7" href="#/display/EVENT_TYPE/7">
+                       
+                        <i class="sport-icon apl-icon-sport-horseracing"></i>
+                        <!-- ngIf: node.type !== 'RACE' --><span ng-if="node.type !== 'RACE'" class="link-name ng-binding ng-scope">Horse Racing</span><!-- end ngIf: node.type !== 'RACE' -->
+                        <!-- ngIf: node.type === 'RACE' -->
+                        <i class="indicator-icon apl-icon-chevron-right"></i>
+                    </a>
+                    </li>
+                    <!-- end ngRepeat: node in menuLvlCurrent.children -->
+                    <li ng-repeat="node in menuLvlCurrent.children" class="ng-scope">
+                        <a class="menu-link sport-type-Greyhound-Racing" ng-class="{ selected: node.type === 'RACE' &amp;&amp; selectedMenuId === node.id }"
+                            ng-href="#/display/EVENT_TYPE/4339" href="#/display/EVENT_TYPE/4339">
+                       
+                        <i class="sport-icon apl-icon-sport-greyhoundracing"></i>
+                        <!-- ngIf: node.type !== 'RACE' --><span ng-if="node.type !== 'RACE'" class="link-name ng-binding ng-scope">Greyhound Racing</span><!-- end ngIf: node.type !== 'RACE' -->
+                        <!-- ngIf: node.type === 'RACE' -->
+                        <i class="indicator-icon apl-icon-chevron-right"></i>
+                    </a>
+                    </li>
+                    <!-- end ngRepeat: node in menuLvlCurrent.children -->
+                </ul>
+
+                <ul class="menu-column menu-next menu-lvl- sport-type-">
+                    <li>
+                        <a href="#/display/FAVORITES" class="favourites-link">
+                        <i class="favourites-icon apl-icon-star-o"></i> <span class="link-name ng-scope" translate="">Favourites</span>
+                    </a>
+                    </li>
+                    <li>
+                        <a href="#/" class="home-link">
+                        <i class="favourites-icon apl-icon-home"></i> <span class="link-name ng-scope" translate="">Sports</span>
+                    </a>
+                    </li>
+                    <!-- ngIf: menuLvlNext.parent -->
+                    <!-- ngIf: menuLvlNext.parent -->
+                    <!-- ngRepeat: node in menuLvlNext.children -->
+                </ul>
+            </div>
+        </nav>
+    </aside>
+</div>

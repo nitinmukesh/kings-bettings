@@ -61674,6 +61674,7 @@ myApp.service('TemplateService', function () {
         this.header = "views/template/header.html";
          this.sidemenu = "views/sidemenu.html";
 	  this.sidemenu2 = "views/sidemenu2.html";
+     this.rightsidemenu = "views/rightsidemenu.html";
         this.menu = "views/template/menu.html";
         this.content = "views/content/content.html";
         this.footer = "views/template/footer.html";
