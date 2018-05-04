@@ -3,12 +3,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     TemplateService.sidemenu2 = "";
     TemplateService.title = "Home"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
-
-    $scope.status = {
-        isCustomHeaderOpen: false,
-        isFirstOpen: true,
-        isFirstDisabled: false
-    };
+    $scope.oneAtATime = true;
 
     $scope.itemArray = [{
             id: 1,

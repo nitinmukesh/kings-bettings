@@ -9,11 +9,11 @@ $black: #000 !default;
 $red: #d9534f !default;
 $orange: #f0ad4e !default;
 $yellow: #ffd500 !default;
-$green: #5cb85c !default;
-$blue: #0275d8 !default;
+$green: #1d7f1e !default;
+$blue: #084e83 !default;
 $teal: #5bc0de !default;
 $pink: #ff5b77 !default;
-$purple: #613d7c !default;
+$purple: #601c78 !default;
 // Create grayscale
 $gray-dark: #292b2c !default;
 $gray: #464a4c !default;
@@ -137,6 +137,7 @@ $dropdown-box-shadow: 0 .5rem 1rem rgba($black, .175) !default;
 @import "other/font-fix";
 body {
     // padding-top: 70px;
+    background: #f6edf0;
 }
 
 img.loading {
@@ -276,4 +277,81 @@ header {
 
 .absolute {
     position: absolute;
+}
+
+/*--------------------------rightside menu----------------*/
+
+.nav-pills .nav-link {
+    padding: 8px 20px;
+    color: $blue; // color: #d0e9fc;
+    background-color: #d0e9fc;
+}
+
+.nav-pills .nav-link.active,
+    {
+    background-color: $white;
+    color: $blue;
+}
+
+.nav-pills .nav-link {
+    border-radius: 0rem;
+}
+
+.matchbets {
+    .card-header {
+        background: $purple;
+    }
+    .card-body {
+        padding: 0.25rem;
+    }
+    .card {
+        border: none;
+    }
+    .icon-right {
+        float: right;
+        background: $white;
+        color: $purple;
+        font-size: 14px;
+        padding: 3px;
+        margin-top: 2px;
+    }
+}
+
+.avilable-credit {
+    .card-header {
+        background: $green;
+    }
+    .icon-right {
+        float: right;
+        background: $white;
+        color: $green;
+        font-size: 14px;
+        padding: 3px;
+        margin-top: 2px;
+    }
+}
+
+.card-header {
+    padding: 0rem 0.6rem;
+    text-align: center;
+    color: $white;
+    h5 {
+        color: $white;
+        font-weight: bold;
+        padding: 5px 0;
+        margin: 0;
+    }
+    a:hover {
+        color: $white;
+        text-decoration: none;
+    }
+    a {
+        color: $white;
+        text-decoration: none;
+    }
+}
+
+.betslip-content {
+    text-align: center;
+    padding: 10px;
 }
