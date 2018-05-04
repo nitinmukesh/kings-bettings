@@ -51,6 +51,11 @@ module.exports = [
   'frontend/views/content/account-statement/account-statement.js',
   'frontend/views/content/mybet/mybet.js',
   'frontend/views/content/placebet/placebet.js',
+  'frontend/views/content/cricket/cricket.js',
+  'frontend/views/content/cricket-inner/cricket-inner.js',
+  'frontend/views/content/favourites/favourites.js',
+  'frontend/views/content/ipl/ipl.js',
+  'frontend/views/content/football/football.js',
   'frontend/js/controllers/header-controller.js',
   'frontend/js/controllers/language-controller.js',
 
