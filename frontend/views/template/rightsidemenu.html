@@ -5,7 +5,8 @@
                 <uib-accordion close-others="oneAtATime">
                     <div uib-accordion-group class="panel-default" is-open="status.open">
                         <uib-accordion-heading>
-                            I can have markup, too! <i class="pull-right icon-right fa" ng-class="{'fa-chevron-up': status.open, 'fa-chevron-down': !status.open}"></i>
+                            I can have markup, too!
+                            <i class="pull-right icon-right fa" ng-class="{'fa-chevron-up': status.open, 'fa-chevron-down': !status.open}"></i>
                         </uib-accordion-heading>
                         This is just some content to illustrate fancy headings.
                     </div>
@@ -56,41 +57,49 @@
                             <uib-tab index="1" heading="Open Bets">
                                 <div class="bets-by-event-filter ng-scope">
                                     <label class="ng-binding">
-                                       <input type="checkbox"  class="ng-pristine">Show bet Info
-                                     </label>
+                                        <input type="checkbox" class="ng-pristine">Show bet Info
+                                    </label>
                                 </div>
                                 <div class="matchbets">
                                     <uib-accordion close-others="oneAtATime">
                                         <div class="text-center" uib-accordion-group class="panel-default" is-open="status.open">
                                             <uib-accordion-heading>
-                                                Unmatched Bets <i class="pull-right icon-right fa" ng-class="{'fa-chevron-up': status.open, 'fa-chevron-down': !status.open}"></i>
+                                                Unmatched Bets
+                                                <i class="pull-right icon-right fa" ng-class="{'fa-chevron-up': status.open, 'fa-chevron-down': !status.open}"></i>
                                             </uib-accordion-heading>
                                             You have no unmatched bets
-                                        </div>
+                                            <div class="list-wrap">
+                                                <form name="unmatchedForm">
+                                                </form>
+                                            </div>
+                                         </div>
                                     </uib-accordion>
                                 </div>
                                 <div class="matchbets mt-3">
                                     <uib-accordion close-others="oneAtATime">
                                         <div uib-accordion-group class="panel-default" is-open="status.open">
                                             <uib-accordion-heading>
-                                                Matched Bets <i class="pull-right icon-right fa" ng-class="{'fa-chevron-up': status.open, 'fa-chevron-down': !status.open}"></i>
+                                                Matched Bets
+                                                <i class="pull-right icon-right fa" ng-class="{'fa-chevron-up': status.open, 'fa-chevron-down': !status.open}"></i>
                                             </uib-accordion-heading>
                                             <div class="consolidation-filter">
-                                                <label class="ng-binding"><input type="checkbox"  class="ng-pristine">Consolidate</label>
-                                                <label class="pad-left ng-binding"><input type="checkbox"   class="ng-pristine">Average Odds</label>
-                                                <label class="pad-left ng-binding"><input type="checkbox"  class="ng-pristine ">Order By Date</label>
+                                                <label class="ng-binding">
+                                                    <input type="checkbox" class="ng-pristine" ng-model="Consolidate">Consolidate</label>
+                                                <label class="pad-left ng-binding">
+                                                    <input type="checkbox" class="ng-pristine">Average Odds</label>
+                                                <label class="pad-left ng-binding">
+                                                    <input type="checkbox" class="ng-pristine">Order By Date</label>
                                             </div>
                                             <div>
                                                 <div class="matched-order">
                                                     <a ng-href="#/display/EVENT/4/28706813" class="event-name" href="#/display/EVENT/4/28706813">
-                                                      <span date-string="vm.order.name" timestamp="vm.order.marketTime" 
-                                                      class="ng-binding ng-isolate-scope">Kings XI Punjab v Mumbai Indians</span>
-                                                      </a>
+                                                        <span date-string="vm.order.name" timestamp="vm.order.marketTime" class="ng-binding ng-isolate-scope">Kings XI Punjab v Mumbai Indians</span>
+                                                    </a>
                                                     <ul>
                                                         <li class="ng-scope">
                                                             <ul>
                                                                 <li>
-                                                                    <ul class="selection">
+                                                                    <ul class="selection" ng-if="Consolidate">
                                                                         <div class="selection-header">
                                                                             <div class="selection-name ng-binding ng-scope">Kings XI Punjab</div>
                                                                             <div class="bet-header grouped" ng-class="{'grouped': vm.isSelectionNameGrouped()}">
@@ -133,19 +142,12 @@
                                                                                     <span class="ng-binding">25.00</span>
                                                                                     <span ng-init="vm.calculatePL(bet)" class="ng-binding">24.75</span>
                                                                                 </div>
-                                                                                <!-- ngIf: vm.showRefInfo() -->
                                                                             </div>
                                                                         </li>
-                                                                        <!-- end ngRepeat: bet in vm.selection -->
                                                                     </ul>
-
-                                                                    <!-- end ngIf: !vm.isSessionRuns(market) -->
-                                                                    <!-- ngIf: vm.isSessionRuns(market) -->
                                                                 </li>
-                                                                <!-- end ngRepeat: selection in market.preparedBets -->
                                                             </ul>
                                                         </li>
-                                                        <!-- end ngRepeat: market in vm.order.markets -->
                                                     </ul>
                                                 </div>
                                             </div>

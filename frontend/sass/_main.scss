@@ -318,6 +318,9 @@ header {
 }
 
 .avilable-credit {
+    .card {
+        border: 1px solid $green;
+    }
     .card-header {
         background: $green;
     }

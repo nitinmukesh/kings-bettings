@@ -15,46 +15,62 @@
         <nav class="tree-menu">
             <div class="left-menu-inner  current-lvl-0">
                 <ul class="menu-column menu-lvl-0 sport-type-">
+
                     <li>
                         <a class="favourites-link">
-                       <i class="favourites-icon fa fa-star" aria-hidden="true"></i><span class="link-name">Favourites</span>
-                    </a>
+                            <i class="favourites-icon fa fa-star" aria-hidden="true"></i>
+                            <span class="link-name">Favourites</span>
+                        </a>
                     </li>
 
                     <li>
-                        <a class="menu-link sport-type-Cricket">
-                          <i class="sport-icon fa fa-star" aria-hidden="true"></i>
-                      <span  class="link-name">Cricket</span>
-                    </a>
+                        <a class="menu-link sport-type-Cricket" ng-click="showme=true">
+                            <i class="sport-icon fa fa-star" aria-hidden="true"></i>
+                            <span class="link-name">Cricket</span>
+                        </a>
                     </li>
 
                     <li class="ng-scope">
                         <a class="menu-link sport-type-Football">
-                       
-                      <i class=" sport-icon fa fa-futbol" aria-hidden="true"></i>
-                       <span class="link-name ng-binding ng-scope">Football</span>
-                    </a>
+
+                            <i class=" sport-icon fa fa-futbol" aria-hidden="true"></i>
+                            <span class="link-name ng-binding ng-scope">Football</span>
+                        </a>
                     </li>
                     <li class="ng-scope">
                         <a class="menu-link sport-type-Tennis">
-                        <i class="sport-icon fa fa-life-ring" aria-hidden="true"></i>
-                      <span  class="link-name ng-binding ng-scope">Tennis</span>
-                    </a>
+                            <i class="sport-icon fa fa-life-ring" aria-hidden="true"></i>
+                            <span class="link-name ng-binding ng-scope">Tennis</span>
+                        </a>
                     </li>
                     <li class="ng-scope">
                         <a class="menu-link sport-type-Horse-Racing">
-                         <i class="sport-icon fa fa-life-ring" aria-hidden="true"></i>
-                         <span class="link-name">Horse Racing</span>
-                         </a>
+                            <i class="sport-icon fa fa-life-ring" aria-hidden="true"></i>
+                            <span class="link-name">Horse Racing</span>
+                        </a>
                     </li>
                     <li class="ng-scope">
                         <a class="menu-link sport-type-Greyhound-Racing">
                             <i class="sport-icon fa fa-life-ring" aria-hidden="true"></i>
-                       <span  class="link-name">Greyhound Racing</span>
-                   </a>
+                            <span class="link-name">Greyhound Racing</span>
+                        </a>
                     </li>
+
+
+
                 </ul>
+                <div ng-if="showme">
+                    <ul>
+                        <li class="ng-scope">
+                            <a class="menu-link sport-type-Greyhound-Racing">
+                                <i class="sport-icon fa fa-life-ring" aria-hidden="true"></i>
+                                <span class="link-name">Greyhound Racing</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
+
         </nav>
     </aside>
 </div>
