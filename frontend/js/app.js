@@ -53,11 +53,42 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'FootballCtrl'
         })
+        .state('football-inner', {
+            url: "/football-inner",
+            templateUrl: tempateURL,
+            controller: 'FootballinnerCtrl'
+        })
+        .state('football-country', {
+            url: "/football-country",
+            templateUrl: tempateURL,
+            controller: 'FootballcountryCtrl'
+        })
+
+        .state('football-league', {
+            url: "/football-league",
+            templateUrl: tempateURL,
+            controller: 'FootballleagueCtrl'
+        })
+        .state('football-fixtures', {
+            url: "/football-fixtures",
+            templateUrl: tempateURL,
+            controller: 'FootballFixturesCtrl'
+        })
 
         .state('ipl', {
             url: "/ipl",
             templateUrl: tempateURL,
             controller: 'IplCtrl'
+        })
+        .state('ipl-inner', {
+            url: "/ipl-inner",
+            templateUrl: tempateURL,
+            controller: 'IplInnerCtrl'
+        })
+        .state('ipl-winner', {
+            url: "/ipl-winner",
+            templateUrl: tempateURL,
+            controller: 'IplWinnerCtrl'
         })
         .state('favourites', {
             url: "/favourites",

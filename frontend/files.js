@@ -55,7 +55,12 @@ module.exports = [
   'frontend/views/content/cricket-inner/cricket-inner.js',
   'frontend/views/content/favourites/favourites.js',
   'frontend/views/content/ipl/ipl.js',
+  'frontend/views/content/ipl-inner/ipl-inner.js',
+  'frontend/views/content/ipl-winner/ipl-winner.js',
   'frontend/views/content/football/football.js',
+  'frontend/views/content/football-inner/football-inner.js',
+  'frontend/views/content/football-country/football-country.js',
+  'frontend/views/content/football-fixtures/football-fixtures.js',
   'frontend/js/controllers/header-controller.js',
   'frontend/js/controllers/language-controller.js',
 
