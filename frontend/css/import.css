@@ -8407,6 +8407,9 @@ header {
   padding: 3px;
   margin-top: 2px; }
 
+.avilable-credit .card {
+  border: 1px solid #1d7f1e; }
+
 .avilable-credit .card-header {
   background: #1d7f1e; }
 
