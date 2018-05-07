@@ -5062,6 +5062,7 @@ input[type="text"].ng-invalid {
 
 .bets .market-list .market-name {
     margin: 5px 0 5px 8px;
+    color: #444;
 }
 
 .bets .market-list .market {
@@ -5121,6 +5122,9 @@ input[type="text"].ng-invalid {
 
 .bets .bet-fields {
     margin-bottom: 9px;
+    input {
+        padding: 2px;
+    }
 }
 
 .bets .bet-fields.no-info {
