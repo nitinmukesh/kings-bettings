@@ -8441,6 +8441,13 @@ header {
   text-align: center;
   padding: 10px; }
 
+.event-name-blue {
+  color: #1a69a4 !important; }
+
+.event-name-blue:hover {
+  color: #1a69a4 !important;
+  text-decoration: underline !important; }
+
 /*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font family in all browsers (opinionated).
@@ -12692,7 +12699,8 @@ input[type="text"].ng-invalid {
   padding: 5px 3px; }
 
 .bets .market-list .market-name {
-  margin: 5px 0 5px 8px; }
+  margin: 5px 0 5px 8px;
+  color: #444; }
 
 .bets .market-list .market {
   border-bottom: 1px solid #dedddf;
@@ -12740,6 +12748,8 @@ input[type="text"].ng-invalid {
 
 .bets .bet-fields {
   margin-bottom: 9px; }
+  .bets .bet-fields input {
+    padding: 2px; }
 
 .bets .bet-fields.no-info {
   margin-bottom: 2px !important; }
