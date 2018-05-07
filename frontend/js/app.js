@@ -80,6 +80,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'IplCtrl'
         })
+        .state('tennis', {
+            url: "/tennis",
+            templateUrl: tempateURL,
+            controller: 'TennisCtrl'
+        })
         .state('ipl-inner', {
             url: "/ipl-inner",
             templateUrl: tempateURL,
