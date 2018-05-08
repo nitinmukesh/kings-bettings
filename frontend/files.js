@@ -65,6 +65,7 @@ module.exports = [
   'frontend/views/content/tennis-inner/tennis-inner.js',
   'frontend/views/content/tennis-tournament/tennis-tournament.js',
   'frontend/views/content/horse-racing/horse-racing.js',
+  'frontend/views/content/greyhound-racing/greyhound-racing.js',
   'frontend/js/controllers/header-controller.js',
   'frontend/js/controllers/language-controller.js',
 

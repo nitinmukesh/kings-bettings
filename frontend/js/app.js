@@ -106,6 +106,12 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'HorseracingCtrl'
         })
+        .state('greyhound-racing', {
+            url: "/greyhound-racing",
+            templateUrl: tempateURL,
+            controller: 'GreyhoundracingCtrl'
+        })
+
         .state('ipl-winner', {
             url: "/ipl-winner",
             templateUrl: tempateURL,
