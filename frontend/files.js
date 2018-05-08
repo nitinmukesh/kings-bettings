@@ -62,6 +62,9 @@ module.exports = [
   'frontend/views/content/football-league/football-league.js',
   'frontend/views/content/football-fixtures/football-fixtures.js',
   'frontend/views/content/tennis/tennis.js',
+  'frontend/views/content/tennis-inner/tennis-inner.js',
+  'frontend/views/content/tennis-tournament/tennis-tournament.js',
+  'frontend/views/content/horse-racing/horse-racing.js',
   'frontend/js/controllers/header-controller.js',
   'frontend/js/controllers/language-controller.js',
 
