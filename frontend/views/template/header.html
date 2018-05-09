@@ -1,9 +1,8 @@
 <header class="header">
     <div class="boxed-layout-wrapper">
         <div class="logo-area">
-            <div class="logo" ng-click="homepage()"></div>
+            <div class="logo" ui-sref="home"></div>
         </div>
-
         <div class="clock ">
             <ul class="linkbar navbar">
                 <li>
@@ -60,9 +59,7 @@
                         <li ng-if="searchResult.length === 0" class="-qa-item-name search-link ">
                             <p class="">No events found matching ''</p>
                         </li>
-                        <!-- end ngIf: searchResult.length === 0 -->
 
-                        <!-- ngRepeat: item in searchResult -->
                     </ul>
                 </li>
                 <li>
@@ -78,11 +75,11 @@
                         <span translate="" class="">Account</span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">My Bets</a>
-                        <a class="dropdown-item" href="#">Betting Profit and Loss</a>
-                        <a class="dropdown-item" href="#">Account Statement</a>
-                        <a class="dropdown-item" href="#">Transfer Statement</a>
-                        <a class="dropdown-item" href="#">Change Password</a>
+                        <a class="dropdown-item" ui-sref="mybet">My Bets</a>
+                        <a class="dropdown-item" ui-sref="profit-loss">Betting Profit and Loss</a>
+                        <a class="dropdown-item" ui-sref="account-statement">Account Statement</a>
+                        <a class="dropdown-item" ui-sref="transfer-statement">Transfer Statement</a>
+                        <a class="dropdown-item" ui-sref="change-password">Change Password</a>
                     </div>
                 </li>
                 <!-- <li class="-qa-setting-dropdown">

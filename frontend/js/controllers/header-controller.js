@@ -13,4 +13,23 @@ myApp.controller('headerCtrl', function ($scope, TemplateService, $state) {
     $scope.goback = function () {
         window.history.back();
     }
+    $scope.submenu = [{
+        sport: "cricket",
+        name: "cricket",
+        class: "cricket-class",
+        tournament: [{
+            name: "ipl",
+            matches: [{
+                name: "Delhi Daredevils v Sunrisers Hyderabad",
+                Fixtures: [{
+                    name: "Fixtures",
+                    submatches: [{
+
+                    }]
+                }]
+            }]
+        }]
+    }, {
+
+    }]
 });

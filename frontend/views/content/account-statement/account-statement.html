@@ -1,161 +1,71 @@
-<div class="container-fluid">
-    <div class="row">
-        <!-- <div class="col-sm-3">
-            <div class="sidenav-list-area ml-3">
-                <div class="sidenav-list list-group">
-                    <a href="" class="list-group-item text-capitalize" ng-click="selecated='Favourites'">Favourites</a>
-                    <a href="" class="list-group-item text-capitalize" ng-click="selected='Cricket'">Cricket</a>
-                    <a href="" class="list-group-item text-capitalize" ng-click="selected='Football'">
-                        <i class="fas fa-futbol"></i>Football</a>
-                    <a href="" class="list-group-item text-capitalize" ng-click="selected='Horce'">Horce Racing</a>
-                    <a href="" class="list-group-item text-capitalize" ng-click="selected='Grayhound'">Grayhound Racing</a>
-                </div>
-            </div>
-        </div> -->
-        <div class="col-sm-12">
-            <div>
-                <div class="mr-4 py-3">
-                    <div class="clearfix">
-                        <div class="float-left account-title">
-                            Account Statement
-                        </div>
-                        <div class="float-right">
-                            <div>
-                                <select>
-                                    <option>Available Credit</option>
-                                    <option>Available Credit</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="d-inline-block">
-                        <label>From</label>
-                        <input type="text" class="" uib-datepicker-popup="{{format}}" ng-model="date" />
-                    </div>
-                    <div class="d-inline-block px-4">
-                        <label>To</label>
-                        <input type="text" class="" uib-datepicker-popup="{{format}}" ng-model="date" />
-                    </div>
-                    <div class="d-inline px-4">
-                        <input type="search" placeholder="search">
-                    </div>
-                </div>
-                <div class="my-4">
-                    <h6>Total P&L:14.49 </h6>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
+<div class="">
+    <div class="account-statement ">
+        <h1 class="">Account Statement</h1>
 
-                                <th colspan="2">Description</th>
-                                <th>P&L</th>
-                                <th>Credit Limit</th>
-                                <th>Balance</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="6">21/12/2018</td>
-                            </tr>
-                            <tr>
-                                <td>Default</td>
-                                <td>Defaultson</td>
-                                <td>def@somemail.com</td>
-                                <td>def@somemail.com</td>
-                                <td>Default</td>
-                                <td>Defaultson</td>
-                            </tr>
-                            <tr class="table-primary">
-                                <td>Primary</td>
-                                <td>Joe</td>
-                                <td>joe@example.com</td>
-                                <td>def@somemail.com</td>
-                                <td>Default</td>
-                                <td>Defaultson</td>
-                            </tr>
-                            <tr class="table-success">
-                                <td>Success</td>
-                                <td>Doe</td>
-                                <td>john@example.com</td>
-                                <td>def@somemail.com</td>
-                                <td>Default</td>
-                                <td>Defaultson</td>
-                            </tr>
-                            <tr>
-                                <td colspan="6">21/12/2018</td>
-                            </tr>
-                            <tr class="table-danger">
-                                <td>Danger</td>
-                                <td>Moe</td>
-                                <td>mary@example.com</td>
-                                <td>def@somemail.com</td>
-                                <td>Default</td>
-                                <td>Defaultson</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div>
-                <div>
-                    <div class="mr-4 py-3">
-                        <div class="clearfix">
-                            <div class="float-left account-title">
-                                Cricket
-                            </div>
-                            <div class="float-right">
-                                <div>
-                                    <p>Betting from 30mins before start</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="table-responsive">
-                        <h6>Total P&L:14.49 </h6>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Match</th>
-                                    <th class="text-center" colspan="2">1</th>
-                                    <th class="text-center" colspan="2">X</th>
-                                    <th class="text-center" colspan="2">2</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>india vr india(2 nd test)</td>
-                                    <td>20.20</td>
-                                    <td>20.50</td>
-                                    <td>00.70</td>
-                                    <td>0.00</td>
-                                    <td>-</td>
-                                    <td>80</td>
-                                </tr>
-                                <tr class="table-primary">
-                                    <td>india vr india(2 nd test)</td>
-                                    <td>-</td>
-                                    <td>70</td>
-                                    <td>00.30</td>
-                                    <td>30.40</td>
-                                    <td>-</td>
-                                    <td>000</td>
-                                </tr>
-                                <tr class="table-primary">
-                                    <td>india vr india(2 nd test)</td>
-                                    <td>-</td>
-                                    <td>70</td>
-                                    <td>00.30</td>
-                                    <td>30.40</td>
-                                    <td>-</td>
-                                    <td>000</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+        <div class="apl-report-filter ng-isolate-scope">
+            <datepicker date-format="dd/MM/yyyy" selector="apl-input-datepicker-from" class="ng-isolate-scope">
+                <span class="label-title">From</span>
+                <input class="apl-input-datepicker-from ng-valid ng-not-empty ng-touched ng-dirty ng-valid-parse" type="text" readonly="">
+            </datepicker>
+
+            <datepicker date-format="dd/MM/yyyy" selector="apl-input-datepicker-to" class="ng-isolate-scope">
+                <span class="label-title">To</span>
+                <input class="apl-input-datepicker-to ng-pristine ng-untouched ng-valid ng-not-empty" type="text" readonly="">
+            </datepicker>
+
+            <button id="submit" class="apl-btn apl-btn-primary" type="submit">
+                <i class="apl-icon-search"></i> Search
+            </button>
         </div>
+
+        <p class="total-pnl">
+            <span class="">Total P&amp;L</span>:
+            <span class="numeric ">-16.22</span>
+        </p>
+        <table class="listing apl-table ">
+            <tbody>
+                <tr>
+                    <th class="">Date</th>
+                    <th colspan="2" class="">Description</th>
+                    <th class="numeric " translate="">P&amp;L</th>
+                    <th class="numeric " translate="">Credit Limit</th>
+                    <th class="numeric " translate="">Balance</th>
+                </tr>
+                <tr class="">
+                    <td colspan="7" class="group-date ">
+                        <time timestamp="row.dateGroup" type="fullDate" class="">08/05/2018</time>
+                    </td>
+                </tr>
+                <tr class="">
+                    <td class="row-time ">
+                        <time timestamp="row.date" type="time" class=" ng-isolate-scope">23:40:11</time>
+                    </td>
+                    <td class=" ">Betting P&amp;L</td>
+                    <td ng-click="vm.showBreakdown(row)" class="">
+                        <span class="event-link">
+                            <span date-string="vm.getDescription(row.description)" timestamp="row.description.marketTime" class=" ng-isolate-scope">Rajasthan Royals v Kings XI Punjab - Match Odds</span>
+                        </span>
+                    </td>
+                    <td class="numeric   -negative" ng-class="{'-negative': row.pnl < 0, '-positive': row.pnl  >= 0}">-20.50</td>
+                    <td class="numeric   -positive" ng-class="{'-negative': row.creditLimit < 0, '-positive': row.creditLimit  >= 0}">-</td>
+                    <td class="numeric   -positive" ng-class="{'-negative': row.balance < 0, '-positive': row.balance  >= 0}">210.87</td>
+                </tr>
+                <tr class="">
+                    <td class="row-time ">
+                        <time timestamp="row.date" type="time" class=" ng-isolate-scope">23:40:11</time>
+                    </td>
+                    <td class=" ">Betting P&amp;L</td>
+                    <td ng-click="vm.showBreakdown(row)" class="">
+                        <span class="event-link">
+                            <span date-string="vm.getDescription(row.description)" timestamp="row.description.marketTime" class=" ng-isolate-scope">Rajasthan Royals v Kings XI Punjab - Match Odds</span>
+                        </span>
+                    </td>
+                    <td class="numeric   -negative" ng-class="{'-negative': row.pnl < 0, '-positive': row.pnl  >= 0}">-20.50</td>
+                    <td class="numeric   -positive" ng-class="{'-negative': row.creditLimit < 0, '-positive': row.creditLimit  >= 0}">-</td>
+                    <td class="numeric   -positive" ng-class="{'-negative': row.balance < 0, '-positive': row.balance  >= 0}">210.87</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+    </ng-view>
 </div>

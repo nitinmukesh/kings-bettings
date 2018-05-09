@@ -14,7 +14,7 @@ var myApp = angular.module('myApp', [
 // Define all the routes below
 myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
     var tempateURL = "views/template/template.html"; //Default Template URL
-
+    var accountTempateURL = "views/template/account-template.html"; //Default Template URL
     // for http request with session
     $httpProvider.defaults.withCredentials = true;
     $stateProvider
@@ -30,12 +30,27 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
         })
         .state('account-statement', {
             url: "/account-statement",
-            templateUrl: tempateURL,
+            templateUrl: accountTempateURL,
             controller: 'AccountStatementCtrl'
+        })
+        .state('transfer-statement', {
+            url: "/transfer-statement",
+            templateUrl: accountTempateURL,
+            controller: 'TransferstatementCtrl'
+        })
+        .state('change-password', {
+            url: "/change-password",
+            templateUrl: accountTempateURL,
+            controller: 'ChangepasswordCtrl'
+        })
+        .state('profit-loss', {
+            url: "/profit-loss",
+            templateUrl: accountTempateURL,
+            controller: 'ProfitlossCtrl'
         })
         .state('mybet', {
             url: "/mybet",
-            templateUrl: tempateURL,
+            templateUrl: accountTempateURL,
             controller: 'MybetCtrl'
         })
         .state('cricket', {

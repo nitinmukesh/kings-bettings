@@ -5,10 +5,26 @@
                 <uib-accordion close-others="oneAtATime">
                     <div uib-accordion-group class="panel-default" is-open="status.open">
                         <uib-accordion-heading>
-                            I can have markup, too!
+                            <span>
+                                <strong class="">Available Credit:</strong>
+                                <span class="value ">210.87</span>
+                            </span>
                             <i class="pull-right icon-right fa" ng-class="{'fa-chevron-up': status.open, 'fa-chevron-down': !status.open}"></i>
                         </uib-accordion-heading>
-                        This is just some content to illustrate fancy headings.
+                        <ul class="list-wrap shown -animate" ng-class="overviewClass">
+                            <li class="ng-binding">
+                                <strong class="ng-binding">Credit Limit:</strong>
+                                250.00
+                            </li>
+                            <li>
+                                <strong class="ng-binding">Winnings:</strong>
+                                <span ng-class="{'-negative': accountInfo.totalBalance < 0, '-positive': accountInfo.totalBalance > 0}" class="ng-binding -negative">-39.13</span>
+                            </li>
+                            <li>
+                                <strong class="ng-binding">Total Net Exposure:</strong>
+                                <span ng-class="{'-negative': accountInfo.deductedExposure !== 0}" class="ng-binding">0.00</span>
+                            </li>
+                        </ul>
                     </div>
                 </uib-accordion>
             </div>
@@ -26,7 +42,7 @@
                                     </div>
                                 </div>
                                 <div class="one-click-settings-animation-wrap">
-                                    <strong class="one-click-title ng-scope" translate="">1 Click Betting</strong>
+                                    <strong class="one-click-title " translate="">1 Click Betting</strong>
                                     <div class="apl-form one-click-bet-form">
                                         <div class="select-mode-fields">
                                             <ul class="settings-list">
@@ -55,7 +71,7 @@
                                 <p class="betslip-content">Click on the odds to add selections to the betslip.</p>
                             </uib-tab>
                             <uib-tab index="1" heading="Open Bets">
-                                <div class="bets-by-event-filter ng-scope">
+                                <div class="bets-by-event-filter ">
                                     <label class="ng-binding">
                                         <input type="checkbox" class="ng-pristine">Show bet Info
                                     </label>
@@ -63,14 +79,14 @@
                                 <div class="bets unmatched-bets">
                                     <div class="_clearfix _align-right heading-wrapper btn-group ">
                                         <button class="apl-btn apl-btn-cancel" type="button">
-                                                 Cancel All
-                                            </button>
+                                            Cancel All
+                                        </button>
                                         <button class="apl-btn apl-btn-secondary" type="button">
-                                                Reset
-                                         </button>
+                                            Reset
+                                        </button>
                                         <button class="apl-btn apl-btn-update ng-binding" type="button">
-                                      Update All
-                                  </button>
+                                            Update All
+                                        </button>
                                     </div>
                                     <div class="matchbets">
                                         <uib-accordion close-others="oneAtATime">
@@ -85,57 +101,63 @@
                                                             <li class="order-wrap">
                                                                 <span>
                                                                     <a class="event-name event-name-blue text-left">
-                                                                  <span>Swansea v Southampton</span>
-                                                                </a>
-                                                                <ul class="market-list">
-                                                                    <li class="market text-left">
-                                                                        <strong class="market-name">Match Odds</strong>
-                                                                        <button class="apl-btn apl-btn-link btn-cancel" type="button">Cancel</button>
-                                                                        <ul class="selection-list">
-                                                                            <li class="selection">
-                                                                                <ul class="bets-list">
-                                                                                    <li>
-                                                                                        <span class="selection-name">Southampton</span>
-                                                                                        <div class="bet  back">
-                                                                                            <div class="bet-fields">
-                                                                                                <div class="odds-field placeholder-wrapper ng-isolate-scope activated animatable">
-                                                                                                    <div class="placeholder ng-binding">Odds</div>
-                                                                                                    <div>
-                                                                                                        <div class="step-input-wrapper ng-isolate-scope">
-                                                                                                            <input class="step-input" type="text">
-                                                                                                            <div class="button-wrapper">
-                                                                                                                <button type="button" class="step-up"><i class="fa fa-angle-up"></i></button>
-                                                                                                                <button type="button" class="step-down"><i class="fa fa-angle-down"></i></button>
+                                                                        <span>Swansea v Southampton</span>
+                                                                    </a>
+                                                                    <ul class="market-list">
+                                                                        <li class="market text-left">
+                                                                            <strong class="market-name">Match Odds</strong>
+                                                                            <button class="apl-btn apl-btn-link btn-cancel" type="button">Cancel</button>
+                                                                            <ul class="selection-list">
+                                                                                <li class="selection">
+                                                                                    <ul class="bets-list">
+                                                                                        <li>
+                                                                                            <span class="selection-name">Southampton</span>
+                                                                                            <div class="bet  back">
+                                                                                                <div class="bet-fields">
+                                                                                                    <div class="odds-field placeholder-wrapper ng-isolate-scope activated animatable">
+                                                                                                        <div class="placeholder ng-binding">Odds</div>
+                                                                                                        <div>
+                                                                                                            <div class="step-input-wrapper ng-isolate-scope">
+                                                                                                                <input class="step-input" type="text">
+                                                                                                                <div class="button-wrapper">
+                                                                                                                    <button type="button" class="step-up">
+                                                                                                                        <i class="fa fa-angle-up"></i>
+                                                                                                                    </button>
+                                                                                                                    <button type="button" class="step-down">
+                                                                                                                        <i class="fa fa-angle-down"></i>
+                                                                                                                    </button>
+                                                                                                                </div>
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                </div>
-                                                                                                <div class="placeholder-wrapper  activated animatable">
-                                                                                                    <div class="placeholder">Stake</div>
-                                                                                                    <div>
-                                                                                                        <input type="text">
+                                                                                                    <div class="placeholder-wrapper  activated animatable">
+                                                                                                        <div class="placeholder">Stake</div>
+                                                                                                        <div>
+                                                                                                            <input type="text">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="info-field">
+                                                                                                        <span class="title">Profit</span>
+                                                                                                        <span class="value ng-binding">225.00</span>
+                                                                                                    </div>
+                                                                                                    <div class="control-fields">
+                                                                                                        <button class="apl-btn apl-btn-mini apl-btn-update " type="button">
+                                                                                                            <i class="fa fa-check"></i>
+                                                                                                        </button>
+                                                                                                        <button class="apl-btn apl-btn-mini apl-btn-remove" type="button">
+                                                                                                            <i class="fa fa-times"></i>
+                                                                                                        </button>
                                                                                                     </div>
                                                                                                 </div>
-                                                                                                <div class="info-field">
-                                                                                                    <span class="title">Profit</span>
-                                                                                                    <span class="value ng-binding">225.00</span>
-                                                                                                </div>
-                                                                                                <div class="control-fields">
-                                                                                                    <button class="apl-btn apl-btn-mini apl-btn-update " type="button">
-                                                                                                  <i class="fa fa-check"></i>
-                                                                                                  </button>
-                                                                                                    <button class="apl-btn apl-btn-mini apl-btn-remove" type="button"><i class="fa fa-times"></i></button>
-                                                                                                </div>
+
                                                                                             </div>
+                                                                                        </li>
 
-                                                                                        </div>
-                                                                                    </li>
-
-                                                                                </ul>
-                                                                            </li>
-                                                                        </ul>
-                                                                        </span>
-                                                                    </li>
+                                                                                    </ul>
+                                                                                </li>
+                                                                            </ul>
+                                                                </span>
+                                                                </li>
                                                                 </ul>
                                                     </form>
                                                 </div>
@@ -162,23 +184,23 @@
                                             <div>
                                                 <div class="matched-order">
                                                     <a ng-href="#/display/EVENT/4/28706813" class="event-name" href="#/display/EVENT/4/28706813">
-                                                        <span date-string="vm.order.name" timestamp="vm.order.marketTime" class="ng-binding ng-isolate-scope">Kings XI Punjab v Mumbai Indians</span>
+                                                        <span date-string="vm.order.name" timestamp="vm.order.marketTime" class="ng-isolate-scope">Kings XI Punjab v Mumbai Indians</span>
                                                     </a>
                                                     <ul>
-                                                        <li class="ng-scope">
+                                                        <li class="">
                                                             <ul>
                                                                 <li>
                                                                     <ul class="selection">
                                                                         <div class="selection-header" ng-if="Consolidate">
-                                                                            <div class="selection-name ng-binding ng-scope">Kings XI Punjab</div>
+                                                                            <div class="selection-name ">Kings XI Punjab</div>
                                                                             <div class="bet-header grouped">
                                                                                 <span class="market-name ng-binding">Match Odds</span>
-                                                                                <span class="odds ng-scope" translate="">Odds</span>
-                                                                                <span translate="" class="ng-scope">Stake</span>
-                                                                                <span translate="" class="ng-scope">Profit/Liability</span>
+                                                                                <span class="odds " translate="">Odds</span>
+                                                                                <span translate="" class="">Stake</span>
+                                                                                <span translate="" class="">Profit/Liability</span>
                                                                             </div>
                                                                         </div>
-                                                                        <li class="ng-scope" ng-if="Consolidate">
+                                                                        <li class="" ng-if="Consolidate">
                                                                             <div class="selection-bet back no-info" ng-class="{'back' : bet.side === 'Back', 'lay' : bet.side === 'Lay', 'no-info' : !vm.showRefInfo()}">
                                                                                 <div class="bet-fields grouped" ng-class="{'grouped': vm.isSelectionNameGrouped()}">
                                                                                     <!-- ngIf: !vm.isSelectionNameGrouped() -->
@@ -190,7 +212,7 @@
                                                                             </div>
                                                                         </li>
                                                                         <!-- end ngRepeat: bet in vm.selection -->
-                                                                        <li ng-if="averageOdds" class="ng-scope">
+                                                                        <li ng-if="averageOdds" class="">
                                                                             <div class="selection-bet lay no-info" ng-class="{'back' : bet.side === 'Back', 'lay' : bet.side === 'Lay', 'no-info' : !vm.showRefInfo()}">
                                                                                 <div class="bet-fields grouped" ng-class="{'grouped': vm.isSelectionNameGrouped()}">
                                                                                     <!-- ngIf: !vm.isSelectionNameGrouped() -->
@@ -202,7 +224,7 @@
                                                                             </div>
                                                                         </li>
                                                                         <!-- end ngRepeat: bet in vm.selection -->
-                                                                        <li ng-if="orderByDate" class="ng-scope">
+                                                                        <li ng-if="orderByDate" class="">
                                                                             <div class="selection-bet back no-info" ng-class="{'back' : bet.side === 'Back', 'lay' : bet.side === 'Lay', 'no-info' : !vm.showRefInfo()}">
                                                                                 <div class="bet-fields grouped" ng-class="{'grouped': vm.isSelectionNameGrouped()}">
                                                                                     <!-- ngIf: !vm.isSelectionNameGrouped() -->

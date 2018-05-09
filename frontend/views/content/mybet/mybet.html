@@ -1,0 +1,277 @@
+<div class="mid-pane">
+
+    <div class="order-listing common-heading">
+        <h1 class="ng-binding">My Bets</h1>
+        <div class="row">
+            <div class="column">
+                <div class="selection">
+                    <div class="item ng-binding selected" ng-class="?'selected':''" ng-click="vm.selectCurrent()">Current</div>
+                    <div class="item ng-binding" ng-class="?'selected':''" ng-click="vm.selectPast()">Past</div>
+                </div>
+                <div class="selection alt">
+                    <div class="item ng-binding selected" ng-class="vm.isMatched?'selected':''" ng-click="vm.selectMatched()">Matched</div>
+                    <div class="item ng-binding" ng-class="!vm.isMatched?'selected':''" ng-click="vm.selectUnmatched()">Unmatched</div>
+                </div>
+            </div>
+            <div class="column">
+                <div>
+                    <div class="apl-report-filter ng-isolate-scope">
+                        <datepicker date-format="dd/MM/yyyy" selector="apl-input-datepicker-from" class="ng-isolate-scope">
+                            <span class="label-title">From</span>
+                            <input ng-model="filters.from" class="apl-input-datepicker-from ng-pristine ng-untouched ng-valid ng-not-empty" type="text"
+                                readonly="">
+                        </datepicker>
+                        <datepicker date-format="dd/MM/yyyy" selector="apl-input-datepicker-to" class="ng-isolate-scope">
+                            <span class="label-title">To</span>
+                            <input ng-model="filters.to" class="apl-input-datepicker-to ng-pristine ng-untouched ng-valid ng-not-empty" type="text" readonly="">
+                        </datepicker>
+                        <button id="submit" class="apl-btn apl-btn-primary" type="submit">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="listing apl-table">
+            <thead>
+                <tr>
+                    <th class="ng-binding">Settled</th>
+                    <th class="ng-binding ">Placed</th>
+                    <th class="ng-binding">Description</th>
+                    <th class="ng-binding">Type</th>
+                    <th class="numeric ng-binding">Odds</th>
+                    <th class="numeric ng-binding">Stake</th>
+                    <th class="numeric ng-binding ">Liability</th>
+                    <th class="numeric ng-binding">Profit/Loss</th>
+                    <th class="ng-binding ">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="">
+                    <td>
+                        <span class="order-date">
+                            <time type="fullDate" class="">07/05/2018</time>
+                        </span>
+                        <span class="order-time">
+                            <time type="time" class="">23:40:16</time>
+                        </span>
+                    </td>
+                    <td class="">
+                        <span class="order-date">
+                            <time timestamp="vm.makeDate(order.betPlacedDate)" type="fullDate" class="">07/05/2018</time>
+                        </span>
+                        <span class="order-time">
+                            <time timestamp="vm.makeDate(order.betPlacedDate)" type="time" class="">23:37:50</time>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="order-event ">
+                            <span date-string="order.eventName" timestamp="order.marketTime" class="">Sunrisers Hyderabad v Royal Challengers Bangalore</span>
+                        </span>
+                        <span ng-switch="" on="order.marketBettingType">
+                            <span ng-switch-default="" class="">
+                                <span class="order-selection ng-binding">No</span>
+                                <span class="order-market ng-binding">Tied Match</span>
+                            </span>
+                        </span>
+
+                        <span class="order-betId split ng-binding">
+                            <label class="ng-binding">Bet ID</label>1805071807506310</span>
+
+                        <span class="order-placed-date split">
+                            <label class="ng-binding">Placed</label>
+                            <time timestamp="order.betPlacedDate" type="datetime" class="">07/05/2018 23:37:50</time>
+                        </span>
+                    </td>
+                    <td class="ng-binding">
+                        Lay
+                    </td>
+                    <td class="numeric ng-binding">
+                        1.020
+                    </td>
+                    <td class="numeric ng-binding">
+                        30.00
+                    </td>
+                    <td class="numeric ng-binding ">
+                        0.60
+                    </td>
+                    <td class="numeric ng-binding -negative" ng-class=" ? '' : {'-negative': order.memberWin < 0, '-positive': order.memberWin >= 0, '-invalid': order.invalid == 1}">
+                        -0.60
+                    </td>
+                    <td ng-class="{'-negative': order.memberWin < 0, '-positive': order.memberWin >= 0, '-invalid': order.invalid == 1}" class="ng-binding -negative">
+                        LOST
+                    </td>
+                </tr>
+                <tr class="">
+                    <td>
+                        <span class="order-date">
+                            <time type="fullDate" class="">06/05/2018</time>
+                        </span>
+                        <span class="order-time">
+                            <time type="time" class="">23:29:50</time>
+                        </span>
+                    </td>
+                    <td class="">
+                        <span class="order-date">
+                            <time timestamp="vm.makeDate(order.betPlacedDate)" type="fullDate" class="">06/05/2018</time>
+                        </span>
+                        <span class="order-time">
+                            <time timestamp="vm.makeDate(order.betPlacedDate)" type="time" class="">21:54:20</time>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="order-event ">
+                            <span date-string="order.eventName" timestamp="order.marketTime" class="">Kings XI Punjab v Rajasthan Royals</span>
+                        </span>
+
+
+                        <span ng-switch="" on="order.marketBettingType">
+                            <span ng-switch-default="" class="">
+                                <span class="order-selection ng-binding">No</span>
+                                <span class="order-market ng-binding">Tied Match</span>
+                            </span>
+                        </span>
+
+                        <span class="order-betId split ng-binding">
+                            <label class="ng-binding">Bet ID</label>1805061624202686</span>
+
+                        <span class="order-placed-date split">
+                            <label class="ng-binding">Placed</label>
+                            <time timestamp="order.betPlacedDate" type="datetime" class="">06/05/2018 21:54:20</time>
+                        </span>
+                    </td>
+                    <td class="ng-binding">
+                        Lay
+                    </td>
+                    <td class="numeric ng-binding">
+                        1.020
+                    </td>
+                    <td class="numeric ng-binding">
+                        100.00
+                    </td>
+                    <td class="numeric ng-binding ">
+                        2.00
+                    </td>
+                    <td class="numeric ng-binding -negative" ng-class=" ? '' : {'-negative': order.memberWin < 0, '-positive': order.memberWin >= 0, '-invalid': order.invalid == 1}">
+                        -2.00
+                    </td>
+                    <td ng-class="{'-negative': order.memberWin < 0, '-positive': order.memberWin >= 0, '-invalid': order.invalid == 1}" class="ng-binding -negative">
+                        LOST
+                    </td>
+                </tr>
+                <tr class="">
+                    <td>
+                        <span class="order-date">
+                            <time type="fullDate" class="">06/05/2018</time>
+                        </span>
+                        <span class="order-time">
+                            <time type="time" class="">23:29:50</time>
+                        </span>
+                    </td>
+                    <td class="">
+                        <span class="order-date">
+                            <time timestamp="vm.makeDate(order.betPlacedDate)" type="fullDate" class="">06/05/2018</time>
+                        </span>
+                        <span class="order-time">
+                            <time timestamp="vm.makeDate(order.betPlacedDate)" type="time" class="">22:22:01</time>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="order-event ">
+                            <span date-string="order.eventName" timestamp="order.marketTime" class="">Kings XI Punjab v Rajasthan Royals</span>
+                        </span>
+                        <span ng-switch="" on="order.marketBettingType">
+                            <span ng-switch-default="" class="">
+                                <span class="order-selection ng-binding">No</span>
+                                <span class="order-market ng-binding">Tied Match</span>
+                            </span>
+                        </span>
+                        <span class="order-betId split ng-binding">
+                            <label class="ng-binding">Bet ID</label>1805061652015249</span>
+
+                        <span class="order-placed-date split">
+                            <label class="ng-binding">Placed</label>
+                            <time timestamp="order.betPlacedDate" type="datetime" class="">06/05/2018 22:22:01</time>
+                        </span>
+                    </td>
+                    <td class="ng-binding">
+                        Back
+                    </td>
+                    <td class="numeric ng-binding">
+                        1.020
+                    </td>
+                    <td class="numeric ng-binding">
+                        50.00
+                    </td>
+                    <td class="numeric ng-binding ">
+
+                    </td>
+                    <td class="numeric ng-binding -positive" ng-class=" ? '' : {'-negative': order.memberWin < 0, '-positive': order.memberWin >= 0, '-invalid': order.invalid == 1}">
+                        1.00
+                    </td>
+                    <td ng-class="{'-negative': order.memberWin < 0, '-positive': order.memberWin >= 0, '-invalid': order.invalid == 1}" class="ng-binding -positive">
+                        WON
+                    </td>
+                </tr>
+                <tr class="">
+                    <td>
+                        <span class="order-date">
+                            <time type="fullDate" class="">06/05/2018</time>
+                        </span>
+                        <span class="order-time">
+                            <time type="time" class="">23:29:50</time>
+                        </span>
+                    </td>
+                    <td class="">
+                        <span class="order-date">
+                            <time timestamp="vm.makeDate(order.betPlacedDate)" type="fullDate" class="">06/05/2018</time>
+                        </span>
+                        <span class="order-time">
+                            <time timestamp="vm.makeDate(order.betPlacedDate)" type="time" class="">22:39:44</time>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="order-event ">
+                            <span date-string="order.eventName" timestamp="order.marketTime" class="">Kings XI Punjab v Rajasthan Royals</span>
+                        </span>
+
+
+                        <span ng-switch="" on="order.marketBettingType">
+                            <span ng-switch-default="" class="">
+                                <span class="order-selection ng-binding">No</span>
+                                <span class="order-market ng-binding">Tied Match</span>
+                            </span>
+                        </span>
+
+                        <span class="order-betId split ng-binding">
+                            <label class="ng-binding">Bet ID</label>1805061709440739</span>
+
+                        <span class="order-placed-date split">
+                            <label class="ng-binding">Placed</label>
+                            <time timestamp="order.betPlacedDate" type="datetime" class="">06/05/2018 22:39:44</time>
+                        </span>
+                    </td>
+                    <td class="ng-binding">
+                        Back
+                    </td>
+                    <td class="numeric ng-binding">
+                        1.020
+                    </td>
+                    <td class="numeric ng-binding">
+                        50.00
+                    </td>
+                    <td class="numeric ng-binding ">
+
+                    </td>
+                    <td class="numeric ng-binding -positive" ng-class=" ? '' : {'-negative': order.memberWin < 0, '-positive': order.memberWin >= 0, '-invalid': order.invalid == 1}">
+                        1.00
+                    </td>
+                    <td ng-class="{'-negative': order.memberWin < 0, '-positive': order.memberWin >= 0, '-invalid': order.invalid == 1}" class="ng-binding -positive">
+                        WON
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
