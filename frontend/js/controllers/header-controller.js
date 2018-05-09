@@ -1,8 +1,10 @@
 myApp.controller('headerCtrl', function ($scope, TemplateService, $state) {
     $scope.template = TemplateService;
+
     $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
     });
+    $scope.oneAtATime = true;
     $.fancybox.close(true);
     $scope.status = {
         isCustomHeaderOpen: false,

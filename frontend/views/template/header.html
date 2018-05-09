@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header position-relative">
     <div class="boxed-layout-wrapper">
         <div class="logo-area">
             <div class="logo" ui-sref="home"></div>
@@ -40,22 +40,8 @@
                             </div>
                         </form>
                     </nav>
-                    <!-- <div class="apl-form search">
-                        <div class="placeholder-wrapper ng-isolate-scope animatable" ng-class="{'activated': isActive, 'animatable': isAnimatable}">
-                            <div class="placeholder ">Search Events</div>
-                            <div ng-transclude="">
-                                <div class="apl-form-icon ">
-                                    <i class="apl-icon-search" aria-hidden="true"></i>
-
-                                    <input type="text" class="apl-form-large -qa-search-bar" apl-placeholder="Search Events" ng-model="searchText.name" ng-keyup="keyup($event)"
-                                        analytics-category="'Header'" analytics-event="'Click'" analytics-label="'Search Bar'">
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
 
                     <ul ng-show="searchText.name.length > 2 &amp;&amp; isSearchDropdownVisible" class="-qa-search-results ng-hide">
-                        <!-- ngIf: searchResult.length === 0 -->
                         <li ng-if="searchResult.length === 0" class="-qa-item-name search-link ">
                             <p class="">No events found matching ''</p>
                         </li>
@@ -82,50 +68,6 @@
                         <a class="dropdown-item" ui-sref="change-password">Change Password</a>
                     </div>
                 </li>
-                <!-- <li class="-qa-setting-dropdown">
-                    <div class="wrap-dd-menu " ng-class="{'disabled': dropdownDisabled}">
-                        <a href="" analytics-on="" analytics-event="Open Dropdown" analytics-category="Account" dropdown-menu="ddMenuOptions" dropdown-model="ddMenuSelected"
-                            class="ng-isolate-scope">
-                            <i class="fas fa-cog"></i>
-                            <span translate="" class="">Account</span>
-                        </a>
-                        <ul class="dropdown ">
-                            <li ng-class="{divider: dropdownMenuItem.divider, 'divider-label': dropdownMenuItem.divider &amp;&amp; dropdownMenuItem[dropdownItemLabel]}"
-                                ng-repeat="item in dropdownMenu" class="dropdown-item  ng-isolate-scope" dropdown-item-label="labelField"
-                                dropdown-menu-item="item">
-
-                                <a href="#orderList" class="dropdown-item  " ng-if="!dropdownMenuItem.divider" ng-href="#orderList" ng-click="selectItem()">My Bets</a>
-                            </li>
-                            <li ng-class="{divider: dropdownMenuItem.divider, 'divider-label': dropdownMenuItem.divider &amp;&amp; dropdownMenuItem[dropdownItemLabel]}"
-                                ng-repeat="item in dropdownMenu" class="dropdown-item  ng-isolate-scope" dropdown-item-label="labelField"
-                                dropdown-menu-item="item">
-
-                                <a href="#betProfitLoss" class="dropdown-item  " ng-if="!dropdownMenuItem.divider" ng-href="#betProfitLoss"
-                                    ng-click="selectItem()">Betting Profit and Loss</a>
-                            </li>
-                            <li ng-class="{divider: dropdownMenuItem.divider, 'divider-label': dropdownMenuItem.divider &amp;&amp; dropdownMenuItem[dropdownItemLabel]}"
-                                ng-repeat="item in dropdownMenu" class="dropdown-item  ng-isolate-scope" dropdown-item-label="labelField"
-                                dropdown-menu-item="item">
-
-                                <a href="#accountStatement" class="dropdown-item  " ng-if="!dropdownMenuItem.divider" ng-href="#accountStatement"
-                                    ng-click="selectItem()">Account Statement</a>
-                            </li>
-                            <li ng-class="{divider: dropdownMenuItem.divider, 'divider-label': dropdownMenuItem.divider &amp;&amp; dropdownMenuItem[dropdownItemLabel]}"
-                                ng-repeat="item in dropdownMenu" class="dropdown-item  ng-isolate-scope" dropdown-item-label="labelField"
-                                dropdown-menu-item="item">
-
-                                <a href="#transferStatement" class="dropdown-item  " ng-if="!dropdownMenuItem.divider" ng-href="#transferStatement"
-                                    ng-click="selectItem()">Transfer Statement</a>
-                            </li>
-                            <li ng-class="{divider: dropdownMenuItem.divider, 'divider-label': dropdownMenuItem.divider &amp;&amp; dropdownMenuItem[dropdownItemLabel]}"
-                                ng-repeat="item in dropdownMenu" class="dropdown-item  ng-isolate-scope" dropdown-item-label="labelField"
-                                dropdown-menu-item="item">
-                                <a href="#changePassword" class="dropdown-item  " ng-if="!dropdownMenuItem.divider" ng-href="#changePassword"
-                                    ng-click="selectItem()">Change Password</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li> -->
                 <li>
                     <a href="" class="qa-logout" ng-click="logout()">
                         <i class="fas fa-sign-out-alt"></i>
@@ -134,6 +76,7 @@
                 </li>
             </ul>
         </div>
+      
     </div>
 
 </header>

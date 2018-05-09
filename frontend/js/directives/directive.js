@@ -102,5 +102,9 @@ myApp.directive('img', function ($compile, $parse) {
         };
     })
 
-
-;
+    .directive('accountbalance', function ($http, $filter) {
+        return {
+            templateUrl: 'views/directive/availble-balance.html',
+            link: function ($scope, element, attrs) {}
+        };
+    });

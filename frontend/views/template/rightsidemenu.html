@@ -1,33 +1,7 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="">
-            <div class="avilable-credit">
-                <uib-accordion close-others="oneAtATime">
-                    <div uib-accordion-group class="panel-default" is-open="status.open">
-                        <uib-accordion-heading>
-                            <span>
-                                <strong class="">Available Credit:</strong>
-                                <span class="value ">210.87</span>
-                            </span>
-                            <i class="pull-right icon-right fa" ng-class="{'fa-chevron-up': status.open, 'fa-chevron-down': !status.open}"></i>
-                        </uib-accordion-heading>
-                        <ul class="list-wrap shown -animate" ng-class="overviewClass">
-                            <li class="ng-binding">
-                                <strong class="ng-binding">Credit Limit:</strong>
-                                250.00
-                            </li>
-                            <li>
-                                <strong class="ng-binding">Winnings:</strong>
-                                <span ng-class="{'-negative': accountInfo.totalBalance < 0, '-positive': accountInfo.totalBalance > 0}" class="ng-binding -negative">-39.13</span>
-                            </li>
-                            <li>
-                                <strong class="ng-binding">Total Net Exposure:</strong>
-                                <span ng-class="{'-negative': accountInfo.deductedExposure !== 0}" class="ng-binding">0.00</span>
-                            </li>
-                        </ul>
-                    </div>
-                </uib-accordion>
-            </div>
+            <accountbalance></accountbalance>
             <div>
                 <div class="inner-right-pane">
                     <div class="user-settings">
