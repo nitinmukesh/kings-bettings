@@ -80,11 +80,38 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'IplCtrl'
         })
+        .state('tennis', {
+            url: "/tennis",
+            templateUrl: tempateURL,
+            controller: 'TennisCtrl'
+        })
+        .state('tennis-inner', {
+            url: "/tennis-inner",
+            templateUrl: tempateURL,
+            controller: 'TennisinnerCtrl'
+        })
+        .state('tennis-tournament', {
+            url: "/tennis-tournament",
+            templateUrl: tempateURL,
+            controller: 'TennisinnerCtrl'
+        })
+
         .state('ipl-inner', {
             url: "/ipl-inner",
             templateUrl: tempateURL,
             controller: 'IplInnerCtrl'
         })
+        .state('horse-racing', {
+            url: "/horse-racing",
+            templateUrl: tempateURL,
+            controller: 'HorseracingCtrl'
+        })
+        .state('greyhound-racing', {
+            url: "/greyhound-racing",
+            templateUrl: tempateURL,
+            controller: 'GreyhoundracingCtrl'
+        })
+
         .state('ipl-winner', {
             url: "/ipl-winner",
             templateUrl: tempateURL,

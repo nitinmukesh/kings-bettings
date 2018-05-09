@@ -358,3 +358,12 @@ header {
     text-align: center;
     padding: 10px;
 }
+
+.event-name-blue {
+    color: #1a69a4 !important;
+}
+
+.event-name-blue:hover {
+    color: #1a69a4 !important;
+    text-decoration: underline !important;
+}
