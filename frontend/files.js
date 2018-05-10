@@ -55,6 +55,7 @@ module.exports = [
   'frontend/views/content/placebet/placebet.js',
   'frontend/views/content/cricket/cricket.js',
   'frontend/views/content/cricket-inner/cricket-inner.js',
+  'frontend/views/content/common-inner/common-inner.js',
   'frontend/views/content/favourites/favourites.js',
   'frontend/views/content/ipl/ipl.js',
   'frontend/views/content/ipl-winner/ipl-winner.js',

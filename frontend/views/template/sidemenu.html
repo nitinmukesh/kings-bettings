@@ -1,33 +1,33 @@
 <div class="left-pane" ng-controller="headerCtrl">
     <aside class="menu">
         <nav class="tree-menu">
-            <div class="left-menu-inner  current-lvl-0">
-                <ul class="menu-column menu-lvl-0 sport-type" ng-if="currentUrl=='home' || !currentUrl">
+            <div class="left-menu-inner current-lvl-0">
+                <ul class="menu-column menu-lvl-0 sport-type" ng-if="currentUrl=='home' ||currentUrl=='favourites' || !currentUrl">
                     <li>
                         <a class=" favourites-link" ui-sref="favourites">
-                            <i class="favourites-icon fa fa-star "></i>
+                            <i class="favourites-icon far fa-star"></i>
                             <span class="link-name ">Favourites</span>
                         </a>
                     </li>
                     <li ui-sref="cricket">
                         <a class="menu-link sport-type-Cricket ">
-                            <i class="sport-icon fa fa-star "></i>
+                            <i class="sport-icon fa fa-star"></i>
                             <span class="link-name ">Cricket</span>
                         </a>
                     </li>
                     <li class="" ui-sref="football">
                         <a class="menu-link sport-type-Football ">
-                            <i class=" sport-icon fa fa-futbol "></i>
-                            <span class="link-name ng-binding  ">Football</span>
+                            <i class=" sport-icon fa fa-futbol"></i>
+                            <span class="link-name  ">Football</span>
                         </a>
                     </li>
                     <li class=" " ui-sref="tennis">
-                        <a class="menu-link sport-type-Tennis ">
-                            <i class="sport-icon fa fa-life-ring "></i>
-                            <span class="link-name ng-binding  ">Tennis</span>
+                        <a class="menu-link sport-type-Tennis">
+                            <i class="fas fa-baseball-ball sport-icon"></i>
+                            <span class="link-name  ">Tennis</span>
                         </a>
                     </li>
-                    <li class=" " ui-sref="horse-racing">
+                    <li class=" " ui-sref="horse_racing">
                         <a class="menu-link sport-type-Horse-Racing ">
                             <i class="sport-icon fa fa-life-ring "></i>
                             <span class="link-name ">Horse Racing</span>
@@ -40,37 +40,69 @@
                         </a>
                     </li>
                 </ul>
-                <ul class="menu-column menu-lvl-1 sport-type-Cricket " ng-if="currentUrl=='cricket' ">
+                <ul class="menu-column menu-lvl-1 sport-type-Cricket  previous-button" ng-if="(currentUrl!='home' || currentUrl!='favourites'|| currentUrl) && currentUrl!='common-inner'">
                     <li>
-                        <a ng-click="goback()" class="favourites-link ">
-                            <i class="favourites-icon apl-icon-star-o "></i>
+                        <a ui-sref="favourites" class="favourites-link ">
+                            <i class="far fa-star icon-style"></i>
                             <span class="link-name  ">Favourites</span>
                         </a>
                     </li>
                     <li ng-click="goback()">
-                        <a class="home-link ">
+                        <a class="home-link">
                             <i class="fas fa-home"></i>
-                            <span class="link-name  ">Sports</span>
+                            <span class="link-name">Sports</span>
                         </a>
                     </li>
                     <li class=" ">
-                        <a class="link-lvl-sport ng-binding " href="#/display/EVENT_TYPE/4 ">
+                        <a class="link-lvl-sport" href="#/display/EVENT_TYPE/4 ">
                             <i class="fas fa-baseball-ball"></i>
-                            Cricket
+                            <span class="link-name">{{submenu[currentUrl].name}}</span>
                         </a>
                     </li>
-                    <li ng-click="goback()" class=" ">
-                        <a class="link-lvl-prev ng-binding " ng-href="#/display/ROOT/0 " href="#/display/ROOT/0 ">
-                            <i class="fas fa-chevron-circle-left"></i>Previous
+                    <li ng-click="goback()">
+                        <a class="link-lvl-prev" ng-href="#/display/ROOT/0 " href="#/display/ROOT/0 ">
+                            <i class="fas fa-chevron-circle-left"></i>
+                            <span class="link-name">Previous</span>
                         </a>
                     </li>
-                    <li ng-repeat="node in menuLvlCurrent.children " class=" ">
-                        <a class="menu-link sport-type-Cricket " ng-class="{ selected: node.type==='RACE' &amp;&amp; selectedMenuId===n
-                    ode.id } " ng-href="#/display/GROUP/4/27918802.1 " href="#/display/GROUP/4/27918802.1 ">
-
-                            <i class="sport-icon apl-icon-sport-cricket "></i>
-                            <span ng-if="node.type !=='RACE' " class="link-name ng-binding  ">IPL</span>
-                            <i class="indicator-icon apl-icon-chevron-right "></i>
+                    <li class=" ">
+                        <a ui-sref="common-inner({id:$index,game:currentUrl})" class="menu-link sport-type-Cricket " ng-repeat="t in submenu[currentUrl].tournament track by $index">
+                            <i class="sport-icon apl-icon-sport-cricket"></i>
+                            <span class="link-name">{{t.name}}</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="menu-column menu-lvl-1 sport-type-Cricket  previous-button" ng-if="currentUrl=='common-inner'">
+                    <li>
+                        <a ui-sref="favourites" class="favourites-link ">
+                            <i class="far fa-star icon-style"></i>
+                            <span class="link-name  ">Favourites</span>
+                        </a>
+                    </li>
+                    <li ng-click="goback()">
+                        <a class="home-link">
+                            <i class="fas fa-home"></i>
+                            <span class="link-name">Sports</span>
+                        </a>
+                    </li>
+                    <li class=" ">
+                        <a class="link-lvl-sport" href="#/display/EVENT_TYPE/4 ">
+                            <i class="fas fa-baseball-ball"></i>
+                            <span class="link-name">{{submenu[currentgame].name}}</span>
+                        </a>
+                    </li>
+                    <li ng-click="goback()">
+                        <a class="link-lvl-prev" ng-href="#/display/ROOT/0 " href="#/display/ROOT/0 ">
+                            <i class="fas fa-chevron-circle-left"></i>
+                            <span class="link-name">Previous</span>
+                        </a>
+                    </li>
+                    <li class=" ">
+                        <a class="menu-link sport-type-Cricket " ng-repeat="t in submenu[currentgame].tournament[gameId].matches track by $index">
+                            <i class="sport-icon apl-icon-sport-cricket"></i>
+                            <span class="link-name">{{t.name}}</span>
+                            <i class="fas fa-chevron-right"></i>
                         </a>
                     </li>
                 </ul>

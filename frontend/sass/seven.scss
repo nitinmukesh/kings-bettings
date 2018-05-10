@@ -3850,12 +3850,12 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
 
 .left-menu-inner.going-next {
     transition: 0.4s ease-out;
-    transform: translateX(-178px);
+    transform: translateX(-188px);
 }
 
 .left-menu-inner.going-prev {
-    transition: 0.4s ease-out;
-    transform: translateX(178px);
+    transition: 0.5s ease-out;
+    transform: translateX(188px);
 }
 
 .left-menu-inner .sport-icon {
@@ -3904,7 +3904,7 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
     display: inline;
     float: none;
     margin-left: 10px;
-    top: 11px;
+    top: 8px;
     font-weight: bold;
 }
 
@@ -4047,6 +4047,10 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
     color: #c0c0c0;
 }
 
+.link-name {
+    padding: 0 5px;
+}
+
 .left-menu-inner .menu-column.sport-type-Greyhound-Racing .menu-link {
     color: #215867;
 }
@@ -4144,7 +4148,7 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
     color: #e4c41e;
     font-size: 18px;
     float: left;
-    width: 22px;
+    width: 35px;
     top: 13px;
     line-height: 16px;
 }
@@ -4158,7 +4162,7 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
 }
 
 .clock {
-    margin-top: 35px;
+    margin-top: 15px;
 }
 
 .clock>time.time {
@@ -4192,7 +4196,7 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
 
 .clock {
     color: #fff;
-    margin-top: 34px;
+    margin-top: 15px;
 }
 
 .clock>time.time {
@@ -5743,7 +5747,7 @@ apl-ref-info .ref-info dd {
 
 .one-click-bet-settings-wrapper,
 .one-click-bet-settings {
-    margin: 40px 0 5px;
+    margin: 20px 0 5px;
 }
 
 .one-click-bet-settings {

@@ -8450,7 +8450,7 @@ header {
 
 .available-bal accountbalance {
   float: right;
-  width: 25%; }
+  width: 28%; }
 
 /*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
@@ -11678,14 +11678,14 @@ aside.menu > nav.tree-menu > ul > li > ul > li {
 .left-menu-inner.going-next {
   -webkit-transition: 0.4s ease-out;
   transition: 0.4s ease-out;
-  -webkit-transform: translateX(-178px);
-          transform: translateX(-178px); }
+  -webkit-transform: translateX(-188px);
+          transform: translateX(-188px); }
 
 .left-menu-inner.going-prev {
-  -webkit-transition: 0.4s ease-out;
-  transition: 0.4s ease-out;
-  -webkit-transform: translateX(178px);
-          transform: translateX(178px); }
+  -webkit-transition: 0.5s ease-out;
+  transition: 0.5s ease-out;
+  -webkit-transform: translateX(188px);
+          transform: translateX(188px); }
 
 .left-menu-inner .sport-icon {
   display: none; }
@@ -11729,7 +11729,7 @@ aside.menu > nav.tree-menu > ul > li > ul > li {
   display: inline;
   float: none;
   margin-left: 10px;
-  top: 11px;
+  top: 8px;
   font-weight: bold; }
 
 .left-menu-inner .menu-lvl-0 .sport-icon {
@@ -11839,6 +11839,9 @@ aside.menu > nav.tree-menu > ul > li > ul > li {
 .left-menu-inner .menu-column.sport-type-Horse-Racing .grey-out.indicator-icon {
   color: #c0c0c0; }
 
+.link-name {
+  padding: 0 5px; }
+
 .left-menu-inner .menu-column.sport-type-Greyhound-Racing .menu-link {
   color: #215867; }
 
@@ -11919,7 +11922,7 @@ aside.menu > nav.tree-menu > ul > li > ul > li {
   color: #e4c41e;
   font-size: 18px;
   float: left;
-  width: 22px;
+  width: 35px;
   top: 13px;
   line-height: 16px; }
 
@@ -11930,7 +11933,7 @@ aside.menu > nav.tree-menu > ul > li > ul > li {
   background: #f1f1f1; }
 
 .clock {
-  margin-top: 35px; }
+  margin-top: 15px; }
 
 .clock > time.time {
   font-size: 20px;
@@ -11957,7 +11960,7 @@ aside.menu > nav.tree-menu > ul > li > ul > li {
 
 .clock {
   color: #fff;
-  margin-top: 34px; }
+  margin-top: 15px; }
 
 .clock > time.time {
   font-size: 15px;
@@ -13306,7 +13309,7 @@ apl-ref-info .ref-info dd {
 
 .one-click-bet-settings-wrapper,
 .one-click-bet-settings {
-  margin: 40px 0 5px; }
+  margin: 20px 0 5px; }
 
 .one-click-bet-settings {
   position: relative; }

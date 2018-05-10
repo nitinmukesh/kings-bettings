@@ -63,6 +63,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'CricketinnerCtrl'
         })
+        .state('common-inner', {
+            url: "/common-inner/:id/:game",
+            templateUrl: tempateURL,
+            controller: 'CommonInnerCtrl'
+        })
         .state('football', {
             url: "/football",
             templateUrl: tempateURL,
@@ -116,8 +121,8 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'IplInnerCtrl'
         })
-        .state('horse-racing', {
-            url: "/horse-racing",
+        .state('horse_racing', {
+            url: "/horse_racing",
             templateUrl: tempateURL,
             controller: 'HorseracingCtrl'
         })

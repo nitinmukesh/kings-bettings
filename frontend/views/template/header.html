@@ -1,57 +1,52 @@
-<header class="header position-relative">
+<header class="header">
     <div class="boxed-layout-wrapper">
         <div class="logo-area">
-            <div class="logo" ui-sref="home"></div>
+            <div class="logo" ng-click="homepage()"></div>
         </div>
-        <div class="clock ">
-            <ul class="linkbar navbar">
-                <li>
-                    <time timestamp="timestamp" type="simpleDate" class=" ng-isolate-scope">May 3, 2018</time>
-                </li>
-                <li>
-                    <time timestamp="timestamp" type="time" class="time  ng-isolate-scope">12:59:42</time>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        <span translate="" class="">(+05:30)</span>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">System time - (GMT +00:00)</a>
-                        <a class="dropdown-item" href="#">Your computer time - (GMT +05:30)</a>
-                        <a class="dropdown-item" href="#">India Standard time - (GMT +05:30)</a>
 
-                    </div>
-                </li>
-            </ul>
+        <div class="clock navbar">
+            <time timestamp="timestamp" type="simpleDate" class="ng-binding ng-isolate-scope">May 10, 2018</time>
+            <time timestamp="timestamp" type="time" class="time ng-binding ng-isolate-scope">18:12:57</time>
+
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <span translate="" class="">(+05:30)</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">System time - (GMT +00:00)</a>
+                    <a class="dropdown-item" href="#">Your computer time - (GMT +05:30)</a>
+                    <a class="dropdown-item" href="#">India Standard time - (GMT +05:30)</a>
+
+                </div>
+            </div>
         </div>
+
         <div class="infobar">
             <ul class="linkbar navbar">
                 <li class="search-container">
-                    <nav class="">
-                        <form class="form-inline">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1">
-                                        <i class="fas fa-search"></i>
-                                    </span>
+                    <div class="apl-form search">
+                        <div class="placeholder-wrapper ng-isolate-scope animatable">
+                            <div class="placeholder ng-binding">Search Events</div>
+                            <div>
+                                <div class="apl-form-icon ">
+                                    <i class="fas fa-search apl-icon-search"></i>
+                                    <input type="text" class="apl-form-large -qa-search-bar ng-pristine ng-untouched ng-valid ng-empty" apl-placeholder="Search Events">
                                 </div>
-                                <input type="text" class="form-control" placeholder="Search Events" aria-label="Username" aria-describedby="basic-addon1">
                             </div>
-                        </form>
-                    </nav>
+                        </div>
+                    </div>
 
                     <ul ng-show="searchText.name.length > 2 &amp;&amp; isSearchDropdownVisible" class="-qa-search-results ng-hide">
                         <li ng-if="searchResult.length === 0" class="-qa-item-name search-link ">
-                            <p class="">No events found matching ''</p>
+                            <p class="ng-binding">No events found matching ''</p>
                         </li>
-
                     </ul>
                 </li>
                 <li>
-                    <p class="">Logged in as hk0002</p>
-                    <p class="last-login ">Last logged in:
-                        <time timestamp="userData.user.lastLoginTime" type="dateSimpleTime" class=" ng-isolate-scope">03/05/2018 12:19</time>
+                    <p class="ng-binding">Logged in as hk0002</p>
+                    <p class="last-login ng-binding">Last logged in:
+                        <time timestamp="userData.user.lastLoginTime" type="dateSimpleTime" class="ng-binding ng-isolate-scope">10/05/2018 13:24</time>
                     </p>
                 </li>
                 <li class="nav-item dropdown">
@@ -76,7 +71,5 @@
                 </li>
             </ul>
         </div>
-      
     </div>
-
 </header>
