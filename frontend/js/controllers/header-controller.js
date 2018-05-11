@@ -16,7 +16,6 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     $scope.gameId = $stateParams.id;
     $scope.goback = function () {
         window.history.back();
-
         $(".previous-button").addClass("left-menu-inner going-prev");
 
     }
@@ -88,4 +87,6 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
             }]
         },
     }
+
+
 });

@@ -8259,7 +8259,12 @@ a.text-dark:hover, a.text-dark:focus {
   src: url("../fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/glyphicons-halflings-regular.woff2") format("woff2"), url("../fonts/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
 
 body {
-  background: #f6edf0; }
+  background: url(../img/bg.png) no-repeat;
+  background-size: 50%;
+  background-position: center center; }
+
+.content {
+  min-height: 75.5vh; }
 
 img.loading {
   text-align: center;
@@ -8333,9 +8338,6 @@ footer {
 
 .flex-direction-nav .flex-next {
   right: 10px !important; }
-
-.content {
-  min-height: 450px; }
 
 .img-full {
   width: 100%;
@@ -8452,7 +8454,138 @@ header {
   float: right;
   width: 28%; }
 
+.toggle-custom {
+  /*------ ADDED CSS ---------*/
+  /*--------- END --------*/ }
+  .toggle-custom .switch {
+    position: relative;
+    display: inline-block;
+    width: 55px;
+    height: 30px; }
+  .toggle-custom .switch input {
+    display: none; }
+  .toggle-custom .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px; }
+  .toggle-custom .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    border: 1px solid #d9d9d9;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%; }
+  .toggle-custom input:checked + .slider {
+    background-color: #155e16; }
+  .toggle-custom input:focus + .slider {
+    -webkit-box-shadow: 0 0 1px #2196F3;
+            box-shadow: 0 0 1px #2196F3; }
+  .toggle-custom input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    transform: translateX(25px); }
+  .toggle-custom .slider:after {
+    content: 'OFF';
+    color: #d9d9d9;
+    display: block;
+    position: absolute;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    top: 50%;
+    left: 65%;
+    font-size: 10px;
+    font-family: Verdana, sans-serif; }
+  .toggle-custom input:checked + .slider:after {
+    content: 'ON';
+    left: 30%; }
+
+.onclick-ani {
+  -webkit-animation: toggle-right 0s;
+          animation: toggle-right 0s; }
+
+@-webkit-keyframes toggle-right {
+  0% {
+    margin-left: -10px; }
+  100% {
+    margin-left: 0px; } }
+
+@keyframes toggle-right {
+  0% {
+    margin-left: -10px; }
+  100% {
+    margin-left: 0px; } }
+
+.one-betting {
+  font-size: 12px;
+  line-height: 32px;
+  height: 27px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.65); }
+
+@font-face {
+  font-family: 'Kingsbet';
+  src: url(../fonts/Kingsbet.eot);
+  src: url("../fonts/Kingsbet.eot?dqajku#iefix") format("embedded-opentype"), url("../fonts/Kingsbet.ttf?dqajku") format("truetype"), url("../fonts/Kingsbet.woff?dqajku") format("woff"), url("../fonts/Kingsbet.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'Kingsbet' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-kings_cricket:before {
+  content: "\e900"; }
+
+.icon-kings_football:before {
+  content: "\e901"; }
+
+.icon-kings_greyhound:before {
+  content: "\e902"; }
+
+.icon-kings_horseracing:before {
+  content: "\e903"; }
+
+.icon-kings_tennis:before {
+  content: "\e904"; }
+
 /*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css */
+@font-face {
+  font-family: Avenir;
+  src: url(../fonts/avenir/AEH.ttf); }
+
+@font-face {
+  font-family: Lato;
+  src: url(../fonts/Lato/Lato-Regular.ttf); }
+
+@font-face {
+  font-family: Verdana;
+  src: url(../fonts/verdana/Verdana.ttf); }
+
+@font-face {
+  font-family: Nunito;
+  src: url(../fonts/Nunito_Sans/NunitoSans-Regular.ttf); }
+
 /**
  * 1. Change the default font family in all browsers (opinionated).
  * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
@@ -11515,13 +11648,13 @@ header.header {
 
 header.header .logo-area {
   width: 178px;
-  padding: 34px 0 0 20px; }
+  padding: 15px 0 0 20px; }
 
 header.header .logo-area .logo {
-  background: url("https://member.play7s.com/d/2d173160cd10d0e5e8b78c5414e5bde8.png") no-repeat center center;
+  background: url("../img/logo.svg") no-repeat center center;
   background-size: contain;
   width: 100%;
-  height: 23px; }
+  height: 75px; }
 
 header.header .wrap-dd-menu .dropdown li a {
   color: #000; }
@@ -11716,7 +11849,7 @@ aside.menu > nav.tree-menu > ul > li > ul > li {
 .left-menu-inner .menu-lvl-0 .favourites-link .sport-icon,
 .left-menu-inner .menu-lvl-0 .menu-link .favourites-icon,
 .left-menu-inner .menu-lvl-0 .favourites-link .favourites-icon {
-  font-size: 30px;
+  font-size: 20px;
   display: inline;
   float: none;
   position: relative;
@@ -11728,7 +11861,6 @@ aside.menu > nav.tree-menu > ul > li > ul > li {
   position: relative;
   display: inline;
   float: none;
-  margin-left: 10px;
   top: 8px;
   font-weight: bold; }
 
@@ -12003,7 +12135,6 @@ aside.menu > nav.tree-menu > ul > li > ul > li {
   overflow: hidden;
   z-index: 1;
   position: relative;
-  min-height: 420px;
   height: calc(100% - 103px);
   width: 100%;
   padding: 0; }
@@ -12304,10 +12435,10 @@ input[type="text"].ng-invalid {
   margin-bottom: 20px; }
 
 .login-form .login-panel .panel-heading .logo {
-  background: url("https://member.play7s.com/d/2d173160cd10d0e5e8b78c5414e5bde8.png") no-repeat center center;
+  background: url("../img/logo.svg") no-repeat center center;
   background-size: contain;
   width: 100%;
-  height: 49px; }
+  height: 75px; }
 
 .login-form .login-panel .panel-body .form-group {
   margin-bottom: 5px; }
@@ -13432,7 +13563,6 @@ apl-ref-info .ref-info dd {
   background: rgba(29, 127, 30, 0.1);
   border: 2px solid #1d7f1e;
   width: 54px;
-  line-height: 22px;
   min-height: 22px;
   margin-right: 9px; }
 

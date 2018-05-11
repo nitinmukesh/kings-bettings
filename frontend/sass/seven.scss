@@ -2,6 +2,26 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900,900italic);
 /*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css */
 
+@font-face {
+    font-family: Avenir;
+    src: url(../fonts/avenir/AEH.ttf);
+}
+
+@font-face {
+    font-family: Lato;
+    src: url(../fonts/Lato/Lato-Regular.ttf);
+}
+
+@font-face {
+    font-family: Verdana;
+    src: url(../fonts/verdana/Verdana.ttf);
+}
+
+@font-face {
+    font-family: Nunito;
+    src: url(../fonts/Nunito_Sans/NunitoSans-Regular.ttf);
+}
+
 /**
  * 1. Change the default font family in all browsers (opinionated).
  * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
@@ -3656,14 +3676,14 @@ header.header {
 
 header.header .logo-area {
     width: 178px;
-    padding: 34px 0 0 20px;
+    padding: 15px 0 0 20px;
 }
 
 header.header .logo-area .logo {
-    background: url("https://member.play7s.com/d/2d173160cd10d0e5e8b78c5414e5bde8.png") no-repeat center center;
+    background: url("../img/logo.svg") no-repeat center center;
     background-size: contain;
     width: 100%;
-    height: 23px;
+    height: 75px;
 }
 
 header.header .wrap-dd-menu .dropdown li a {
@@ -3890,7 +3910,7 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
 .left-menu-inner .menu-lvl-0 .favourites-link .sport-icon,
 .left-menu-inner .menu-lvl-0 .menu-link .favourites-icon,
 .left-menu-inner .menu-lvl-0 .favourites-link .favourites-icon {
-    font-size: 30px;
+    font-size: 20px;
     display: inline;
     float: none;
     position: relative;
@@ -3902,8 +3922,7 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
 .left-menu-inner .menu-lvl-0 .favourites-link .link-name {
     position: relative;
     display: inline;
-    float: none;
-    margin-left: 10px;
+    float: none; // margin-left: 10px;
     top: 8px;
     font-weight: bold;
 }
@@ -4243,8 +4262,7 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
     margin: auto;
     overflow: hidden;
     z-index: 1;
-    position: relative;
-    min-height: 420px;
+    position: relative; // min-height: 420px;
     height: calc(100% - 103px);
     width: 100%;
     padding: 0;
@@ -4590,10 +4608,10 @@ input[type="text"].ng-invalid {
 }
 
 .login-form .login-panel .panel-heading .logo {
-    background: url("https://member.play7s.com/d/2d173160cd10d0e5e8b78c5414e5bde8.png") no-repeat center center;
+    background: url("../img/logo.svg") no-repeat center center;
     background-size: contain;
     width: 100%;
-    height: 49px;
+    height: 75px;
 }
 
 .login-form .login-panel .panel-body .form-group {
@@ -5884,8 +5902,7 @@ apl-ref-info .ref-info dd {
     color: #000;
     background: rgba(29, 127, 30, 0.1);
     border: 2px solid #1d7f1e;
-    width: 54px;
-    line-height: 22px;
+    width: 54px; // line-height: 22px;
     min-height: 22px;
     margin-right: 9px;
 }

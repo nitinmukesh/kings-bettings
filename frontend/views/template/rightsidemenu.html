@@ -7,17 +7,20 @@
                     <div class="user-settings">
                         <div class="one-click-bet-settings-wrapper">
                             <div class="one-click-bet-settings _clearfix select-mode-on one-click-active">
-                                <div class="small one-click-switch ng-isolate-scope">
-                                    <div class="toggle-bg toggle-alternate on">
-                                        <label class="on">on</label>
-                                        <input type="radio" name="toggle" value="false">
-                                        <input type="radio" name="toggle" value="true">
-                                        <span class="switch on"></span>
-                                    </div>
+
+                                <div class="toggle-custom">
+                                    <label class="switch">
+                                        <input type="checkbox" id="togBtn" ng-model="onebetting">
+                                        <div class="slider round"></div>
+                                    </label>
+
                                 </div>
 
-                                <div class="one-click-settings-animation-wrap">
-                                    <strong class="one-click-title " translate="">1 Click Betting</strong>
+                                <div class="one-betting" ng-if="!onebetting">
+                                    <strong class="">1 Click Betting</strong>
+                                </div>
+                                <div class="one-click-settings-animation-wrap onclick-ani" ng-if="onebetting">
+
                                     <div class="apl-form one-click-bet-form">
                                         <div class="select-mode-fields">
                                             <ul class="settings-list">
@@ -41,7 +44,7 @@
                     </div>
                     <div class="bet-manager">
                         <h4>Betslip</h4>
-                        <uib-tabset active="activePill" vertical="true" type="pills">
+                        <uib-tabset active="activePill" vertical="true" type="pills" class="betslip">
                             <uib-tab index="0" heading="Betslip">
                                 <p class="betslip-content">Click on the odds to add selections to the betslip.</p>
                             </uib-tab>
@@ -170,9 +173,9 @@
                                                                             <div class="selection-name ">Kings XI Punjab</div>
                                                                             <div class="bet-header grouped">
                                                                                 <span class="market-name ng-binding">Match Odds</span>
-                                                                                <span class="odds " translate="">Odds</span>
-                                                                                <span translate="" class="">Stake</span>
-                                                                                <span translate="" class="">Profit/Liability</span>
+                                                                                <span class="odds ">Odds</span>
+                                                                                <span class="">Stake</span>
+                                                                                <span class="">Profit/Liability</span>
                                                                             </div>
                                                                         </div>
                                                                         <li class="" ng-if="Consolidate">
