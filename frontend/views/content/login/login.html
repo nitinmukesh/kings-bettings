@@ -1,0 +1,25 @@
+<div class="-full-size login-view ng-scope">
+    <div class="login-form">
+        <div class="login-panel panel panel-default">
+            <div class="panel-heading">
+                <div class="logo"></div>
+            </div>
+            <div class="panel-body">
+                <form class="apl-form ng-pristine ng-valid" name="loginForm" ng-submit="userLogin(credentials)">
+                    <fieldset>
+                        <div class="form-group">
+                            <input autocomplete="off" type="text" placeholder="Username" name="loginName" class="apl-form-large form-control login-field input-username ng-pristine ng-valid ng-empty ng-touched"
+                                autofocus="" ng-model="credentials.username">
+                        </div>
+                        <div class="form-group">
+                            <input autocomplete="off" class="apl-form-large form-control input-password ng-pristine ng-untouched ng-valid ng-empty" placeholder="Password"
+                                name="password" type="password" ng-model="credentials.password">
+                        </div>
+                        <button name="login" class="apl-btn apl-btn-secondary apl-btn-large btn-login" type="submit">Login</button>
+                    </fieldset>
+                </form>
+                <!-- ngRepeat: errMsg in errorList -->
+            </div>
+        </div>
+    </div>
+</div>

@@ -43,6 +43,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: accountTempateURL,
             controller: 'ChangepasswordCtrl'
         })
+        .state('login', {
+            url: "/login",
+            templateUrl: accountTempateURL,
+            controller: 'LoginCtrl'
+        })
         .state('profit-loss', {
             url: "/profit-loss",
             templateUrl: accountTempateURL,

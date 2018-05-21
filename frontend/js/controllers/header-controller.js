@@ -18,7 +18,7 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         window.history.back();
         $(".previous-button").addClass("left-menu-inner going-prev");
 
-    }
+    };
     $scope.submenu = {
         cricket: {
             sport: "cricket",
@@ -86,7 +86,12 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
                 }]
             }]
         },
-    }
+    };
+
+    $scope.logout = function () {
+        $.jStorage.flush("accessToken");
+        $state.go('login');
+    };
 
 
 });

@@ -8,6 +8,8 @@ module.exports = [
   'bower_components/smart-app-banner/smart-app-banner.js',
   "bower_components/moment/min/moment.min.js",
   "bower_components/font-awesome/svg-with-js/js/fontawesome-all.min.js",
+  'bower_components/jStorage/jstorage.js',
+
 
 
   //Angular Libs
@@ -65,6 +67,7 @@ module.exports = [
   'frontend/views/content/football-league/football-league.js',
   'frontend/views/content/football-fixtures/football-fixtures.js',
   'frontend/views/content/tennis/tennis.js',
+  'frontend/views/content/login/login.js',
   'frontend/views/content/profit-loss/profit-loss.js',
   'frontend/views/content/tennis-inner/tennis-inner.js',
   'frontend/views/content/tennis-tournament/tennis-tournament.js',

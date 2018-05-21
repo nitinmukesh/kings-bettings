@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header" ng-controller="headerCtrl">
     <div class="boxed-layout-wrapper">
         <div class="logo-area">
             <div class="logo" ui-sref="home"></div>
@@ -11,7 +11,7 @@
             <div class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
-                    <span translate="" class="">(+05:30)</span>
+                    <span class="">(+05:30)</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">System time - (GMT +00:00)</a>
@@ -53,7 +53,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                         <i class="fas fa-cog"></i>
-                        <span translate="" class="">Account</span>
+                        <span class="">Account</span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" ui-sref="mybet">My Bets</a>
@@ -64,9 +64,9 @@
                     </div>
                 </li>
                 <li>
-                    <a href="" class="qa-logout" ng-click="logout()">
+                    <a href="" class="qa-logout">
                         <i class="fas fa-sign-out-alt"></i>
-                        <span translate="" class="">Logout</span>
+                        <span class="" ng-click="logout()">Logout</span>
                     </a>
                 </li>
             </ul>
