@@ -4,6 +4,10 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
     });
+
+    if (!$.jStorage.get("accessToken")) {
+        $state.go('login');
+    }
     $scope.oneAtATime = true;
     $.fancybox.close(true);
     $scope.status = {
