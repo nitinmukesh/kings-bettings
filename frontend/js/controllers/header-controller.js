@@ -97,5 +97,4 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         $state.go('login');
     };
 
-
 });
