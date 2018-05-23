@@ -14,7 +14,9 @@ var myApp = angular.module('myApp', [
 // Define all the routes below
 myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
     var tempateURL = "views/template/template.html"; //Default Template URL
-    var accountTempateURL = "views/template/account-template.html"; //Default Template URL
+    var accountTempateURL = "views/template/account-template.html";
+    var loginTempateURL = "views/template/login-template.html"
+    //Default Template URL
     // for http request with session
     $httpProvider.defaults.withCredentials = true;
     $stateProvider
@@ -45,7 +47,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
         })
         .state('login', {
             url: "/login",
-            templateUrl: accountTempateURL,
+            templateUrl: loginTempateURL,
             controller: 'LoginCtrl'
         })
         .state('profit-loss', {
