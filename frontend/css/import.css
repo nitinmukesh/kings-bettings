@@ -8263,6 +8263,9 @@ body {
   background-size: 50%;
   background-position: center center; }
 
+.height-100 {
+  height: 100vh; }
+
 .content {
   min-height: 75.5vh; }
 
