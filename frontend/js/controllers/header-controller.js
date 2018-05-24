@@ -1,6 +1,6 @@
 myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, $state) {
     $scope.template = TemplateService;
-
+    console.log("in header controller header");
     $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
     });
@@ -21,7 +21,6 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     $scope.goback = function () {
         window.history.back();
         $(".previous-button").addClass("left-menu-inner going-prev");
-
     };
     $scope.submenu = {
         cricket: {
