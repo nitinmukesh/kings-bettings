@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" ng-controller="rightSideMenuCtrl">
     <div class="col-sm-12">
         <div class="">
             <accountbalance></accountbalance>
@@ -7,20 +7,16 @@
                     <div class="user-settings">
                         <div class="one-click-bet-settings-wrapper">
                             <div class="one-click-bet-settings _clearfix select-mode-on one-click-active">
-
                                 <div class="toggle-custom">
                                     <label class="switch">
                                         <input type="checkbox" id="togBtn" ng-model="onebetting">
                                         <div class="slider round"></div>
                                     </label>
-
                                 </div>
-
                                 <div class="one-betting">
                                     <strong class="">1 Click Betting</strong>
                                 </div>
                                 <div class="one-click-settings-animation-wrap onclick-ani">
-
                                     <div class="apl-form one-click-bet-form">
                                         <div class="select-mode-fields">
                                             <ul class="settings-list">
@@ -36,7 +32,6 @@
                                             </ul>
                                             <button class="apl-btn apl-btn-primary apl-btn-small btn-one-click-edit _pull-right">Edit</button>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -47,134 +42,85 @@
                         <uib-tabset active="activePill" vertical="true" type="pills" class="betslip">
                             <uib-tab index="0" heading="Betslip">
                                 <p class="betslip-content">Click on the odds to add selections to the betslip.</p>
-                                <ul class="content">
-
+                                <ul class="content" style="overflow-y:scroll">
                                     <li id="tab-betslip" class="tab-betslip" style="height: 18px; min-height: 18px;">
-                                        <div class="bets betslip ng-isolate-scope has-bets" ng-class="!isActive ? 'has-empty-message' : 'has-bets'">
-
-                                            <div ng-switch="isActive">
-
-                                                <div ng-switch-default="" class="">
+                                        <div class="bets betslip  has-bets">
+                                            <div>
+                                                <div class="">
                                                     <div class="betslipContent">
-                                                        <form name="betslipForm" novalidate="" ng-submit="placeBets(betslipForm.$valid)" class="apl-form ng-pristine ng-valid-required ng-invalid ng-invalid-apl-valid-credit ng-invalid-apl-valid-odds">
-                                                            <ul class="fail-messages generic-error ng-hide">
-
-                                                            </ul>
-
+                                                        <form name="betslipForm" class="">
                                                             <div class="">
                                                                 <h6 class="bet-type-info back ">Back</h6>
-
                                                                 <ul class="market-list">
-
                                                                     <li class="">
                                                                         <a ng-href="#/display/EVENT/4/28737503" tabindex="-1" class="event-name" href="#/display/EVENT/4/28737503">
-                                                                            <span date-string="event.name" timestamp="event.bets[0].startTime" class="ng-binding ng-isolate-scope">Sunrisers Hyderabad v Chennai Super Kings</span>
+                                                                            <span date-string="event.name" class=" ">Sunrisers Hyderabad v Chennai Super Kings</span>
                                                                         </a>
                                                                         <ul class="bets-list">
                                                                             <li class="">
                                                                                 <div class="bet back">
-                                                                                    <span class="selection-name ng-binding"> Sunrisers Hyderabad </span>
+                                                                                    <span class="selection-name">Sunrisers Hyderabad </span>
                                                                                     <div class="bet-fields">
-
-                                                                                        <div class="odds-field placeholder-wrapper  ng-isolate-scope activated animatable">
-                                                                                            <div class="placeholder ng-binding">Odds</div>
+                                                                                        <div class="odds-field placeholder-wrapper activated animatable">
+                                                                                            <div class="placeholder">Odds</div>
                                                                                             <div>
-                                                                                                <div class="step-input-wrapper  ng-isolate-scope" number-stepper-input-read-only="isSubmitted" number-stepper-input-value="bet.price"
-                                                                                                    number-stepper-input-options="stepOptions"
-                                                                                                    number-stepper-input-auto-round="up"
-                                                                                                    number-stepper-input-has-error="bet.hasError"
-                                                                                                    number-stepper-input-blur="update(bet)"
-                                                                                                    number-stepper-input-focus="onFocus(bet)"
-                                                                                                    number-stepper-input-change="validateOdds(bet)"
-                                                                                                    number-stepper-input-placeholder="Odds"
-                                                                                                    number-stepper-input-is-latest="bet.isLatest">
-                                                                                                    <input class="step-input ng-pristine  ng-not-empty ng-valid-required ng-valid-apl-valid-credit ng-touched ng-invalid ng-invalid-apl-valid-odds"
-                                                                                                        type="text" ng-model="value"
-                                                                                                        input-restrict="{type: 'decimal', allowNegative: false}"
-                                                                                                        apl-placeholder="Odds"
-                                                                                                        ng-blur="onBlur()" ng-focus="onFocus()"
-                                                                                                        ng-keyup="onKeyUp($event)"
-                                                                                                        ng-change="onChange()"
-                                                                                                        ng-readonly="false" has-error="true"
-                                                                                                        ng-class="class" ng-required=""
-                                                                                                        name="" apl-valid-credit=""
-                                                                                                        apl-valid-odds="">
+                                                                                                <div class="step-input-wrapper">
+                                                                                                    <input class="step-input" type="text">
                                                                                                     <div class="button-wrapper">
                                                                                                         <button type="button" class="step-up" tabindex="-1">
-                                                                                                            <i class="apl-icon-angle-up"></i>
+                                                                                                            <i class="fas fa-angle-up"></i>
                                                                                                         </button>
                                                                                                         <button type="button" class="step-down" tabindex="-1">
-                                                                                                            <i class="apl-icon-angle-down"></i>
+
+                                                                                                            <i class="fas fa-angle-down"></i>
                                                                                                         </button>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
-
-                                                                                        <div class="placeholder-wrapper ng-isolate-scope animatable">
-                                                                                            <div class="placeholder ng-binding">Stake</div>
+                                                                                        <div class="placeholder-wrapper animatable">
+                                                                                            <div class="placeholder ">Stake</div>
                                                                                             <div>
-                                                                                                <input type="text" name="stakeRef_0" class="-qa-bet-stake-input stakeRef_0 ng-empty ng-invalid ng-invalid-apl-valid-credit apl-form-invalid ng-valid-required"
-                                                                                                    apl-valid-credit="" ng-change="update(bet)"
-                                                                                                    ng-focus="onFocus(bet)" step="0.01"
-                                                                                                    apl-placeholder="Stake" ng-required=""
-                                                                                                    ng-min="0.01">
+                                                                                                <input type="text" name="stakeRef_0" class="-qa-bet-stake-input stakeRef_0 ng-empty ng-invalid ng-invalid-apl-valid-credit apl-form-invalid ng-valid-required">
                                                                                             </div>
                                                                                         </div>
-
                                                                                         <div class="info-field ">
                                                                                             <span class="title ">Profit</span>
-                                                                                            <span class="value ng-binding" ng-init="calculatePL(bet);">0.00</span>
+                                                                                            <span class="value " ng-init="calculatePL(bet);">0.00</span>
                                                                                         </div>
-
                                                                                         <div class="control-fields">
                                                                                             <button type="button" class="apl-btn apl-btn-mini apl-btn-remove" analytics-on="" analytics-event="Remove Bet" analytics-category="Bet Slip"
-                                                                                                analytics-label="Back" ng-click="removeBet(bet)"
-                                                                                                tabindex="-1">
-                                                                                                <i class="apl-icon-remove"></i>
+                                                                                                analytics-label="Back" tabindex="-1">
+                                                                                                <i class="fas fa-times"></i>
                                                                                             </button>
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div name="stakes_3" class="six-stakes back ng-scope">
+                                                                                    <div name="stakes_3" class="six-stakes back">
                                                                                         <div class="first-row">
-
-                                                                                            <button ng-click="addStake(stake, bet)" type="button" tabindex="-1" class="apl-btn btn apl-btn-secondary-alt ng-binding ng-scope"
-                                                                                                analytics-on="" analytics-event="Add Default Stake"
+                                                                                            <button type="button" tabindex="-1" class="apl-btn btn apl-btn-secondary-alt " analytics-on="" analytics-event="Add Default Stake"
                                                                                                 analytics-category="Bet Slip"
                                                                                                 analytics-label="Stake 25">+25</button>
-
-                                                                                            <button ng-click="addStake(stake, bet)" type="button" tabindex="-1" class="apl-btn btn apl-btn-secondary-alt ng-binding ng-scope"
-                                                                                                analytics-on="" analytics-event="Add Default Stake"
+                                                                                            <button type="button" tabindex="-1" class="apl-btn btn apl-btn-secondary-alt " analytics-on="" analytics-event="Add Default Stake"
                                                                                                 analytics-category="Bet Slip"
                                                                                                 analytics-label="Stake 50">+50</button>
-
-                                                                                            <button ng-click="addStake(stake, bet)" type="button" tabindex="-1" class="apl-btn btn apl-btn-secondary-alt ng-binding ng-scope"
-                                                                                                analytics-on="" analytics-event="Add Default Stake"
+                                                                                            <button type="button" tabindex="-1" class="apl-btn btn apl-btn-secondary-alt " analytics-on="" analytics-event="Add Default Stake"
                                                                                                 analytics-category="Bet Slip"
                                                                                                 analytics-label="Stake 100">+100</button>
-
                                                                                             <button type="button" ng-click="maxStake('back', bet)" tabindex="-1" class="apl-btn btn apl-btn-secondary-alt" analytics-on=""
                                                                                                 analytics-event="Add Default Stake"
                                                                                                 analytics-category="Bet Slip"
                                                                                                 analytics-label="Stake MAX">MAX</button>
                                                                                         </div>
                                                                                         <div class="second-row">
-
-                                                                                            <button ng-click="addStake(stake, bet)" type="button" tabindex="-1" class="apl-btn btn apl-btn-secondary-alt ng-binding ng-scope"
-                                                                                                analytics-on="" analytics-event="Add Default Stake"
+                                                                                            <button type="button" tabindex="-1" class="apl-btn btn apl-btn-secondary-alt " analytics-on="" analytics-event="Add Default Stake"
                                                                                                 analytics-category="Bet Slip"
                                                                                                 analytics-label="Stake 150">+150</button>
-
-                                                                                            <button ng-click="addStake(stake, bet)" type="button" tabindex="-1" class="apl-btn btn apl-btn-secondary-alt ng-binding ng-scope"
-                                                                                                analytics-on="" analytics-event="Add Default Stake"
+                                                                                            <button type="button" tabindex="-1" class="apl-btn btn apl-btn-secondary-alt " analytics-on="" analytics-event="Add Default Stake"
                                                                                                 analytics-category="Bet Slip"
                                                                                                 analytics-label="Stake 200">+200</button>
-
-                                                                                            <button ng-click="addStake(stake, bet)" type="button" tabindex="-1" class="apl-btn btn apl-btn-secondary-alt ng-binding ng-scope"
-                                                                                                analytics-on="" analytics-event="Add Default Stake"
+                                                                                            <button type="button" tabindex="-1" class="apl-btn btn apl-btn-secondary-alt " analytics-on="" analytics-event="Add Default Stake"
                                                                                                 analytics-category="Bet Slip"
                                                                                                 analytics-label="Stake 250">+250</button>
-
                                                                                             <button type="button" ng-click="clearStake(bet)" tabindex="-1" class="apl-btn btn apl-btn-link" analytics-on="" analytics-event="Clear Stake"
                                                                                                 analytics-category="Bet Slip"
                                                                                                 analytics-label="Stake Clear">Clear</button>
@@ -182,33 +128,26 @@
                                                                                     </div>
                                                                                 </div>
                                                                             </li>
-
                                                                         </ul>
                                                                     </li>
-
                                                                 </ul>
                                                             </div>
-
                                                             <div class="">
                                                                 <h6 class="bet-type-info lay ">Lay</h6>
                                                                 <ul class="market-list">
-
                                                                     <li class="">
                                                                         <a ng-href="#/display/EVENT/4/28737503" tabindex="-1" class="event-name" href="#/display/EVENT/4/28737503">
-                                                                            <span date-string="event.name" timestamp="event.bets[0].startTime" class="ng-binding ng-isolate-scope">Sunrisers Hyderabad v Chennai Super Kings</span>
+                                                                            <span date-string="event.name" timestamp="event.bets[0].startTime" class=" ">Sunrisers Hyderabad v Chennai Super Kings</span>
                                                                         </a>
                                                                         <ul class="bets-list">
-
                                                                             <li class="">
                                                                                 <div class="bet lay">
-                                                                                    <span class="selection-name ng-binding">Sunrisers Hyderabad</span>
+                                                                                    <span class="selection-name">Sunrisers Hyderabad</span>
                                                                                     <div class="bet-fields">
-
-                                                                                        <div class="odds-field placeholder-wrapper  ng-isolate-scope activated animatable">
-                                                                                            <div class="placeholder ng-binding">Odds</div>
+                                                                                        <div class="odds-field placeholder-wrapper   activated animatable">
+                                                                                            <div class="placeholder ">Odds</div>
                                                                                             <div>
-                                                                                                <div class="step-input-wrapper  ng-isolate-scope" number-stepper-input-read-only="isSubmitted" number-stepper-input-value="bet.price"
-                                                                                                    number-stepper-input-options="stepOptions"
+                                                                                                <div class="step-input-wrapper  " number-stepper-input-read-only="isSubmitted" number-stepper-input-value="bet.price" number-stepper-input-options="stepOptions"
                                                                                                     number-stepper-input-auto-round="down"
                                                                                                     number-stepper-input-has-error="bet.hasError"
                                                                                                     number-stepper-input-blur="update(bet)"
@@ -216,114 +155,84 @@
                                                                                                     number-stepper-input-change="validateOdds(bet)"
                                                                                                     number-stepper-input-placeholder="Odds"
                                                                                                     number-stepper-input-is-latest="bet.isLatest">
-                                                                                                    <input class="step-input ng-pristine  ng-not-empty ng-valid-required ng-valid-apl-valid-credit ng-invalid ng-invalid-apl-valid-odds ng-touched"
-                                                                                                        type="text" ng-model="value"
-                                                                                                        input-restrict="{type: 'decimal', allowNegative: false}"
-                                                                                                        apl-placeholder="Odds"
-                                                                                                        ng-blur="onBlur()" ng-focus="onFocus()"
-                                                                                                        ng-keyup="onKeyUp($event)"
-                                                                                                        ng-change="onChange()"
-                                                                                                        ng-readonly="false" has-error="true"
-                                                                                                        ng-class="class" ng-required=""
-                                                                                                        name="" apl-valid-credit=""
-                                                                                                        apl-valid-odds="">
+                                                                                                    <input class="step-input" type="text">
                                                                                                     <div class="button-wrapper">
                                                                                                         <button type="button" class="step-up" tabindex="-1">
-                                                                                                            <i class="apl-icon-angle-up"></i>
+                                                                                                            <i class="fas fa-angle-up"></i>
                                                                                                         </button>
                                                                                                         <button type="button" class="step-down" tabindex="-1">
-                                                                                                            <i class="apl-icon-angle-down"></i>
+                                                                                                            <i class="fas fa-angle-down"></i>
                                                                                                         </button>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
-
-                                                                                        <div class="placeholder-wrapper ng-isolate-scope animatable">
-                                                                                            <div class="placeholder ng-binding">Stake</div>
+                                                                                        <div class="placeholder-wrapper  animatable">
+                                                                                            <span class="title ">Stake</span>
+                                                                                            <!-- <div class="placeholder ">Stake</div> -->
                                                                                             <div>
                                                                                                 <input type="text" name="stakeRef_1" class="-qa-bet-stake-input stakeRef_1 ng-empty ng-invalid ng-invalid-apl-valid-credit apl-form-invalid ng-valid-required"
-                                                                                                    apl-valid-credit="" ng-change="update(bet)"
-                                                                                                    ng-focus="onFocus(bet)" step="0.01"
-                                                                                                    apl-placeholder="Stake" ng-required=""
-                                                                                                    ng-min="0.01" ng-class="{ 'apl-form-invalid': betslipForm.stakeRef_1.$invalid }">
+                                                                                                    step="0.01" apl-placeholder="Stake"
+                                                                                                    ng-min="0.01">
                                                                                             </div>
                                                                                         </div>
-
                                                                                         <div class="info-field ">
                                                                                             <span class="title ">Liability</span>
-                                                                                            <span class="value ng-binding" ng-init="calculatePL(bet);">0.00</span>
+                                                                                            <span class="value " ng-init="calculatePL(bet);">0.00</span>
                                                                                         </div>
-
                                                                                         <div class="control-fields">
                                                                                             <button type="button" class="apl-btn apl-btn-mini apl-btn-remove" analytics-on="" analytics-event="Remove Bet" analytics-category="Bet Slip"
                                                                                                 analytics-label="Lay" ng-click="removeBet(bet)"
                                                                                                 tabindex="-1">
-                                                                                                <i class="apl-icon-remove"></i>
+                                                                                                <i class="fas fa-times"></i>
                                                                                             </button>
                                                                                         </div>
                                                                                     </div>
-
                                                                                     <div name="stakes_1" class="six-stakes lay ">
                                                                                         <div class="first-row">
-
-                                                                                            <button ng-click="" type="button" tabindex="-1" class="apl-btn apl-btn-secondary-alt ng-binding " analytics-on="" analytics-event="Add Default Stake"
+                                                                                            <button type="button" tabindex="-1" class="apl-btn apl-btn-secondary-alt  " analytics-on="" analytics-event="Add Default Stake"
                                                                                                 analytics-category="Bet Slip"
                                                                                                 analytics-label="Stake 25">+25</button>
-
-                                                                                            <button ng-click="" type="button" tabindex="-1" class="apl-btn apl-btn-secondary-alt ng-binding " analytics-on="" analytics-event="Add Default Stake"
+                                                                                            <button type="button" tabindex="-1" class="apl-btn apl-btn-secondary-alt  " analytics-on="" analytics-event="Add Default Stake"
                                                                                                 analytics-category="Bet Slip"
                                                                                                 analytics-label="Stake 50">+50</button>
-
-                                                                                            <button ng-click="" type="button" tabindex="-1" class="apl-btn apl-btn-secondary-alt ng-binding " analytics-on="" analytics-event="Add Default Stake"
+                                                                                            <button type="button" tabindex="-1" class="apl-btn apl-btn-secondary-alt  " analytics-on="" analytics-event="Add Default Stake"
                                                                                                 analytics-category="Bet Slip"
                                                                                                 analytics-label="Stake 100">+100</button>
-
                                                                                             <button type="button" ng-click="maxStake('lay', bet)" tabindex="-1" class="apl-btn apl-btn-secondary-alt" analytics-on=""
                                                                                                 analytics-event="Add Default Stake"
                                                                                                 analytics-category="Bet Slip"
                                                                                                 analytics-label="Stake MAX">MAX</button>
                                                                                         </div>
                                                                                         <div class="second-row">
-
-                                                                                            <button ng-click="" type="button" tabindex="-1" class="apl-btn apl-btn-secondary-alt ng-binding " analytics-on="" analytics-event="Add Default Stake"
+                                                                                            <button type="button" tabindex="-1" class="apl-btn apl-btn-secondary-alt" analytics-on="" analytics-event="Add Default Stake"
                                                                                                 analytics-category="Bet Slip"
                                                                                                 analytics-label="Stake 150">+150</button>
-
-                                                                                            <button ng-click="" type="button" tabindex="-1" class="apl-btn apl-btn-secondary-alt ng-binding " analytics-on="" analytics-event="Add Default Stake"
+                                                                                            <button type="button" tabindex="-1" class="apl-btn apl-btn-secondary-alt" analytics-on="" analytics-event="Add Default Stake"
                                                                                                 analytics-category="Bet Slip"
                                                                                                 analytics-label="Stake 200">+200</button>
-
-                                                                                            <button ng-click="" type="button" tabindex="-1" class="apl-btn apl-btn-secondary-alt ng-binding " analytics-on="" analytics-event="Add Default Stake"
+                                                                                            <button type="button" tabindex="-1" class="apl-btn apl-btn-secondary-alt" analytics-on="" analytics-event="Add Default Stake"
                                                                                                 analytics-category="Bet Slip"
                                                                                                 analytics-label="Stake 250">+250</button>
-
                                                                                             <button type="button" ng-click="clearStake(bet)" tabindex="-1" class="apl-btn apl-btn-link" analytics-on="" analytics-event="Clear Stake"
                                                                                                 analytics-category="Bet Slip"
                                                                                                 analytics-label="Stake Clear">Clear</button>
                                                                                         </div>
                                                                                     </div>
-
                                                                                 </div>
                                                                             </li>
-
                                                                         </ul>
                                                                     </li>
-
                                                                 </ul>
                                                             </div>
-
-                                                            <p class="summary-info ng-binding">Liability: 0.00</p>
-
+                                                            <p class="summary-info ">Liability: 0.00</p>
                                                             <div class="summary-buttons _align-right ">
-                                                                <button type="submit" class="apl-btn apl-btn-primary " analytics-on="" analytics-event="Place Bets" analytics-category="Bet Slip"
-                                                                    ng-click="betConfirm();">Place bets</button>
-                                                                <button type="button" class="apl-btn apl-btn-remove " analytics-on="" analytics-event="Remove All Bets" analytics-category="Bet Slip"
-                                                                    ng-click="removeAllBets()">Remove All</button>
+                                                                <button type="submit" class="apl-btn apl-btn-primary" ng-click="betConfirm();">Place bets</button>
+                                                                <button type="button" class="apl-btn apl-btn-remove" ng-click="removeAllBets()">Remove All</button>
                                                             </div>
 
-                                                            <label class="confirmation-checkbox ng-binding">
-                                                                <input type="checkbox" ng-disabled="isTickBoxDisabled" ng-model="isConfirmationChecked" ng-click="confirmTick()" class="ng-pristine ng-untouched ng-valid ng-empty"> Confirm bets before placing
+                                                            <label class="confirmation-checkbox">
+                                                                <input type="checkbox" class=""> Confirm bets before placing
                                                             </label>
                                                         </form>
                                                     </div>
@@ -337,7 +246,7 @@
                             </uib-tab>
                             <uib-tab index="1" heading="Open Bets">
                                 <div class="bets-by-event-filter ">
-                                    <label class="ng-binding">
+                                    <label class="">
                                         <input type="checkbox" class="">Show bet Info
                                     </label>
                                 </div>
@@ -349,7 +258,7 @@
                                         <button class="apl-btn apl-btn-secondary" type="button">
                                             Reset
                                         </button>
-                                        <button class="apl-btn apl-btn-update ng-binding" type="button">
+                                        <button class="apl-btn apl-btn-update " type="button">
                                             Update All
                                         </button>
                                     </div>
@@ -379,10 +288,10 @@
                                                                                             <span class="selection-name">Southampton</span>
                                                                                             <div class="bet  back">
                                                                                                 <div class="bet-fields">
-                                                                                                    <div class="odds-field placeholder-wrapper ng-isolate-scope activated animatable">
-                                                                                                        <div class="placeholder ng-binding">Odds</div>
+                                                                                                    <div class="odds-field placeholder-wrapper  activated animatable">
+                                                                                                        <div class="placeholder ">Odds</div>
                                                                                                         <div>
-                                                                                                            <div class="step-input-wrapper ng-isolate-scope">
+                                                                                                            <div class="step-input-wrapper ">
                                                                                                                 <input class="step-input" type="text">
                                                                                                                 <div class="button-wrapper">
                                                                                                                     <button type="button" class="step-up">
@@ -403,7 +312,7 @@
                                                                                                     </div>
                                                                                                     <div class="info-field">
                                                                                                         <span class="title">Profit</span>
-                                                                                                        <span class="value ng-binding">225.00</span>
+                                                                                                        <span class="value ">225.00</span>
                                                                                                     </div>
                                                                                                     <div class="control-fields">
                                                                                                         <button class="apl-btn apl-btn-mini apl-btn-update " type="button">
@@ -430,7 +339,6 @@
                                         </uib-accordion>
                                     </div>
                                 </div>
-
                                 <div class="matchbets mt-3">
                                     <uib-accordion close-others="oneAtATime">
                                         <div uib-accordion-group class="panel-default" is-open="status.open">
@@ -439,17 +347,17 @@
                                                 <i class="pull-right icon-right fa" ng-class="{'fa-chevron-up': status.open, 'fa-chevron-down': !status.open}"></i>
                                             </uib-accordion-heading>
                                             <div class="consolidation-filter">
-                                                <label class="ng-binding">
+                                                <label class="">
                                                     <input type="checkbox" class="" ng-model="Consolidate">Consolidate</label>
-                                                <label class="pad-left ng-binding">
+                                                <label class="pad-left ">
                                                     <input type="checkbox" class="" ng-model="averageOdds">Average Odds</label>
-                                                <label class="pad-left ng-binding">
+                                                <label class="pad-left ">
                                                     <input type="checkbox" class="" ng-model="orderByDate">Order By Date</label>
                                             </div>
                                             <div>
                                                 <div class="matched-order">
                                                     <a ng-href="#/display/EVENT/4/28706813" class="event-name" href="#/display/EVENT/4/28706813">
-                                                        <span date-string="vm.order.name" timestamp="vm.order.marketTime" class="ng-isolate-scope">Kings XI Punjab v Mumbai Indians</span>
+                                                        <span date-string="vm.order.name" timestamp="vm.order.marketTime" class="">Kings XI Punjab v Mumbai Indians</span>
                                                     </a>
                                                     <ul>
                                                         <li class="">
@@ -459,43 +367,38 @@
                                                                         <div class="selection-header">
                                                                             <div class="selection-name ">Kings XI Punjab</div>
                                                                             <div class="bet-header grouped">
-                                                                                <span class="market-name ng-binding">Match Odds</span>
+                                                                                <span class="market-name ">Match Odds</span>
                                                                                 <span class="odds ">Odds</span>
                                                                                 <span class="">Stake</span>
                                                                                 <span class="">Profit/Liability</span>
                                                                             </div>
                                                                         </div>
                                                                         <li class="">
-                                                                            <div class="selection-bet back no-info" ng-class="{'back' : bet.side === 'Back', 'lay' : bet.side === 'Lay', 'no-info' : !vm.showRefInfo()}">
-                                                                                <div class="bet-fields grouped" ng-class="{'grouped': vm.isSelectionNameGrouped()}">
-                                                                                    <!-- ngIf: !vm.isSelectionNameGrouped() -->
-                                                                                    <span class="odds ng-binding">2.000</span>
-                                                                                    <span class="ng-binding">25.00</span>
-                                                                                    <span ng-init="vm.calculatePL(bet)" class="ng-binding">25.00</span>
+                                                                            <div class="selection-bet back no-info">
+                                                                                <div class="bet-fields grouped">
+                                                                                    <span class="odds ">2.000</span>
+                                                                                    <span class="">25.00</span>
+                                                                                    <span class="">25.00</span>
                                                                                 </div>
-                                                                                <!-- ngIf: vm.showRefInfo() -->
+
                                                                             </div>
                                                                         </li>
-                                                                        <!-- end ngRepeat: bet in vm.selection -->
                                                                         <li class="">
-                                                                            <div class="selection-bet lay no-info" ng-class="{'back' : bet.side === 'Back', 'lay' : bet.side === 'Lay', 'no-info' : !vm.showRefInfo()}">
-                                                                                <div class="bet-fields grouped" ng-class="{'grouped': vm.isSelectionNameGrouped()}">
-                                                                                    <!-- ngIf: !vm.isSelectionNameGrouped() -->
-                                                                                    <span class="odds ng-binding">2.000</span>
-                                                                                    <span class="ng-binding">25.00</span>
-                                                                                    <span ng-init="vm.calculatePL(bet)" class="ng-binding">25.00</span>
+                                                                            <div class="selection-bet lay no-info">
+                                                                                <div class="bet-fields grouped">
+                                                                                    <span class="odds ">2.000</span>
+                                                                                    <span class="">25.00</span>
+                                                                                    <span class="">25.00</span>
                                                                                 </div>
-                                                                                <!-- ngIf: vm.showRefInfo() -->
+
                                                                             </div>
                                                                         </li>
-                                                                        <!-- end ngRepeat: bet in vm.selection -->
                                                                         <li class="">
-                                                                            <div class="selection-bet back no-info" ng-class="{'back' : bet.side === 'Back', 'lay' : bet.side === 'Lay', 'no-info' : !vm.showRefInfo()}">
-                                                                                <div class="bet-fields grouped" ng-class="{'grouped': vm.isSelectionNameGrouped()}">
-                                                                                    <!-- ngIf: !vm.isSelectionNameGrouped() -->
-                                                                                    <span class="odds ng-binding">1.990</span>
-                                                                                    <span class="ng-binding">25.00</span>
-                                                                                    <span ng-init="vm.calculatePL(bet)" class="ng-binding">24.75</span>
+                                                                            <div class="selection-bet back no-info">
+                                                                                <div class="bet-fields grouped">
+                                                                                    <span class="odds ">1.990</span>
+                                                                                    <span class="">25.00</span>
+                                                                                    <span class="">24.75</span>
                                                                                 </div>
                                                                             </div>
                                                                         </li>
@@ -511,11 +414,9 @@
                                 </div>
                             </uib-tab>
                         </uib-tabset>
-
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
