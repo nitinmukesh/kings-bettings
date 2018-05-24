@@ -479,52 +479,52 @@ myApp.controller('DashboardCtrl', function ($scope, TemplateService, NavigationS
 
 
         if ($scope.type.type == "box") {
-            
-                        if (!_.isArray($scope.formData[$scope.type.tableRef]) && $scope.formData[$scope.type.tableRef] === '') {
-                            $scope.formData[$scope.type.tableRef] = [];
-                            $scope.model = [];
-                        } else {
-                            if ($scope.formData[$scope.type.tableRef]) {
-                                $scope.model = $scope.formData[$scope.type.tableRef];
-                            }
-                        }
-                        $scope.search = {
-                            text: ""
-                        };
-                    }
-                    $scope.state = "";
-                    $scope.createBox = function (state) {
-                        $scope.state = state;
-                        $scope.model.push({});
-                        $scope.editBox("Create", $scope.model[$scope.model.length - 1]);
-                    };
-                    $scope.editBox = function (state, data) {
-                        $scope.state = state;
-                        $scope.data = data;
-                        if (!$scope.formData[$scope.type.tableRef]) {
-                            $scope.formData[$scope.type.tableRef] = []
-                        }
-            
-                        if (state == 'Create' && $scope.json.json.pageType=="create") {
-                            $scope.formData[$scope.type.tableRef].push(data);
-                        }
-            
-                        var modalInstance = $uibModal.open({
-                            animation: $scope.animationsEnabled,
-                            templateUrl: 'views/modal/modal.html',
-                            size: 'lg',
-                            scope: $scope
-                        });
-                        $scope.close = function (value) {
-                            callback(value);
-                            modalInstance.close("cancel");
-                        };
-                    };
-                    $scope.deleteBox = function (index, data) {
-                        console.log(data);
-                        data.splice(index, 1);
-                    };
-            
+
+            if (!_.isArray($scope.formData[$scope.type.tableRef]) && $scope.formData[$scope.type.tableRef] === '') {
+                $scope.formData[$scope.type.tableRef] = [];
+                $scope.model = [];
+            } else {
+                if ($scope.formData[$scope.type.tableRef]) {
+                    $scope.model = $scope.formData[$scope.type.tableRef];
+                }
+            }
+            $scope.search = {
+                text: ""
+            };
+        }
+        $scope.state = "";
+        $scope.createBox = function (state) {
+            $scope.state = state;
+            $scope.model.push({});
+            $scope.editBox("Create", $scope.model[$scope.model.length - 1]);
+        };
+        $scope.editBox = function (state, data) {
+            $scope.state = state;
+            $scope.data = data;
+            if (!$scope.formData[$scope.type.tableRef]) {
+                $scope.formData[$scope.type.tableRef] = []
+            }
+
+            if (state == 'Create' && $scope.json.json.pageType == "create") {
+                $scope.formData[$scope.type.tableRef].push(data);
+            }
+
+            var modalInstance = $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'views/modal/modal.html',
+                size: 'lg',
+                scope: $scope
+            });
+            $scope.close = function (value) {
+                callback(value);
+                modalInstance.close("cancel");
+            };
+        };
+        $scope.deleteBox = function (index, data) {
+            console.log(data);
+            data.splice(index, 1);
+        };
+
 
         //Box Changes By Avinash End
 
@@ -1184,6 +1184,7 @@ myApp.controller('DashboardCtrl', function ($scope, TemplateService, NavigationS
     })
 
     .controller('headerctrl', function ($scope, TemplateService, $uibModal) {
+        console.log("in header controller");
         $scope.template = TemplateService;
         $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
             $(window).scrollTop(0);

@@ -31,9 +31,14 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             controller: 'PlaceBetCtrl'
         })
         .state('match', {
-            url: "/match",
+            url: "/game/:game/:category",
             templateUrl: tempateURL,
             controller: 'MatchCtrl'
+        })
+        .state('match-detail', {
+            url: "/match/:match",
+            templateUrl: tempateURL,
+            controller: 'MatchDetailCtrl'
         })
         .state('account-statement', {
             url: "/account-statement",
