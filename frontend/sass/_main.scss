@@ -508,3 +508,24 @@ header {
 .icon-kings_tennis:before {
     content: "\e904";
 }
+
+.confirmbet-bg {
+    padding: 50px;
+    position: relative;
+    font-size: 16px;
+    .apl-btn {
+        margin: 0 20px;
+        font-size: 16px;
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: 6px;
+    right: 11px;
+    cursor: pointer;
+    .fa {
+        font-size: 20px;
+        color: #ccc;
+    }
+}

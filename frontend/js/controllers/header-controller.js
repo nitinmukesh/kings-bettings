@@ -1,4 +1,4 @@
-myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, $state) {
+myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, $state, $uibModal) {
     $scope.template = TemplateService;
 
     $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
@@ -8,6 +8,8 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     if (!$.jStorage.get("accessToken")) {
         $state.go('login');
     }
+
+
     $scope.oneAtATime = true;
     $.fancybox.close(true);
     $scope.status = {
