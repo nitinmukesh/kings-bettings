@@ -5,5 +5,43 @@ myApp.controller('MatchCtrl', function ($scope, TemplateService, NavigationServi
     $scope.navigation = NavigationService.getNavigation();
 
     $scope.params = $stateParams;
-
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

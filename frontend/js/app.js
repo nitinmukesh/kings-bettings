@@ -35,6 +35,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'MatchCtrl'
         })
+        .state('match-detail', {
+            url: "/match/:match",
+            templateUrl: tempateURL,
+            controller: 'MatchDetailCtrl'
+        })
         .state('account-statement', {
             url: "/account-statement",
             templateUrl: accountTempateURL,
