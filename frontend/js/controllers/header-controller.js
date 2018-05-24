@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, $state, NavigationService) {
-=======
-myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, $state, $uibModal) {
->>>>>>> 323829d48a75c0babfc2ceefd69e3263d42026c4
     $scope.template = TemplateService;
     console.log("in header controller header");
     $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
@@ -13,7 +9,6 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         $state.go('login');
     }
 
-<<<<<<< HEAD
     //To get games
     $scope.getGames = function () {
         NavigationService.apiCallWithData('Game/getAllGamesAndCategory', {}, function (data) {
@@ -36,15 +31,13 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     $scope.getCategories = function (value) {
         $scope.categories = _.find($scope.gameData, function (game) {
             if (game._id == value) {
-                var category = game.category;
-                return category;
+                return game;
             }
 
         });
+        $scope.categories = $scope.categories.category;
         console.log("$scope.categories", $scope.categories);
     };
-=======
->>>>>>> 323829d48a75c0babfc2ceefd69e3263d42026c4
 
     $scope.oneAtATime = true;
     $.fancybox.close(true);
