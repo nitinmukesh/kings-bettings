@@ -1,4 +1,4 @@
-myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, $state) {
+myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, $state, NavigationService) {
     $scope.template = TemplateService;
 
     $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
@@ -8,6 +8,37 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     if (!$.jStorage.get("accessToken")) {
         $state.go('login');
     }
+
+    //To get games
+    $scope.getGames = function () {
+        NavigationService.apiCallWithData('Game/getAllGamesAndCategory', {}, function (data) {
+            if (data.value) {
+                if (!_.isEmpty(data.data)) {
+                    $scope.gameData = data.data;
+                } else {
+                    $scop.gameData = [];
+                }
+            } else {
+                alert("Unable get games");
+            }
+        });
+    };
+
+    // Onload function call
+    $scope.getGames();
+
+    //To get categories
+    $scope.getCategories = function (value) {
+        $scope.categories = _.find($scope.gameData, function (game) {
+            if (game._id == value) {
+                var category = game.category;
+                return category;
+            }
+
+        });
+        console.log("$scope.categories", $scope.categories);
+    };
+
     $scope.oneAtATime = true;
     $.fancybox.close(true);
     $scope.status = {
@@ -23,6 +54,7 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         $(".previous-button").addClass("left-menu-inner going-prev");
 
     };
+
     $scope.submenu = {
         cricket: {
             sport: "cricket",

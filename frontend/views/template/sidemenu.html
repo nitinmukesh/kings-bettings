@@ -9,14 +9,14 @@
                             <span class="link-name ">Favourites</span>
                         </a>
                     </li>
-                    <li ui-sref="cricket">
-                        <a class="menu-link sport-type-Cricket ">
+                    <li ng-repeat="game in gameData">
+                        <a class="menu-link sport-type-Cricket" ng-click="getCategories(game._id);">
                             <i class="icon-kings_cricket sport-icon">
                             </i>
-                            <span class="link-name ">Cricket</span>
+                            <span class="link-name ">{{game.name}}</span>
                         </a>
                     </li>
-                    <li class="" ui-sref="football">
+                    <!-- <li class="" ui-sref="football">
                         <a class="menu-link sport-type-Football ">
                             <i class="icon-kings_football sport-icon">
                             </i>
@@ -43,9 +43,9 @@
                             </i>
                             <span class="link-name ">Greyhound Racing</span>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
-                <ul class="menu-column menu-lvl-1 sport-type-Cricket  previous-button" ng-if="(currentUrl!='home' || currentUrl!='favourites'|| currentUrl) && currentUrl!='common-inner'">
+                <!-- <ul class="menu-column menu-lvl-1 sport-type-Cricket  previous-button" ng-if="(currentUrl!='home' || currentUrl!='favourites'|| currentUrl) && currentUrl!='common-inner'">
                     <li>
                         <a ui-sref="favourites" class="favourites-link ">
                             <i class="far fa-star icon-style"></i>
@@ -110,7 +110,7 @@
                             <i class="fas fa-chevron-right"></i>
                         </a>
                     </li>
-                </ul>
+                </ul> -->
             </div>
         </nav>
     </aside>
