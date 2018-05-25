@@ -1,6 +1,5 @@
-myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, $state, NavigationService) {
+myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, $state, NavigationService, $location) {
     $scope.template = TemplateService;
-    console.log("in header controller header");
     $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
     });
@@ -8,6 +7,14 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     if (!$.jStorage.get("accessToken")) {
         $state.go('login');
     }
+
+    // if (!_.isEmpty($.jStorage.get("visitedCategories"))) {
+    //     $scope.visitedCategories = $.jStorage.get("visitedCategories");
+    // } else {
+    //     $scope.visitedCategories = [];
+    // }
+
+    $scope.visitedCategories = [];
 
     //To get games
     $scope.getGames = function () {
@@ -29,14 +36,41 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
 
     //To get categories
     $scope.getCategories = function (value) {
+        $scope.currentUrl = "test";
+
         $scope.categories = _.find($scope.gameData, function (game) {
             if (game._id == value) {
+                $scope.game = game.name;
+                $scope.gameId = game._id;
                 return game;
             }
-
         });
+        $scope.game = $scope.categories.name;
         $scope.categories = $scope.categories.category;
-        console.log("$scope.categories", $scope.categories);
+        $location.path('/' + $scope.gameId + '/' + $scope.parentId, false);
+        $scope.visitedCategories.push($scope.categories);
+        // $.jStorage.set("visitedCategories", $scope.visitedCategories);
+    };
+
+    //To get sub Category
+    $scope.getSubCategory = function (value) {
+        $scope.subcategory = _.find($scope.categories, function (game) {
+            if (game._id == value) {
+                $scope.parentId = game._id;
+                return game;
+            }
+        });
+        $scope.categories = $scope.subcategory.children;
+        $location.path('/' + $scope.gameId + '/' + $scope.parentId, false);
+        $scope.visitedCategories.push($scope.categories);
+        // $.jStorage.set("visitedCategories", $scope.visitedCategories);
+    };
+
+
+
+    $scope.getPreviousCategory = function () {
+        $scope.visitedCategories.pop();
+        $scope.categories = $scope.visitedCategories[$scope.visitedCategories.length - 1];
     };
 
     $scope.oneAtATime = true;
@@ -53,6 +87,7 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         window.history.back();
         $(".previous-button").addClass("left-menu-inner going-prev");
     };
+    $location
 
     $scope.submenu = {
         cricket: {

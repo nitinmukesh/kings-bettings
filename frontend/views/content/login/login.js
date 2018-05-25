@@ -8,14 +8,15 @@ myApp.controller('LoginCtrl', function ($scope, TemplateService, NavigationServi
     $scope.navigation = NavigationService.getNavigation();
 
     $scope.userLogin = function (value) {
-        NavigationService.apiCallWithData("user/userLogin", value, function (data) {
-            console.log("data", data);
-            if (data.value) {
-                $.jStorage.set("accessToken", data.data);
-                $state.go('home');
-            } else {
-                alert("unable to login");
-            }
-        });
+        $state.go('home');
+        // NavigationService.apiCallWithData("user/userLogin", value, function (data) {
+        //     console.log("data", data);
+        //     if (data.value) {
+        //         $.jStorage.set("accessToken", data.data);
+        //         $state.go('home');
+        //     } else {
+        //         alert("unable to login");
+        //     }
+        // });
     };
 });

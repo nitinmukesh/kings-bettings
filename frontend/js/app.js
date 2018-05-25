@@ -21,7 +21,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
     $httpProvider.defaults.withCredentials = true;
     $stateProvider
         .state('home', {
-            url: "/",
+            url: "/:game/:parentId",
             templateUrl: tempateURL,
             controller: 'HomeCtrl'
         })
