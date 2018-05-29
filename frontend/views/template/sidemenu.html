@@ -2,7 +2,44 @@
     <aside class="menu">
         <nav class="tree-menu">
             <div class="left-menu-inner current-lvl-0">
-                <ul class="menu-column menu-lvl-0 sport-type" ng-if="currentUrl=='home' ||currentUrl=='favourites' || !currentUrl">
+
+                <!-- Ul for previous menu -->
+                <ul class="menu-column menu-lvl-1 sport-type-Cricket  previous-button" ng-if="previous">
+                    <li>
+                        <a ui-sref="favourites" class="favourites-link ">
+                            <i class="far fa-star icon-style"></i>
+                            <span class="link-name">Favourites</span>
+                        </a>
+                    </li>
+                    <li ng-click="goTohome()">
+                        <a class="home-link">
+                            <i class="fas fa-home"></i>
+                            <span class="link-name">Sports</span>
+                        </a>
+                    </li>
+                    <li class=" ">
+                        <a class="link-lvl-sport" href="#/display/EVENT_TYPE/4 ">
+                            <i class="fas fa-baseball-ball"></i>
+                            <span class="link-name">{{game}}</span>
+                        </a>
+                    </li>
+                    <li ng-click="getPreviousCategory()">
+                        <a class="link-lvl-prev">
+                            <i class="fas fa-chevron-circle-left"></i>
+                            <span class="link-name">Previous</span>
+                        </a>
+                    </li>
+                    <li class=" ">
+                        <a class="menu-link sport-type-Cricket " ng-repeat="category in categories" ng-click="getSubCategory(category._id)">
+                            <i class="sport-icon apl-icon-sport-cricket"></i>
+                            <span class="link-name">{{category.name}}</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Main side menu -->
+                <ul class="menu-column menu-lvl-0 sport-type" ng-if="home">
                     <li>
                         <a class=" favourites-link" ui-sref="favourites">
                             <i class="favourites-icon far fa-star"></i>
@@ -17,14 +54,17 @@
                         </a>
                     </li>
                 </ul>
-                <ul class="menu-column menu-lvl-1 sport-type-Cricket  previous-button" ng-if="(currentUrl!='home' || currentUrl!='favourites'|| currentUrl) && currentUrl!='common-inner'">
+
+
+                <!-- Ul for next menu -->
+                <ul class="menu-column menu-lvl-1 sport-type-Cricket  previous-button" ng-if="next">
                     <li>
                         <a ui-sref="favourites" class="favourites-link ">
                             <i class="far fa-star icon-style"></i>
-                            <span class="link-name  ">Favourites</span>
+                            <span class="link-name">Favourites</span>
                         </a>
                     </li>
-                    <li ng-click="goback()">
+                    <li ng-click="goTohome()">
                         <a class="home-link">
                             <i class="fas fa-home"></i>
                             <span class="link-name">Sports</span>
