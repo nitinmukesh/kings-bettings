@@ -7651,6 +7651,23 @@ header {
 .icon-kings_tennis:before {
   content: "\e904"; }
 
+.confirmbet-bg {
+  padding: 50px;
+  position: relative;
+  font-size: 16px; }
+  .confirmbet-bg .apl-btn {
+    margin: 0 20px;
+    font-size: 16px; }
+
+.close-modal {
+  position: absolute;
+  top: 6px;
+  right: 11px;
+  cursor: pointer; }
+  .close-modal .fa {
+    font-size: 20px;
+    color: #ccc; }
+
 /*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css */
 @font-face {
   font-family: Avenir;

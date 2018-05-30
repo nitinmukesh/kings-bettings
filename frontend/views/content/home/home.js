@@ -4,7 +4,12 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     TemplateService.title = "Home"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
     $scope.oneAtATime = true;
+    $scope.matches = [];
+    $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+        $(window).scrollTop(0);
 
+        console.log("state changes");
+    });
     $scope.itemArray = [{
             id: 1,
             name: 'first'
@@ -30,7 +35,15 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     $scope.selected = {
         value: $scope.itemArray[0]
     };
-
+    $scope.getMatchByCategory = function (data) {
+        NavigationService.apiCallWithData('market/getMarketByCategory', data, function (market) {
+            console.log(market);
+            $scope.matches = market.data;
+        });
+    };
+    $scope.getMatchByCategory({
+        'game': "5afebdc3c35ebd4a630532e6"
+    });
 
     $scope.format = 'yyyy/MM/dd';
     $scope.date = new Date();

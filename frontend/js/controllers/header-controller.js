@@ -48,6 +48,11 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
 
     // Onload function call
     $scope.getGames();
+    $scope.getMatchByCategory = function (data) {
+        NavigationService.apiCallWithData('market/getMarketByCategory', data, function (market) {
+
+        });
+    };
 
     //To get categories
     $scope.getCategories = function (value) {
@@ -63,7 +68,9 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
             }
         });
         $scope.game = $scope.categories.name;
-
+        $scope.getMatchByCategory({
+            'game': $scope.gameId
+        });
         $scope.categories = $scope.categories.category;
         $scope.setUrl($scope.gameId, '1');
         $scope.visitedCategories.push($scope.categories);
@@ -80,6 +87,10 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
                 $scope.parentId = game._id;
                 return game;
             }
+        });
+        $scope.getMatchByCategory({
+            'game': $scope.gameId,
+            'category': $scope.parentId
         });
         if (!_.isEmpty($scope.subcategory.children)) {
             $scope.categories = $scope.subcategory.children;
