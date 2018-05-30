@@ -7,8 +7,6 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     $scope.matches = [];
     $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
-
-        console.log("state changes");
     });
     $scope.itemArray = [{
             id: 1,
@@ -37,7 +35,6 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     };
     $scope.getMatchByCategory = function (data) {
         NavigationService.apiCallWithData('market/getMarketByCategory', data, function (market) {
-            console.log(market);
             $scope.matches = market.data;
         });
     };

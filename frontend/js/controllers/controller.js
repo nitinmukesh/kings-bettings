@@ -12,4 +12,9 @@ myApp.controller('LinksCtrl', function ($scope, TemplateService, NavigationServi
             console.log(data);
 
         });
+    })
+
+    .controller('MatchRateCtrl', function ($scope, TemplateService, NavigationService) {
+        console.log("in match rate controller");
+        console.log($scope.matches);
     });

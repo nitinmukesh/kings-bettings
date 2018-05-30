@@ -102,6 +102,18 @@ myApp.directive('img', function ($compile, $parse) {
         };
     })
 
+    .directive('matchRate', function () {
+        return {
+            restrict: 'EA',
+            replace: false,
+            scope: {
+                matches: '='
+            },
+            templateUrl: 'views/directive/match-rate.html',
+            controller: 'MatchRateCtrl'
+        };
+    })
+
     .directive('accountbalance', function ($http, $filter) {
         return {
             templateUrl: 'views/directive/availble-balance.html',

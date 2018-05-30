@@ -18,15 +18,15 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         $scope.home = true;
     }
 
-    $scope.setUrl = function (value1, value2) {
-        // $location.path('/' + value1 + '/' + value2, false);
-        $state.go('home', {
-            game: value1,
-            parentId: value2
-        }, {
-            notify: false
-        });
-    };
+    // $scope.setUrl = function (value1, value2) {
+    //     // $location.path('/' + value1 + '/' + value2, false);
+    //     $state.go('home', {
+    //         game: value1,
+    //         parentId: value2
+    //     }, {
+    //         notify: false
+    //     });
+    // };
 
     $scope.visitedCategories = [];
     //To get games
@@ -36,7 +36,7 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
                 if (!_.isEmpty(data.data)) {
                     $scope.gameData = data.data;
                     $scope.visitedCategories.push($scope.gameData);
-                    $scope.setUrl('home', '1');
+                    // $scope.setUrl('home', '1');
                 } else {
                     $scop.gameData = [];
                 }
