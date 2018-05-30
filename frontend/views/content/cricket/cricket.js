@@ -3,5 +3,7 @@ myApp.controller('CricketCtrl', function ($scope, TemplateService, NavigationSer
     TemplateService.title = "Cricket"; //This is the Title of the Website
     TemplateService.sidemenu2 = "";
     $scope.navigation = NavigationService.getNavigation();
+    // alert("bro its cricket",$scope.date);
 
+    console.log("bro its cricket", $scope.itemArray);
 });

@@ -21,6 +21,8 @@ myApp.factory('NavigationService', function ($http) {
         },
 
         apiCallWithData: function (url, formData, callback) {
+            var accessToken = $.jStorage.get("accessToken");
+            formData.accessToken = accessToken;
             $http.post(adminurl + url, formData).then(function (data) {
                 data = data.data;
                 callback(data);
