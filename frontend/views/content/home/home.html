@@ -14,12 +14,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr ng-repeat="match in matches">
                         <td>
                             <i class="far fa-star apl-icon-star-o"></i>
-                            <a class="event-name" href="">Kings XI Punjab v Mumbai Indians</a>
+                            <a class="event-name" href="">{{match.name}}</a>
                             <small class="">
-                                <time timestamp="event.start" type="gmtDateTime" class="">04/05/2018 20:00</time>
+                                <time timestamp="event.start" type="gmtDateTime" class="">{{match.createdAt | date:'dd/MM/yyyy hh:mm'}}</time>
                             </small>
                             <small class="in-play-content ng-binding ng-scope">
                                 <i class="fas fa-play-circle"></i>In-Play
