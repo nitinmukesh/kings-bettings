@@ -194,8 +194,8 @@
                                     <tr>
                                         <td class="market-name">
                                             <div class="event-name ">MATCH 1ST OVER RUN (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder disabled" ng-class="{'disabled': !vm.isLadderIconEnabled, 'open': vm.isLadderVisible}" ng-click="vm.toggleLadder()"
-                                                analytics-on="" analyticscategory="Fancy" analytics-event="Toggle Ladder">
+                                            <i class="apl-icon-custom-ladder ">
+                                                <i class="fas fa-sliders-h"></i>
                                             </i>
                                             <div class="selection-pnl ng-isolate-scope">
                                             </div>
@@ -206,6 +206,7 @@
                                                     <table class="market-listing-table apl-table">
                                                         <tbody>
                                                             <tr>
+                                                                <td colspan="6" class="-status ng-binding ng-scope suspended" ng-class="event.status == 'SUSPENDED' ? 'suspended' : 'closed'">SUSPENDED</td>
                                                                 <td colspan="2" class="odds-placeholder">&nbsp;</td>
                                                                 <td class="lay show-size">
                                                                     <strong class="odds ">
@@ -249,16 +250,35 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <div class="ladder-component-container">
-                                <div class="apl-session-runs-ladder">
+                            <div class="ladder-component-container visible" ng-class="{'visible': vm.isLadderVisible}">
+                                <apl-session-runs-ladder market-id="vm.market.id" is-visible="vm.isLadderVisible" class="ng-isolate-scope">
                                     <div class="ladder-container">
-
-                                        <div class="ladder-loader ">
-
+                                        <!-- ngIf: vm.loading -->
+                                        <!-- ngIf: !vm.loading -->
+                                        <div class="ng-scope">
+                                            <div class="ladder-header">
+                                                <div class="row">
+                                                    <div class="col ng-scope" translate="">Runs</div>
+                                                    <div class="col ng-scope" translate="">P&amp;L</div>
+                                                </div>
+                                            </div>
+                                            <div class="ladder-rows-container">
+                                                <!-- ngRepeat: ladderRow in vm.ladderRows -->
+                                                <div class="row ng-scope">
+                                                    <div class="col ng-binding">0 - 170</div>
+                                                    <div class="col ng-binding -negative" ng-class="{'-negative': ladderRow.exposure < 0, '-positive': ladderRow.exposure >= 0}">-40.00</div>
+                                                </div>
+                                                <!-- end ngRepeat: ladderRow in vm.ladderRows -->
+                                                <div class="row ng-scope">
+                                                    <div class="col ng-binding">171+</div>
+                                                    <div class="col ng-binding -positive" ng-class="{'-negative': ladderRow.exposure < 0, '-positive': ladderRow.exposure >= 0}">40.00</div>
+                                                </div>
+                                                <!-- end ngRepeat: ladderRow in vm.ladderRows -->
+                                            </div>
                                         </div>
-
+                                        <!-- end ngIf: !vm.loading -->
                                     </div>
-                                </div>
+                                </apl-session-runs-ladder>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -276,7 +296,8 @@
                                     <tr>
                                         <td class="market-name">
                                             <div class="event-name ">6 OVER RUN KXIP (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder disabled">
+                                            <i class="apl-icon-custom-ladder ">
+                                                <i class="fas fa-sliders-h"></i>
                                             </i>
                                             <div class="selection-pnl ng-isolate-scope">
 
@@ -360,7 +381,8 @@
                                     <tr>
                                         <td class="market-name">
                                             <div class="event-name ">20 OVER RUN KXIP (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder disabled">
+                                            <i class="apl-icon-custom-ladder ">
+                                                <i class="fas fa-sliders-h"></i>
                                             </i>
                                             <div class="selection-pnl ng-isolate-scope">
 
@@ -445,8 +467,8 @@
                                     <tr>
                                         <td class="market-name">
                                             <div class="event-name ">6 OVER RUN MI (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder disabled" ng-class="{'disabled': !vm.isLadderIconEnabled, 'open': vm.isLadderVisible}" ng-click="vm.toggleLadder()"
-                                                analytics-on="" analyticscategory="Fancy" analytics-event="Toggle Ladder">
+                                            <i class="apl-icon-custom-ladder ">
+                                                <i class="fas fa-sliders-h"></i>
                                             </i>
                                             <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
                                                 market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
@@ -531,8 +553,8 @@
                                     <tr>
                                         <td class="market-name">
                                             <div class="event-name ">20 OVER RUN MI (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder disabled" ng-class="{'disabled': !vm.isLadderIconEnabled, 'open': vm.isLadderVisible}" ng-click="vm.toggleLadder()"
-                                                analytics-on="" analyticscategory="Fancy" analytics-event="Toggle Ladder">
+                                            <i class="apl-icon-custom-ladder ">
+                                                <i class="fas fa-sliders-h"></i>
                                             </i>
                                             <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
                                                 market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
@@ -617,8 +639,8 @@
                                     <tr>
                                         <td class="market-name">
                                             <div class="event-name ">FALL OF 1ST WKT KXIP ADV</div>
-                                            <i class="apl-icon-custom-ladder disabled" ng-class="{'disabled': !vm.isLadderIconEnabled, 'open': vm.isLadderVisible}" ng-click="vm.toggleLadder()"
-                                                analytics-on="" analyticscategory="Fancy" analytics-event="Toggle Ladder">
+                                            <i class="apl-icon-custom-ladder ">
+                                                <i class="fas fa-sliders-h"></i>
                                             </i>
                                             <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
                                                 market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
@@ -703,8 +725,8 @@
                                     <tr>
                                         <td class="market-name">
                                             <div class="event-name ">FALL OF 1ST WKT MI ADV</div>
-                                            <i class="apl-icon-custom-ladder disabled" ng-class="{'disabled': !vm.isLadderIconEnabled, 'open': vm.isLadderVisible}" ng-click="vm.toggleLadder()"
-                                                analytics-on="" analyticscategory="Fancy" analytics-event="Toggle Ladder">
+                                            <i class="apl-icon-custom-ladder ">
+                                                <i class="fas fa-sliders-h"></i>
                                             </i>
                                             <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
                                                 market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
@@ -789,8 +811,8 @@
                                     <tr>
                                         <td class="market-name">
                                             <div class="event-name ">KL RAHUL RUN (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder disabled" ng-class="{'disabled': !vm.isLadderIconEnabled, 'open': vm.isLadderVisible}" ng-click="vm.toggleLadder()"
-                                                analytics-on="" analyticscategory="Fancy" analytics-event="Toggle Ladder">
+                                            <i class="apl-icon-custom-ladder ">
+                                                <i class="fas fa-sliders-h"></i>
                                             </i>
                                             <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
                                                 market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
@@ -875,8 +897,8 @@
                                     <tr>
                                         <td class="market-name">
                                             <div class="event-name ">C GAYLE RUN (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder disabled" ng-class="{'disabled': !vm.isLadderIconEnabled, 'open': vm.isLadderVisible}" ng-click="vm.toggleLadder()"
-                                                analytics-on="" analyticscategory="Fancy" analytics-event="Toggle Ladder">
+                                            <i class="apl-icon-custom-ladder ">
+                                                <i class="fas fa-sliders-h"></i>
                                             </i>
                                             <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
                                                 market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
@@ -961,8 +983,8 @@
                                     <tr>
                                         <td class="market-name">
                                             <div class="event-name ">S YADAV RUN (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder disabled" ng-class="{'disabled': !vm.isLadderIconEnabled, 'open': vm.isLadderVisible}" ng-click="vm.toggleLadder()"
-                                                analytics-on="" analyticscategory="Fancy" analytics-event="Toggle Ladder">
+                                            <i class="apl-icon-custom-ladder ">
+                                                <i class="fas fa-sliders-h"></i>
                                             </i>
                                             <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
                                                 market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
@@ -1047,8 +1069,8 @@
                                     <tr>
                                         <td class="market-name">
                                             <div class="event-name ">E LEWIS RUN (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder disabled" ng-class="{'disabled': !vm.isLadderIconEnabled, 'open': vm.isLadderVisible}" ng-click="vm.toggleLadder()"
-                                                analytics-on="" analyticscategory="Fancy" analytics-event="Toggle Ladder">
+                                            <i class="apl-icon-custom-ladder ">
+                                                <i class="fas fa-sliders-h"></i>
                                             </i>
                                             <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
                                                 market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
@@ -1133,8 +1155,8 @@
                                     <tr>
                                         <td class="market-name">
                                             <div class="event-name ">TOTAL MATCH FOURS (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder disabled" ng-class="{'disabled': !vm.isLadderIconEnabled, 'open': vm.isLadderVisible}" ng-click="vm.toggleLadder()"
-                                                analytics-on="" analyticscategory="Fancy" analytics-event="Toggle Ladder">
+                                            <i class="apl-icon-custom-ladder ">
+                                                <i class="fas fa-sliders-h"></i>
                                             </i>
                                             <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
                                                 market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
@@ -1219,8 +1241,8 @@
                                     <tr>
                                         <td class="market-name">
                                             <div class="event-name ">TOTAL MATCH SIXES (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder disabled" ng-class="{'disabled': !vm.isLadderIconEnabled, 'open': vm.isLadderVisible}" ng-click="vm.toggleLadder()"
-                                                analytics-on="" analyticscategory="Fancy" analytics-event="Toggle Ladder">
+                                            <i class="apl-icon-custom-ladder ">
+                                                <i class="fas fa-sliders-h"></i>
                                             </i>
                                             <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
                                                 market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
@@ -1303,8 +1325,8 @@
                                     <tr>
                                         <td class="market-name">
                                             <div class="event-name ">TOTAL MATCH RUNS (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder disabled" ng-class="{'disabled': !vm.isLadderIconEnabled, 'open': vm.isLadderVisible}" ng-click="vm.toggleLadder()"
-                                                analytics-on="" analyticscategory="Fancy" analytics-event="Toggle Ladder">
+                                            <i class="apl-icon-custom-ladder ">
+                                                <i class="fas fa-sliders-h"></i>
                                             </i>
                                             <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
                                                 market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
@@ -1377,8 +1399,8 @@
                                     <tr>
                                         <td class="market-name">
                                             <div class="event-name ">TOTAL MATCH RUNS (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder disabled" ng-class="{'disabled': !vm.isLadderIconEnabled, 'open': vm.isLadderVisible}" ng-click="vm.toggleLadder()"
-                                                analytics-on="" analyticscategory="Fancy" analytics-event="Toggle Ladder">
+                                            <i class="apl-icon-custom-ladder ">
+                                                <i class="fas fa-sliders-h"></i>
                                             </i>
                                             <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
                                                 market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">

@@ -1,4 +1,4 @@
-myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http, uibDateParser) {
+myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http, uibDateParser, $stateParams) {
     $scope.template = TemplateService.getHTML("content/home/home.html");
     TemplateService.sidemenu2 = "";
     TemplateService.title = "Home"; //This is the Title of the Website
