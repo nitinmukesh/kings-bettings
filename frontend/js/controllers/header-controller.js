@@ -13,20 +13,20 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     // } else {
     //     $scope.visitedCategories = [];
     // }    
-
-    if (window.location.pathname == '/home/1') {
-        $scope.home = true;
-    }
-
-    $scope.setUrl = function (value1, value2) {
-        // $location.path('/' + value1 + '/' + value2, false);
-        $state.go('home', {
-            game: value1,
-            parentId: value2
-        }, {
-            notify: false
-        });
-    };
+    $scope.home = true;
+    // if (window.location.pathname == '/home/1') {
+    //     $scope.home = true;
+    // }
+    // alert("header controller");
+    // $scope.setUrl = function (value1, value2) {
+    //     // $location.path('/' + value1 + '/' + value2, false);
+    //     $state.go('home', {
+    //         game: value1,
+    //         parentId: value2
+    //     }, {
+    //         notify: false
+    //     });
+    // };
 
     $scope.visitedCategories = [];
     //To get games
@@ -36,7 +36,8 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
                 if (!_.isEmpty(data.data)) {
                     $scope.gameData = data.data;
                     $scope.visitedCategories.push($scope.gameData);
-                    $scope.setUrl('home', '1');
+                    // $scope.setUrl('game', '1');
+                    $scope.home = true;
                 } else {
                     $scop.gameData = [];
                 }
@@ -65,7 +66,7 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         $scope.game = $scope.categories.name;
 
         $scope.categories = $scope.categories.category;
-        $scope.setUrl($scope.gameId, '1');
+        // $scope.setUrl($scope.gameId, '1');
         $scope.visitedCategories.push($scope.categories);
         // $.jStorage.set("visitedCategories", $scope.visitedCategories);
     };
@@ -83,7 +84,7 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         });
         if (!_.isEmpty($scope.subcategory.children)) {
             $scope.categories = $scope.subcategory.children;
-            $scope.setUrl($scope.gameId, $scope.parentId);
+            // $scope.setUrl($scope.gameId, $scope.parentId);
             $scope.visitedCategories.push($scope.categories);
         }
 
@@ -98,7 +99,7 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
             $scope.home = true;
             $scope.next = false;
             $scope.previous = false;
-            $scope.setUrl('home', '1');
+            // $scope.setUrl('home', '1');
         } else {
             $scope.home = false;
             $scope.next = false;
@@ -107,7 +108,7 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
             if ($scope.parentId == undefined)
                 $scope.parentId = 1;
             $scope.gameId = $scope.categories[0].game;
-            $scope.setUrl($scope.gameId, $scope.parentId);
+            // $scope.setUrl($scope.gameId, $scope.parentId);
         }
     };
 

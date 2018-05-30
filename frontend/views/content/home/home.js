@@ -1,10 +1,10 @@
-myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http, uibDateParser) {
+myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http, uibDateParser, $stateParams) {
     $scope.template = TemplateService.getHTML("content/home/home.html");
     TemplateService.sidemenu2 = "";
     TemplateService.title = "Home"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
     $scope.oneAtATime = true;
-
+    // alert("home");
     $scope.itemArray = [{
             id: 1,
             name: 'first'
