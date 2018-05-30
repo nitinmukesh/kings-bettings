@@ -14,7 +14,28 @@ myApp.controller('LinksCtrl', function ($scope, TemplateService, NavigationServi
         });
     })
 
-    .controller('MatchRateCtrl', function ($scope, TemplateService, NavigationService) {
-        console.log("in match rate controller");
-        console.log($scope.matches);
+    .controller('MatchRateCtrl', function ($scope, TemplateService, BetService, $rootScope, NavigationService) {
+        $scope.cards = {
+            threeRunner: false,
+            twoRunnerCache: false,
+            twoRunner: false,
+            suspend: false
+        };
+
+        if (!$scope.match.numWinner) {
+            console.log("is undefined");
+            $scope.cards.suspend = true;
+        } else if ($scope.match.numWinner == 1) {
+            $scope.cards.threeRunner = true;
+        }
+
+        $scope.addBetSlip = function (selectedMatch, bet, betType) {
+            bet.name = $scope.match.name;
+            var betSlip = {
+                name: selectedMatch.name,
+                betType: betType,
+                bet: bet
+            };
+            BetService.setBet(betSlip);
+        };
     });

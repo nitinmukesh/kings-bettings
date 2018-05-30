@@ -1,12 +1,24 @@
-<!-- <div class="sport-wrapper common-heading">
+<div class="sport-wrapper common-heading">
     <div class="events">
         <h1 class="">Cricket
             <span class="starts-in-label">Betting from 30mins before start</span>
         </h1>
         <div class="events-rows">
-            <match-rate matches="matches"></match-rate>
+            <table class="market-listing-table apl-table">
+                <thead>
+                    <tr>
+                        <th class="title">Match</th>
+                        <th class="col-first-player _align-center" colspan="2">1</th>
+                        <th class="col-first-player _align-center" colspan="2">x</th>
+                        <th class="col-second-player _align-center" colspan="2">2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr match-rate match="match" ng-repeat="match in matches">
+
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-</div> -->
-
-<div ng-include="'views/content/cricket/cricket.html'" ng-controller="CricketCtrl"></div>
+</div>

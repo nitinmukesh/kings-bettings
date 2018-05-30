@@ -107,7 +107,7 @@ myApp.directive('img', function ($compile, $parse) {
             restrict: 'EA',
             replace: false,
             scope: {
-                matches: '='
+                match: '='
             },
             templateUrl: 'views/directive/match-rate.html',
             controller: 'MatchRateCtrl'

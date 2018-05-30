@@ -2,6 +2,7 @@ myApp.service('TemplateService', function () {
     this.title = "Home";
     this.meta = "";
     this.metadesc = "";
+    this.betList = "saddfgfhggf";
 
     var d = new Date();
     this.year = d.getFullYear();

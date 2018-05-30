@@ -1,4 +1,5 @@
-myApp.controller('rightSideMenuCtrl', function ($scope, $stateParams, TemplateService, $state, $uibModal) {
+myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams, TemplateService, BetService, $state, $uibModal) {
+    $scope.BetService = BetService;
     $scope.betConfirm = function () {
 
         $scope.betconfirm = $uibModal.open({
@@ -7,7 +8,9 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $stateParams, TemplateSe
             scope: $scope,
             size: 'md',
         });
-    }
+    };
+    $scope.removeAllBets = function () {
 
+    };
 
 });
