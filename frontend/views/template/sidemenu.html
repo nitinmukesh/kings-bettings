@@ -48,7 +48,7 @@
                     </li>
                     <li ng-repeat="game in gameData">
                         <!-- <a class="menu-link sport-type-Cricket" ng-click="getCategories(game._id);"> -->
-                        <a class="menu-link sport-type-Cricket" ng-click="getCategories(game._id);" ui-sref="home({game: 1, parentId: 2}) ">
+                        <a class="menu-link sport-type-Cricket" ng-click="getCategories(game._id);" ui-sref="home({game:1})">
 
                             <i class="icon-kings_cricket sport-icon ">
                             </i>
@@ -85,7 +85,7 @@
                         </a>
                     </li>
                     <li class=" ">
-                        <a class="menu-link sport-type-Cricket" ng-repeat="category in categories" ng-click="getSubCategory(category._id)" ui-sref="home({game: game._id, parentId: category._id}) ">
+                        <a class="menu-link sport-type-Cricket" ng-repeat="category in categories" ng-click="getSubCategory(category._id)" ui-sref="home({game: game._id, parentId: category._id})">
                             <i class="sport-icon apl-icon-sport-cricket "></i>
                             <span class="link-name ">{{category.name}}</span>
                             <i class="fas fa-chevron-right "></i>

@@ -25,6 +25,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'HomeCtrl'
         })
+        // .state('homeInside', {
+        //     url: "/:game/:parentId",
+        //     templateUrl: tempateURL,
+        //     controller: 'HomeCtrl'
+        // })
         .state('placebet', {
             url: "/placebet",
             templateUrl: tempateURL,
