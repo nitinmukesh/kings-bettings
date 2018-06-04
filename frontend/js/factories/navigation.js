@@ -15,6 +15,12 @@ myApp.factory('NavigationService', function ($http) {
         subnav: []
     }];
 
+    var betList = [{
+        name: "Subnav1",
+        classis: "active",
+        anchor: "home"
+    }];
+
     return {
         getNavigation: function () {
             return navigation;
