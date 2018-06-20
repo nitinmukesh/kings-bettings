@@ -9,14 +9,14 @@ myApp.controller('LoginCtrl', function ($scope, TemplateService, NavigationServi
 
     $scope.userLogin = function (value) {
         $state.go('home');
-        // NavigationService.apiCallWithData("user/userLogin", value, function (data) {
-        //     console.log("data", data);
-        //     if (data.value) {
-        //         $.jStorage.set("accessToken", data.data);
-        //         $state.go('home');
-        //     } else {
-        //         alert("unable to login");
-        //     }
-        // });
+        NavigationService.userLogin("BetFair/userLogin", value, function (data) {
+            console.log("data", data);
+            if (data.value) {
+                $.jStorage.set("accessToken", data.data);
+                $state.go('home');
+            } else {
+                alert("unable to login");
+            }
+        });
     };
 });

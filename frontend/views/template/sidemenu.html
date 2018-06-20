@@ -48,10 +48,11 @@
                     </li>
                     <li ng-repeat="game in gameData">
                         <!-- <a class="menu-link sport-type-Cricket" ng-click="getCategories(game._id);"> -->
-                        <a class="menu-link sport-type-Cricket" ng-click="getCategories(game._id);" ui-sref="home({game:1})">
+                        <!-- <a class="menu-link sport-type-Cricket" ng-click="getCategories(game._id);" ui-sref="home({game: 1, parentId: 2}) "> -->
+                        <a class="menu-link sport-type-Cricket">
 
-                            <i class="icon-kings_cricket sport-icon ">
-                            </i>
+                            <!-- <i class="icon-kings_cricket sport-icon ">
+                            </i> -->
                             <span class="link-name ">{{game.name}}</span>
                         </a>
                     </li>

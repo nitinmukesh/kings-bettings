@@ -1,4 +1,8 @@
+var adminurl = adminUUU;
+io.sails.url = adminUUU;
+io.sails.autoConnect = false;
 myApp.factory('NavigationService', function ($http) {
+
     var navigation = [{
         name: "Home",
         classis: "active",
@@ -26,10 +30,22 @@ myApp.factory('NavigationService', function ($http) {
             return navigation;
         },
 
-        apiCallWithData: function (url, formData, callback) {
-            var accessToken = $.jStorage.get("accessToken");
-            formData.accessToken = accessToken;
+        userLogin: function (url, formData, callback) {
             $http.post(adminurl + url, formData).then(function (data) {
+                data = data.data;
+                callback(data);
+            });
+        },
+        apiCallWithData: function (url, formData, callback) {
+            $http.post(adminurl + url, formData).then(function (data) {
+                console.log('data', data);
+                data = data.data;
+                callback(data);
+            });
+        },
+        getMatchOddsData: function (url, formData, callback) {
+            $http.post(adminurl + url, formData).then(function (data) {
+                console.log('data', data);
                 data = data.data;
                 callback(data);
             });

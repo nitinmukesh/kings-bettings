@@ -8,90 +8,52 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         $state.go('login');
     }
 
-    $scope.logout = function () {
-        $.jStorage.flush("accessToken");
-        $state.go('login');
+    console.log("logs");
+
+    // if (!_.isEmpty($.jStorage.get("visitedCategories"))) {
+    //     $scope.visitedCategories = $.jStorage.get("visitedCategories");
+    // } else {
+    //     $scope.visitedCategories = [];
+    // }    
+    $scope.home = true;
+    // if (window.location.pathname == '/home/1') {
+    //     $scope.home = true;
+    // }
+    // alert("header controller");
+    // $scope.setUrl = function (value1, value2) {
+    //     // $location.path('/' + value1 + '/' + value2, false);
+    //     $state.go('home', {
+    //         game: value1,
+    //         parentId: value2
+    //     }, {
+    //         notify: false
+    //     });
+    // };
+
+    $scope.visitedCategories = [];
+    //To get games
+    $scope.getGames = function () {
+        NavigationService.apiCallWithData('Category/getCategoriesForNavigation', {}, function (data) {
+            console.log(data);
+            if (data.value) {
+                if (!_.isEmpty(data.data)) {
+                    $scope.gameData = data.data;
+                    console.log("$scope.gameData", $scope.gameData);
+                    $scope.visitedCategories.push($scope.gameData);
+                    // $scope.setUrl('game', '1');
+                    $scope.home = true;
+                } else {
+                    $scop.gameData = [];
+                }
+            } else {
+                alert("Unable get games");
+            }
+        });
     };
 
-    $scope.currentUrl = $state.current.name;
-    if ($scope.currentUrl == 'home' && window.location.pathname == '//') {
-        $scope.home = true;
-    } else {
-        $scope.next = true;
-    }
-    // alert("it's side menu");
-    console.log("$scope.currentUrl", $scope.currentUrl);
-    console.log("state params", $stateParams, window.location.pathname);
-
-    // // if (!_.isEmpty($.jStorage.get("visitedCategories"))) {
-    // //     $scope.visitedCategories = $.jStorage.get("visitedCategories");
-    // // } else {
-    // //     $scope.visitedCategories = [];
-    // // }    
-    // $scope.home = true;
-    // // if (window.location.pathname == '/home/1') {
-    // //     $scope.home = true;
-    // // }
-    // // alert("header controller");
-    // // $scope.setUrl = function (value1, value2) {
-    // //     // $location.path('/' + value1 + '/' + value2, false);
-    // //     $state.go('home', {
-    // //         game: value1,
-    // //         parentId: value2
-    // //     }, {
-    // //         notify: false
-    // //     });
-    // // };
-    // // $location.path('/game/1', false);
-    // $scope.visitedCategories = [];
-    // //To get games
-    // $scope.getGames = function () {
-    //     NavigationService.apiCallWithData('Game/getAllGamesAndCategory', {}, function (data) {
-    //         if (data.value) {
-    //             if (!_.isEmpty(data.data)) {
-    //                 $scope.gameData = data.data;
-    //                 $scope.visitedCategories.push($scope.gameData);
-    //                 // $scope.setUrl('game', '1');
-    //                 $scope.home = true;
-    //             } else {
-    //                 $scop.gameData = [];
-    //             }
-    //         } else {
-    //             alert("Unable get games");
-    //         }
     //     });
     // };
 
-    // // Onload function call
-    // $scope.getGames();
-    // $scope.getMatchByCategory = function (data) {
-    //     NavigationService.apiCallWithData('market/getMarketByCategory', data, function (market) {
-
-    //     });
-    // };
-
-    // //To get categories
-    // $scope.getCategories = function (value) {
-    //     $scope.currentUrl = "test";
-    //     $scope.home = false;
-    //     $scope.next = true;
-    //     $scope.previous = false;
-    //     $scope.categories = _.find($scope.gameData, function (game) {
-    //         if (game._id == value) {
-    //             $scope.game = game.name;
-    //             $scope.gameId = game._id;
-    //             return game;
-    //         }
-    //     });
-    //     $scope.game = $scope.categories.name;
-    //     $scope.getMatchByCategory({
-    //         'game': $scope.gameId
-    //     });
-    //     $scope.categories = $scope.categories.category;
-    //     // $scope.setUrl($scope.gameId, '1');
-    //     $scope.visitedCategories.push($scope.categories);
-    //     // $.jStorage.set("visitedCategories", $scope.visitedCategories);
-    // };
 
     // //To get sub Category
     // $scope.getSubCategory = function (value) {
