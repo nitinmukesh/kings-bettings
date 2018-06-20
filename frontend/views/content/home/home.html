@@ -14,8 +14,83 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr match-rate match="match" ng-repeat="match in matches">
+                    <!-- <tr match-rate match="matches">
 
+
+
+                    </tr> -->
+                    <tr>
+                        <td>
+                            <i class="far fa-star apl-icon-star-o"></i>
+                            <a class="event-name" href="">{{matches.name}}</a>
+                            <small class="">
+                                <time timestamp="event.start" type="gmtDateTime" class="">{{matches.createdAt | date:'dd/MM/yyyy hh:mm'}}</time>
+                            </small>
+                            <small class="in-play-content ng-binding ng-scope">
+                                <i class="fas fa-play-circle"></i>In-Play
+                            </small>
+                        </td>
+                        <!-- Start numActiveRunners 3 -->
+                        <td class="back betting-enabled" side="back">
+                            <strong class="odds ">
+                                {{matches.runners[0].back[0].price}}
+                            </strong>
+                            <div class="size">
+                                <span class="">
+                                    {{matches.runners[0].back[0].size}}
+                                </span>
+                            </div>
+                        </td>
+                        <td class="lay betting-enabled" side="lay">
+                            <strong class="odds ">
+                                {{matches.runners[0].lay[0].price}}
+                            </strong>
+                            <div class="size">
+                                <span class="">
+                                    {{matches.runners[0].lay[0].size}}
+                                </span>
+                            </div>
+                        </td>
+                        <td class="back betting-enabled" side="back">
+                            <strong class="odds ">
+                                {{matches.runners[1].back[0].price}}
+                            </strong>
+                            <div class="size">
+                                <span class="">
+                                    {{matches.runners[1].back[0].size}}
+                                </span>
+                            </div>
+                        </td>
+                        <td class="lay betting-enabled" side="lay">
+                            <strong class="odds ">
+                                {{matches.runners[1].lay[0].price}}
+                            </strong>
+                            <div class="size">
+                                <span class="">
+                                    {{matches.runners[1].lay[0].size}}
+                                </span>
+                            </div>
+                        </td>
+                        <td class="back betting-enabled" ng-click="addBetSlip(matches.runners[2],matches.runners[2].back[0],'back')" side="back">
+                            <strong class="odds ">
+                                {{matches.runners[2].back[0].price}}
+                            </strong>
+                            <div class="size">
+                                <span class="">
+                                    {{matches.runners[2].back[0].size}}
+                                </span>
+                            </div>
+                        </td>
+                        <td class="lay betting-enabled" ng-click="addBetSlip(matches.runners[2],matches.runners[2].lay[0],'lay')" side="lay">
+                            <strong class="odds ">
+                                {{matches.runners[2].lay[0].price}}
+                            </strong>
+                            <div class="size">
+                                <span class="">
+                                    {{matches.runners[2].lay[0].size}}
+                                </span>
+                            </div>
+                        </td>
                     </tr>
                 </tbody>
             </table>

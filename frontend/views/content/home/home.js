@@ -33,14 +33,33 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     $scope.selected = {
         value: $scope.itemArray[0]
     };
-    $scope.getMatchByCategory = function (data) {
-        NavigationService.apiCallWithData('market/getMarketByCategory', data, function (market) {
-            $scope.matches = market.data;
-        });
-    };
-    $scope.getMatchByCategory({
-        'game': "5afebdc3c35ebd4a630532e6"
+
+    // io.socket.on("marketOdds" + 1.144715412, function (data) {
+    //     console.log(data);
+    // });
+    var mySocket1 = io.sails.connect(adminUUU);
+    console.log("logs",mySocket1);
+    mySocket1.on('marketodds', function onConnect(data) {
+      console.log(data);
+      $scope.matches = data;
+      console.log("home", $scope.matches);
+      $scope.$apply();
     });
+
+
+    // $scope.getMatchOdds = function (data) {
+    //     NavigationService.getMatchOddsData('BetFair/getMatchOdds', {}, function (data) {
+    //         $scope.matches = data.data;
+    //         console.log("home", $scope.matches);
+    //     });
+    // };
+    // setInterval(function(){
+    //     $scope.getMatchOdds();
+    //   }, 1000)
+
+    // $scope.getMatchByCategory({
+    //     'game': "5afebdc3c35ebd4a630532e6"
+    // });
 
     $scope.format = 'yyyy/MM/dd';
     $scope.date = new Date();
