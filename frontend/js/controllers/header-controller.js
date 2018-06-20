@@ -8,6 +8,16 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         $state.go('login');
     }
 
+    console.log("logs");
+
+
+
+
+
+
+
+
+    
     // if (!_.isEmpty($.jStorage.get("visitedCategories"))) {
     //     $scope.visitedCategories = $.jStorage.get("visitedCategories");
     // } else {
@@ -31,10 +41,12 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     $scope.visitedCategories = [];
     //To get games
     $scope.getGames = function () {
-        NavigationService.apiCallWithData('Game/getAllGamesAndCategory', {}, function (data) {
+        NavigationService.apiCallWithData('Category/getCategoriesForNavigation', {}, function (data) {
+            console.log(data);
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
                     $scope.gameData = data.data;
+                    console.log("$scope.gameData",$scope.gameData);
                     $scope.visitedCategories.push($scope.gameData);
                     // $scope.setUrl('game', '1');
                     $scope.home = true;
@@ -51,6 +63,7 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     $scope.getGames();
     $scope.getMatchByCategory = function (data) {
         NavigationService.apiCallWithData('market/getMarketByCategory', data, function (market) {
+
 
         });
     };

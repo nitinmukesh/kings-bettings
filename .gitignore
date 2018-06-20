@@ -124,3 +124,5 @@ backup
 .vscode
 *.logsendgrid.env
 sendgrid.env
+*.tar.gz
+*.tar
