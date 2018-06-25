@@ -1,4 +1,6 @@
 var adminurl = adminUUU;
+// adminurl = adminurl + "/api/";
+adminurl = "http://localhost:1337/api/"
 io.sails.url = adminUUU;
 io.sails.autoConnect = false;
 myApp.factory('NavigationService', function ($http) {
@@ -38,7 +40,7 @@ myApp.factory('NavigationService', function ($http) {
         },
         apiCallWithData: function (url, formData, callback) {
             $http.post(adminurl + url, formData).then(function (data) {
-                console.log('data', data);
+                // console.log('data', data);
                 data = data.data;
                 callback(data);
             });

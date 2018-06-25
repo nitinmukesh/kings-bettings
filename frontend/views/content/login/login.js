@@ -8,7 +8,7 @@ myApp.controller('LoginCtrl', function ($scope, TemplateService, NavigationServi
     $scope.navigation = NavigationService.getNavigation();
 
     $scope.userLogin = function (value) {
-        $state.go('home');
+        console.log(value)
         NavigationService.userLogin("BetFair/userLogin", value, function (data) {
             console.log("data", data);
             if (data.value) {
