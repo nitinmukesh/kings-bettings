@@ -31,6 +31,7 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     // };
 
     $scope.visitedCategories = [];
+    $scope.previousState = [];
     //To get games
     $scope.getGames = function () {
         NavigationService.apiCallWithData('Category/getCategoriesForNavigation', {}, function (data) {
@@ -38,7 +39,7 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
                     $scope.gameData = data.data;
-                    // console.log("$scope.gameData", $scope.gameData);
+                    console.log("$scope.gameData", $scope.gameData);
                     $scope.visitedCategories.push($scope.gameData);
                     // $scope.setUrl('game', '1');
                     $scope.home = true;
@@ -57,57 +58,113 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
 
 
     // //To get sub Category
-    // $scope.getSubCategory = function (value) {
-    //     $scope.home = false;
-    //     $scope.next = true;
-    //     $scope.previous = false;
-    //     $scope.subcategory = _.find($scope.categories, function (game) {
-    //         if (game._id == value) {
-    //             $scope.parentId = game._id;
-    //             return game;
-    //         }
-    //     });
-    //     $scope.getMatchByCategory({
-    //         'game': $scope.gameId,
-    //         'category': $scope.parentId
-    //     });
-    //     if (!_.isEmpty($scope.subcategory.children)) {
-    //         $scope.categories = $scope.subcategory.children;
-    //         // $scope.setUrl($scope.gameId, $scope.parentId);
-    //         $scope.visitedCategories.push($scope.categories);
-    //     }
+    $scope.getSubCategory = function (value) {
 
-    //     // $.jStorage.set("visitedCategories", $scope.visitedCategories);
-    // };
+        if (!_.isEmpty(value)) {
+            if (!$scope.next) {
+                $scope.next = true;
+                $scope.previous = false;
+            } else {
+                $scope.next = false;
+                $scope.previous = true;
+            }
+            $scope.home = false;
+
+            // $scope.previous = false;
+            if (!_.isEmpty($scope.subcategory)) {
+                $scope.previousState.push($scope.subcategory);
+            }
+
+            $scope.subcategory = value;
+
+        }
+
+        // $scope.getMatchByCategory({
+        //     'game': $scope.gameId,
+        //     'category': $scope.parentId
+        // });
+        // if (!_.isEmpty($scope.subcategory.children)) {
+        //     $scope.categories = $scope.subcategory.children;
+        //     // $scope.setUrl($scope.gameId, $scope.parentId);
+        //     $scope.visitedCategories.push($scope.categories);
+        // }
+
+        // $.jStorage.set("visitedCategories", $scope.visitedCategories);
+    };
+
+    $scope.getGameName = function (value) {
+        $scope.game = value;
+    }
 
 
-    // $scope.getPreviousCategory = function () {
-    //     $scope.visitedCategories.pop();
-    //     $scope.categories = $scope.visitedCategories[$scope.visitedCategories.length - 1];
-    //     if ($scope.visitedCategories.length == 1) {
-    //         $scope.home = true;
-    //         $scope.next = false;
-    //         $scope.previous = false;
-    //         // $scope.setUrl('home', '1');
-    //     } else {
-    //         $scope.home = false;
-    //         $scope.next = false;
-    //         $scope.previous = true;
-    //         $scope.parentId = $scope.categories[0].parentCategory;
-    //         if ($scope.parentId == undefined)
-    //             $scope.parentId = 1;
-    //         $scope.gameId = $scope.categories[0].game;
-    //         // $scope.setUrl($scope.gameId, $scope.parentId);
-    //     }
-    // };
+    $scope.getPreviousCategory = function () {
+
+        if (!_.isEmpty($scope.previousState)) {
+            if (!$scope.next) {
+                $scope.next = true;
+                $scope.previous = false;
+            } else {
+                $scope.next = false;
+                $scope.previous = true;
+            }
+            $scope.subcategory = $scope.previousState[$scope.previousState.length - 1];
+            $scope.previousState.pop();
+        } else {
+            $scope.subcategory = [];
+            $scope.previousState = [];
+            $scope.home = true;
+            $scope.next = false;
+            $scope.previous = false;
+        }
+
+
+        // $scope.visitedCategories.pop();
+        // $scope.categories = $scope.visitedCategories[$scope.visitedCategories.length - 1];
+        // if ($scope.visitedCategories.length == 1) {
+        //     $scope.home = true;
+        //     $scope.next = false;
+        //     $scope.previous = false;
+        //     // $scope.setUrl('home', '1');
+        // } else {
+        //     $scope.home = false;
+        //     $scope.next = false;
+        //     $scope.previous = true;
+        //     $scope.parentId = $scope.categories[0].parentCategory;
+        //     if ($scope.parentId == undefined)
+        //         $scope.parentId = 1;
+        //     $scope.gameId = $scope.categories[0].game;
+        //     // $scope.setUrl($scope.gameId, $scope.parentId);
+        // }
+    };
+
+    getMatchOdds = function (value) {
+
+    };
+
+    getMarketIds = function (game) {
+        NavigationService.apiCallWithData('Betfair/getMarketIds', {}, function (data) {
+            // console.log(data);
+            if (data.value) {
+                if (!_.isEmpty(data.data)) {
+
+                } else {
+                    $scop.gameData = [];
+                }
+            } else {
+                alert("Unable get games");
+            }
+        });
+    }
 
 
     // //Go to home menu
-    // $scope.goTohome = function () {
-    //     $scope.home = true;
-    //     $scope.next = false;
-    //     $scope.previous = false;
-    // };
+    $scope.goTohome = function () {
+        $scope.subcategory = [];
+        $scope.previousState = [];
+        $scope.home = true;
+        $scope.next = false;
+        $scope.previous = false;
+    };
 
     // $scope.oneAtATime = true;
     // $.fancybox.close(true);

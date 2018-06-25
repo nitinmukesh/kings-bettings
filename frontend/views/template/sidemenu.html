@@ -30,7 +30,7 @@
                         </a>
                     </li>
                     <li class=" ">
-                        <a class="menu-link sport-type-Cricket " ng-repeat="category in categories" ng-click="getSubCategory(category._id)">
+                        <a class="menu-link sport-type-Cricket " ng-repeat="category in subcategory" ng-click="getSubCategory(category.children)">
                             <i class="sport-icon apl-icon-sport-cricket"></i>
                             <span class="link-name">{{category.name}}</span>
                             <i class="fas fa-chevron-right"></i>
@@ -47,9 +47,9 @@
                         </a>
                     </li>
                     <li ng-repeat="game in gameData">
-                        <!-- <a class="menu-link sport-type-Cricket" ng-click="getCategories(game._id);"> -->
-                        <!-- <a class="menu-link sport-type-Cricket" ng-click="getCategories(game._id);" ui-sref="home({game: 1, parentId: 2}) "> -->
-                        <a class="menu-link sport-type-Cricket">
+                        <a class="menu-link sport-type-Cricket" ng-click="getSubCategory(game.children);getGameName(game.name)">
+                            <!-- <a class="menu-link sport-type-Cricket" ng-click="getCategories(game._id);" ui-sref="home({game: 1, parentId: 2}) "> -->
+                            <!-- <a class="menu-link sport-type-Cricket"> -->
 
                             <!-- <i class="icon-kings_cricket sport-icon ">
                             </i> -->
@@ -60,7 +60,7 @@
 
 
                 <!-- Ul for next menu -->
-                <ul class="menu-column menu-lvl-1 sport-type-Cricket previous-button " ng-if="next ">
+                <ul class="menu-column menu-lvl-1 sport-type-Cricket previous-button " ng-if="next">
                     <li>
                         <a ui-sref="favourites " class="favourites-link ">
                             <i class="far fa-star icon-style "></i>
@@ -86,7 +86,7 @@
                         </a>
                     </li>
                     <li class=" ">
-                        <a class="menu-link sport-type-Cricket" ng-repeat="category in categories" ng-click="getSubCategory(category._id)" ui-sref="home({game: game._id, parentId: category._id})">
+                        <a class="menu-link sport-type-Cricket" ng-repeat="category in subcategory" ng-click="getSubCategory(category.children)">
                             <i class="sport-icon apl-icon-sport-cricket "></i>
                             <span class="link-name ">{{category.name}}</span>
                             <i class="fas fa-chevron-right "></i>
