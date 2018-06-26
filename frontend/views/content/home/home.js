@@ -40,7 +40,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
 
     $scope.getMarketIds = function () {
         NavigationService.apiCallWithData('Category/getMarketIds', {}, function (data) {
-            console.log(data);
+            console.log("Category/getMarketIds", data);
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
                     $scope.marketData = data.data;
@@ -49,14 +49,16 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
                     // $scope.setUrl('game', '1');
                     $scope.home = true;
                 } else {
-                    $scop.marketData = [];
+                    $scope.marketData = [];
                 }
             } else {
-                alert("Unable get markets");
+                // alert("Unable get markets");
             }
         });
     };
     $scope.getMarketIds();
+
+
     var mySocket1 = io.sails.connect(adminUUU);
     console.log("logs", mySocket1);
     mySocket1.on("market_1.144792630", function onConnect(data) {

@@ -41,10 +41,14 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
                     $scope.gameData = data.data;
                     console.log("$scope.gameData", $scope.gameData);
                     $scope.visitedCategories.push($scope.gameData);
+
+                    $scope.getMatchOdds({
+                        game: "Cricket"
+                    });
                     // $scope.setUrl('game', '1');
                     $scope.home = true;
                 } else {
-                    $scop.gameData = [];
+                    $scope.gameData = [];
                 }
             } else {
                 alert("Unable get games");
@@ -56,9 +60,20 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     //     });
     // };
 
-
     // //To get sub Category
     $scope.getSubCategory = function (value) {
+        $state.go('homeInside', {
+            game: $scope.game,
+            parentId: $scope.parentId
+        }, {
+            notify: false
+        });
+
+        //get match odds on click
+        $scope.getMatchOdds({
+            game: $scope.game,
+            parentId: $scope.parentId
+        });
 
         if (!_.isEmpty(value)) {
             if (!$scope.next) {
@@ -76,7 +91,6 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
             }
 
             $scope.subcategory = value;
-
         }
 
         // $scope.getMatchByCategory({
@@ -94,6 +108,11 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
 
     $scope.getGameName = function (value) {
         $scope.game = value;
+    };
+
+    $scope.getParentId = function (value) {
+        $scope.previousParentId = $scope.parentId;
+        $scope.parentId = value;
     }
 
 
@@ -108,13 +127,30 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
                 $scope.previous = true;
             }
             $scope.subcategory = $scope.previousState[$scope.previousState.length - 1];
+            $scope.parentId = $scope.previousParentId;
             $scope.previousState.pop();
+            $state.go('homeInside', {
+                game: $scope.game,
+                parentId: $scope.parentId
+            }, {
+                notify: false
+            });
+            $scope.getMatchOdds({
+                game: $scope.game,
+                parentId: $scope.parentId
+            });
         } else {
             $scope.subcategory = [];
             $scope.previousState = [];
             $scope.home = true;
             $scope.next = false;
             $scope.previous = false;
+            $state.go('home', {
+                notify: false
+            });
+            $scope.getMatchOdds({
+                game: "Cricket"
+            });
         }
 
 
@@ -137,24 +173,22 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         // }
     };
 
-    getMatchOdds = function (value) {
-
-    };
-
-    getMarketIds = function (game) {
-        NavigationService.apiCallWithData('Betfair/getMarketIds', {}, function (data) {
+    $scope.getMatchOdds = function (value) {
+        NavigationService.apiCallWithData('Category/getMarketIds', value, function (data) {
             // console.log(data);
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
+                    console.log("data.data", data.data);
 
+                    // $scope.setUrl('game', '1');
                 } else {
-                    $scop.gameData = [];
+                    $scope.gameData = [];
                 }
             } else {
                 alert("Unable get games");
             }
         });
-    }
+    };
 
 
     // //Go to home menu
@@ -164,6 +198,9 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         $scope.home = true;
         $scope.next = false;
         $scope.previous = false;
+        $state.go('home', {
+            notify: false
+        });
     };
 
     // $scope.oneAtATime = true;
