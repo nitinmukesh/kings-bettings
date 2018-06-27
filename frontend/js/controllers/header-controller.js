@@ -1,4 +1,4 @@
-myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, $state, NavigationService, $location, $timeout) {
+myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, $state, NavigationService, $location, $timeout, $window) {
     $scope.template = TemplateService;
     $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
@@ -8,7 +8,10 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         $state.go('login');
     }
 
-    console.log("logs");
+    //To handle the reload functionality.
+    window.onbeforeunload = function () {
+        $.jStorage.flush();
+    }
 
     // if (!_.isEmpty($.jStorage.get("visitedCategories"))) {
     //     $scope.visitedCategories = $.jStorage.get("visitedCategories");
