@@ -62,7 +62,8 @@
     "cleave.js": "^0.7.10",
     "angular-promise-buttons": "^0.1.21",
     "ui-bootstrap4": "https://github.com/Morgul/ui-bootstrap4.git#^3.0.2",
-    "popper.js": "^1.14.3"
+    "popper.js": "^1.14.3",
+    "async": "^2.6.1"
   },
   "resolutions": {
     "angular": "1.6.6"

@@ -42,12 +42,12 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
                     $scope.gameData = data.data;
-                    console.log("$scope.gameData", $scope.gameData);
+                    // console.log("$scope.gameData", $scope.gameData);
                     $scope.visitedCategories.push($scope.gameData);
 
-                    $scope.getMatchOdds({
-                        game: "Cricket"
-                    });
+                    // $scope.getMatchOdds({
+                    //     game: "Cricket"
+                    // });
                     // $scope.setUrl('game', '1');
                     $scope.home = true;
                 } else {
@@ -176,22 +176,22 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         // }
     };
 
-    $scope.getMatchOdds = function (value) {
-        NavigationService.apiCallWithData('Category/getMarketIds', value, function (data) {
-            // console.log(data);
-            if (data.value) {
-                if (!_.isEmpty(data.data)) {
-                    console.log("data.data", data.data);
+    // $scope.getMatchOdds = function (value) {
+    //     NavigationService.apiCallWithData('Category/getMarketIds', value, function (data) {
+    //         // console.log(data);
+    //         if (data.value) {
+    //             if (!_.isEmpty(data.data)) {
+    //                 // console.log("data.data", data.data);
 
-                    // $scope.setUrl('game', '1');
-                } else {
-                    $scope.gameData = [];
-                }
-            } else {
-                alert("Unable get games");
-            }
-        });
-    };
+    //                 // $scope.setUrl('game', '1');
+    //             } else {
+    //                 $scope.gameData = [];
+    //             }
+    //         } else {
+    //             alert("Unable get games");
+    //         }
+    //     });
+    // };
 
 
     // //Go to home menu

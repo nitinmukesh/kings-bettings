@@ -27,6 +27,7 @@ module.exports = [
   "bower_components/angular-toastr/dist/angular-toastr.js",
   "bower_components/angular-toastr/dist/angular-toastr.tpls.js",
   "bower_components/angular-promise-buttons/dist/angular-promise-buttons.js",
+  "bower_components/async/dist/async.min.js",
 
   //App.js
   'frontend/js/app.js',
@@ -44,6 +45,7 @@ module.exports = [
   // Services
   'frontend/js/services/template.js',
   'frontend/js/services/bet.js',
+  'frontend/js/services/jStorageService.js',
 
   //Factories
   'frontend/js/factories/navigation.js',
@@ -79,5 +81,5 @@ module.exports = [
   'frontend/views/content/greyhound-racing/greyhound-racing.js',
   'frontend/js/controllers/header-controller.js',
   'frontend/js/controllers/language-controller.js',
-  'frontend/js/controllers/rightSideMenuCtrl.js',
+  'frontend/js/controllers/rightSideMenuCtrl.js'
 ];

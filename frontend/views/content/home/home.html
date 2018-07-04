@@ -31,7 +31,7 @@
                             </small>
                         </td>
                         <!-- Start numActiveRunners 3 -->
-                        <td class="back betting-enabled" side="back">
+                        <td class="back betting-enabled" side="back" ng-click="check(1.5,'BACK')">
                             <strong class="odds ">
                                 {{matches[0].batb[0][1]}}
                             </strong>
@@ -41,7 +41,7 @@
                                 </span>
                             </div>
                         </td>
-                        <td class="lay betting-enabled" side="lay">
+                        <td class="lay betting-enabled" side="lay" ng-click="check(1.5,'LAY')">
                             <strong class="odds ">
                                 {{matches[0].batl[0][1]}}
                             </strong>

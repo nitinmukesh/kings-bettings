@@ -10,9 +10,10 @@ myApp.controller('LoginCtrl', function ($scope, TemplateService, NavigationServi
     $scope.userLogin = function (value) {
         console.log(value)
         NavigationService.userLogin("BetFair/userLogin", value, function (data) {
-            console.log("data", data);
-            if (data.value) {
-                $.jStorage.set("accessToken", data.data);
+            console.log("data", (data.data));
+            if (data.value && !_.isEmpty(data.data)) {
+                $.jStorage.set("accessToken", data.data.accessToken);
+                $.jStorage.set("userId", data.data.userId);
                 $state.go('home');
             } else {
                 alert("unable to login");

@@ -1,5 +1,6 @@
 var adminurl = adminUUU;
 // adminurl = adminurl + "/api/";
+adminUUU = "http://localhost:1338/"
 adminurl = "http://localhost:1337/api/"
 io.sails.url = adminUUU;
 io.sails.autoConnect = false;
@@ -52,5 +53,12 @@ myApp.factory('NavigationService', function ($http) {
                 callback(data);
             });
         },
+
+        calculateBet: function (formData, callback) {
+            $http.post("http://192.168.1.106:1337/api/SportsBook/loseMoney", formData).then(function (data) {
+                data = data.data;
+                callback(data);
+            });
+        }
     };
 });
