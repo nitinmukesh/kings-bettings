@@ -1,8 +1,8 @@
-<div class="markets common-heading" ng-controller="CricketinnerCtrl">
+<div class="markets common-heading" ng-controller="DetailPageCtrl">
     <div class="group-event _clearfix ">
         <div class="header">
             <h1>
-                Kings XI Punjab v Mumbai Indians
+                {{market.parentCategory.name}}
                 <time timestamp="vm.eventMarket.start" type="gmtDateTime" class="">04/05/2018 20:00</time>
             </h1>
             <div class="start-time  opens-in-count-down-container">
@@ -33,69 +33,137 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="">
+                        <tr class="" ng-repeat="runner in market.runners">
                             <td>
-                                <div class="event-name ">Kings XI Punjab</div>
+                                <div class="event-name ">{{runner.name}}</div>
+                                <div class="selection-pnl">
+                                </div>
+                            </td>
+                            <td class="back unhighlighted show-size" ng-click="placeBet(runner.back[2][1],'BACK',market,runner)">
+                                <strong class="odds ">
+                                    {{runner.back[2][1]}}
+                                </strong>
+                                <div class="size">
+                                    <span class="">
+                                        {{runner.back[2][2]}}
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="back unhighlighted show-size" ng-click="placeBet(runner.back[1][1],'BACK',market,runner)">
+                                <strong class="odds ">
+                                    {{runner.back[1][1]}}
+                                </strong>
+                                <div class="size">
+                                    <span class="">
+                                        {{runner.back[1][2]}}
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="back show-size" ng-click="placeBet(runner.back[0][1],'BACK',market,runner)">
+                                <strong class="odds ">
+                                    {{runner.back[0][1]}}
+                                </strong>
+                                <div class="size">
+                                    <span class="">
+                                        {{runner.back[0][2]}}
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="lay show-size" ng-click="placeBet(runner.lay[0][1],'LAY',market,runner)">
+                                <strong class="odds ">
+                                    {{runner.lay[0][1]}}
+                                </strong>
+                                <div class="size">
+                                    <span class="">
+                                        {{runner.lay[0][2]}}
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="lay unhighlighted show-size" ng-click="placeBet(runner.lay[1][1],'LAY',market,runner)">
+                                <strong class="odds ">
+                                    {{runner.lay[1][1]}}
+                                </strong>
+                                <div class="size">
+                                    <span class="">
+                                        {{runner.lay[1][2]}}
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="lay unhighlighted show-size" ng-click="placeBet(runner.lay[2][1],'LAY',market,runner)">
+                                <strong class="odds ">
+                                    {{runner.lay[2][1]}}
+                                </strong>
+                                <div class="size">
+                                    <span class="">
+                                        {{runner.lay[2][2]}}
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- <tr class="">
+                            <td>
+                                <div class="event-name ">{{market.runners[1].name}}</div>
                                 <div class="selection-pnl">
                                 </div>
                             </td>
                             <td class="back unhighlighted show-size">
                                 <strong class="odds ">
-                                    1.97
+                                    {{market.runners[1].back[2][1]}}
                                 </strong>
                                 <div class="size">
                                     <span class="">
-                                        19,449
+                                        {{market.runners[1].back[2][2]}}
                                     </span>
                                 </div>
                             </td>
                             <td class="back unhighlighted show-size">
                                 <strong class="odds ">
-                                    1.98
+                                    {{market.runners[1].back[1][1]}}
                                 </strong>
                                 <div class="size">
                                     <span class="">
-                                        122,918
+                                        {{market.runners[1].back[1][2]}}
                                     </span>
                                 </div>
                             </td>
                             <td class="back show-size">
                                 <strong class="odds ">
-                                    1.99
+                                    {{market.runners[1].back[0][1]}}
                                 </strong>
                                 <div class="size">
                                     <span class="">
-                                        25,105
+                                        {{market.runners[1].back[0][2]}}
                                     </span>
                                 </div>
                             </td>
                             <td class="lay show-size">
                                 <strong class="odds ">
-                                    2.00
+                                    {{market.runners[1].lay[0][1]}}
                                 </strong>
                                 <div class="size">
                                     <span class="">
-                                        500,000+
+                                        {{market.runners[1].lay[0][2]}}
                                     </span>
                                 </div>
                             </td>
                             <td class="lay unhighlighted show-size">
                                 <strong class="odds ">
-                                    2.02
+                                    {{market.runners[1].lay[1][1]}}
                                 </strong>
                                 <div class="size">
                                     <span class="">
-                                        143,577
+                                        {{market.runners[1].lay[1][2]}}
                                     </span>
                                 </div>
                             </td>
                             <td class="lay unhighlighted show-size">
                                 <strong class="odds ">
-                                    2.04
+                                    {{market.runners[1].lay[2][1]}}
                                 </strong>
                                 <div class="size">
                                     <span class="">
-                                        198,841
+                                        {{market.runners[1].lay[2][2]}}
                                     </span>
                                 </div>
                             </td>
@@ -103,1368 +171,1366 @@
 
                         <tr class="">
                             <td>
-                                <div class="event-name ">Mumbai Indians</div>
-                                <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="pnl" runner-id="runner.id" market-id="market.id"
-                                    event-id="market.event.id">
-
+                                <div class="event-name ">{{market.runners[2].name}}</div>
+                                <div class="selection-pnl">
                                 </div>
                             </td>
                             <td class="back unhighlighted show-size">
                                 <strong class="odds ">
-                                    1.98
+                                    {{market.runners[2].back[2][1]}}
                                 </strong>
                                 <div class="size">
                                     <span class="">
-                                        166,056
+                                        {{market.runners[2].back[2][2]}}
                                     </span>
                                 </div>
                             </td>
                             <td class="back unhighlighted show-size">
                                 <strong class="odds ">
-                                    div 1.99
+                                    {{market.runners[2].back[1][1]}}
                                 </strong>
                                 <div class="size">
                                     <span class="">
-                                        182
+                                        {{market.runners[2].back[1][2]}}
                                     </span>
-                                    </>
+                                </div>
                             </td>
                             <td class="back show-size">
                                 <strong class="odds ">
-                                    2.00
+                                    {{market.runners[2].back[0][1]}}
                                 </strong>
                                 <div class="size">
                                     <span class="">
-                                        500,000+
+                                        {{market.runners[2].back[0][2]}}
                                     </span>
                                 </div>
                             </td>
                             <td class="lay show-size">
                                 <strong class="odds ">
-                                    2.02
+                                    {{market.runners[2].lay[0][1]}}
                                 </strong>
                                 <div class="size">
                                     <span class="">
-                                        40,243
+                                        {{market.runners[2].lay[0][2]}}
                                     </span>
                                 </div>
                             </td>
                             <td class="lay unhighlighted show-size">
                                 <strong class="odds ">
-                                    2.04
+                                    {{market.runners[2].lay[1][1]}}
                                 </strong>
                                 <div class="size">
                                     <span class="">
-                                        138,887
+                                        {{market.runners[2].lay[1][2]}}
                                     </span>
                                 </div>
                             </td>
                             <td class="lay unhighlighted show-size">
                                 <strong class="odds ">
-                                    2.06
+                                    {{market.runners[2].lay[2][1]}}
                                 </strong>
                                 <div class="size">
                                     <span class="">
-                                        73,643
+                                        {{market.runners[2].lay[2][2]}}
                                     </span>
                                 </div>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
-                </div>
-                <div class="">
-                    <hr class="">
-                    <div class="apl-session-runs">
-                        <div>
-                            <table class="market-listing-table apl-table">
-                                <thead class="">
-                                    <tr>
-                                        <th class="market-name " translate="">Session Runs</th>
+            </div>
+            <div class="">
+                <hr class="">
+                <div class="apl-session-runs">
+                    <div>
+                        <table class="market-listing-table apl-table">
+                            <thead class="">
+                                <tr>
+                                    <th class="market-name " translate="">Session Runs</th>
 
-                                        <th class="lay ">&nbsp;</th>
-                                        <th class="lay ">&nbsp;</th>
-                                        <th class="lay " translate="">No</th>
-                                        <th class="back " translate="">Yes</th>
-                                        <th class="back ">&nbsp;</th>
-                                        <th class="back ">&nbsp;</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="market-name">
-                                            <div class="event-name ">MATCH 1ST OVER RUN (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder ">
-                                                <i class="fas fa-sliders-h"></i>
-                                            </i>
-                                            <div class="selection-pnl ng-isolate-scope">
-                                            </div>
-                                        </td>
-                                        <td class="main-container" colspan="6">
-                                            <div class="">
-                                                <div class="odds-container">
-                                                    <table class="market-listing-table apl-table">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td colspan="6" class="-status ng-binding ng-scope suspended" ng-class="event.status == 'SUSPENDED' ? 'suspended' : 'closed'">SUSPENDED</td>
-                                                                <td colspan="2" class="odds-placeholder">&nbsp;</td>
-                                                                <td class="lay show-size">
-                                                                    <strong class="odds ">
-                                                                        7
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            115
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="back show-size">
-                                                                    <strong class="odds ">
-                                                                        7
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            85
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td colspan="2" class="odds-placeholder">
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Bet: 2,200
+                                    <th class="lay ">&nbsp;</th>
+                                    <th class="lay ">&nbsp;</th>
+                                    <th class="lay " translate="">No</th>
+                                    <th class="back " translate="">Yes</th>
+                                    <th class="back ">&nbsp;</th>
+                                    <th class="back ">&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="market-name">
+                                        <div class="event-name ">MATCH 1ST OVER RUN (KXIP VS MI)ADV</div>
+                                        <i class="apl-icon-custom-ladder ">
+                                            <i class="fas fa-sliders-h"></i>
+                                        </i>
+                                        <div class="selection-pnl ng-isolate-scope">
+                                        </div>
+                                    </td>
+                                    <td class="main-container" colspan="6">
+                                        <div class="">
+                                            <div class="odds-container">
+                                                <table class="market-listing-table apl-table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td colspan="6" class="-status ng-binding ng-scope suspended" ng-class="event.status == 'SUSPENDED' ? 'suspended' : 'closed'">SUSPENDED</td>
+                                                            <td colspan="2" class="odds-placeholder">&nbsp;</td>
+                                                            <td class="lay show-size">
+                                                                <strong class="odds ">
+                                                                    7
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        115
                                                                     </span>
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Mkt: 11,000
+                                                                </div>
+                                                            </td>
+                                                            <td class="back show-size">
+                                                                <strong class="odds ">
+                                                                    7
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        85
                                                                     </span>
+                                                                </div>
+                                                            </td>
+                                                            <td colspan="2" class="odds-placeholder">
 
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
+                                                                <span class="max-liability  ">
+                                                                    Max Bet: 2,200
+                                                                </span>
 
+                                                                <span class="max-liability  ">
+                                                                    Max Mkt: 11,000
+                                                                </span>
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
 
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="ladder-component-container visible" ng-class="{'visible': vm.isLadderVisible}">
-                                <apl-session-runs-ladder market-id="vm.market.id" is-visible="vm.isLadderVisible" class="ng-isolate-scope">
-                                    <div class="ladder-container">
-                                        <!-- ngIf: vm.loading -->
-                                        <!-- ngIf: !vm.loading -->
-                                        <div class="ng-scope">
-                                            <div class="ladder-header">
-                                                <div class="row">
-                                                    <div class="col ng-scope" translate="">Runs</div>
-                                                    <div class="col ng-scope" translate="">P&amp;L</div>
-                                                </div>
-                                            </div>
-                                            <div class="ladder-rows-container">
-                                                <!-- ngRepeat: ladderRow in vm.ladderRows -->
-                                                <div class="row ng-scope">
-                                                    <div class="col ng-binding">0 - 170</div>
-                                                    <div class="col ng-binding -negative" ng-class="{'-negative': ladderRow.exposure < 0, '-positive': ladderRow.exposure >= 0}">-40.00</div>
-                                                </div>
-                                                <!-- end ngRepeat: ladderRow in vm.ladderRows -->
-                                                <div class="row ng-scope">
-                                                    <div class="col ng-binding">171+</div>
-                                                    <div class="col ng-binding -positive" ng-class="{'-negative': ladderRow.exposure < 0, '-positive': ladderRow.exposure >= 0}">40.00</div>
-                                                </div>
-                                                <!-- end ngRepeat: ladderRow in vm.ladderRows -->
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="ladder-component-container visible" ng-class="{'visible': vm.isLadderVisible}">
+                            <apl-session-runs-ladder market-id="vm.market.id" is-visible="vm.isLadderVisible" class="ng-isolate-scope">
+                                <div class="ladder-container">
+                                    <!-- ngIf: vm.loading -->
+                                    <!-- ngIf: !vm.loading -->
+                                    <div class="ng-scope">
+                                        <div class="ladder-header">
+                                            <div class="row">
+                                                <div class="col ng-scope" translate="">Runs</div>
+                                                <div class="col ng-scope" translate="">P&amp;L</div>
                                             </div>
                                         </div>
-                                        <!-- end ngIf: !vm.loading -->
+                                        <div class="ladder-rows-container">
+                                            <!-- ngRepeat: ladderRow in vm.ladderRows -->
+                                            <div class="row ng-scope">
+                                                <div class="col ng-binding">0 - 170</div>
+                                                <div class="col ng-binding -negative" ng-class="{'-negative': ladderRow.exposure < 0, '-positive': ladderRow.exposure >= 0}">-40.00</div>
+                                            </div>
+                                            <!-- end ngRepeat: ladderRow in vm.ladderRows -->
+                                            <div class="row ng-scope">
+                                                <div class="col ng-binding">171+</div>
+                                                <div class="col ng-binding -positive" ng-class="{'-negative': ladderRow.exposure < 0, '-positive': ladderRow.exposure >= 0}">40.00</div>
+                                            </div>
+                                            <!-- end ngRepeat: ladderRow in vm.ladderRows -->
+                                        </div>
                                     </div>
-                                </apl-session-runs-ladder>
-                            </div>
-                            <div class="clear"></div>
+                                    <!-- end ngIf: !vm.loading -->
+                                </div>
+                            </apl-session-runs-ladder>
                         </div>
+                        <div class="clear"></div>
                     </div>
-
                 </div>
 
-                <div class="">
+            </div>
 
-                    <div class="apl-session-runs">
-                        <div>
-                            <table class="market-listing-table apl-table">
+            <div class="">
 
-                                <tbody>
-                                    <tr>
-                                        <td class="market-name">
-                                            <div class="event-name ">6 OVER RUN KXIP (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder ">
-                                                <i class="fas fa-sliders-h"></i>
-                                            </i>
-                                            <div class="selection-pnl ng-isolate-scope">
+                <div class="apl-session-runs">
+                    <div>
+                        <table class="market-listing-table apl-table">
 
-                                            </div>
-                                        </td>
+                            <tbody>
+                                <tr>
+                                    <td class="market-name">
+                                        <div class="event-name ">6 OVER RUN KXIP (KXIP VS MI)ADV</div>
+                                        <i class="apl-icon-custom-ladder ">
+                                            <i class="fas fa-sliders-h"></i>
+                                        </i>
+                                        <div class="selection-pnl ng-isolate-scope">
 
-                                        <td class="main-container" colspan="1">
+                                        </div>
+                                    </td>
 
-                                            <div class="">
-                                                <div class="odds-container">
-                                                    <table class="market-listing-table apl-table">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td colspan="2" class="odds-placeholder">&nbsp;</td>
-                                                                <td class="lay show-size">
-                                                                    <strong class="odds ">
-                                                                        52
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            100
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="back show-size">
-                                                                    <strong class="odds ">
-                                                                        54
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            100
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td colspan="2" class="odds-placeholder">
+                                    <td class="main-container" colspan="1">
 
-                                                                    <span class="max-liability  ">
-                                                                        Max Bet: 2,200
+                                        <div class="">
+                                            <div class="odds-container">
+                                                <table class="market-listing-table apl-table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td colspan="2" class="odds-placeholder">&nbsp;</td>
+                                                            <td class="lay show-size">
+                                                                <strong class="odds ">
+                                                                    52
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        100
                                                                     </span>
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Mkt: 11,000
+                                                                </div>
+                                                            </td>
+                                                            <td class="back show-size">
+                                                                <strong class="odds ">
+                                                                    54
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        100
                                                                     </span>
+                                                                </div>
+                                                            </td>
+                                                            <td colspan="2" class="odds-placeholder">
 
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
+                                                                <span class="max-liability  ">
+                                                                    Max Bet: 2,200
+                                                                </span>
 
+                                                                <span class="max-liability  ">
+                                                                    Max Mkt: 11,000
+                                                                </span>
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
-
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="ladder-component-container">
-                                <div class="apl-session-runs-ladder">
-                                    <div class="ladder-container">
-
-                                        <div class="ladder-loader ">
 
                                         </div>
 
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="ladder-component-container">
+                            <div class="apl-session-runs-ladder">
+                                <div class="ladder-container">
+
+                                    <div class="ladder-loader ">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="">
+
+                <div class="apl-session-runs">
+                    <div>
+                        <table class="market-listing-table apl-table">
+
+                            <tbody>
+                                <tr>
+                                    <td class="market-name">
+                                        <div class="event-name ">20 OVER RUN KXIP (KXIP VS MI)ADV</div>
+                                        <i class="apl-icon-custom-ladder ">
+                                            <i class="fas fa-sliders-h"></i>
+                                        </i>
+                                        <div class="selection-pnl ng-isolate-scope">
+
+                                        </div>
+                                    </td>
+
+                                    <td class="main-container" colspan="1">
+
+                                        <div class="">
+                                            <div class="odds-container">
+                                                <table class="market-listing-table apl-table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td colspan="2" class="odds-placeholder">&nbsp;</td>
+                                                            <td class="lay show-size" apl-price-volume="" selection="vm.market.runners[0]" market-betting-type="LINE" event="vm.market"
+                                                                side="lay" show-size="true">
+                                                                <strong class="odds ">
+                                                                    178
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        100
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td class="back show-size">
+                                                                <strong class="odds ">
+                                                                    180
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        100
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td colspan="2" class="odds-placeholder">
+
+                                                                <span class="max-liability  ">
+                                                                    Max Bet: 2,200
+                                                                </span>
+
+                                                                <span class="max-liability  ">
+                                                                    Max Mkt: 11,000
+                                                                </span>
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="ladder-component-container">
+                            <div class="apl-session-runs-ladder">
+                                <div class="ladder-container">
+
+                                    <div class="ladder-loader ">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div ng-repeat="market in markets track by market.id" class="">
+
+                <div class="apl-session-runs">
+                    <div>
+                        <table class="market-listing-table apl-table">
+
+                            <tbody>
+                                <tr>
+                                    <td class="market-name">
+                                        <div class="event-name ">6 OVER RUN MI (KXIP VS MI)ADV</div>
+                                        <i class="apl-icon-custom-ladder ">
+                                            <i class="fas fa-sliders-h"></i>
+                                        </i>
+                                        <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
+                                            market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
+
+                                        </div>
+                                    </td>
+
+                                    <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
+
+                                        <div class="">
+                                            <div class="odds-container">
+                                                <table class="market-listing-table apl-table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td colspan="2" class="odds-placeholder">&nbsp;</td>
+                                                            <td class="lay show-size">
+                                                                <strong class="odds ">
+                                                                    52
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        100
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td class="back show-size">
+                                                                <strong class="odds ">
+                                                                    54
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        100
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td colspan="2" class="odds-placeholder">
+
+                                                                <span class="max-liability  ">
+                                                                    Max Bet: 2,200
+                                                                </span>
+
+                                                                <span class="max-liability  ">
+                                                                    Max Mkt: 11,000
+                                                                </span>
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="ladder-component-container">
+                            <div class="apl-session-runs-ladder">
+                                <div class="ladder-container">
+
+                                    <div class="ladder-loader ">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div ng-repeat="market in markets track by market.id" class="">
+
+                <div class="apl-session-runs">
+                    <div>
+                        <table class="market-listing-table apl-table">
+
+                            <tbody>
+                                <tr>
+                                    <td class="market-name">
+                                        <div class="event-name ">20 OVER RUN MI (KXIP VS MI)ADV</div>
+                                        <i class="apl-icon-custom-ladder ">
+                                            <i class="fas fa-sliders-h"></i>
+                                        </i>
+                                        <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
+                                            market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
+
+                                        </div>
+                                    </td>
+
+                                    <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
+
+                                        <div class="">
+                                            <div class="odds-container">
+                                                <table class="market-listing-table apl-table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td colspan="2" class="odds-placeholder">&nbsp;</td>
+                                                            <td class="lay show-size">
+                                                                <strong class="odds ">
+                                                                    179
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        100
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td class="back show-size">
+                                                                <strong class="odds ">
+                                                                    181
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        100
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td colspan="2" class="odds-placeholder">
+
+                                                                <span class="max-liability  ">
+                                                                    Max Bet: 2,200
+                                                                </span>
+
+                                                                <span class="max-liability  ">
+                                                                    Max Mkt: 11,000
+                                                                </span>
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="ladder-component-container">
+                            <div class="apl-session-runs-ladder">
+                                <div class="ladder-container">
+
+                                    <div class="ladder-loader ">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div ng-repeat="market in markets track by market.id" class="">
+
+                <div class="apl-session-runs">
+                    <div>
+                        <table class="market-listing-table apl-table">
+
+                            <tbody>
+                                <tr>
+                                    <td class="market-name">
+                                        <div class="event-name ">FALL OF 1ST WKT KXIP ADV</div>
+                                        <i class="apl-icon-custom-ladder ">
+                                            <i class="fas fa-sliders-h"></i>
+                                        </i>
+                                        <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
+                                            market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
+
+                                        </div>
+                                    </td>
+
+                                    <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
+
+                                        <div class="">
+                                            <div class="odds-container">
+                                                <table class="market-listing-table apl-table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td colspan="2" class="odds-placeholder">&nbsp;</td>
+                                                            <td class="lay show-size">
+                                                                <strong class="odds ">
+                                                                    28
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        110
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td class="back show-size">
+                                                                <strong class="odds ">
+                                                                    28
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        90
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td colspan="2" class="odds-placeholder">
+
+                                                                <span class="max-liability  ">
+                                                                    Max Bet: 2,200
+                                                                </span>
+
+                                                                <span class="max-liability  ">
+                                                                    Max Mkt: 11,000
+                                                                </span>
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="ladder-component-container">
+                            <div class="apl-session-runs-ladder">
+                                <div class="ladder-container">
+
+                                    <div class="ladder-loader ">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div ng-repeat="market in markets track by market.id" class="">
+
+                <div class="apl-session-runs">
+                    <div>
+                        <table class="market-listing-table apl-table">
+
+                            <tbody>
+                                <tr>
+                                    <td class="market-name">
+                                        <div class="event-name ">FALL OF 1ST WKT MI ADV</div>
+                                        <i class="apl-icon-custom-ladder ">
+                                            <i class="fas fa-sliders-h"></i>
+                                        </i>
+                                        <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
+                                            market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
+
+                                        </div>
+                                    </td>
+
+                                    <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
+
+                                        <div class="">
+                                            <div class="odds-container">
+                                                <table class="market-listing-table apl-table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td colspan="2" class="odds-placeholder">&nbsp;</td>
+                                                            <td class="lay show-size">
+                                                                <strong class="odds ">
+                                                                    27
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        110
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td class="back show-size">
+                                                                <strong class="odds ">
+                                                                    27
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        90
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td colspan="2" class="odds-placeholder">
+
+                                                                <span class="max-liability  ">
+                                                                    Max Bet: 2,200
+                                                                </span>
+
+                                                                <span class="max-liability  ">
+                                                                    Max Mkt: 11,000
+                                                                </span>
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="ladder-component-container">
+                            <div class="apl-session-runs-ladder">
+                                <div class="ladder-container">
+
+                                    <div class="ladder-loader ">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div ng-repeat="market in markets track by market.id" class="">
+
+                <div class="apl-session-runs">
+                    <div>
+                        <table class="market-listing-table apl-table">
+
+                            <tbody>
+                                <tr>
+                                    <td class="market-name">
+                                        <div class="event-name ">KL RAHUL RUN (KXIP VS MI)ADV</div>
+                                        <i class="apl-icon-custom-ladder ">
+                                            <i class="fas fa-sliders-h"></i>
+                                        </i>
+                                        <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
+                                            market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
+
+                                        </div>
+                                    </td>
+
+                                    <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
+
+                                        <div class="">
+                                            <div class="odds-container">
+                                                <table class="market-listing-table apl-table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td colspan="2" class="odds-placeholder">&nbsp;</td>
+                                                            <td class="lay show-size">
+                                                                <strong class="odds ">
+                                                                    27
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        110
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td class="back show-size">
+                                                                <strong class="odds ">
+                                                                    27
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        90
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td colspan="2" class="odds-placeholder">
+
+                                                                <span class="max-liability  ">
+                                                                    Max Bet: 2,200
+                                                                </span>
+
+                                                                <span class="max-liability  ">
+                                                                    Max Mkt: 11,000
+                                                                </span>
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="ladder-component-container">
+                            <div class="apl-session-runs-ladder">
+                                <div class="ladder-container">
+
+                                    <div class="ladder-loader ">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div ng-repeat="market in markets track by market.id" class="">
+
+                <div class="apl-session-runs">
+                    <div>
+                        <table class="market-listing-table apl-table">
+
+                            <tbody>
+                                <tr>
+                                    <td class="market-name">
+                                        <div class="event-name ">C GAYLE RUN (KXIP VS MI)ADV</div>
+                                        <i class="apl-icon-custom-ladder ">
+                                            <i class="fas fa-sliders-h"></i>
+                                        </i>
+                                        <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
+                                            market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
+
+                                        </div>
+                                    </td>
+
+                                    <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
+
+                                        <div class="">
+                                            <div class="odds-container">
+                                                <table class="market-listing-table apl-table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td colspan="2" class="odds-placeholder">&nbsp;</td>
+                                                            <td class="lay show-size">
+                                                                <strong class="odds ">
+                                                                    27
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        110
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td class="back show-size">
+                                                                <strong class="odds ">
+                                                                    27
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        90
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td colspan="2" class="odds-placeholder">
+
+                                                                <span class="max-liability  ">
+                                                                    Max Bet: 2,200
+                                                                </span>
+
+                                                                <span class="max-liability  ">
+                                                                    Max Mkt: 11,000
+                                                                </span>
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="ladder-component-container">
+                            <div class="apl-session-runs-ladder">
+                                <div class="ladder-container">
+
+                                    <div class="ladder-loader ">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div ng-repeat="market in markets track by market.id" class="">
+
+                <div class="apl-session-runs">
+                    <div>
+                        <table class="market-listing-table apl-table">
+
+                            <tbody>
+                                <tr>
+                                    <td class="market-name">
+                                        <div class="event-name ">S YADAV RUN (KXIP VS MI)ADV</div>
+                                        <i class="apl-icon-custom-ladder ">
+                                            <i class="fas fa-sliders-h"></i>
+                                        </i>
+                                        <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
+                                            market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
+
+                                        </div>
+                                    </td>
+
+                                    <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
+
+                                        <div class="">
+                                            <div class="odds-container">
+                                                <table class="market-listing-table apl-table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td colspan="2" class="odds-placeholder">&nbsp;</td>
+                                                            <td class="lay show-size">
+                                                                <strong class="odds ">
+                                                                    26
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        110
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td class="back show-size">
+                                                                <strong class="odds ">
+                                                                    26
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        90
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td colspan="2" class="odds-placeholder">
+
+                                                                <span class="max-liability  ">
+                                                                    Max Bet: 2,200
+                                                                </span>
+
+                                                                <span class="max-liability  ">
+                                                                    Max Mkt: 11,000
+                                                                </span>
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="ladder-component-container">
+                            <div class="apl-session-runs-ladder">
+                                <div class="ladder-container">
+
+                                    <div class="ladder-loader ">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div ng-repeat="market in markets track by market.id" class="">
+
+                <div class="apl-session-runs">
+                    <div>
+                        <table class="market-listing-table apl-table">
+
+                            <tbody>
+                                <tr>
+                                    <td class="market-name">
+                                        <div class="event-name ">E LEWIS RUN (KXIP VS MI)ADV</div>
+                                        <i class="apl-icon-custom-ladder ">
+                                            <i class="fas fa-sliders-h"></i>
+                                        </i>
+                                        <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
+                                            market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
+
+                                        </div>
+                                    </td>
+
+                                    <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
+
+                                        <div class="">
+                                            <div class="odds-container">
+                                                <table class="market-listing-table apl-table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td colspan="2" class="odds-placeholder">&nbsp;</td>
+                                                            <td class="lay show-size">
+                                                                <strong class="odds ">
+                                                                    25
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        110
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td class="back show-size">
+                                                                <strong class="odds ">
+                                                                    25
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        90
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td colspan="2" class="odds-placeholder">
+
+                                                                <span class="max-liability  ">
+                                                                    Max Bet: 2,200
+                                                                </span>
+
+                                                                <span class="max-liability  ">
+                                                                    Max Mkt: 11,000
+                                                                </span>
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="ladder-component-container">
+                            <div class="apl-session-runs-ladder">
+                                <div class="ladder-container">
+
+                                    <div class="ladder-loader ">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div ng-repeat="market in markets track by market.id" class="">
+
+                <div class="apl-session-runs">
+                    <div>
+                        <table class="market-listing-table apl-table">
+
+                            <tbody>
+                                <tr>
+                                    <td class="market-name">
+                                        <div class="event-name ">TOTAL MATCH FOURS (KXIP VS MI)ADV</div>
+                                        <i class="apl-icon-custom-ladder ">
+                                            <i class="fas fa-sliders-h"></i>
+                                        </i>
+                                        <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
+                                            market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
+
+                                        </div>
+                                    </td>
+
+                                    <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
+
+                                        <div class="">
+                                            <div class="odds-container">
+                                                <table class="market-listing-table apl-table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td colspan="2" class="odds-placeholder">&nbsp;</td>
+                                                            <td class="lay show-size">
+                                                                <strong class="odds ">
+                                                                    30
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        100
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td class="back show-size">
+                                                                <strong class="odds ">
+                                                                    32
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        100
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td colspan="2" class="odds-placeholder">
+
+                                                                <span class="max-liability  ">
+                                                                    Max Bet: 2,200
+                                                                </span>
+
+                                                                <span class="max-liability  ">
+                                                                    Max Mkt: 11,000
+                                                                </span>
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="ladder-component-container">
+                            <div class="apl-session-runs-ladder">
+                                <div class="ladder-container">
+
+                                    <div class="ladder-loader ">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div ng-repeat="market in markets track by market.id" class="">
+
+                <div class="apl-session-runs">
+                    <div>
+                        <table class="market-listing-table apl-table">
+
+                            <tbody>
+                                <tr>
+                                    <td class="market-name">
+                                        <div class="event-name ">TOTAL MATCH SIXES (KXIP VS MI)ADV</div>
+                                        <i class="apl-icon-custom-ladder ">
+                                            <i class="fas fa-sliders-h"></i>
+                                        </i>
+                                        <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
+                                            market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
+
+                                        </div>
+                                    </td>
+
+                                    <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
+
+                                        <div class="">
+                                            <div class="odds-container">
+                                                <table class="market-listing-table apl-table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td colspan="2" class="odds-placeholder">&nbsp;</td>
+                                                            <td class="lay show-size">
+                                                                <strong class="odds ">
+                                                                    16
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        100
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td class="back show-size">
+                                                                <strong class="odds ">
+                                                                    17
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        100
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td colspan="2" class="odds-placeholder">
+
+                                                                <span class="max-liability  ">
+                                                                    Max Bet: 2,200
+                                                                </span>
+
+                                                                <span class="max-liability  ">
+                                                                    Max Mkt: 11,000
+                                                                </span>
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="ladder-component-container">
+                            <div class="apl-session-runs-ladder">
+                                <div class="ladder-container">
+
+                                    <div class="ladder-loader ">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="">
+                <div class="apl-session-runs">
+                    <div>
+                        <table class="market-listing-table apl-table">
+                            <tbody>
+                                <tr>
+                                    <td class="market-name">
+                                        <div class="event-name ">TOTAL MATCH RUNS (KXIP VS MI)ADV</div>
+                                        <i class="apl-icon-custom-ladder ">
+                                            <i class="fas fa-sliders-h"></i>
+                                        </i>
+                                        <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
+                                            market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
+                                        </div>
+                                    </td>
+                                    <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
+                                        <div class="">
+                                            <div class="odds-container">
+                                                <table class="market-listing-table apl-table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td colspan="2" class="odds-placeholder">&nbsp;</td>
+                                                            <td class="lay show-size">
+                                                                <strong class="odds ">
+                                                                    345
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        110
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td class="back show-size">
+                                                                <strong class="odds ">
+                                                                    345
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        90
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td colspan="2" class="odds-placeholder">
+
+                                                                <span class="max-liability  ">
+                                                                    Max Bet: 2,200
+                                                                </span>
+
+                                                                <span class="max-liability  ">
+                                                                    Max Mkt: 11,000
+                                                                </span>
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="ladder-component-container">
+                            <div class="apl-session-runs-ladder">
+                                <div class="ladder-container">
+                                    <div class="ladder-loader ">
                                     </div>
                                 </div>
                             </div>
-                            <div class="clear"></div>
                         </div>
+                        <div class="clear"></div>
                     </div>
-
                 </div>
-
-                <div class="">
-
-                    <div class="apl-session-runs">
-                        <div>
-                            <table class="market-listing-table apl-table">
-
-                                <tbody>
-                                    <tr>
-                                        <td class="market-name">
-                                            <div class="event-name ">20 OVER RUN KXIP (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder ">
-                                                <i class="fas fa-sliders-h"></i>
-                                            </i>
-                                            <div class="selection-pnl ng-isolate-scope">
-
-                                            </div>
-                                        </td>
-
-                                        <td class="main-container" colspan="1">
-
-                                            <div class="">
-                                                <div class="odds-container">
-                                                    <table class="market-listing-table apl-table">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td colspan="2" class="odds-placeholder">&nbsp;</td>
-                                                                <td class="lay show-size" apl-price-volume="" selection="vm.market.runners[0]" market-betting-type="LINE" event="vm.market"
-                                                                    side="lay" show-size="true">
-                                                                    <strong class="odds ">
-                                                                        178
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            100
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="back show-size">
-                                                                    <strong class="odds ">
-                                                                        180
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            100
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td colspan="2" class="odds-placeholder">
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Bet: 2,200
-                                                                    </span>
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Mkt: 11,000
-                                                                    </span>
-
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-
-                                            </div>
-
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="ladder-component-container">
-                                <div class="apl-session-runs-ladder">
-                                    <div class="ladder-container">
-
-                                        <div class="ladder-loader ">
-
+            </div>
+            <div class="">
+                <div class="apl-session-runs">
+                    <div>
+                        <table class="market-listing-table apl-table">
+                            <tbody>
+                                <tr>
+                                    <td class="market-name">
+                                        <div class="event-name ">TOTAL MATCH RUNS (KXIP VS MI)ADV</div>
+                                        <i class="apl-icon-custom-ladder ">
+                                            <i class="fas fa-sliders-h"></i>
+                                        </i>
+                                        <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
+                                            market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
                                         </div>
+                                    </td>
+                                    <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
+                                        <div class="">
+                                            <div class="odds-container">
+                                                <table class="market-listing-table apl-table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td colspan="2" class="odds-placeholder">&nbsp;</td>
+                                                            <td class="lay show-size">
+                                                                <strong class="odds ">
+                                                                    345
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        110
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td class="back show-size">
+                                                                <strong class="odds ">
+                                                                    345
+                                                                </strong>
+                                                                <div class="size">
+                                                                    <span class="">
+                                                                        90
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td colspan="2" class="odds-placeholder">
 
+                                                                <span class="max-liability  ">
+                                                                    Max Bet: 2,200
+                                                                </span>
+
+                                                                <span class="max-liability  ">
+                                                                    Max Mkt: 11,000
+                                                                </span>
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="ladder-component-container">
+                            <div class="apl-session-runs-ladder">
+                                <div class="ladder-container">
+                                    <div class="ladder-loader ">
                                     </div>
                                 </div>
                             </div>
-                            <div class="clear"></div>
                         </div>
-                    </div>
-
-                </div>
-
-                <div ng-repeat="market in markets track by market.id" class="">
-
-                    <div class="apl-session-runs">
-                        <div>
-                            <table class="market-listing-table apl-table">
-
-                                <tbody>
-                                    <tr>
-                                        <td class="market-name">
-                                            <div class="event-name ">6 OVER RUN MI (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder ">
-                                                <i class="fas fa-sliders-h"></i>
-                                            </i>
-                                            <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
-                                                market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
-
-                                            </div>
-                                        </td>
-
-                                        <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
-
-                                            <div class="">
-                                                <div class="odds-container">
-                                                    <table class="market-listing-table apl-table">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td colspan="2" class="odds-placeholder">&nbsp;</td>
-                                                                <td class="lay show-size">
-                                                                    <strong class="odds ">
-                                                                        52
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            100
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="back show-size">
-                                                                    <strong class="odds ">
-                                                                        54
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            100
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td colspan="2" class="odds-placeholder">
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Bet: 2,200
-                                                                    </span>
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Mkt: 11,000
-                                                                    </span>
-
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-
-                                            </div>
-
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="ladder-component-container">
-                                <div class="apl-session-runs-ladder">
-                                    <div class="ladder-container">
-
-                                        <div class="ladder-loader ">
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div ng-repeat="market in markets track by market.id" class="">
-
-                    <div class="apl-session-runs">
-                        <div>
-                            <table class="market-listing-table apl-table">
-
-                                <tbody>
-                                    <tr>
-                                        <td class="market-name">
-                                            <div class="event-name ">20 OVER RUN MI (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder ">
-                                                <i class="fas fa-sliders-h"></i>
-                                            </i>
-                                            <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
-                                                market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
-
-                                            </div>
-                                        </td>
-
-                                        <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
-
-                                            <div class="">
-                                                <div class="odds-container">
-                                                    <table class="market-listing-table apl-table">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td colspan="2" class="odds-placeholder">&nbsp;</td>
-                                                                <td class="lay show-size">
-                                                                    <strong class="odds ">
-                                                                        179
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            100
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="back show-size">
-                                                                    <strong class="odds ">
-                                                                        181
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            100
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td colspan="2" class="odds-placeholder">
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Bet: 2,200
-                                                                    </span>
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Mkt: 11,000
-                                                                    </span>
-
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-
-                                            </div>
-
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="ladder-component-container">
-                                <div class="apl-session-runs-ladder">
-                                    <div class="ladder-container">
-
-                                        <div class="ladder-loader ">
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div ng-repeat="market in markets track by market.id" class="">
-
-                    <div class="apl-session-runs">
-                        <div>
-                            <table class="market-listing-table apl-table">
-
-                                <tbody>
-                                    <tr>
-                                        <td class="market-name">
-                                            <div class="event-name ">FALL OF 1ST WKT KXIP ADV</div>
-                                            <i class="apl-icon-custom-ladder ">
-                                                <i class="fas fa-sliders-h"></i>
-                                            </i>
-                                            <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
-                                                market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
-
-                                            </div>
-                                        </td>
-
-                                        <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
-
-                                            <div class="">
-                                                <div class="odds-container">
-                                                    <table class="market-listing-table apl-table">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td colspan="2" class="odds-placeholder">&nbsp;</td>
-                                                                <td class="lay show-size">
-                                                                    <strong class="odds ">
-                                                                        28
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            110
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="back show-size">
-                                                                    <strong class="odds ">
-                                                                        28
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            90
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td colspan="2" class="odds-placeholder">
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Bet: 2,200
-                                                                    </span>
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Mkt: 11,000
-                                                                    </span>
-
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-
-                                            </div>
-
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="ladder-component-container">
-                                <div class="apl-session-runs-ladder">
-                                    <div class="ladder-container">
-
-                                        <div class="ladder-loader ">
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div ng-repeat="market in markets track by market.id" class="">
-
-                    <div class="apl-session-runs">
-                        <div>
-                            <table class="market-listing-table apl-table">
-
-                                <tbody>
-                                    <tr>
-                                        <td class="market-name">
-                                            <div class="event-name ">FALL OF 1ST WKT MI ADV</div>
-                                            <i class="apl-icon-custom-ladder ">
-                                                <i class="fas fa-sliders-h"></i>
-                                            </i>
-                                            <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
-                                                market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
-
-                                            </div>
-                                        </td>
-
-                                        <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
-
-                                            <div class="">
-                                                <div class="odds-container">
-                                                    <table class="market-listing-table apl-table">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td colspan="2" class="odds-placeholder">&nbsp;</td>
-                                                                <td class="lay show-size">
-                                                                    <strong class="odds ">
-                                                                        27
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            110
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="back show-size">
-                                                                    <strong class="odds ">
-                                                                        27
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            90
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td colspan="2" class="odds-placeholder">
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Bet: 2,200
-                                                                    </span>
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Mkt: 11,000
-                                                                    </span>
-
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-
-                                            </div>
-
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="ladder-component-container">
-                                <div class="apl-session-runs-ladder">
-                                    <div class="ladder-container">
-
-                                        <div class="ladder-loader ">
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div ng-repeat="market in markets track by market.id" class="">
-
-                    <div class="apl-session-runs">
-                        <div>
-                            <table class="market-listing-table apl-table">
-
-                                <tbody>
-                                    <tr>
-                                        <td class="market-name">
-                                            <div class="event-name ">KL RAHUL RUN (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder ">
-                                                <i class="fas fa-sliders-h"></i>
-                                            </i>
-                                            <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
-                                                market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
-
-                                            </div>
-                                        </td>
-
-                                        <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
-
-                                            <div class="">
-                                                <div class="odds-container">
-                                                    <table class="market-listing-table apl-table">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td colspan="2" class="odds-placeholder">&nbsp;</td>
-                                                                <td class="lay show-size">
-                                                                    <strong class="odds ">
-                                                                        27
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            110
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="back show-size">
-                                                                    <strong class="odds ">
-                                                                        27
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            90
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td colspan="2" class="odds-placeholder">
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Bet: 2,200
-                                                                    </span>
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Mkt: 11,000
-                                                                    </span>
-
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-
-                                            </div>
-
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="ladder-component-container">
-                                <div class="apl-session-runs-ladder">
-                                    <div class="ladder-container">
-
-                                        <div class="ladder-loader ">
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div ng-repeat="market in markets track by market.id" class="">
-
-                    <div class="apl-session-runs">
-                        <div>
-                            <table class="market-listing-table apl-table">
-
-                                <tbody>
-                                    <tr>
-                                        <td class="market-name">
-                                            <div class="event-name ">C GAYLE RUN (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder ">
-                                                <i class="fas fa-sliders-h"></i>
-                                            </i>
-                                            <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
-                                                market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
-
-                                            </div>
-                                        </td>
-
-                                        <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
-
-                                            <div class="">
-                                                <div class="odds-container">
-                                                    <table class="market-listing-table apl-table">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td colspan="2" class="odds-placeholder">&nbsp;</td>
-                                                                <td class="lay show-size">
-                                                                    <strong class="odds ">
-                                                                        27
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            110
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="back show-size">
-                                                                    <strong class="odds ">
-                                                                        27
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            90
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td colspan="2" class="odds-placeholder">
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Bet: 2,200
-                                                                    </span>
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Mkt: 11,000
-                                                                    </span>
-
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-
-                                            </div>
-
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="ladder-component-container">
-                                <div class="apl-session-runs-ladder">
-                                    <div class="ladder-container">
-
-                                        <div class="ladder-loader ">
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div ng-repeat="market in markets track by market.id" class="">
-
-                    <div class="apl-session-runs">
-                        <div>
-                            <table class="market-listing-table apl-table">
-
-                                <tbody>
-                                    <tr>
-                                        <td class="market-name">
-                                            <div class="event-name ">S YADAV RUN (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder ">
-                                                <i class="fas fa-sliders-h"></i>
-                                            </i>
-                                            <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
-                                                market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
-
-                                            </div>
-                                        </td>
-
-                                        <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
-
-                                            <div class="">
-                                                <div class="odds-container">
-                                                    <table class="market-listing-table apl-table">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td colspan="2" class="odds-placeholder">&nbsp;</td>
-                                                                <td class="lay show-size">
-                                                                    <strong class="odds ">
-                                                                        26
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            110
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="back show-size">
-                                                                    <strong class="odds ">
-                                                                        26
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            90
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td colspan="2" class="odds-placeholder">
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Bet: 2,200
-                                                                    </span>
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Mkt: 11,000
-                                                                    </span>
-
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-
-                                            </div>
-
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="ladder-component-container">
-                                <div class="apl-session-runs-ladder">
-                                    <div class="ladder-container">
-
-                                        <div class="ladder-loader ">
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div ng-repeat="market in markets track by market.id" class="">
-
-                    <div class="apl-session-runs">
-                        <div>
-                            <table class="market-listing-table apl-table">
-
-                                <tbody>
-                                    <tr>
-                                        <td class="market-name">
-                                            <div class="event-name ">E LEWIS RUN (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder ">
-                                                <i class="fas fa-sliders-h"></i>
-                                            </i>
-                                            <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
-                                                market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
-
-                                            </div>
-                                        </td>
-
-                                        <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
-
-                                            <div class="">
-                                                <div class="odds-container">
-                                                    <table class="market-listing-table apl-table">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td colspan="2" class="odds-placeholder">&nbsp;</td>
-                                                                <td class="lay show-size">
-                                                                    <strong class="odds ">
-                                                                        25
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            110
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="back show-size">
-                                                                    <strong class="odds ">
-                                                                        25
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            90
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td colspan="2" class="odds-placeholder">
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Bet: 2,200
-                                                                    </span>
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Mkt: 11,000
-                                                                    </span>
-
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-
-                                            </div>
-
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="ladder-component-container">
-                                <div class="apl-session-runs-ladder">
-                                    <div class="ladder-container">
-
-                                        <div class="ladder-loader ">
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div ng-repeat="market in markets track by market.id" class="">
-
-                    <div class="apl-session-runs">
-                        <div>
-                            <table class="market-listing-table apl-table">
-
-                                <tbody>
-                                    <tr>
-                                        <td class="market-name">
-                                            <div class="event-name ">TOTAL MATCH FOURS (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder ">
-                                                <i class="fas fa-sliders-h"></i>
-                                            </i>
-                                            <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
-                                                market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
-
-                                            </div>
-                                        </td>
-
-                                        <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
-
-                                            <div class="">
-                                                <div class="odds-container">
-                                                    <table class="market-listing-table apl-table">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td colspan="2" class="odds-placeholder">&nbsp;</td>
-                                                                <td class="lay show-size">
-                                                                    <strong class="odds ">
-                                                                        30
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            100
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="back show-size">
-                                                                    <strong class="odds ">
-                                                                        32
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            100
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td colspan="2" class="odds-placeholder">
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Bet: 2,200
-                                                                    </span>
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Mkt: 11,000
-                                                                    </span>
-
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-
-                                            </div>
-
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="ladder-component-container">
-                                <div class="apl-session-runs-ladder">
-                                    <div class="ladder-container">
-
-                                        <div class="ladder-loader ">
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div ng-repeat="market in markets track by market.id" class="">
-
-                    <div class="apl-session-runs">
-                        <div>
-                            <table class="market-listing-table apl-table">
-
-                                <tbody>
-                                    <tr>
-                                        <td class="market-name">
-                                            <div class="event-name ">TOTAL MATCH SIXES (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder ">
-                                                <i class="fas fa-sliders-h"></i>
-                                            </i>
-                                            <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
-                                                market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
-
-                                            </div>
-                                        </td>
-
-                                        <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
-
-                                            <div class="">
-                                                <div class="odds-container">
-                                                    <table class="market-listing-table apl-table">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td colspan="2" class="odds-placeholder">&nbsp;</td>
-                                                                <td class="lay show-size">
-                                                                    <strong class="odds ">
-                                                                        16
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            100
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="back show-size">
-                                                                    <strong class="odds ">
-                                                                        17
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            100
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td colspan="2" class="odds-placeholder">
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Bet: 2,200
-                                                                    </span>
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Mkt: 11,000
-                                                                    </span>
-
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-
-                                            </div>
-
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="ladder-component-container">
-                                <div class="apl-session-runs-ladder">
-                                    <div class="ladder-container">
-
-                                        <div class="ladder-loader ">
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="">
-                    <div class="apl-session-runs">
-                        <div>
-                            <table class="market-listing-table apl-table">
-                                <tbody>
-                                    <tr>
-                                        <td class="market-name">
-                                            <div class="event-name ">TOTAL MATCH RUNS (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder ">
-                                                <i class="fas fa-sliders-h"></i>
-                                            </i>
-                                            <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
-                                                market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
-                                            </div>
-                                        </td>
-                                        <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
-                                            <div class="">
-                                                <div class="odds-container">
-                                                    <table class="market-listing-table apl-table">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td colspan="2" class="odds-placeholder">&nbsp;</td>
-                                                                <td class="lay show-size">
-                                                                    <strong class="odds ">
-                                                                        345
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            110
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="back show-size">
-                                                                    <strong class="odds ">
-                                                                        345
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            90
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td colspan="2" class="odds-placeholder">
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Bet: 2,200
-                                                                    </span>
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Mkt: 11,000
-                                                                    </span>
-
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="ladder-component-container">
-                                <div class="apl-session-runs-ladder">
-                                    <div class="ladder-container">
-                                        <div class="ladder-loader ">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="">
-                    <div class="apl-session-runs">
-                        <div>
-                            <table class="market-listing-table apl-table">
-                                <tbody>
-                                    <tr>
-                                        <td class="market-name">
-                                            <div class="event-name ">TOTAL MATCH RUNS (KXIP VS MI)ADV</div>
-                                            <i class="apl-icon-custom-ladder ">
-                                                <i class="fas fa-sliders-h"></i>
-                                            </i>
-                                            <div class="selection-pnl ng-isolate-scope" ng-class="{'racing-pnl': isRacing}" value="vm.pnl" runner-id="vm.market.runners[0].id"
-                                                market-id="vm.market.id" event-id="vm.market.event.id" market-betting-type="vm.market.btype">
-                                            </div>
-                                        </td>
-                                        <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
-                                            <div class="">
-                                                <div class="odds-container">
-                                                    <table class="market-listing-table apl-table">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td colspan="2" class="odds-placeholder">&nbsp;</td>
-                                                                <td class="lay show-size">
-                                                                    <strong class="odds ">
-                                                                        345
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            110
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="back show-size">
-                                                                    <strong class="odds ">
-                                                                        345
-                                                                    </strong>
-                                                                    <div class="size">
-                                                                        <span class="">
-                                                                            90
-                                                                        </span>
-                                                                    </div>
-                                                                </td>
-                                                                <td colspan="2" class="odds-placeholder">
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Bet: 2,200
-                                                                    </span>
-
-                                                                    <span class="max-liability  ">
-                                                                        Max Mkt: 11,000
-                                                                    </span>
-
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="ladder-component-container">
-                                <div class="apl-session-runs-ladder">
-                                    <div class="ladder-container">
-                                        <div class="ladder-loader ">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
+                        <div class="clear"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>

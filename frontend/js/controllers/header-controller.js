@@ -11,13 +11,8 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     //To handle the reload functionality.
     window.onbeforeunload = function () {
         $.jStorage.flush();
-    }
+    };
 
-    // if (!_.isEmpty($.jStorage.get("visitedCategories"))) {
-    //     $scope.visitedCategories = $.jStorage.get("visitedCategories");
-    // } else {
-    //     $scope.visitedCategories = [];
-    // }    
     $scope.home = true;
     // if (window.location.pathname == '/home/1') {
     //     $scope.home = true;
@@ -44,10 +39,6 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
                     $scope.gameData = data.data;
                     // console.log("$scope.gameData", $scope.gameData);
                     $scope.visitedCategories.push($scope.gameData);
-
-                    // $scope.getMatchOdds({
-                    //     game: "Cricket"
-                    // });
                     // $scope.setUrl('game', '1');
                     $scope.home = true;
                 } else {
@@ -73,10 +64,10 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         });
 
         //get match odds on click
-        $scope.getMatchOdds({
-            game: $scope.game,
-            parentId: $scope.parentId
-        });
+        // $scope.getMatchOdds({
+        //     game: $scope.game,
+        //     parentId: $scope.parentId
+        // });
 
         if (!_.isEmpty(value)) {
             if (!$scope.next) {
@@ -138,10 +129,10 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
             }, {
                 notify: false
             });
-            $scope.getMatchOdds({
-                game: $scope.game,
-                parentId: $scope.parentId
-            });
+            // $scope.getMatchOdds({
+            //     game: $scope.game,
+            //     parentId: $scope.parentId
+            // });
         } else {
             $scope.subcategory = [];
             $scope.previousState = [];
@@ -151,29 +142,12 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
             $state.go('home', {
                 notify: false
             });
-            $scope.getMatchOdds({
-                game: "Cricket"
-            });
+            // $scope.getMatchOdds({
+            //     game: "Cricket"
+            // });
         }
 
 
-        // $scope.visitedCategories.pop();
-        // $scope.categories = $scope.visitedCategories[$scope.visitedCategories.length - 1];
-        // if ($scope.visitedCategories.length == 1) {
-        //     $scope.home = true;
-        //     $scope.next = false;
-        //     $scope.previous = false;
-        //     // $scope.setUrl('home', '1');
-        // } else {
-        //     $scope.home = false;
-        //     $scope.next = false;
-        //     $scope.previous = true;
-        //     $scope.parentId = $scope.categories[0].parentCategory;
-        //     if ($scope.parentId == undefined)
-        //         $scope.parentId = 1;
-        //     $scope.gameId = $scope.categories[0].game;
-        //     // $scope.setUrl($scope.gameId, $scope.parentId);
-        // }
     };
 
     // $scope.getMatchOdds = function (value) {
@@ -220,76 +194,5 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     //     window.history.back();
     //     $(".previous-button").addClass("left-menu-inner going-prev");
     // };
-
-    // $scope.submenu = {
-    //     cricket: {
-    //         sport: "cricket",
-    //         name: "cricket",
-    //         class: "cricket-class",
-    //         tournament: [{
-    //             name: "ipl",
-    //             matches: [{
-    //                 name: "Delhi Daredevils v Sunrisers Hyderabad",
-    //                 fixtures: [{
-    //                     name: "Fixtures",
-    //                     submatches: [{
-
-    //                     }]
-    //                 }]
-    //             }]
-    //         }]
-    //     },
-    //     football: {
-    //         sport: "football",
-    //         name: "football",
-    //         class: "football-class",
-    //         tournament: [{
-    //             name: "English Football",
-    //             matches: [{
-    //                 name: "English Premier League",
-    //                 fixtures: [{
-    //                     name: "Fixtures 10 May",
-    //                     submatches: [{
-    //                         name: "West Ham v Man Utd"
-    //                     }]
-    //                 }]
-    //             }]
-    //         }, {
-    //             name: "German Football",
-    //             matches: [{
-    //                 name: "Bundesliga 1",
-    //                 fixtures: [{
-    //                     name: "Fixtures 12 May",
-    //                     submatches: [{
-    //                         name: "Hertha Berlin v RB Leipzig"
-    //                     }, {
-    //                         name: "Hoffenheim v Dortmund"
-    //                     }, {
-    //                         name: "Schalke v Eintracht Frankfurt"
-    //                     }]
-    //                 }]
-    //             }]
-    //         }]
-    //     },
-    //     horse_racing: {
-    //         sport: "Horse Racing",
-    //         name: "Horse Racing",
-    //         class: "Horse Racing",
-    //         tournament: [{
-    //             name: "Horse Racing",
-    //             matches: [{
-    //                 name: "Delhi Daredevils v Sunrisers Hyderabad",
-    //                 fixtures: [{
-    //                     name: "Fixtures",
-    //                     submatches: [{
-
-    //                     }]
-    //                 }]
-    //             }]
-    //         }]
-    //     },
-    // };
-
-
 
 });

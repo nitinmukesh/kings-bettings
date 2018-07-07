@@ -81,5 +81,6 @@ module.exports = [
   'frontend/views/content/greyhound-racing/greyhound-racing.js',
   'frontend/js/controllers/header-controller.js',
   'frontend/js/controllers/language-controller.js',
-  'frontend/js/controllers/rightSideMenuCtrl.js'
+  'frontend/js/controllers/rightSideMenuCtrl.js',
+  'frontend/js/controllers/detailPageCtrl.js'
 ];

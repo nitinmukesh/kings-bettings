@@ -30,6 +30,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'HomeCtrl'
         })
+        .state('detailPage', {
+            url: "/:game/detail/:parentId",
+            templateUrl: tempateURL,
+            controller: 'DetailPageCtrl'
+        })
         .state('placebet', {
             url: "/placebet",
             templateUrl: tempateURL,

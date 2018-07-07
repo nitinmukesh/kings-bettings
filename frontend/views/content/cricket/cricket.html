@@ -14,74 +14,72 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <i class="far fa-star apl-icon-star-o"></i>
-                            <a class="event-name" href="">Kings XI Punjab v Mumbai Indians</a>
-                            <small class="">
-                                <time timestamp="event.start" type="gmtDateTime" class="">04/05/2018 20:00</time>
-                            </small>
-                            <small class="in-play-content ng-binding ng-scope">
-                                <i class="fas fa-play-circle"></i>In-Play
+
+                    <tr class="" ng-repeat="market in marketData">
+                        <td ng-click="getDetailedPage('Cricket',market.parentCategory.name,market.parentCategory._id);">
+                            <i class="far fa-star icon-style"></i>
+                            <a class="event-name ">{{market.parentCategory.name}}</a>
+                            <small class="in-play-content ">
+                                <i class="fas fa-play-circle"></i> In-Play
                             </small>
                         </td>
-                        <td class="back betting-disabled" side="back">
-                            <strong class="odds ">
-                                2.00
+                        <td class="back" ng-click="placeBet(market.runners[0].singleBackRate,'BACK',market,market.runners[0])">
+                            <strong class="odds">
+                                {{market.runners[0].singleBackRate}}
                             </strong>
                             <div class="size">
                                 <span class="">
-                                    27,282
+                                    {{market.runners[0].singleBackSize}}
                                 </span>
                             </div>
                         </td>
-                        <td class="lay betting-disabled" side="lay">
+                        <td class="lay" ng-click="placeBet(market.runners[0].singleLayRate,'LAY',market,market.runners[0])">
                             <strong class="odds ">
-                                2.02
+                                {{market.runners[0].singleLayRate}}
                             </strong>
                             <div class="size">
                                 <span class="">
-                                    17,817
+                                    {{market.runners[0].singleLaySize}}
                                 </span>
                             </div>
                         </td>
-                        <td class="back betting-disabled" side="back">
+                        <td class="back" ng-click="placeBet(market.runners[2].singleBackRate,'BACK',market,market.runners[2])">
                             <strong class="odds ">
-                                1.99
+                                {{market.runners[2].singleBackRate}}
                             </strong>
                             <div class="size">
                                 <span class="">
-                                    6,535
+                                    {{market.runners[2].singleBackSize}}
                                 </span>
                             </div>
                         </td>
-                        <td class="lay betting-disabled" side="lay">
+                        <td class="lay" ng-click="placeBet(market.runners[2].singleLayRate,'LAY',market,market.runners[2])">
                             <strong class="odds ">
-                                2.00
+                                {{market.runners[2].singleLayRate}}
                             </strong>
                             <div class="size">
                                 <span class="">
-                                    27,282
+                                    {{market.runners[2].singleLaySize}}
                                 </span>
                             </div>
                         </td>
-                        <td class="back betting-disabled" side="back">
+                        <td class="back" ng-click="placeBet(market.runners[1].singleBackRate,'BACK',market,market.runners[1])">
                             <strong class="odds ">
-                                1.99
+                                {{market.runners[1].singleBackRate}}
                             </strong>
                             <div class="size">
                                 <span class="">
-                                    6,535
+                                    {{market.runners[1].singleBackSize}}
                                 </span>
                             </div>
                         </td>
-                        <td class="lay betting-disabled" side="lay">
+                        <td class="lay" ng-click="placeBet(market.runners[1].singleLayRate,'LAY',market,market.runners[1])">
                             <strong class="odds ">
-                                2.00
+                                {{market.runners[1].singleLayRate}}
                             </strong>
                             <div class="size">
                                 <span class="">
-                                    27,282
+                                    {{market.runners[1].singleLaySize}}
                                 </span>
                             </div>
                         </td>

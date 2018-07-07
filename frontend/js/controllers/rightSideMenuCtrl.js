@@ -9,11 +9,13 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
     $scope.oneClickbet = false;
     $scope.onclickEdit = false;
 
-    $scope.$on('eventBroadcastedName', function (event, data) {
+    $rootScope.$on('eventBroadcastedName', function (event, data) {
+        console.log("data for bet", data);
         $scope.isBetSlip = true;
         if (data.type == "BACK") {
             $scope.backArray.push({
                 event: data.event,
+                eventId: data.eventId,
                 selectionId: data.selectionId,
                 selectionName: data.selectionName,
                 matchId: data.matchId,
@@ -27,6 +29,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
         if (data.type == "LAY") {
             $scope.layArray.push({
                 event: data.event,
+                eventId: data.eventId,
                 selectionId: data.selectionId,
                 selectionName: data.selectionName,
                 matchId: data.matchId,
@@ -85,66 +88,12 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
     };
 
     $scope.placeBet = function () {
-        var tmsData;
-        async.waterfall([
-            function (callback) {
-                var reqData = _.concat($scope.layArray, $scope.backArray)
-                console.log(reqData)
-                // NavigationService.calculateBet(reqData, function (data) {
-                //     console.log(data.data);
-                //     if (data.value) {
-                //         callback();
-                //     }
-                // });
-                callback(null, "hey");
-            },
-            function (data, callback) {
-                // tmsData = data;
-                // NavigationService.apiCallWithData('Betfair/placeOrders', {}, function (data) {
-                //     callback();
-                // });
-                callback(null, "hey");
-            },
-            function (data, callback) {
-                data = [{
-                            "event": "Sunrisers Hyderabad v Chennai Super Kings",
-                            "liability": 25,
-                            "matchId": "12345",
-                            "odds": 25,
-                            "selectionId": "123",
-                            "selectionName": "Hyderabad",
-                            "stake": 50,
-                            "type": "LAY",
-                            "updatedodds": 0.5,
-                            "sport": "Soccer",
-                            "calcAmt": 10,
-                            "accessToken": "abc1",
-                            "userId": "12345"
-                        },
-                        {
-                            "event": "Sunrisers Hyderabad v Chennai Super Kings",
-                            "liability": 25,
-                            "matchId": "12345",
-                            "odds": 25,
-                            "selectionId": "123",
-                            "selectionName": "Hyderabad",
-                            "stake": 50,
-                            "type": "LAY",
-                            "updatedodds": 0.5,
-                            "sport": "Cricket",
-                            "calcAmt": 10,
-                            "accessToken": "abc1",
-                            "userId": "12345"
-                        }
-                    ],
-
-                    NavigationService.apiCallWithData('Bet/saveUserBet', data, function (data) {
-                        console.log()
-                    });
-            }
-        ], function () {
-
+        var reqData = _.concat($scope.layArray, $scope.backArray);
+        NavigationService.apiCallWithData('Betfair/placePlayerBet', reqData, function (data) {
+            console.log("data", data);
+            // callback();
         });
+
     }
 
     $scope.addstake = function (value, index, type) {
