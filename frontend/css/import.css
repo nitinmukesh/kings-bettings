@@ -16,7 +16,8 @@ body.compensate-for-scrollbar {
 .fancybox-container {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
+ 'Segoe UI Emoji', 'Segoe UI Symbol';
   height: 100%;
   left: 0;
   position: fixed;
@@ -9018,7 +9019,7 @@ a:hover {
  */
 a,
 .apl-link {
-  color: #005ba2;
+  color: #3F51B5;
   text-decoration: none;
   cursor: pointer; }
 
@@ -14034,7 +14035,7 @@ body.ngdialog-open {
   clear: both; }
 
 .sport-wrapper .markets > .group-sport > .content .separator {
-  border-bottom: 1px solid #005ba2;
+  border-bottom: 1px solid #3F51B5;
   margin-bottom: 10px; }
 
 .sport-wrapper .markets > .group-sport .event-title {
@@ -14410,7 +14411,7 @@ body.ngdialog-open {
 .accordion .accordion-header .race-info .race-title {
   display: block;
   font-weight: bold;
-  color: #005ba2; }
+  color: #3F51B5; }
 
 .accordion .accordion-header .race-info .race-time {
   color: #000; }
@@ -14652,10 +14653,10 @@ body.ngdialog-open {
   color: #000; }
 
 .market-listing-table > tbody > tr > td > .event-name:link {
-  color: #005ba2; }
+  color: #3F51B5; }
 
 .market-listing-table > tbody > tr > td > .event-name:visited {
-  color: #005ba2; }
+  color: #3F51B5; }
 
 .market-listing-table .winner {
   font-weight: bold;
@@ -15208,7 +15209,7 @@ div .market-listing-table tbody > tr td.market-name:first-child i.apl-icon-custo
   overflow: visible; }
 
 .apl-report-filter datepicker input[type="text"]:focus {
-  border-color: #005ba2;
+  border-color: #3F51B5;
   outline: 0;
   background: #fff;
   color: #444; }
