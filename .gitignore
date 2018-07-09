@@ -126,3 +126,4 @@ backup
 sendgrid.env
 *.tar.gz
 *.tar
+*.zip
