@@ -23282,7 +23282,7 @@ ul.countdown {
 .timer .countdown li span {
   color: #ffffff;
   float: left;
-  font-family: lato;
+  font-family: OpenSans;
   font-size: 45px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -23292,7 +23292,7 @@ ul.countdown {
 .timer .countdown li p {
   color: #ffffff;
   float: left;
-  font-family: lato;
+  font-family: OpenSans;
   font-size: 13px;
   font-weight: 400;
   letter-spacing: 3px;

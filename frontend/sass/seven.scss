@@ -1,27 +1,24 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito:400,300,700);
-@import url(https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900,900italic);
+// @import url(https://fonts.googleapis.com/css?family=Nunito:400,300,700);
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700');
 /*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css */
 
+// @font-face {
+//     font-family: Avenir;
+//     src: url(../fonts/avenir/AEH.ttf);
+// }
 @font-face {
-    font-family: Avenir;
-    src: url(../fonts/avenir/AEH.ttf);
+    font-family: OpenSans;
+    src: url(../fonts/OpenSans-Regular.ttf);
 }
 
-@font-face {
-    font-family: Lato;
-    src: url(../fonts/Lato/Lato-Regular.ttf);
-}
-
-@font-face {
-    font-family: Verdana;
-    src: url(../fonts/verdana/Verdana.ttf);
-}
-
-@font-face {
-    font-family: Nunito;
-    src: url(../fonts/Nunito_Sans/NunitoSans-Regular.ttf);
-}
-
+// @font-face {
+//     font-family: Verdana;
+//     src: url(../fonts/verdana/Verdana.ttf);
+// }
+// @font-face {
+//     font-family: Nunito;
+//     src: url(../fonts/Nunito_Sans/NunitoSans-Regular.ttf);
+// }
 /**
  * 1. Change the default font family in all browsers (opinionated).
  * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
@@ -492,7 +489,7 @@ textarea {
  */
 
 html {
-    font-family: Lato, Avenir, Verdana, Nunito;
+    font-family: OpenSans;
     font-weight: normal;
     font-size: 12px;
     line-height: 17px;
@@ -759,7 +756,7 @@ h4,
 h5,
 h6 {
     margin: 0 0 13px 0;
-    font-family: Lato, Avenir, Verdana, Nunito;
+    font-family: OpenSans;
     font-weight: normal;
     color: #084e83;
     text-transform: none;
@@ -2174,10 +2171,10 @@ html [type="button"]:not(:disabled).apl-active {
 .apl-btn:not(:disabled).apl-btn-primary,
 html button:not(:disabled).apl-btn-primary,
 html [type="button"]:not(:disabled).apl-btn-primary {
-    background-color: #00a950;
+    background-color: #28a745;
     color: #FFFFFF;
-    border-bottom-color: #007638;
-    border-right-color: #007638;
+    border-bottom-color: #28a745;
+    border-right-color: #28a745;
 }
 
 .apl-btn:not(:disabled).apl-btn-primary:hover,
@@ -2186,9 +2183,9 @@ html [type="button"]:not(:disabled).apl-btn-primary:hover,
 .apl-btn:not(:disabled).apl-btn-primary:focus,
 html button:not(:disabled).apl-btn-primary:focus,
 html [type="button"]:not(:disabled).apl-btn-primary:focus {
-    background-color: #00c35c;
+    background-color: #28a745;
     color: #FFFFFF;
-    box-shadow: 1.5px 1.5px 0px 0px #005d2c;
+    box-shadow: 1.5px 1.5px 0px 0px #28a745;
 }
 
 .apl-btn:not(:disabled).apl-btn-primary:active,
@@ -2207,10 +2204,11 @@ html [type="button"]:not(:disabled).apl-btn-primary.apl-active {
 .apl-btn:not(:disabled).apl-btn-secondary,
 html button:not(:disabled).apl-btn-secondary,
 html [type="button"]:not(:disabled).apl-btn-secondary {
-    background-color: #005ba2;
+    background-color: #007bff;
     color: #FFFFFF;
-    border-bottom-color: #003e6f;
-    border-right-color: #003e6f;
+    border-bottom-color: #007bff;
+    border-right-color: #007bff;
+    letter-spacing: 1px;
 }
 
 .apl-btn:not(:disabled).apl-btn-secondary:hover,
@@ -2219,9 +2217,9 @@ html [type="button"]:not(:disabled).apl-btn-secondary:hover,
 .apl-btn:not(:disabled).apl-btn-secondary:focus,
 html button:not(:disabled).apl-btn-secondary:focus,
 html [type="button"]:not(:disabled).apl-btn-secondary:focus {
-    background-color: #0069bb;
+    background-color: #007bff;
     color: #FFFFFF;
-    box-shadow: 1.5px 1.5px 0px 0px #003056;
+    box-shadow: 1.5px 1.5px 0px 0px #007bff;
 }
 
 .apl-btn:not(:disabled).apl-btn-secondary:active,
@@ -2230,10 +2228,10 @@ html [type="button"]:not(:disabled).apl-btn-secondary:active,
 .apl-btn:not(:disabled).apl-btn-secondary.apl-active,
 html button:not(:disabled).apl-btn-secondary.apl-active,
 html [type="button"]:not(:disabled).apl-btn-secondary.apl-active {
-    background-color: #005598;
+    background-color: #007bff;
     color: #FFFFFF;
-    border-top-color: #003b6a;
-    border-left-color: #003b6a;
+    border-top-color: #007bff;
+    border-left-color: #007bff;
     box-shadow: none;
 }
 
@@ -2278,10 +2276,10 @@ html [type="button"]:not(:disabled).apl-btn-update.apl-active,
 .apl-btn:not(:disabled).apl-btn-place.apl-active,
 html button:not(:disabled).apl-btn-place.apl-active,
 html [type="button"]:not(:disabled).apl-btn-place.apl-active {
-    background-color: #009f4b;
+    background-color: #28a745;
     color: #FFFFFF;
-    border-top-color: #007135;
-    border-left-color: #007135;
+    border-top-color: #28a745;
+    border-left-color: #28a745;
     box-shadow: none;
 }
 
@@ -2457,7 +2455,8 @@ html [type="button"].apl-btn-large {
     min-height: 30px;
     padding: 0 12px;
     line-height: 30px;
-    font-size: 14px;
+    font-size: 16px;
+    text-transform: uppercase;
 }
 
 /**
@@ -3611,14 +3610,14 @@ hr {
 
 html {
     overflow-y: auto;
-    background: url(00c089648ffbba8f7432516c00b31ad9.jpg) no-repeat 0 -300px;
+    background: url('../img/bg.png') no-repeat 0 -300px;
     background-size: cover;
     height: 100%;
 }
 
 html.login-screen {
     overflow-y: auto;
-    background: url(00c089648ffbba8f7432516c00b31ad9.jpg) no-repeat 0 -300px;
+    background: url('../img/bg.png') no-repeat 0 -300px;
     background-size: cover;
     height: 100%;
 }
@@ -3632,7 +3631,7 @@ body {
 }
 
 footer {
-    background: #601c78;
+    background: #000a40;
     color: #fff;
     padding: 15px;
     margin-top: 18px;
@@ -3664,9 +3663,9 @@ a:hover {
 header.header {
     margin: auto auto 0;
     width: 100%;
-    border-bottom: 1px solid #DDDDDD;
-    background: url("https://member.play7s.com/d/f4cd3f8018d961f1d97e58f27246a93d.jpg") no-repeat center 50%; // background-color: red;
-    background-size: cover;
+    background: #000f62;
+    border-bottom: 1px solid #DDDDDD; // background: url("https://member.play7s.com/d/f4cd3f8018d961f1d97e58f27246a93d.jpg") no-repeat center 50%; // background-color: red;
+    // background-size: cover;
     color: #fff;
 }
 
@@ -3687,7 +3686,7 @@ header.header .wrap-dd-menu .dropdown li a {
 }
 
 header.header a {
-    color: #ffecc6;
+    color: #ffc107;
 }
 
 header.header a:hover {
@@ -3782,7 +3781,7 @@ header.header .infobar>.linkbar .header-link {
 
 footer {
     text-align: center;
-    background: #440a57;
+    background: #000a40;
     color: #fff;
     line-height: 20px;
     padding: 20px;
@@ -4582,7 +4581,7 @@ input[type="text"].ng-invalid {
 }
 
 .login-view {
-    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 100%);
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
 }
 
 .login-form {
@@ -4748,22 +4747,22 @@ input[type="text"].ng-invalid {
 
 .bet-manager>.content .matched-bets .toggleable-list-title,
 .bet-manager>.content .unmatched-bets .toggleable-list-title {
-    background: #601c78;
+    background: #e3a304;
 }
 
 .bet-manager>.content .matched-bets .toggleable-list-title:hover,
 .bet-manager>.content .unmatched-bets .toggleable-list-title:hover {
-    background: #8126a1;
+    background: #e3a304;
 }
 
 .bet-manager>.content .matched-bets .toggleable-list-title:active,
 .bet-manager>.content .unmatched-bets .toggleable-list-title:active {
-    background: #71218d;
+    background: #e3a304;
 }
 
 .bet-manager>.content .matched-bets .toggleable-list-title .toggle-icon,
 .bet-manager>.content .unmatched-bets .toggleable-list-title .toggle-icon {
-    color: #601c78;
+    color: #e3a304;
 }
 
 .bet-manager>.content .betreceipt table.back>tbody>tr>td .betStatus,
@@ -7747,7 +7746,7 @@ div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-
 }
 
 .toggleable-list-title {
-    background: #1d7f1e;
+    background: #027306;
     color: #fff;
     display: block;
     font-weight: bold;
@@ -7767,7 +7766,7 @@ div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-
 
 .toggleable-list-title:active {
     box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.3);
-    background: #229423;
+    background: #26a928;
 }
 
 .toggleable-list-title .value {
@@ -7786,7 +7785,7 @@ div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-
 .apl-report-filter {
     margin-top: 9px;
     height: 99px;
-    font-family: Lato, Avenir, Verdana, Nunito !important;
+    font-family: OpenSans !important;
 }
 
 .apl-report-filter .-error {
@@ -7820,7 +7819,7 @@ div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-
     display: inline-block;
     float: none;
     margin-right: 20px;
-    font-family: Lato, Avenir, Verdana, Nunito !important;
+    font-family: OpenSans !important;
     font-size: 12px;
 }
 
@@ -7866,7 +7865,7 @@ div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-
 .apl-report-filter datepicker ._720kb-datepicker-calendar-header-left,
 .apl-report-filter datepicker ._720kb-datepicker-calendar-header-right {
     margin-top: 2px;
-    font-family: Lato, Avenir, Verdana, Nunito !important;
+    font-family: OpenSans !important;
 }
 
 .apl-report-filter datepicker ._720kb-datepicker-calendar-header-left a,
@@ -7912,7 +7911,7 @@ div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-
 
 .apl-report-filter datepicker ._720kb-datepicker-calendar-header {
     line-height: inherit;
-    font-family: Lato, Avenir, Verdana, Nunito !important;
+    font-family: OpenSans !important;
 }
 
 .apl-report-filter datepicker ._720kb-datepicker-calendar-header:nth-child(odd) {
@@ -7931,7 +7930,7 @@ div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-
 
 .apl-report-filter datepicker ._720kb-datepicker-calendar-days-header {
     background-color: #329ff2;
-    font-family: Lato, Avenir, Verdana, Nunito !important;
+    font-family: OpenSans !important;
 }
 
 .apl-report-filter datepicker ._720kb-datepicker-calendar-days-header div {
@@ -7939,7 +7938,7 @@ div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-
 }
 
 .apl-report-filter datepicker ._720kb-datepicker-calendar-day {
-    font-family: Lato, Avenir, Verdana, Nunito !important;
+    font-family: OpenSans !important;
 }
 
 .apl-report-filter datepicker ._720kb-datepicker-calendar-day:hover {
