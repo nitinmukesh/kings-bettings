@@ -14,6 +14,154 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
             console.log("Invalid page selection");
     }
 
+
+    $rootScope.$on('bookEvent', function (event, data) {
+        console.log("book data", data);
+        $scope.calculateBook(data);
+    });
+
+    $scope.calculateBook = function (value) {
+        var book = [];
+        console.log("inside cal book", $scope.marketData[0]);
+        var market = _.cloneDeep($scope.marketData[0]);
+        if (market.betfairId) {
+            console.log("got marketid", market.betfairId, value);
+            if (!_.isEmpty(value.lay)) {
+                _.each(value.lay, function (n) {
+                    if (n.marketId == market.betfairId)
+                        book.push(n);
+
+                });
+            }
+
+            if (!_.isEmpty(value.back)) {
+                _.each(value.back, function (n) {
+                    if (n.marketId == market.betfairId)
+                        book.push(n);
+
+                });
+            }
+
+
+            if ($scope.previousSelection == value.selectionId && $scope.previousSelectionType == value.type) {
+
+                console.log("inside if")
+                if (value.type == "LAY") {
+                    _.each(market.runners, function (runner) {
+                        if (value.selectionId == runner.betfairId) {
+                            if (runner.profit) {
+                                runner.profit = runner.profit + ((value.liability) * -1);
+                            } else {
+                                runner.profit = -1 * value.liability;
+                            }
+                            $scope.previousSelection = value.selectionId;
+                            $scope.previousSelectionType = value.type;
+                        } else {
+                            if (runner.profit)
+                                runner.profit = runner.profit + value.stake;
+                            else
+                                runner.profit = value.stake;
+                        }
+                    });
+                } else if (value.type == "BACK") {
+                    _.each(market.runners, function (runner) {
+                        if (value.selectionId == runner.betfairId) {
+                            if (runner.profit)
+                                runner.profit = (runner.profit + value.profit);
+                            else
+                                runner.profit = value.profit;
+                            $scope.previousSelection = value.selectionId;
+                            $scope.previousSelectionType = value.type;
+                        } else {
+                            if (runner.profit)
+                                runner.profit = (runner.profit + value.stake) * -1;
+                            else
+                                runner.profit = (value.stake) * -1;
+                        }
+                    });
+                }
+            } else {
+
+                if (value.type == "LAY") {
+                    _.each(market.runners, function (runner) {
+                        if (value.selectionId == runner.betfairId) {
+                            if (runner.profit) {
+                                runner.profit = runner.profit + ((value.liability) * -1);
+                            } else {
+                                runner.profit = -1 * value.liability;
+                            }
+                            $scope.previousSelection = value.selectionId;
+                            $scope.previousSelectionType = value.type;
+                        } else {
+                            if (runner.profit)
+                                runner.profit = runner.profit + value.stake;
+                            else
+                                runner.profit = value.stake;
+                        }
+
+                    });
+                } else if (value.type == "BACK") {
+                    _.each(market.runners, function (runner) {
+                        if (value.selectionId == runner.betfairId) {
+                            if (runner.profit)
+                                runner.profit = (runner.profit + value.profit);
+                            else
+                                runner.profit = value.profit;
+
+                            $scope.previousSelection = value.selectionId;
+                            $scope.previousSelectionType = value.type;
+                        } else {
+                            if (runner.profit)
+                                runner.profit = (runner.profit + value.stake) * -1;
+                            else
+                                runner.profit = (value.stake) * -1;
+                        }
+
+                    });
+                }
+            }
+
+
+            $scope.marketData[0] = market;
+
+            // _.each(book, function (b) {
+            //     if (value.type == "LAY") {
+            //         _.each(market.runners, function (runner) {
+            //             if (value.selectionId == runner.betfairId) {
+            //                 if (runner.profit)
+            //                     runner.profit = (runner.profit + value.liability) * -1;
+            //                 else
+            //                     runner.profit = -1 * value.liability;
+            //             } else {
+            //                 if (runner.profit)
+            //                     runner.profit = runner.profit +value.stake;
+            //                 else
+            //                     runner.profit = value.stake;
+            //             }
+
+            //         });
+            //     } else if (value.type == "BACK") {
+            //         _.each(market.runners, function (runner) {
+            //             if (value.selectionId == runner.betfairId) {
+            //                 if (runner.profit)
+            //                     runner.profit = (runner.profit + value.profit);
+            //                 else
+            //                     runner.profit = value.profit;
+            //             } else {
+            //                 if (runner.profit)
+            //                     runner.profit = (runner.profit + value.stake) * -1;
+            //                 else
+            //                     runner.profit = (value.stake) * -1;
+            //             }
+
+            //         });
+            //     }
+            // })
+
+            console.log("market###################", market);
+        }
+    };
+
     function establishSocketConnection() {
         $scope.mySocket1 = io.sails.connect(adminUUU);
 

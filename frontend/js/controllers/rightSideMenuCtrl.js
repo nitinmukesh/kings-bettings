@@ -18,7 +18,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
                 eventId: data.eventId,
                 selectionId: data.selectionId,
                 selectionName: data.selectionName,
-                matchId: data.matchId,
+                marketId: data.marketId,
                 odds: data.odds,
                 accessToken: data.accessToken,
                 sport: data.sport,
@@ -32,7 +32,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
                 eventId: data.eventId,
                 selectionId: data.selectionId,
                 selectionName: data.selectionName,
-                matchId: data.matchId,
+                marketId: data.marketId,
                 odds: data.odds,
                 accessToken: data.accessToken,
                 sport: data.sport,
@@ -69,6 +69,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
                 n.liability = ((n.odds - 1) * n.stake);
                 n.updatedodds = n.odds - 1;
                 n.type = type;
+                $rootScope.$broadcast('bookEvent', n);
             });
         }
 
@@ -77,10 +78,13 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
                 n.profit = ((n.odds - 1) * n.stake);
                 n.updatedodds = n.odds - 1;
                 n.type = type;
+                $rootScope.$broadcast('bookEvent', n);
             });
         }
 
         $scope.liability = _.sumBy($scope.layArray, "liability") + _.sumBy($scope.backArray, "stake");
+
+
 
         console.log("$scope.liability", $scope.liability);
         console.log("$scope.layArray", $scope.layArray);
@@ -91,9 +95,9 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
         var reqData = _.concat($scope.layArray, $scope.backArray);
         NavigationService.apiCallWithData('Betfair/placePlayerBet', reqData, function (data) {
             console.log("data", data);
+            $scope.betconfirm.close();
             // callback();
         });
-
     }
 
     $scope.addstake = function (value, index, type) {
