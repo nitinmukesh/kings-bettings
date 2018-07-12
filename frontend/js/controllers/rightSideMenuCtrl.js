@@ -158,46 +158,46 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
         });
 
 
-        _.each(book, function (b) {
-            if (b.type == "LAY") {
-                _.each(market.runners, function (runner) {
-                    if (b.selectionId == runner.betfairId) {
-                        if (runner.profit)
-                            runner.profit = (runner.profit + (b.liability * -1));
-                        else
-                            runner.profit = -1 * b.liability;
-                    } else {
-                        if (runner.profit)
-                            runner.profit = runner.profit + b.stake;
-                        else
-                            runner.profit = b.stake;
-                    }
+        // _.each(book, function (b) {
+        //     if (b.type == "LAY") {
+        //         _.each(market.runners, function (runner) {
+        //             if (b.selectionId == runner.betfairId) {
+        //                 if (runner.profit)
+        //                     runner.profit = (runner.profit + (b.liability * -1));
+        //                 else
+        //                     runner.profit = -1 * b.liability;
+        //             } else {
+        //                 if (runner.profit)
+        //                     runner.profit = runner.profit + b.stake;
+        //                 else
+        //                     runner.profit = b.stake;
+        //             }
 
-                });
-            } else if (b.type == "BACK") {
-                _.each(market.runners, function (runner) {
-                    if (b.selectionId == runner.betfairId) {
-                        if (runner.profit)
-                            runner.profit = (runner.profit + b.profit);
-                        else
-                            runner.profit = b.profit;
-                    } else {
-                        if (runner.profit)
-                            runner.profit = (runner.profit + (b.stake * -1));
-                        else
-                            runner.profit = (b.stake) * -1;
-                    }
+        //         });
+        //     } else if (b.type == "BACK") {
+        //         _.each(market.runners, function (runner) {
+        //             if (b.selectionId == runner.betfairId) {
+        //                 if (runner.profit)
+        //                     runner.profit = (runner.profit + b.profit);
+        //                 else
+        //                     runner.profit = b.profit;
+        //             } else {
+        //                 if (runner.profit)
+        //                     runner.profit = (runner.profit + (b.stake * -1));
+        //                 else
+        //                     runner.profit = (b.stake) * -1;
+        //             }
 
-                });
-            }
-        })
+        //         });
+        //     }
+        // })
 
-        console.log("market###################", market);
+        // console.log("market###################", market);
 
-        // $rootScope.$broadcast('bookEvent', {
-        //     lay: $scope.layArray,
-        //     back: $scope.backArray
-        // });
+        $rootScope.$broadcast('bookEvent', {
+            lay: $scope.layArray,
+            back: $scope.backArray
+        });
 
 
         // console.log("$scope.liability", $scope.liability);

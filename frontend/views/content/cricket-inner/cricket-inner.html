@@ -15,6 +15,7 @@
         </div>
         <div class="markets-rows">
             <div class="">
+                <pre>{{market.runners|json}}</pre>
                 <table class="market-listing-table apl-table">
                     <thead>
                         <tr>
@@ -35,8 +36,10 @@
                     <tbody>
                         <tr class="" ng-repeat="runner in market.runners">
                             <td>
+
                                 <div class="event-name ">{{runner.name}}</div>
                                 <div class="selection-pnl">
+
                                 </div>
                             </td>
                             <td class="back unhighlighted show-size" ng-click="placeBet(runner.back[2][1],'BACK',market,runner)">

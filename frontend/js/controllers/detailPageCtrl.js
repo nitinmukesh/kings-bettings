@@ -1,4 +1,4 @@
-myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, TemplateService, BetService, $state, $uibModal, $location, NavigationService, jStorageService) {
+myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, TemplateService, BetService, $state, $uibModal, $location, NavigationService, jStorageService, $timeout) {
 
     $scope.currentGame = ($location.path()).split('/');
     // console.log("$scope.selectedGame", $scope.currentGame);
@@ -15,29 +15,32 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
     }
 
 
-    $rootScope.$on('bookEvent', function (event, data) {
-        // console.log("book data", data);
-        alert("hiii");
-        $scope.calculateBook(data);
-    });
+    if (!$rootScope.$$listenerCount['bookEvent']) {
+        $rootScope.$on("bookEvent", function (event, data) {
+            // alert("hiii");
+            $scope.calculateBook(data);
+        });
+    }
 
     $scope.calculateBook = function (value) {
         var book = [];
-        // console.log("inside cal book", $scope.marketData);
-        console.log("got marketid", JSON.stringify(value));
-        var market = $scope.marketData[0];
+
+        var market = _.cloneDeep($scope.market);
         if (market.betfairId) {
             if (!_.isEmpty(value.lay)) {
                 _.each(value.lay, function (n) {
-                    if (n.marketId == market.betfairId)
+                    if (n.marketId == market.betfairId) {
+                        n.profit = undefined;
                         book.push(n);
+                    }
                 });
             }
 
             if (!_.isEmpty(value.back)) {
                 _.each(value.back, function (n) {
-                    if (n.marketId == market.betfairId)
+                    if (n.marketId == market.betfairId) {
                         book.push(n);
+                    }
                 });
             }
 
@@ -125,7 +128,7 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
                     _.each(market.runners, function (runner) {
                         if (b.selectionId == runner.betfairId) {
                             if (runner.profit)
-                                runner.profit = (runner.profit + b.liability) * -1;
+                                runner.profit = (runner.profit + (b.liability * -1));
                             else
                                 runner.profit = -1 * b.liability;
                         } else {
@@ -145,7 +148,7 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
                                 runner.profit = b.profit;
                         } else {
                             if (runner.profit)
-                                runner.profit = (runner.profit + b.stake) * -1;
+                                runner.profit = (runner.profit + (b.stake * -1));
                             else
                                 runner.profit = (b.stake) * -1;
                         }
@@ -154,7 +157,13 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
                 }
             })
 
-            console.log("market###################", market);
+            // $scope.market = _.cloneDeep(market);
+            // console.log(" $scope.market###################", $scope.market);
+            $scope.$evalAsync();
+            $scope.market = null;
+
+
+            // $scope.$apply();
         }
     };
 
