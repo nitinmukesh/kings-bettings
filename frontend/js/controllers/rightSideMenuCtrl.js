@@ -63,7 +63,6 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
 
     //calculate profit and liability
     $scope.calculatePL = function (type) {
-
         if (type == "LAY") {
             _.each($scope.layArray, function (n) {
                 n.liability = ((n.odds - 1) * n.stake);
