@@ -18,13 +18,11 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
     if (!$rootScope.$$listenerCount['bookEvent']) {
         $rootScope.$on("bookEvent", function (event, data) {
             // alert("hiii");
-            Cache.delete();
             $scope.calculateBook(data);
         });
     }
 
     function test() {
-
         $scope.isProfit = true;
         $scope.$apply();
     }
@@ -32,8 +30,7 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
     $scope.calculateBook = function (value) {
         var book = [];
 
-        var market = _.cloneDeep($scope.marketData[0])
-        // console.log("market", market);
+        var market = _.cloneDeep($scope.marketData[0]);
         if (market.betfairId) {
             if (!_.isEmpty(value.lay)) {
                 _.each(value.lay, function (n) {
@@ -51,85 +48,6 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
                     }
                 });
             }
-
-
-            // if ($scope.previousSelection == value.selectionId && $scope.previousSelectionType == value.type) {
-
-            //     console.log("inside if")
-            //     if (value.type == "LAY") {
-            //         _.each(market.runners, function (runner) {
-            //             if (value.selectionId == runner.betfairId) {
-            //                 if (runner.profit) {
-            //                     runner.profit = runner.profit + ((value.liability) * -1);
-            //                 } else {
-            //                     runner.profit = -1 * value.liability;
-            //                 }
-            //                 $scope.previousSelection = value.selectionId;
-            //                 $scope.previousSelectionType = value.type;
-            //             } else {
-            //                 if (runner.profit)
-            //                     runner.profit = runner.profit + value.stake;
-            //                 else
-            //                     runner.profit = value.stake;
-            //             }
-            //         });
-            //     } else if (value.type == "BACK") {
-            //         _.each(market.runners, function (runner) {
-            //             if (value.selectionId == runner.betfairId) {
-            //                 if (runner.profit)
-            //                     runner.profit = (runner.profit + value.profit);
-            //                 else
-            //                     runner.profit = value.profit;
-            //                 $scope.previousSelection = value.selectionId;
-            //                 $scope.previousSelectionType = value.type;
-            //             } else {
-            //                 if (runner.profit)
-            //                     runner.profit = (runner.profit + value.stake) * -1;
-            //                 else
-            //                     runner.profit = (value.stake) * -1;
-            //             }
-            //         });
-            //     }
-            // } else {
-
-            //     if (value.type == "LAY") {
-            //         _.each(market.runners, function (runner) {
-            //             if (value.selectionId == runner.betfairId) {
-            //                 if (runner.profit) {
-            //                     runner.profit = runner.profit + ((value.liability) * -1);
-            //                 } else {
-            //                     runner.profit = -1 * value.liability;
-            //                 }
-            //                 $scope.previousSelection = value.selectionId;
-            //                 $scope.previousSelectionType = value.type;
-            //             } else {
-            //                 if (runner.profit)
-            //                     runner.profit = runner.profit + value.stake;
-            //                 else
-            //                     runner.profit = value.stake;
-            //             }
-
-            //         });
-            //     } else if (value.type == "BACK") {
-            //         _.each(market.runners, function (runner) {
-            //             if (value.selectionId == runner.betfairId) {
-            //                 if (runner.profit)
-            //                     runner.profit = (runner.profit + value.profit);
-            //                 else
-            //                     runner.profit = value.profit;
-
-            //                 $scope.previousSelection = value.selectionId;
-            //                 $scope.previousSelectionType = value.type;
-            //             } else {
-            //                 if (runner.profit)
-            //                     runner.profit = (runner.profit + value.stake) * -1;
-            //                 else
-            //                     runner.profit = (value.stake) * -1;
-            //             }
-
-            //         });
-            //     }
-            // }
             console.log("got marketid", book);
             _.each(book, function (b) {
                 if (b.type == "LAY") {
