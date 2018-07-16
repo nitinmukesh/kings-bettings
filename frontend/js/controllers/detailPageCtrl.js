@@ -48,7 +48,7 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
                     }
                 });
             }
-            console.log("got marketid", book);
+            // console.log("got marketid", book);
             _.each(book, function (b) {
                 if (b.type == "LAY") {
                     _.each(market.runners, function (runner) {
