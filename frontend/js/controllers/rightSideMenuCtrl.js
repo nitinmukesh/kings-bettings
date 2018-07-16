@@ -193,7 +193,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
 
         // console.log("market###################", market);
 
-        $rootScope.$broadcast('bookEvent', {
+        $rootScope.calculateBook({
             lay: $scope.layArray,
             back: $scope.backArray
         });

@@ -1,5 +1,6 @@
 myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, TemplateService, BetService, $state, $uibModal, $location, NavigationService, jStorageService, $timeout) {
-
+    // $scope.profits = [];
+    // $scope.isProfit = false;
     $scope.currentGame = ($location.path()).split('/');
     // console.log("$scope.selectedGame", $scope.currentGame);
     switch ($scope.currentGame[1]) {
@@ -22,15 +23,18 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
         });
     }
 
-    function test() {
-        $scope.isProfit = true;
-        $scope.$apply();
-    }
-
-    $scope.calculateBook = function (value) {
+    // function test() {
+    //     $scope.isProfit = true;
+    //     $scope.$apply();
+    // }
+    var market;
+    $rootScope.calculateBook = function (value) {
+        $scope.isProfit = false;
+        console.log("$scope.market11111111###################", $scope.isProfit);
         var book = [];
 
-        var market = _.cloneDeep($scope.marketData[0]);
+        market = _.cloneDeep($scope.market);
+
         if (market.betfairId) {
             if (!_.isEmpty(value.lay)) {
                 _.each(value.lay, function (n) {
@@ -78,7 +82,6 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
                             else
                                 runner.profit = (b.stake) * -1;
                         }
-
                     });
                 }
             })
@@ -90,9 +93,12 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
             //         $scope.$apply();
             //     }
             // }, 100);
+            $scope.profits = null;
             $scope.profits = market.runners;
-            test();
-            console.log(" $scope.market###################", $scope.profits);
+            $scope.isProfit = true;
+            // test();
+            // $scope.$apply();
+            console.log("$scope.market###################", $scope.profits, $scope.isProfit);
 
             // if (!$scope.$$phase) {
             //     $scope.$apply();
@@ -102,7 +108,7 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
     };
 
     function establishSocketConnection() {
-        $scope.mySocket1 = io.sails.connect(adminUUU);
+        // $scope.mySocket1 = io.sails.connect(adminUUU);
         $scope.market = {
             "_id": "5b4064f36b204c1fcb533759",
             "betfairId": "1.144476996",
