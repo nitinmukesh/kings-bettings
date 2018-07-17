@@ -68,63 +68,87 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
                     });
                 }
             });
-            $scope.profits = market.runners;
+            $scope.market.runners = market.runners;
         }
     };
 
     function establishSocketConnection() {
         $scope.mySocket1 = io.sails.connect(adminUUU);
-
+        var user = jStorageService.getUserId();
         _.each($scope.marketData, function (market) {
-            $scope.mySocket1.on("market_" + market.betfairId, function onConnect(data) {
-                console.log("socket data detail", data);
-
-                _.each(market.runners, function (runner) {
-                    _.each(data, function (rate) {
-                        console.log(runner.betfairId, "string", (rate.id).toString());
-                        if (runner.betfairId == (rate.id).toString()) {
-                            // runner.back = rate.batb;
-                            // runner.lay = rate.batl;
-                            var back = runner.back ? runner.back : [];
-                            var lay = runner.lay ? runner.lay : [];
-                            _.each(rate.batb, function (backRate) {
-                                if (backRate[0] == 0)
-                                    back[0] = backRate;
-                                if (backRate[0] == 1)
-                                    back[1] = backRate;
-                                if (backRate[0] == 2)
-                                    back[2] = backRate;
-                            });
-
-                            _.each(rate.batl, function (layRate) {
-                                if (layRate[0] == 0)
-                                    lay[0] = layRate;
-                                if (layRate[0] == 1)
-                                    lay[1] = layRate;
-                                if (layRate[0] == 2)
-                                    lay[2] = layRate;
-                            });
-                            runner.back = back;
-                            runner.lay = lay;
-                        }
-                    });
-                });
-                var sortedArray = _.sortBy(market.runners, ['sortPriority']);
-
-
-                market.runners = [];
-                _.each(sortedArray, function (n) {
-                    market.runners[n.sortPriority - 1] = n;
-                });
-                $scope.market = market;
-
-                console.log("sortedArray", sortedArray);
-                console.log(market.betfairId + "marketodds", market);
-                $scope.$apply();
+            console.log("user >>", user);
+            NavigationService.apiCallWithData('Book/getUserBook', {
+                marketId: market.betfairId,
+                user: user
+            }, function (bookInfo) {
+                console.log("bookInfo", bookInfo);
             });
-        })
+            async.parallel([
+                function (callback) {
+                    $scope.mySocket1.on("book_" + market.betfairId + "_" + user, function onConnect(bookData) {
+                        callback(null, bookData);
+                    })
+                },
+                function (bookData, callback) {
+                    $scope.mySocket1.on("market_" + market.betfairId, function onConnect(data) {
+                        console.log("socket data detail", data);
+                        callback(null, data);
+                    })
+                },
+            ], function (err, result) {
+                if (result) {
+                    _.each(market.runners, function (runner) {
+                        _.each(data, function (rate) {
+                            console.log(runner.betfairId, "string", (rate.id).toString());
+                            if (runner.betfairId == (rate.id).toString()) {
+                                // runner.back = rate.batb;
+                                // runner.lay = rate.batl;
+                                var back = runner.back ? runner.back : [];
+                                var lay = runner.lay ? runner.lay : [];
+                                _.each(rate.batb, function (backRate) {
+                                    if (backRate[0] == 0)
+                                        back[0] = backRate;
+                                    if (backRate[0] == 1)
+                                        back[1] = backRate;
+                                    if (backRate[0] == 2)
+                                        back[2] = backRate;
+                                });
 
-    };
+                                _.each(rate.batl, function (layRate) {
+                                    if (layRate[0] == 0)
+                                        lay[0] = layRate;
+                                    if (layRate[0] == 1)
+                                        lay[1] = layRate;
+                                    if (layRate[0] == 2)
+                                        lay[2] = layRate;
+                                });
+                                runner.back = back;
+                                runner.lay = lay;
+                            }
+                        });
+                    });
+                    var sortedArray = _.sortBy(market.runners, ['sortPriority']);
+
+
+                    market.runners = [];
+                    _.each(sortedArray, function (n) {
+                        market.runners[n.sortPriority - 1] = n;
+                    });
+                    $scope.market = market;
+
+                    console.log("sortedArray", sortedArray);
+                    console.log(market.betfairId + "marketodds", market);
+                    $scope.$apply();
+                }
+            });
+        });
+
+
+
+
+
+
+    }
 
     $scope.getMarketIds = function (value) {
 
