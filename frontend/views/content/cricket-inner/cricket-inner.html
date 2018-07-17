@@ -37,9 +37,9 @@
                         <!-- <pre>{{profits}}</pre> -->
                         <tr class="" ng-repeat="runner in market.runners track by $index">
                             <td>
-                                <div class="event-name ">{{runner.name}} === {{isProfit}}
+                                <div class="event-name ">{{runner.name}}
                                 </div>
-                                <div class="selection-pnl" ng-if="isProfit">{{profits[$index].profit}}
+                                <div class="selection-pnl">{{profits[$index].profit}}
                                 </div>
                             </td>
                             <td class="back unhighlighted show-size" ng-click="placeBet(runner.back[2][1],'BACK',market,runner)">

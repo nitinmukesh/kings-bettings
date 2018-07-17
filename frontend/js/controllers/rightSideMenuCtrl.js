@@ -80,128 +80,12 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
         }
 
         $scope.liability = _.sumBy($scope.layArray, "liability") + _.sumBy($scope.backArray, "stake");
-        var c = 0;
-        console.log("countere", c++);
-
-        var market = {
-            "_id": "5b4064f36b204c1fcb533759",
-            "betfairId": "1.144476996",
-            "marketStartTime": "2018-08-01T10:00:00.000Z",
-            "parentCategory": {
-                "_id": "5b4064f36b204c1fcb5336fe",
-                "name": "England v India (1st Test)",
-                "betfairId": "28755539"
-            },
-            "runners": [{
-                "_id": "5b4064f36b204c1fcb533774",
-                "name": "England",
-                "betfairId": "10301",
-                "sortPriority": 1,
-                "back": [
-                    [0, 2.16, 200],
-                    [1, 2.14, 9.67],
-                    [2, 2.12, 579.91]
-                ],
-                "lay": [
-                    [0, 2.26, 21.92],
-                    [1, 2.5, 18.42],
-                    [2, 1000, 2.61]
-                ],
-                "$$hashKey": "object:252"
-            }, {
-                "_id": "5b4064f36b204c1fcb533773",
-                "name": "India",
-                "betfairId": "414464",
-                "sortPriority": 2,
-                "back": [
-                    [0, 3.05, 24.49],
-                    [1, 3, 5],
-                    [2, 2.98, 15.78]
-                ],
-                "lay": [
-                    [0, 3.25, 45.66],
-                    [1, 3.4, 75.99],
-                    [2, 3.5, 139.19]
-                ],
-                "$$hashKey": "object:253"
-            }, {
-                "_id": "5b4064f36b204c1fcb533775",
-                "name": "The Draw",
-                "betfairId": "60443",
-                "sortPriority": 3,
-                "back": [
-                    [0, 4.4, 5.85],
-                    [1, 4.3, 100],
-                    [2, 4.2, 210.03]
-                ],
-                "lay": [
-                    [0, 4.5, 45.11],
-                    [1, 4.6, 56.14],
-                    [2, 4.7, 108.37]
-                ],
-                "$$hashKey": "object:254"
-            }]
-        }
-
-        var book = [];
-        _.each($scope.layArray, function (n) {
-            if (n.marketId == market.betfairId)
-                book.push(n);
-        });
-
-
-
-        _.each($scope.backArray, function (n) {
-            if (n.marketId == market.betfairId)
-                book.push(n);
-        });
-
-
-        // _.each(book, function (b) {
-        //     if (b.type == "LAY") {
-        //         _.each(market.runners, function (runner) {
-        //             if (b.selectionId == runner.betfairId) {
-        //                 if (runner.profit)
-        //                     runner.profit = (runner.profit + (b.liability * -1));
-        //                 else
-        //                     runner.profit = -1 * b.liability;
-        //             } else {
-        //                 if (runner.profit)
-        //                     runner.profit = runner.profit + b.stake;
-        //                 else
-        //                     runner.profit = b.stake;
-        //             }
-
-        //         });
-        //     } else if (b.type == "BACK") {
-        //         _.each(market.runners, function (runner) {
-        //             if (b.selectionId == runner.betfairId) {
-        //                 if (runner.profit)
-        //                     runner.profit = (runner.profit + b.profit);
-        //                 else
-        //                     runner.profit = b.profit;
-        //             } else {
-        //                 if (runner.profit)
-        //                     runner.profit = (runner.profit + (b.stake * -1));
-        //                 else
-        //                     runner.profit = (b.stake) * -1;
-        //             }
-
-        //         });
-        //     }
-        // })
-
-        // console.log("market###################", market);
 
         $rootScope.calculateBook({
             lay: $scope.layArray,
             back: $scope.backArray
         });
 
-
-        // console.log("$scope.liability", $scope.liability);
-        // console.log("$scope.layArray", $scope.layArray);
-        // console.log("$scope.backArray", $scope.backArray);
     };
 
     $scope.placeBet = function () {
