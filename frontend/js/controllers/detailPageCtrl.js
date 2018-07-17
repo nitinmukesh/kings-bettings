@@ -83,11 +83,11 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
                     _.each(data, function (rate) {
                         console.log(runner.betfairId, "string", (rate.id).toString());
                         if (runner.betfairId == (rate.id).toString()) {
-                            runner.back = rate.batb;
-                            runner.lay = rate.batl;
-                            var back = [];
-                            var lay = [];
-                            _.each(runner.back, function (backRate) {
+                            // runner.back = rate.batb;
+                            // runner.lay = rate.batl;
+                            var back = runner.back ? runner.back : [];
+                            var lay = runner.lay ? runner.lay : [];
+                            _.each(rate.batb, function (backRate) {
                                 if (backRate[0] == 0)
                                     back[0] = backRate;
                                 if (backRate[0] == 1)
@@ -96,7 +96,7 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
                                     back[2] = backRate;
                             });
 
-                            _.each(runner.lay, function (layRate) {
+                            _.each(rate.batl, function (layRate) {
                                 if (layRate[0] == 0)
                                     lay[0] = layRate;
                                 if (layRate[0] == 1)
