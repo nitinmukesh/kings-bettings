@@ -4,14 +4,14 @@
             <uib-accordion-heading>
                 <span>
                     <strong class="">Available Credit:</strong>
-                    <span class="value ">{{balanceData.balance}}</span>
+                    <span class="value ">{{balanceData.balance || 0}}</span>
                 </span>
                 <i class="pull-right icon-right fa" ng-class="{'fa-chevron-up': status.open, 'fa-chevron-down': !status.open}"></i>
             </uib-accordion-heading>
             <ul class="list-wrap shown -animate" ng-class="overviewClass">
                 <li class="ng-binding">
                     <strong class="ng-binding">Credit Limit:</strong>
-                    {{balanceData.creditLimit}}
+                    {{balanceData.creditLimit || 0}}
                 </li>
                 <li>
                     <strong class="ng-binding">Winnings:</strong>
@@ -19,7 +19,7 @@
                 </li>
                 <li>
                     <strong class="ng-binding">Total Net Exposure:</strong>
-                    <span ng-class="{'-negative': accountInfo.deductedExposure !== 0}" class="ng-binding">{{netExposureData.total}}</span>
+                    <span ng-class="{'-negative': accountInfo.deductedExposure !== 0}" class="ng-binding">{{netExposureData.total || 0}}</span>
                 </li>
             </ul>
         </div>
