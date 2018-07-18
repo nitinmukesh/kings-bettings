@@ -2,7 +2,7 @@ var adminurl = adminUUU;
 // adminurl = adminurl + "/api/";
 adminUUU = "http://localhost:1338/"
 adminurl = "http://localhost:1337/api/"
-// adminurl = "http://192.168.1.107:1337/api/"
+// adminurl = "http://192.168.1.105:1337/api/"
 io.sails.url = adminUUU;
 io.sails.autoConnect = false;
 myApp.factory('NavigationService', function ($http) {
