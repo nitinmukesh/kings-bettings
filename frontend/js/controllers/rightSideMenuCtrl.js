@@ -1,4 +1,4 @@
-myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams, TemplateService, BetService, $state, $uibModal, NavigationService) {
+myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams, jStorageService, TemplateService, BetService, $state, $uibModal, NavigationService) {
     $scope.BetService = BetService;
 
     $scope.layArray = [];
@@ -61,6 +61,33 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
         $scope.liability = 0;
     };
 
+    $scope.getAvailableCredit = function () {
+        var user = jStorageService.getUserId();
+        NavigationService.apiCallWithUrl(mainServer + 'api/sportsbook/getCurrentBalance', {
+                _id: user
+            },
+            function (balanceData) {
+                $scope.balanceData = balanceData;
+            });
+        NavigationService.apiCallWithUrl(mainServer + 'api/netExposure/getMemberNetExposure', {
+                _id: user
+            },
+            function (netExposureData) {
+                $scope.netExposureData = netExposureData;
+            });
+        $scope.mySocket1 = io.sails.connect(mainServer);
+        console.log("getAvailableCredit", user);
+
+        $scope.mySocket1.on("Balance_" + user, function onConnect(balanceData) {
+            console.log('balanceData', balanceData);
+            $scope.balanceData = balanceData;
+        })
+        $scope.mySocket1.on("NetExposure_" + user, function onConnect(netExposureData) {
+            console.log("netExposureData", netExposureData);
+            $scope.netExposureData = netExposureData;
+        })
+    }
+    $scope.getAvailableCredit();
     //calculate profit and liability
     $scope.calculatePL = function (type) {
         if (type == "LAY") {

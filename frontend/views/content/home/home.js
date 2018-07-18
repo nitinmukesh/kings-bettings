@@ -44,6 +44,9 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
             case "Tennis":
                 $scope.page = "views/content/tennis/tennis.html";
                 break;
+            case "Soccer":
+                $scope.page = "views/content/football/football.html";
+                break;
 
             default:
                 console.log("Invalid page selection");

@@ -8,7 +8,9 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
         case "Tennis":
             $scope.page = "content/tennis-inner/tennis-inner.html";
             break;
-
+        case "Soccer":
+            $scope.page = "content/football-inner/football-inner.html";
+            break;
         default:
             console.log("Invalid page selection");
     }

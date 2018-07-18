@@ -1,7 +1,9 @@
 var adminurl = adminUUU;
 // adminurl = adminurl + "/api/";
-adminUUU = "http://localhost:1338/"
-adminurl = "http://localhost:1337/api/"
+adminUUU = "http://localhost:1338/" //socket betfair
+sportsSocket = "http://localhost:1337/"
+adminurl = sportsSocket + "api/" //sports book
+mainServer = "http://192.168.1.102:1337/" //main server
 // adminurl = "http://192.168.1.107:1337/api/"
 io.sails.url = adminUUU;
 io.sails.autoConnect = false;
@@ -42,6 +44,13 @@ myApp.factory('NavigationService', function ($http) {
         },
         apiCallWithData: function (url, formData, callback) {
             $http.post(adminurl + url, formData).then(function (data) {
+                // console.log('data', data);
+                data = data.data;
+                callback(data);
+            });
+        },
+        apiCallWithUrl: function (url, formData, callback) {
+            $http.post(url, formData).then(function (data) {
                 // console.log('data', data);
                 data = data.data;
                 callback(data);
