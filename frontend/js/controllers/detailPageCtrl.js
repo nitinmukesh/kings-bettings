@@ -90,24 +90,26 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
     };
 
     function establishSocketConnection() {
-        $scope.mySocket1 = io.sails.connect(adminUUU);
-        $scope.mySocket2 = io.sails.connect(sportsSocket);
+
+
         var user = jStorageService.getUserId();
         _.each($scope.marketData, function (market) {
 
             async.parallel([
                 function (callback) {
                     console.log("book_" + market.betfairId + "_" + user);
-
+                    $scope.mySocket2 = io.sails.connect(sportsSocket);
                     NavigationService.apiCallWithData('Book/getUserBook', {
                         marketId: market.betfairId,
                         user: user
                     }, function (bookInfo) {
                         if (bookInfo.value) {
                             $scope.bookInfo = bookInfo.data.horse;
+                            $scope.userRate = bookInfo.data.userRate;
                         }
                         $scope.mySocket1.on("book_" + market.betfairId + "_" + user, function onConnect(bookData) {
-                            $scope.bookInfo = bookData;
+                            $scope.bookInfo = bookData.horse;
+                            $scope.userRate = bookData.userRate;
                             console.log("$scope.bookInfo1", $scope.bookInfo);
                         });
                         console.log("$scope.bookInfo2", $scope.bookInfo);
@@ -116,6 +118,7 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
 
                 },
                 function (bookData, callback) {
+                    $scope.mySocket1 = io.sails.connect(adminUUU);
                     $scope.mySocket1.on("market_" + market.betfairId, function onConnect(data) {
                         console.log("socket data detail", data);
                         // callback(null, data);
