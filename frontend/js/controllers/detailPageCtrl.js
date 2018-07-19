@@ -1,4 +1,5 @@
 myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, TemplateService, BetService, $state, $uibModal, $location, NavigationService, jStorageService, $timeout) {
+    $scope.isDraw = true;
 
     $scope.currentGame = ($location.path()).split('/');
     switch ($scope.currentGame[1]) {
@@ -7,6 +8,7 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
             break;
         case "Tennis":
             $scope.page = "content/tennis-inner/tennis-inner.html";
+            $scope.isDraw = false;
             break;
         case "Soccer":
             $scope.page = "content/football-inner/football-inner.html";
@@ -91,6 +93,7 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
 
     function establishSocketConnection() {
         $scope.mySocket1 = io.sails.connect(adminUUU);
+        $scope.mySocket2 = io.sails.connect(sportsSocket);
         var user = jStorageService.getUserId();
         _.each($scope.marketData, function (market) {
 
