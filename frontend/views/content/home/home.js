@@ -161,6 +161,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     $scope.placeBet = function (price, type, market, selection) {
         var accessToken = jStorageService.getAccessToken();
         var userId = jStorageService.getUserId();
+
         $rootScope.$broadcast('eventBroadcastedName', {
             odds: price,
             type: type,
@@ -168,7 +169,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
             event: market.parentCategory.event,
             selectionId: selection.betfairId,
             selectionName: selection.name,
-            sport: $scope.currentGame[1],
+            sport: $scope.selectedGame,
             marketId: market.betfairId,
             accessToken: accessToken,
             userId: userId
