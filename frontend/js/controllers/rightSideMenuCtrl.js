@@ -73,7 +73,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
                 _id: user
             },
             function (netExposureData) {
-                $scope.netExposureData = netExposureData;
+                $scope.netExposureData = netExposureData.netExposure;
             });
         $scope.mySocket1 = io.sails.connect(mainServer);
         console.log("getAvailableCredit", user);
@@ -84,7 +84,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
         })
         $scope.mySocket1.on("NetExposure_" + user, function onConnect(netExposureData) {
             console.log("netExposureData", netExposureData);
-            $scope.netExposureData = netExposureData;
+            $scope.netExposureData = netExposureData.netExposure;
         })
     }
     $scope.getAvailableCredit();
