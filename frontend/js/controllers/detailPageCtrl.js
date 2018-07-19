@@ -1,5 +1,4 @@
 myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, TemplateService, BetService, $state, $uibModal, $location, NavigationService, jStorageService, $timeout) {
-    $scope.isDraw = true;
 
     $scope.currentGame = ($location.path()).split('/');
     switch ($scope.currentGame[1]) {
@@ -8,7 +7,6 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
             break;
         case "Tennis":
             $scope.page = "content/tennis-inner/tennis-inner.html";
-            $scope.isDraw = false;
             break;
         case "Soccer":
             $scope.page = "content/football-inner/football-inner.html";

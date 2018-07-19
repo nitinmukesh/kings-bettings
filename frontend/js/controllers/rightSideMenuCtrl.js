@@ -67,24 +67,28 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
                 _id: user
             },
             function (balanceData) {
-                $scope.balanceData = balanceData;
+                if (balanceData.value) {
+                    $scope.balanceData = balanceData.data;
+                }
             });
         NavigationService.apiCallWithUrl(mainServer + 'api/netExposure/getMemberNetExposure', {
                 _id: user
             },
             function (netExposureData) {
-                $scope.netExposureData = netExposureData.netExposure;
+                if (netExposureData.value) {
+                    $scope.netExposureData = netExposureData.data.netExposure.total;
+                }
             });
         $scope.mySocket1 = io.sails.connect(mainServer);
         console.log("getAvailableCredit", user);
 
         $scope.mySocket1.on("Balance_" + user, function onConnect(balanceData) {
-            console.log('balanceData', balanceData);
             $scope.balanceData = balanceData;
+            $scope.$apply();
         })
         $scope.mySocket1.on("NetExposure_" + user, function onConnect(netExposureData) {
-            console.log("netExposureData", netExposureData);
-            $scope.netExposureData = netExposureData.netExposure;
+            $scope.netExposureData = netExposureData.netExposure.total;
+            $scope.$apply();
         })
     }
     $scope.getAvailableCredit();
