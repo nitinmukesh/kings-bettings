@@ -39,7 +39,14 @@
                             <td>
                                 <div class="event-name ">{{runner.name}}
                                 </div>
-                                <div class="selection-pnl">{{profits[$index].amount}} === {{unexecutedProfit[$index].unexecutedProfit}}
+                                <div class="selection-pnl">
+                                    <displaynumber ng-model="profits[$index].amount"></displaynumber>
+                                    <!-- <span ng-class="{'positive':profits[$index].amount > 0 ,'negative':profits[$index].amount<0}" ng-if="profits[$index].amount">{{profits[$index].amount}}</span> -->
+                                    <span ng-class="{'positive':profits[$index].amount >= 0 ,'negative':profits[$index].amount<0}" ng-if="profits[$index].amount && unexecutedProfit[$index].unexecutedProfit">>></span>
+                                    <displaynumber ng-model="unexecutedProfit[$index].unexecutedProfit"></displaynumber>
+
+                                    <!-- <span ng-class="{'positive':unexecutedProfit[$index].unexecutedProfit > 0 ,'negative' : unexecutedProfit[$index].unexecutedProfit<0}"
+                                        ng-if="unexecutedProfit[$index].unexecutedProfit">{{unexecutedProfit[$index].unexecutedProfit}}</span> -->
                                 </div>
                             </td>
                             <td class="back unhighlighted show-size" ng-click="placeBet(runner.back[2][1],'BACK',market,runner)">

@@ -120,6 +120,18 @@ myApp.directive('img', function ($compile, $parse) {
             link: function ($scope, element, attrs) {}
         };
     })
+    .directive('displaynumber', function ($http, $filter) {
+        return {
+            templateUrl: 'views/directive/display-number.html',
+            scope: {
+                model: '=ngModel',
+                decimal: '=decimal'
+            },
+            link: function ($scope, element, attrs) {
+                $scope.decimal = $scope.decimal ? $scope.decimal : 2;
+            }
+        };
+    })
 
     .directive('onlyDigits', function () {
         return {
