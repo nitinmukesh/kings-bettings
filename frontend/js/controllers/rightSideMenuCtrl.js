@@ -13,32 +13,42 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
         // console.log("data for bet", data);
         $scope.isBetSlip = true;
         if (data.type == "BACK") {
-            $scope.backArray.push({
-                event: data.event,
-                eventId: data.eventId,
-                selectionId: data.selectionId,
-                selectionName: data.selectionName,
-                marketId: data.marketId,
-                odds: data.odds,
-                accessToken: data.accessToken,
-                sport: data.sport,
-                profit: 0
-            });
-            $scope.isBack = true;
+            var backFound = _.findIndex($scope.backArray, function (back) {
+                return data.selectionId == back.selectionId;
+            })
+            if (backFound == -1) {
+                $scope.backArray.push({
+                    event: data.event,
+                    eventId: data.eventId,
+                    selectionId: data.selectionId,
+                    selectionName: data.selectionName,
+                    marketId: data.marketId,
+                    odds: data.odds,
+                    accessToken: data.accessToken,
+                    sport: data.sport,
+                    profit: 0
+                });
+                $scope.isBack = true;
+            }
         }
         if (data.type == "LAY") {
-            $scope.layArray.push({
-                event: data.event,
-                eventId: data.eventId,
-                selectionId: data.selectionId,
-                selectionName: data.selectionName,
-                marketId: data.marketId,
-                odds: data.odds,
-                accessToken: data.accessToken,
-                sport: data.sport,
-                liability: 0
-            });
-            $scope.isLay = true;
+            var layFound = _.findIndex($scope.layArray, function (lay) {
+                return data.selectionId == lay.selectionId;
+            })
+            if (layFound == -1) {
+                $scope.layArray.push({
+                    event: data.event,
+                    eventId: data.eventId,
+                    selectionId: data.selectionId,
+                    selectionName: data.selectionName,
+                    marketId: data.marketId,
+                    odds: data.odds,
+                    accessToken: data.accessToken,
+                    sport: data.sport,
+                    liability: 0
+                });
+                $scope.isLay = true;
+            }
         }
     });
 
