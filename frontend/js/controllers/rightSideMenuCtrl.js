@@ -123,6 +123,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
         var reqData = _.concat($scope.layArray, $scope.backArray);
         NavigationService.apiCallWithData('Betfair/placePlayerBet', reqData, function (data) {
             // console.log("data", data);
+            $scope.removeAllBets();
             $scope.betconfirm.close();
             // callback();
         });

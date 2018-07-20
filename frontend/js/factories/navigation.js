@@ -1,9 +1,11 @@
 var adminurl = adminUUU;
 // adminurl = adminurl + "/api/";
 adminUUU = "http://localhost:1338/"; //socket betfair
-sportsSocket = "http://192.168.43.8:1337/";
+sportsSocket = "http://localhost:1337/";
+// sportsSocket = "http://192.168.1.105:1337/";
 adminurl = sportsSocket + "api/"; //sports book
-mainServer = "http://192.168.43.42:1337/"; //main server
+// mainServer = "http://192.168.43.42:1337/"; //main server
+mainServer = "http://192.168.1.104:1337/"; //main server
 // adminurl = "http://192.168.1.107:1337/api/"
 io.sails.url = adminUUU;
 io.sails.autoConnect = false;

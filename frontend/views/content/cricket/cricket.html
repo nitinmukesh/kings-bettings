@@ -16,7 +16,7 @@
                 <tbody>
 
                     <tr class="" ng-repeat="market in marketData">
-                        <td ng-click="getDetailedPage('Cricket',market.parentCategory.name,market.parentCategory._id);">
+                        <td ng-click="getDetailedPage(selectedGame,market.parentCategory.name,market.parentCategory._id);">
                             <i class="far fa-star icon-style"></i>
                             <a class="event-name ">{{market.parentCategory.name}}</a>
                             <small class="in-play-content ">

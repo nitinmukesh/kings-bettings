@@ -71,11 +71,9 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
                 }
             });
             if (!_.isEmpty($scope.profits)) {
-                console.log("$scope.profits", $scope.profits);
-                console.log("market.runners", market.runners);
                 _.each(market.runners, function (n) {
                     _.each($scope.profits, function (m) {
-                        if (m.betfairId == m.betfairId) {
+                        if (m.betfairId == n.betfairId) {
                             n.unexecutedProfit = (m.amount + n.unexecutedProfit);
                         }
                     });
@@ -83,14 +81,24 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
                 $scope.unexecutedProfit = market.runners;
             } else {
                 $scope.unexecutedProfit = market.runners;
-                console.log("$scope.unexecutedProfit", $scope.unexecutedProfit);
-                console.log("market.runners", market.runners);
             }
         }
     };
 
-    function establishSocketConnection() {
+    $scope.calculatePlacedBookAmt = function (market, bookInfo) {
+        _.each(market.runners, function (runner) {
+            _.each(bookInfo, function (horse) {
+                if (runner.betfairId == horse.horse) {
+                    runner.amount = (horse.amount) / $scope.userRate;
+                }
+            })
+        });
+        $scope.profits = market.runners;
+        $scope.unexecutedProfit = [];
+        $scope.$apply();
+    };
 
+    function establishSocketConnection() {
 
         var user = jStorageService.getUserId();
         _.each($scope.marketData, function (market) {
@@ -107,12 +115,13 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
                             $scope.bookInfo = bookInfo.data.horse;
                             $scope.userRate = bookInfo.data.userRate;
                         }
-                        $scope.mySocket1.on("book_" + market.betfairId + "_" + user, function onConnect(bookData) {
+                        $scope.mySocket2 = io.sails.connect(sportsSocket);
+                        $scope.mySocket2.on("Book_" + market.betfairId + "_" + user, function onConnect(bookData) {
+                            // $scope.mySocket2.on("Book_1.145660267_5b20f7dc9730e40f79534134", function onConnect(bookData) {
                             $scope.bookInfo = bookData.horse;
-                            $scope.userRate = bookData.userRate;
-                            console.log("$scope.bookInfo1", $scope.bookInfo);
+                            $scope.userRate = 100;
+                            $scope.calculatePlacedBookAmt($scope.market, $scope.bookInfo);
                         });
-                        console.log("$scope.bookInfo2", $scope.bookInfo);
                         callback(null, $scope.bookInfo);
                     });
 
@@ -120,11 +129,9 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
                 function (bookData, callback) {
                     $scope.mySocket1 = io.sails.connect(adminUUU);
                     $scope.mySocket1.on("market_" + market.betfairId, function onConnect(data) {
-                        console.log("socket data detail", data);
                         // callback(null, data);
                         _.each(market.runners, function (runner) {
                             _.each(data, function (rate) {
-                                console.log(runner.betfairId, "string", (rate.id).toString());
                                 if (runner.betfairId == (rate.id).toString()) {
                                     // runner.back = rate.batb;
                                     // runner.lay = rate.batl;
@@ -159,18 +166,9 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
                         });
                         $scope.market = market;
                         if (!_.isEmpty($scope.bookInfo)) {
-                            _.each($scope.market.runners, function (runner) {
-                                _.each($scope.bookInfo, function (horse) {
-                                    if (runner.betfairId == horse.horse) {
-                                        runner.amount = horse.amount;
-                                    }
-                                })
-                            });
-                            $scope.profits = $scope.market.runners;
+                            $scope.calculatePlacedBookAmt($scope.market, $scope.bookInfo);
                         }
                         // $scope.profits = $scope.market.runners;
-                        console.log("sortedArray", sortedArray);
-                        console.log("$scope.market", $scope.market);
                         $scope.$apply();
                     })
                 },
