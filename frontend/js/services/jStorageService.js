@@ -9,7 +9,7 @@ myApp.service('jStorageService', function () {
     this.getUserId = function () {
         var data = $.jStorage.get("userId");
         console.log("data", data);
-        return data.data;
+        return data;
     }
 
 });

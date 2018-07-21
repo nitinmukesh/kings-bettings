@@ -5,76 +5,56 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     $scope.navigation = NavigationService.getNavigation();
     $scope.oneAtATime = true;
     $scope.matches = [];
+    $scope.isDraw = true;
 
     $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
     });
-    $scope.itemArray = [{
-            id: 1,
-            name: 'first'
-        },
-        {
-            id: 2,
-            name: 'second'
-        },
-        {
-            id: 3,
-            name: 'third'
-        },
-        {
-            id: 4,
-            name: 'fourth'
-        },
-        {
-            id: 5,
-            name: 'fifth'
-        },
-    ];
-
-    $scope.selected = {
-        value: $scope.itemArray[0]
-    };
-
 
     $scope.getGamePage = function (value) {
         switch (value) {
-            case "Cricket":
+            case "Greyhound Racing":
                 $scope.page = "views/content/cricket/cricket.html";
                 break;
-            case "Tennis":
+            case "Horse Racing":
                 $scope.page = "views/content/tennis/tennis.html";
+                break;
+            case "Tennis":
+                $scope.page = "views/content/cricket/cricket.html";
+                $scope.isDraw = false;
                 break;
 
             default:
-                console.log("Invalid page selection");
+                $scope.page = "views/content/cricket/cricket.html";
         }
     };
 
 
-    $scope.selectedGame = $stateParams.game;
+
     $scope.$on('$locationChangeSuccess', function () {
         // vm.searchText = $state.params.search;
         if ($scope.mySocket1) {
             console.log("disconnect 1");
             $scope.mySocket1.disconnect();
+            establishSocketConnection();
             console.log("disconnect 2");
         }
         $scope.currentGame = ($location.path()).split('/');
         console.log("$scope.selectedGame", $scope.currentGame);
         if ($scope.currentGame[1] == "home") {
+            $scope.selectedGame = "Cricket";
             $scope.page = "views/content/cricket/cricket.html";
             $scope.getMarketIds({
                 game: "Cricket"
             });
         } else {
-
-            $scope.getGamePage($scope.currentGame[1]);
+            $scope.selectedGame = $scope.currentGame[1];
             $scope.getMarketIds({
                 game: $scope.currentGame[1],
                 parentId: $scope.currentGame[2]
             });
+            $scope.getGamePage($scope.currentGame[1]);
         }
-
     });
 
     function establishSocketConnection() {
@@ -110,7 +90,6 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
                 _.each(sortedArray, function (n) {
                     market.runners[n.sortPriority - 1] = n;
                 });
-
                 // console.log("sortedArray", sortedArray);
                 // console.log(market.betfairId + "marketodds", market);
                 $scope.$apply();
@@ -120,9 +99,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     };
 
     $scope.getMarketIds = function (value) {
-
         NavigationService.apiCallWithData('Category/getMarketIds', value, function (data) {
-            // console.log("Category/getMarketIds", data);
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
                     $scope.marketData = data.data;
@@ -185,6 +162,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     $scope.placeBet = function (price, type, market, selection) {
         var accessToken = jStorageService.getAccessToken();
         var userId = jStorageService.getUserId();
+
         $rootScope.$broadcast('eventBroadcastedName', {
             odds: price,
             type: type,
@@ -192,7 +170,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
             event: market.parentCategory.event,
             selectionId: selection.betfairId,
             selectionName: selection.name,
-            sport: $scope.currentGame[1],
+            sport: $scope.selectedGame,
             marketId: market.betfairId,
             accessToken: accessToken,
             userId: userId

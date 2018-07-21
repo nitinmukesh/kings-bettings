@@ -21,16 +21,19 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
     $httpProvider.defaults.withCredentials = true;
     $stateProvider
         .state('home', {
+            cache: false,
             url: "/home",
             templateUrl: tempateURL,
             controller: 'HomeCtrl'
         })
         .state('homeInside', {
+            cache: false,
             url: "/:game/:parentId",
             templateUrl: tempateURL,
             controller: 'HomeCtrl'
         })
         .state('detailPage', {
+            cache: false,
             url: "/:game/detail/:parentId",
             templateUrl: tempateURL,
             controller: 'DetailPageCtrl'

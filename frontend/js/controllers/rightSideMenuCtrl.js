@@ -1,4 +1,4 @@
-myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams, TemplateService, BetService, $state, $uibModal, NavigationService) {
+myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams, jStorageService, TemplateService, BetService, $state, $uibModal, NavigationService) {
     $scope.BetService = BetService;
 
     $scope.layArray = [];
@@ -10,35 +10,45 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
     $scope.onclickEdit = false;
 
     $rootScope.$on('eventBroadcastedName', function (event, data) {
-        console.log("data for bet", data);
+        // console.log("data for bet", data);
         $scope.isBetSlip = true;
         if (data.type == "BACK") {
-            $scope.backArray.push({
-                event: data.event,
-                eventId: data.eventId,
-                selectionId: data.selectionId,
-                selectionName: data.selectionName,
-                matchId: data.matchId,
-                odds: data.odds,
-                accessToken: data.accessToken,
-                sport: data.sport,
-                profit: 0
-            });
-            $scope.isBack = true;
+            var backFound = _.findIndex($scope.backArray, function (back) {
+                return data.selectionId == back.selectionId;
+            })
+            if (backFound == -1) {
+                $scope.backArray.push({
+                    event: data.event,
+                    eventId: data.eventId,
+                    selectionId: data.selectionId,
+                    selectionName: data.selectionName,
+                    marketId: data.marketId,
+                    odds: data.odds,
+                    accessToken: data.accessToken,
+                    sport: data.sport,
+                    profit: 0
+                });
+                $scope.isBack = true;
+            }
         }
         if (data.type == "LAY") {
-            $scope.layArray.push({
-                event: data.event,
-                eventId: data.eventId,
-                selectionId: data.selectionId,
-                selectionName: data.selectionName,
-                matchId: data.matchId,
-                odds: data.odds,
-                accessToken: data.accessToken,
-                sport: data.sport,
-                liability: 0
-            });
-            $scope.isLay = true;
+            var layFound = _.findIndex($scope.layArray, function (lay) {
+                return data.selectionId == lay.selectionId;
+            })
+            if (layFound == -1) {
+                $scope.layArray.push({
+                    event: data.event,
+                    eventId: data.eventId,
+                    selectionId: data.selectionId,
+                    selectionName: data.selectionName,
+                    marketId: data.marketId,
+                    odds: data.odds,
+                    accessToken: data.accessToken,
+                    sport: data.sport,
+                    liability: 0
+                });
+                $scope.isLay = true;
+            }
         }
     });
 
@@ -61,9 +71,39 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
         $scope.liability = 0;
     };
 
+    $scope.getAvailableCredit = function () {
+        var user = jStorageService.getUserId();
+        NavigationService.apiCallWithUrl(mainServer + 'api/sportsbook/getCurrentBalance', {
+                _id: user
+            },
+            function (balanceData) {
+                if (balanceData.value) {
+                    $scope.balanceData = balanceData.data;
+                }
+            });
+        NavigationService.apiCallWithUrl(mainServer + 'api/netExposure/getMemberNetExposure', {
+                _id: user
+            },
+            function (netExposureData) {
+                if (netExposureData.value) {
+                    $scope.netExposureData = netExposureData.data.netExposure;
+                }
+            });
+        $scope.mySocket1 = io.sails.connect(mainServer);
+        console.log("getAvailableCredit", user);
+
+        $scope.mySocket1.on("Balance_" + user, function onConnect(balanceData) {
+            $scope.balanceData = balanceData;
+            $scope.$apply();
+        })
+        $scope.mySocket1.on("NetExposure_" + user, function onConnect(netExposureData) {
+            $scope.netExposureData = netExposureData.netExposure;
+            $scope.$apply();
+        })
+    }
+    $scope.getAvailableCredit();
     //calculate profit and liability
     $scope.calculatePL = function (type) {
-
         if (type == "LAY") {
             _.each($scope.layArray, function (n) {
                 n.liability = ((n.odds - 1) * n.stake);
@@ -82,18 +122,21 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
 
         $scope.liability = _.sumBy($scope.layArray, "liability") + _.sumBy($scope.backArray, "stake");
 
-        console.log("$scope.liability", $scope.liability);
-        console.log("$scope.layArray", $scope.layArray);
-        console.log("$scope.backArray", $scope.backArray);
+        $rootScope.calculateBook({
+            lay: $scope.layArray,
+            back: $scope.backArray
+        });
+
     };
 
     $scope.placeBet = function () {
         var reqData = _.concat($scope.layArray, $scope.backArray);
         NavigationService.apiCallWithData('Betfair/placePlayerBet', reqData, function (data) {
-            console.log("data", data);
+            // console.log("data", data);
+            $scope.removeAllBets();
+            $scope.betconfirm.close();
             // callback();
         });
-
     }
 
     $scope.addstake = function (value, index, type) {
