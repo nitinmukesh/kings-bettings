@@ -1,6 +1,6 @@
 apps:
   - script: "app.js"
-    name: "Node Framework - 80"
+    name: "kingsbetting - 1337"
     watch: false
     args: "--prod"
     exec_mode: "cluster"
