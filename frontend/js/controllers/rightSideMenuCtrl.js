@@ -86,7 +86,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
             },
             function (netExposureData) {
                 if (netExposureData.value) {
-                    $scope.netExposureData = netExposureData.data.netExposure.total;
+                    $scope.netExposureData = netExposureData.data.netExposure;
                 }
             });
         $scope.mySocket1 = io.sails.connect(mainServer);
@@ -97,7 +97,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
             $scope.$apply();
         })
         $scope.mySocket1.on("NetExposure_" + user, function onConnect(netExposureData) {
-            $scope.netExposureData = netExposureData.netExposure.total;
+            $scope.netExposureData = netExposureData.netExposure;
             $scope.$apply();
         })
     }

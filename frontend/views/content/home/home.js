@@ -36,6 +36,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         if ($scope.mySocket1) {
             console.log("disconnect 1");
             $scope.mySocket1.disconnect();
+            establishSocketConnection();
             console.log("disconnect 2");
         }
         $scope.currentGame = ($location.path()).split('/');

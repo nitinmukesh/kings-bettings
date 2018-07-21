@@ -14,21 +14,8 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     };
 
     $scope.home = true;
-    // if (window.location.pathname == '/home/1') {
-    //     $scope.home = true;
-    // }
-    // alert("header controller");
-    // $scope.setUrl = function (value1, value2) {
-    //     // $location.path('/' + value1 + '/' + value2, false);
-    //     $state.go('home', {
-    //         game: value1,
-    //         parentId: value2
-    //     }, {
-    //         notify: false
-    //     });
-    // };
 
-    $scope.visitedCategories = [];
+    // $scope.visitedCategories = [];
     $scope.previousState = [];
     //To get games
     $scope.getGames = function () {
@@ -37,8 +24,9 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
                     $scope.gameData = data.data;
+                    // console.log("$scope.gameData >>>>>>>>>>>>", $scope.gameData);
                     // console.log("$scope.gameData", $scope.gameData);
-                    $scope.visitedCategories.push($scope.gameData);
+                    // $scope.visitedCategories.push($scope.gameData);
                     // $scope.setUrl('game', '1');
                     $scope.home = true;
                 } else {
@@ -86,18 +74,6 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
 
             $scope.subcategory = value;
         }
-
-        // $scope.getMatchByCategory({
-        //     'game': $scope.gameId,
-        //     'category': $scope.parentId
-        // });
-        // if (!_.isEmpty($scope.subcategory.children)) {
-        //     $scope.categories = $scope.subcategory.children;
-        //     // $scope.setUrl($scope.gameId, $scope.parentId);
-        //     $scope.visitedCategories.push($scope.categories);
-        // }
-
-        // $.jStorage.set("visitedCategories", $scope.visitedCategories);
     };
 
     $scope.getGameName = function (value) {
@@ -147,7 +123,6 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
             // });
         }
 
-
     };
 
     // $scope.getMatchOdds = function (value) {
@@ -179,20 +154,5 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
             notify: false
         });
     };
-
-    // $scope.oneAtATime = true;
-    // $.fancybox.close(true);
-    // $scope.status = {
-    //     isCustomHeaderOpen: false,
-    //     isFirstOpen: true,
-    //     isFirstDisabled: false
-    // };
-    // // $scope.currentUrl = $state.current.name;
-    // $scope.currentgame = $stateParams.game;
-    // $scope.gameId = $stateParams.id;
-    // $scope.goback = function () {
-    //     window.history.back();
-    //     $(".previous-button").addClass("left-menu-inner going-prev");
-    // };
 
 });
