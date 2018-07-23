@@ -2,15 +2,15 @@ var adminurl = adminUUU;
 // adminurl = adminurl + "/api/";
 adminUUU = "http://localhost:1338/"; //socket betfair
 sportsSocket = "http://localhost:1337/";
-// sportsSocket = "http://192.168.1.105:1337/";
+// sportsSocket = "http://192.168.2.30:1337/";
 // sportsSocket = "http://192.168.43.8:1337/";
 adminurl = sportsSocket + "api/"; //sports book
+// mainServer = "http://192.168.2.31:1337/"; //main server
 mainServer = "http://192.168.2.31:1337/"; //main server
-// mainServer = "http://192.168.1.104:1337/"; //main server
 // adminurl = "http://192.168.1.107:1337/api/"
 io.sails.url = adminUUU;
 io.sails.autoConnect = false;
-myApp.factory('NavigationService', function ($http) {
+myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
 
     var navigation = [{
         name: "Home",
@@ -56,7 +56,7 @@ myApp.factory('NavigationService', function ($http) {
             $http.post(url, formData).then(function (data) {
                 // console.log('data', data);
                 data = data.data;
-                callback(data);
+                // callback(data);
             });
         },
         getMatchOddsData: function (url, formData, callback) {
@@ -72,6 +72,17 @@ myApp.factory('NavigationService', function ($http) {
                 data = data.data;
                 callback(data);
             });
-        }
+        },
+
+        success: function () {
+            var defer = $q.defer();
+            $timeout(function () {
+                $log.info('resolve');
+                defer.resolve({
+                    msg: 'SUCCESS'
+                });
+            }, 1000);
+            return defer.promise;
+        },
     };
 });
