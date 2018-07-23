@@ -1,19 +1,20 @@
 myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, TemplateService, BetService, $state, $uibModal, $location, NavigationService, jStorageService, $timeout) {
 
     $scope.currentGame = ($location.path()).split('/');
-    switch ($scope.currentGame[1]) {
-        case "Cricket":
-            $scope.page = "content/cricket-inner/cricket-inner.html";
-            break;
-        case "Tennis":
-            $scope.page = "content/tennis-inner/tennis-inner.html";
-            break;
-        case "Soccer":
-            $scope.page = "content/football-inner/football-inner.html";
-            break;
-        default:
-            console.log("Invalid page selection");
-    }
+    $scope.page = "content/cricket-inner/cricket-inner.html";
+    // switch ($scope.currentGame[1]) {
+    //     case "Cricket":
+    //         $scope.page = "content/cricket-inner/cricket-inner.html";
+    //         break;
+    //     case "Tennis":
+    //         $scope.page = "content/tennis-inner/tennis-inner.html";
+    //         break;
+    //     case "Soccer":
+    //         $scope.page = "content/football-inner/football-inner.html";
+    //         break;
+    //     default:
+    //         console.log("Invalid page selection");
+    // }
 
     var market;
     $rootScope.calculateBook = function (value) {
