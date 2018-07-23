@@ -114,7 +114,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="">
+            <!-- <div class="">
                 <hr class="">
                 <div class="apl-session-runs">
                     <div>
@@ -194,8 +194,6 @@
                         <div class="ladder-component-container visible" ng-class="{'visible': vm.isLadderVisible}">
                             <apl-session-runs-ladder market-id="vm.market.id" is-visible="vm.isLadderVisible" class="ng-isolate-scope">
                                 <div class="ladder-container">
-                                    <!-- ngIf: vm.loading -->
-                                    <!-- ngIf: !vm.loading -->
                                     <div class="ng-scope">
                                         <div class="ladder-header">
                                             <div class="row">
@@ -204,20 +202,16 @@
                                             </div>
                                         </div>
                                         <div class="ladder-rows-container">
-                                            <!-- ngRepeat: ladderRow in vm.ladderRows -->
                                             <div class="row ng-scope">
                                                 <div class="col ng-binding">0 - 170</div>
                                                 <div class="col ng-binding -negative" ng-class="{'-negative': ladderRow.exposure < 0, '-positive': ladderRow.exposure >= 0}">-40.00</div>
                                             </div>
-                                            <!-- end ngRepeat: ladderRow in vm.ladderRows -->
                                             <div class="row ng-scope">
                                                 <div class="col ng-binding">171+</div>
                                                 <div class="col ng-binding -positive" ng-class="{'-negative': ladderRow.exposure < 0, '-positive': ladderRow.exposure >= 0}">40.00</div>
                                             </div>
-                                            <!-- end ngRepeat: ladderRow in vm.ladderRows -->
                                         </div>
                                     </div>
-                                    <!-- end ngIf: !vm.loading -->
                                 </div>
                             </apl-session-runs-ladder>
                         </div>
@@ -225,9 +219,9 @@
                     </div>
                 </div>
 
-            </div>
+            </div> -->
 
-            <div class="">
+            <!-- <div class="">
 
                 <div class="apl-session-runs">
                     <div>
@@ -310,9 +304,9 @@
                     </div>
                 </div>
 
-            </div>
+            </div> -->
 
-            <div class="">
+            <!-- <div class="">
 
                 <div class="apl-session-runs">
                     <div>
@@ -396,9 +390,9 @@
                     </div>
                 </div>
 
-            </div>
+            </div> -->
 
-            <div ng-repeat="market in markets track by market.id" class="">
+            <!-- <div ng-repeat="market in markets track by market.id" class="">
 
                 <div class="apl-session-runs">
                     <div>
@@ -1256,8 +1250,8 @@
                     </div>
                 </div>
 
-            </div>
-
+            </div> -->
+            <!-- 
             <div class="">
                 <div class="apl-session-runs">
                     <div>
@@ -1405,7 +1399,7 @@
                         <div class="clear"></div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
