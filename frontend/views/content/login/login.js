@@ -12,8 +12,8 @@ myApp.controller('LoginCtrl', function ($scope, toastr, TemplateService, Navigat
         NavigationService.userLogin("BetFair/userLogin", value, function (data) {
             console.log("data", (data.data));
             if (data.value && !_.isEmpty(data.data)) {
-                // $.jStorage.set("accessToken", data.data.accessToken);
-                $.jStorage.set("accessToken", "abc1");
+                $.jStorage.set("accessToken", data.data.accessToken);
+                // $.jStorage.set("accessToken", "abc1");
                 $.jStorage.set("userId", data.data.userId);
                 toastr.success("Logged in successfully!");
                 $state.go('home');

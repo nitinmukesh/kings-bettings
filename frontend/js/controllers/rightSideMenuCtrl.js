@@ -97,7 +97,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
         $scope.mySocket1.on("Balance_" + user, function onConnect(balanceData) {
             $scope.balanceData = balanceData;
             $scope.$apply();
-        })
+        });
         $scope.mySocket1.on("NetExposure_" + user, function onConnect(netExposureData) {
             $scope.netExposureData = netExposureData.netExposure ? (netExposureData.netExposure * -1) : 0;
             console.log("$scope.netExposureData22222222222222222222222", $scope.netExposureData);
