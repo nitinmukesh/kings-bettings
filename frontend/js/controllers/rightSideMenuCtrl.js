@@ -1,4 +1,4 @@
-myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams, jStorageService, TemplateService, BetService, $state, $uibModal, NavigationService) {
+myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams, jStorageService, TemplateService, BetService, $state, $uibModal, NavigationService, toastr) {
     $scope.BetService = BetService;
 
     $scope.layArray = [];
@@ -138,8 +138,13 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
             var reqData = _.concat($scope.layArray, $scope.backArray);
             NavigationService.apiCallWithData('Betfair/placePlayerBet', reqData, function (data) {
                 // console.log("data", data);
-                $scope.betconfirm.close();
-                $scope.removeAllBets();
+                if (data.value) {
+                    $scope.betconfirm.close();
+                    $scope.removeAllBets();
+                    toastr.success("Bet Placed successfully!");
+                } else {
+                    toastr.error("Error while placing Bet");
+                }
                 // callback();
             });
         });
