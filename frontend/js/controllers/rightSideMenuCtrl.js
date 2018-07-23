@@ -130,13 +130,18 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
 
     };
 
+
+
+
     $scope.placeBet = function () {
-        var reqData = _.concat($scope.layArray, $scope.backArray);
-        NavigationService.apiCallWithData('Betfair/placePlayerBet', reqData, function (data) {
-            // console.log("data", data);
-            $scope.removeAllBets();
-            $scope.betconfirm.close();
-            // callback();
+        $scope.promise = NavigationService.success().then(function () {
+            var reqData = _.concat($scope.layArray, $scope.backArray);
+            NavigationService.apiCallWithData('Betfair/placePlayerBet', reqData, function (data) {
+                // console.log("data", data);
+                $scope.betconfirm.close();
+                $scope.removeAllBets();
+                // callback();
+            });
         });
     }
 

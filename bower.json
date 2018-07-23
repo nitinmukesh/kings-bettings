@@ -60,7 +60,7 @@
     "angular-ui-swiper": "^2.3.6",
     "textAngular": "^1.5.16",
     "cleave.js": "^0.7.10",
-    "angular-promise-buttons": "^0.1.21",
+    "angular-promise-buttons": "^0.1.23",
     "ui-bootstrap4": "https://github.com/Morgul/ui-bootstrap4.git#^3.0.2",
     "popper.js": "^1.14.3",
     "async": "^2.6.1"

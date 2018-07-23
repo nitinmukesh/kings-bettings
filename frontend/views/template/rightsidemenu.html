@@ -78,7 +78,8 @@
                                                                                             <div class="placeholder">Odds</div>
                                                                                             <div>
                                                                                                 <div class="step-input-wrapper">
-                                                                                                    <input class="step-input" type="text" ng-model="item.odds" ng-blur="calculatePL('BACK')" only-digits>
+                                                                                                    <input class="step-input" type="text" ng-model="item.odds" name="{{'backOdds'+$index}}" ng-blur="calculatePL('BACK')" only-digits
+                                                                                                        required>
                                                                                                     <div class="button-wrapper">
                                                                                                         <button type="button" class="step-up" tabindex="-1">
                                                                                                             <i class="fas fa-angle-up"></i>
@@ -95,8 +96,9 @@
                                                                                             <!-- <span class="title ">Stake</span> -->
                                                                                             <div class="placeholder ">Stake</div>
                                                                                             <div>
-                                                                                                <input type="text" name="stakeRef_0" ng-change="calculatePL('BACK')" ng-model="item.stake" class="-qa-bet-stake-input stakeRef_0 ng-empty ng-invalid ng-invalid-apl-valid-credit apl-form-invalid ng-valid-required"
-                                                                                                    only-digits>
+                                                                                                <input type="text" name="stakeRef_0" ng-change="calculatePL('BACK')" name="{{'backStake'+$index}}" ng-model="item.stake"
+                                                                                                    class="-qa-bet-stake-input stakeRef_0 ng-empty ng-invalid ng-invalid-apl-valid-credit apl-form-invalid ng-valid-required"
+                                                                                                    only-digits required>
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="info-field ">
@@ -147,7 +149,8 @@
                                                                                             <div class="placeholder ">Odds</div>
                                                                                             <div>
                                                                                                 <div class="step-input-wrapper  ">
-                                                                                                    <input class="step-input" ng-model="item.odds" type="text" ng-blur="calculatePL('LAY')" only-digits>
+                                                                                                    <input class="step-input" ng-model="item.odds" name="{{'layOdds'+$index}}" type="text" ng-blur="calculatePL('LAY')" only-digits
+                                                                                                        required>
                                                                                                     <div class="button-wrapper">
                                                                                                         <button type="button" class="step-up" tabindex="-1">
                                                                                                             <i class="fas fa-angle-up"></i>
@@ -163,8 +166,8 @@
                                                                                             <!-- <span class="title ">Stake</span> -->
                                                                                             <div class="placeholder ">Stake</div>
                                                                                             <div>
-                                                                                                <input type="text" ng-change="calculatePL('LAY')" ng-model="item.stake" name="stakeRef_1" class="-qa-bet-stake-input stakeRef_1 ng-empty ng-invalid ng-invalid-apl-valid-credit apl-form-invalid ng-valid-required"
-                                                                                                    only-digits>
+                                                                                                <input type="text" ng-change="calculatePL('LAY')" name="{{'layStake'+$index}}" ng-model="item.stake" name="stakeRef_1" class="-qa-bet-stake-input stakeRef_1 ng-empty ng-invalid ng-invalid-apl-valid-credit apl-form-invalid ng-valid-required"
+                                                                                                    only-digits required>
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="info-field ">
@@ -201,7 +204,7 @@
                                                             </div>
                                                             <p class="summary-info ">Liability: {{(liability|number:2)||0}}</p>
                                                             <div class="summary-buttons _align-right ">
-                                                                <button type="submit" class="apl-btn apl-btn-primary" ng-click="betConfirm();">Place bets</button>
+                                                                <button type="submit" class="apl-btn apl-btn-primary" ng-disabled="betslipForm.$invalid" ng-click="betConfirm();">Place bets</button>
                                                                 <button type="button" class="apl-btn apl-btn-remove" ng-click="removeAllBets()">Remove All</button>
                                                             </div>
 

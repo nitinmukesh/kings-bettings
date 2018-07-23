@@ -4,7 +4,10 @@
     </div>
     <p>Are You sure you want to place bet?</p>
     <div class="">
-        <a role="button" ng-click="$dismiss()">Cancel</a>
-        <a role="button" class="apl-btn apl-btn-primary" ng-click="placeBet()">Submit</a>
+        <form name="placeBetForm" ng-submit="placeBet()">
+            <a role="button" ng-click="$dismiss()">Cancel</a>
+            <button type="submit" class="apl-btn apl-btn-primary" promise-btn="promise">Submit</button>
+        </form>
+
     </div>
 </div>

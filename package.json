@@ -53,6 +53,7 @@
     "mongoose-url-slugs": "^1.0.2",
     "mongoose-validators": "^0.1.0",
     "monguurl": "^0.1.0",
+    "ng-promise-buttons": "^1.0.2",
     "node-xlsx": "^0.11.2",
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
