@@ -86,7 +86,8 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
             },
             function (netExposureData) {
                 if (netExposureData.value) {
-                    $scope.netExposureData = netExposureData.data.netExposure;
+                    $scope.netExposureData = netExposureData.data.netExposure ? (netExposureData.data.netExposure * -1) : 0;
+
                 }
             });
         $scope.mySocket1 = io.sails.connect(mainServer);
@@ -106,7 +107,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
     $scope.calculatePL = function (type) {
         if (type == "LAY") {
             _.each($scope.layArray, function (n) {
-                n.liability = ((n.odds - 1) * n.stake);
+                n.liability = (n.odds && n.stake) ? ((n.odds - 1) * n.stake) : 0;
                 n.updatedodds = n.odds - 1;
                 n.type = type;
             });
@@ -114,7 +115,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
 
         if (type == "BACK") {
             _.each($scope.backArray, function (n) {
-                n.profit = ((n.odds - 1) * n.stake);
+                n.profit = (n.odds && n.stake) ? ((n.odds - 1) * n.stake) : 0;
                 n.updatedodds = n.odds - 1;
                 n.type = type;
             });

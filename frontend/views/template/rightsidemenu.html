@@ -91,7 +91,8 @@
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
-                                                                                        <div class="placeholder-wrapper animatable">
+                                                                                        <div class="odds-field placeholder-wrapper activated animatable">
+                                                                                            <!-- <span class="title ">Stake</span> -->
                                                                                             <div class="placeholder ">Stake</div>
                                                                                             <div>
                                                                                                 <input type="text" name="stakeRef_0" ng-change="calculatePL('BACK')" ng-model="item.stake" class="-qa-bet-stake-input stakeRef_0 ng-empty ng-invalid ng-invalid-apl-valid-credit apl-form-invalid ng-valid-required"
@@ -100,7 +101,7 @@
                                                                                         </div>
                                                                                         <div class="info-field ">
                                                                                             <span class="title ">Profit</span>
-                                                                                            <span class="value ">{{item.profit | number : 2}}</span>
+                                                                                            <span class="value ">{{(item.profit | number : 2)||0}}</span>
                                                                                         </div>
                                                                                         <div class="control-fields">
                                                                                             <button type="button" class="apl-btn apl-btn-mini apl-btn-remove" analytics-on="" analytics-event="Remove Bet" analytics-category="Bet Slip"
@@ -158,9 +159,9 @@
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
-                                                                                        <div class="placeholder-wrapper  animatable">
-                                                                                            <span class="title ">Stake</span>
-                                                                                            <!-- <div class="placeholder ">Stake</div> -->
+                                                                                        <div class="odds-field placeholder-wrapper activated animatable">
+                                                                                            <!-- <span class="title ">Stake</span> -->
+                                                                                            <div class="placeholder ">Stake</div>
                                                                                             <div>
                                                                                                 <input type="text" ng-change="calculatePL('LAY')" ng-model="item.stake" name="stakeRef_1" class="-qa-bet-stake-input stakeRef_1 ng-empty ng-invalid ng-invalid-apl-valid-credit apl-form-invalid ng-valid-required"
                                                                                                     only-digits>
@@ -168,7 +169,7 @@
                                                                                         </div>
                                                                                         <div class="info-field ">
                                                                                             <span class="title ">Liability</span>
-                                                                                            <span class="value ">{{item.liability}}</span>
+                                                                                            <span class="value ">{{(item.liability|number:2)||0}}</span>
                                                                                         </div>
                                                                                         <div class="control-fields">
                                                                                             <button type="button" class="apl-btn apl-btn-mini apl-btn-remove" analytics-on="" analytics-event="Remove Bet" analytics-category="Bet Slip"
@@ -198,7 +199,7 @@
                                                                     </li>
                                                                 </ul>
                                                             </div>
-                                                            <p class="summary-info ">Liability: {{liability}}</p>
+                                                            <p class="summary-info ">Liability: {{(liability|number:2)||0}}</p>
                                                             <div class="summary-buttons _align-right ">
                                                                 <button type="submit" class="apl-btn apl-btn-primary" ng-click="betConfirm();">Place bets</button>
                                                                 <button type="button" class="apl-btn apl-btn-remove" ng-click="removeAllBets()">Remove All</button>

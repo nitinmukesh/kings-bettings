@@ -19,7 +19,7 @@
                 </li>
                 <li>
                     <strong class="ng-binding">Total Net Exposure:</strong>
-                    <span ng-class="{'-negative': accountInfo.deductedExposure !== 0}" class="ng-binding">{{netExposureData|| 0}}</span>
+                    <displaynumber ng-model="netExposureData"></displaynumber>
                 </li>
             </ul>
         </div>
