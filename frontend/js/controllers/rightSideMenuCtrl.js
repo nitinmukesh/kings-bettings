@@ -77,12 +77,9 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
                 _id: user
             },
             function (balanceData) {
-                console.log("balanceData>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", balanceData);
-                alert("hi")
-                // if (balanceData.value) {
-                $scope.balanceData = balanceData.data;
-                console.log(" $scope.balanceData", $scope.balanceData);
-                // }
+                if (balanceData.value) {
+                    $scope.balanceData = balanceData.data;
+                }
             });
         NavigationService.apiCallWithUrl(mainServer + 'api/netExposure/getMemberNetExposure', {
                 _id: user
