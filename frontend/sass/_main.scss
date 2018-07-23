@@ -136,9 +136,8 @@ $dropdown-box-shadow: 0 .5rem 1rem rgba($black, .175) !default;
 @import "../../bower_components/bootstrap/scss/bootstrap";
 @import "other/font-fix";
 body {
-    // padding-top: 70px;
-    background: url(../img/bg.png) no-repeat;
-    background-size: 50%;
+    background: url('../img/bg.png') no-repeat;
+    background-size: 60%;
     background-position: center center;
 }
 

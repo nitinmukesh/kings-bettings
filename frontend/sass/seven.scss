@@ -3608,19 +3608,19 @@ hr {
     margin: 13px 0;
 }
 
-html {
-    overflow-y: auto;
-    background: url('../img/bg.png') no-repeat 0 -300px;
-    background-size: cover;
-    height: 100%;
-}
+// html {
+//     overflow-y: auto;
+//     background: url('../img/bg.png') no-repeat 0 -300px;
+//     background-size: cover;
+//     height: 100%;
+// }
 
-html.login-screen {
-    overflow-y: auto;
-    background: url('../img/bg.png') no-repeat 0 -300px;
-    background-size: cover;
-    height: 100%;
-}
+// html.login-screen {
+//     overflow-y: auto;
+//     background: url('../img/bg.png') no-repeat 0 -300px;
+//     background-size: cover;
+//     height: 100%;
+// }
 
 html.login-screen body {
     height: 100%;
@@ -3663,7 +3663,7 @@ a:hover {
 header.header {
     margin: auto auto 0;
     width: 100%;
-    background: #000f62;
+    background: #141414;
     border-bottom: 1px solid #DDDDDD; // background: url("https://member.play7s.com/d/f4cd3f8018d961f1d97e58f27246a93d.jpg") no-repeat center 50%; // background-color: red;
     // background-size: cover;
     color: #fff;
