@@ -125,10 +125,10 @@ myApp.directive('img', function ($compile, $parse) {
             templateUrl: 'views/directive/display-number.html',
             scope: {
                 model: '=ngModel',
-                decimal: '=decimal'
+                // decimal: '=decimal'
             },
             link: function ($scope, element, attrs) {
-                $scope.decimal = $scope.decimal ? $scope.decimal : 2;
+                // $scope.decimal = $scope.decimal ? $scope.decimal : 2;
             }
         };
     })
