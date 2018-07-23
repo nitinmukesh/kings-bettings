@@ -77,9 +77,12 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
                 _id: user
             },
             function (balanceData) {
-                if (balanceData.value) {
-                    $scope.balanceData = balanceData.data;
-                }
+                console.log("balanceData>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", balanceData);
+                alert("hi")
+                // if (balanceData.value) {
+                $scope.balanceData = balanceData.data;
+                console.log(" $scope.balanceData", $scope.balanceData);
+                // }
             });
         NavigationService.apiCallWithUrl(mainServer + 'api/netExposure/getMemberNetExposure', {
                 _id: user
@@ -93,10 +96,10 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
         $scope.mySocket1 = io.sails.connect(mainServer);
         console.log("getAvailableCredit", user);
 
-        $scope.mySocket1.on("Balance_" + user, function onConnect(balanceData) {
-            $scope.balanceData = balanceData;
-            $scope.$apply();
-        })
+        // $scope.mySocket1.on("Balance_" + user, function onConnect(balanceData) {
+        //     $scope.balanceData = balanceData;
+        //     $scope.$apply();
+        // })
         $scope.mySocket1.on("NetExposure_" + user, function onConnect(netExposureData) {
             $scope.netExposureData = netExposureData.netExposure;
             $scope.$apply();
