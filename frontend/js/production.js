@@ -86311,7 +86311,7 @@ myApp.service('jStorageService', function () {
     }
 
 });
-var adminurl = adminUUU;
+// var adminurl = adminUUU;
 // adminurl = adminurl + "/api/";
 adminUUU = "http://rates.kingplay.online/"; //socket betfair
 sportsSocket = "http://sportsbookb.kingplay.online/";
