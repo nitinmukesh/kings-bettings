@@ -2,8 +2,6 @@ module.exports = [
   //JS & jQuery Libs
   'bower_components/jquery/dist/jquery.min.js',
   'frontend/js/sails/sails.io.js',
-  'bower_components/popper.js/dist/popper.js',
-  'bower_components/popper.js/dist/popper.min.js',
   'bower_components/bootstrap/dist/js/bootstrap.min.js',
   'bower_components/fancybox/dist/jquery.fancybox.js',
   'bower_components/smart-app-banner/smart-app-banner.js',
