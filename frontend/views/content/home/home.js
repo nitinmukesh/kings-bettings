@@ -125,10 +125,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         //     parentId: id
         // });
 
-        // $scope.$emit('detailedPage', {
-        //     game: game,
-        //     parentId: id
-        // });
+        $rootScope.$emit("innerPage", {});
 
         // $state.go($state.current.name, {
 

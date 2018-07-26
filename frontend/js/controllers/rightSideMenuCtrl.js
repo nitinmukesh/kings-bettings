@@ -8,6 +8,19 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
     $scope.isBack = false;
     $scope.oneClickbet = false;
     $scope.onclickEdit = false;
+    $scope.sameHorse = false;
+
+    $scope.checkSameHorse = function () {
+        $scope.sameHorse = false;
+        _.forEach($scope.backArray, function (back) {
+            var layBet = _.findIndex($scope.layArray, function (lay) {
+                return lay.selectionId == back.selectionId;
+            });
+            if (layBet != 1) {
+                $scope.sameHorse = true;
+            }
+        })
+    }
 
     $rootScope.$on('eventBroadcastedName', function (event, data) {
         // console.log("data for bet", data);
@@ -50,6 +63,8 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
                 $scope.isLay = true;
             }
         }
+
+        $scope.checkSameHorse();
     });
 
 
@@ -69,6 +84,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
         $scope.isBack = false;
         $scope.isBetSlip = false;
         $scope.liability = 0;
+        $scope.checkSameHorse();
     };
 
     $scope.getAvailableCredit = function () {
@@ -205,6 +221,8 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
             $scope.isBetSlip = false;
             $scope.liability = 0;
         }
+
+        $scope.checkSameHorse();
     };
 
     //Oneclick betting

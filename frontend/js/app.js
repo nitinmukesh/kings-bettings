@@ -12,11 +12,14 @@ var myApp = angular.module('myApp', [
 ]);
 
 // Define all the routes below
-myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
+myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, $qProvider) {
     var tempateURL = "views/template/template.html"; //Default Template URL
     var accountTempateURL = "views/template/account-template.html";
     var loginTempateURL = "views/template/login-template.html"
     //Default Template URL
+
+    $qProvider.errorOnUnhandledRejections(false);
+
     // for http request with session
     $httpProvider.defaults.withCredentials = true;
     $stateProvider
