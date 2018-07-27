@@ -69,6 +69,10 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
         $scope.isBack = false;
         $scope.isBetSlip = false;
         $scope.liability = 0;
+        $rootScope.calculateBook({
+            lay: $scope.layArray,
+            back: $scope.backArray
+        });
     };
 
     $scope.getAvailableCredit = function () {
