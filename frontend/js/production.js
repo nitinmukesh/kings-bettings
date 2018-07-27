@@ -86890,6 +86890,12 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         $.jStorage.flush();
     };
 
+
+    $scope.logout = function () {
+        $.jStorage.flush();
+        $state.go('login');
+    };
+
     $scope.home = true;
 
     // $scope.visitedCategories = [];
