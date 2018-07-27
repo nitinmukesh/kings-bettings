@@ -4,7 +4,7 @@
             <uib-accordion-heading>
                 <span>
                     <strong class="">Available Credit:</strong>
-                    <span class="value ">{{balanceData.balance || 0}}</span>
+                    <sp9an class="value ">{{(balanceData.balance || 0)| number:2}}</span>
                 </span>
                 <i class="pull-right icon-right fa" ng-class="{'fa-chevron-up': status.open, 'fa-chevron-down': !status.open}"></i>
             </uib-accordion-heading>
