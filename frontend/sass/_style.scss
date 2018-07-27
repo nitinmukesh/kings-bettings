@@ -3671,7 +3671,7 @@ header.header {
 
 header.header .logo-area {
     width: 178px;
-    padding: 15px 0 0 20px;
+    padding: 8px 0 8px 20px;
 }
 
 header.header .logo-area .logo {
@@ -3711,6 +3711,7 @@ header.header .infobar>.linkbar>li {
     display: inline-table;
     vertical-align: middle;
     padding-left: 20px;
+    font-size: 16px;
 }
 
 header.header .infobar>.linkbar>li p {
@@ -3781,7 +3782,7 @@ header.header .infobar>.linkbar .header-link {
 
 footer {
     text-align: center;
-    background: #000a40;
+    background: #141414;
     color: #fff;
     line-height: 20px;
     padding: 20px;
