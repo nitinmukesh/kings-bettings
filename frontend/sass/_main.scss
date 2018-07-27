@@ -146,7 +146,7 @@ body {
 }
 
 .content {
-    min-height: 75.5vh;
+    min-height: calc(100vh - 153px);
 }
 
 img.loading {
