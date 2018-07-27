@@ -33,12 +33,12 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
 
     $scope.$on('$locationChangeSuccess', function () {
         // vm.searchText = $state.params.search;
-        if ($scope.mySocket1) {
-            console.log("disconnect 1");
-            $scope.mySocket1.disconnect();
-            establishSocketConnection();
-            console.log("disconnect 2");
-        }
+        // if ($scope.mySocket1) {
+        //     console.log("disconnect 1");
+        //     $scope.mySocket1.disconnect();
+        //     establishSocketConnection();
+        //     console.log("disconnect 2");
+        // }
         $scope.currentGame = ($location.path()).split('/');
         console.log("$scope.selectedGame", $scope.currentGame);
         if ($scope.currentGame[1] == "home") {
