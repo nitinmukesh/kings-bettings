@@ -86928,12 +86928,7 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
 
     // //To get sub Category
     $scope.getSubCategory = function (value) {
-        $state.go('homeInside', {
-            game: $scope.game,
-            parentId: $scope.parentId
-        }, {
-            notify: false
-        });
+
 
         //get match odds on click
         // $scope.getMatchOdds({
@@ -86942,6 +86937,12 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         // });
 
         if (!_.isEmpty(value)) {
+            $state.go('homeInside', {
+                game: $scope.game,
+                parentId: $scope.parentId
+            }, {
+                notify: false
+            });
             if (!$scope.next) {
                 $scope.next = true;
                 $scope.previous = false;
@@ -86957,6 +86958,11 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
             }
 
             $scope.subcategory = value;
+        } else {
+            $state.go("detailPage", {
+                game: $scope.game,
+                parentId: $scope.parentId
+            });
         }
     };
 
@@ -87129,6 +87135,10 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
         $scope.isBack = false;
         $scope.isBetSlip = false;
         $scope.liability = 0;
+        $rootScope.calculateBook({
+            lay: $scope.layArray,
+            back: $scope.backArray
+        });
     };
 
     $scope.getAvailableCredit = function () {
