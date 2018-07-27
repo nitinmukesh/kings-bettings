@@ -538,3 +538,15 @@ header {
     color: #2aa033;
     font-weight: bold;
 }
+
+.version {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    font-size: 14px;
+    ul li label {
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin-right: 10px;
+    }
+}

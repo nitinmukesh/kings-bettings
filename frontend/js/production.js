@@ -85930,7 +85930,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             controller: 'ChangepasswordCtrl'
         })
         .state('login', {
-            url: "/login",
+            url: "/login/1",
             templateUrl: loginTempateURL,
             controller: 'LoginCtrl'
         })
