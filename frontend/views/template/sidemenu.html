@@ -38,57 +38,41 @@
                     </li>
                 </ul>
 
-                <!-- Main side menu -->
-                <ul class="menu-column menu-lvl-0 sport-type" ng-if="home">
-                    <!-- <li>
-                        <a class=" favourites-link" ui-sref="favourites">
-                            <i class="favourites-icon far fa-star"></i>
-                            <span class="link-name ">Favourites</span>
-                        </a>
-                    </li> -->
-                    <li ng-repeat="game in gameData">
-                        <a class="menu-link sport-type-Cricket" ng-click="getGameName(game.name);getSubCategory(game.children)">
-                            <!-- <a class="menu-link sport-type-Cricket" ng-click="getCategories(game._id);" ui-sref="home({game: 1, parentId: 2}) "> -->
-                            <!-- <a class="menu-link sport-type-Cricket"> -->
-
-                            <!-- <i class="icon-kings_cricket sport-icon ">
-                            </i> -->
-                            <span class="link-name ">{{game.name}}</span>
-                        </a>
-                    </li>
-                </ul>
-
-
                 <!-- Ul for next menu -->
                 <ul class="menu-column menu-lvl-1 sport-type-Cricket previous-button " ng-if="next">
-                    <li>
+                    <!-- <li>
                         <a ui-sref="favourites " class="favourites-link ">
                             <i class="far fa-star icon-style "></i>
                             <span class="link-name ">Favourites</span>
                         </a>
-                    </li>
-                    <li ng-click="goTohome() ">
+                    </li> -->
+                    <!-- <li ng-click="goTohome() ">
                         <a class="home-link ">
                             <i class="fas fa-home "></i>
                             <span class="link-name ">Sports</span>
                         </a>
-                    </li>
+                    </li> -->
                     <li class=" ">
-                        <a class="link-lvl-sport">
+                        <a class="link-lvl-sport" ng-click="getCompetition()">
                             <i class="fas fa-baseball-ball "></i>
-                            <span class="link-name ">{{game}}</span>
+                            <span class="link-name ">Cricket</span>
                         </a>
                     </li>
-                    <li ng-click="getPreviousCategory() ">
+                    <!-- <li ng-click="getPreviousCategory() ">
                         <a class="link-lvl-prev ">
                             <i class="fas fa-chevron-circle-left "></i>
                             <span class="link-name ">Previous</span>
                         </a>
-                    </li>
+                    </li> -->
                     <li class=" ">
-                        <a class="menu-link sport-type-Cricket" ng-repeat="category in subcategory" ng-click="getParentId(category._id);getSubCategory(category.children)">
+                        <a class="menu-link sport-type-Cricket" ng-if="category.competition" ng-repeat="category in gameData" ng-click="getSubCategory(category.competition.id,'competition')">
                             <i class="sport-icon apl-icon-sport-cricket "></i>
-                            <span class="link-name ">{{category.name}}</span>
+                            <span class="link-name ">{{category.competition.name}}</span>
+                            <i class="fas fa-chevron-right "></i>
+                        </a>
+                        <a class="menu-link sport-type-Cricket" ng-if="category.event" ng-repeat="category in gameData" ng-click="getSubCategory(category.event.id,'event')">
+                            <i class="sport-icon apl-icon-sport-cricket "></i>
+                            <span class="link-name ">{{category.event.name}}</span>
                             <i class="fas fa-chevron-right "></i>
                         </a>
                     </li>

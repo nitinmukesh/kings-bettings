@@ -108,7 +108,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
             $scope.$apply();
         })
     }
-    $scope.getAvailableCredit();
+    // $scope.getAvailableCredit();
     //calculate profit and liability
     $scope.calculatePL = function (type) {
         if (type == "LAY") {

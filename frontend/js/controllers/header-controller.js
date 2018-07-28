@@ -1,4 +1,4 @@
-myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, $state, NavigationService, $location, $timeout, $window) {
+myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, $state, NavigationService, $location, $timeout, $window, $rootScope) {
     $scope.template = TemplateService;
     $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
@@ -13,27 +13,24 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         $.jStorage.flush();
     };
 
-
-    // $scope.logout = function () {
-    //     $.jStorage.flush();
-    //     $state.go('login');
-    // };
-
-    $scope.home = true;
+    $scope.next = true;
 
     // $scope.visitedCategories = [];
     $scope.previousState = [];
+
+
+
+
+
     //To get games
-    $scope.getGames = function () {
-        NavigationService.apiCallWithData('Category/getCategoriesForNavigation', {}, function (data) {
+    $scope.getCompetitionFromBetfair = function (url, data) {
+        NavigationService.apiCallWithData(url, data, function (data) {
             // console.log(data);
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
-                    $scope.gameData = data.data;
-                    // console.log("$scope.gameData >>>>>>>>>>>>", $scope.gameData);
-                    // console.log("$scope.gameData", $scope.gameData);
-                    // $scope.visitedCategories.push($scope.gameData);
-                    // $scope.setUrl('game', '1');
+                    $scope.gameData = data.data.result;
+                    console.log("$scope.gameData >>>>>>>>>>>>", $scope.gameData);
+                    $rootScope.getEventList($scope.gameData);
                     $scope.home = true;
                 } else {
                     $scope.gameData = [];
@@ -43,49 +40,21 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
             }
         });
     };
-    $scope.getGames();
+    $scope.getCompetitionFromBetfair('betfair/getCompetitionFromBetfair', {});
 
     //     });
     // };
 
     // //To get sub Category
-    $scope.getSubCategory = function (value) {
+    $scope.getSubCategory = function (value, value2) {
+        $scope.getCompetitionFromBetfair('betfair/getEventsFromBetFair', {
+            ids: [value],
+            type: value2
+        });
+    };
 
-
-        //get match odds on click
-        // $scope.getMatchOdds({
-        //     game: $scope.game,
-        //     parentId: $scope.parentId
-        // });
-
-        if (!_.isEmpty(value)) {
-            $state.go('homeInside', {
-                game: $scope.game,
-                parentId: $scope.parentId
-            }, {
-                notify: false
-            });
-            if (!$scope.next) {
-                $scope.next = true;
-                $scope.previous = false;
-            } else {
-                $scope.next = false;
-                $scope.previous = true;
-            }
-            $scope.home = false;
-
-            // $scope.previous = false;
-            if (!_.isEmpty($scope.subcategory)) {
-                $scope.previousState.push($scope.subcategory);
-            }
-
-            $scope.subcategory = value;
-        } else {
-            $state.go("detailPage", {
-                game: $scope.game,
-                parentId: $scope.parentId
-            });
-        }
+    $scope.getCompetition = function () {
+        $scope.getCompetitionFromBetfair('betfair/getCompetitionFromBetfair', {});
     };
 
     $scope.getGameName = function (value) {
@@ -136,24 +105,6 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         }
 
     };
-
-    // $scope.getMatchOdds = function (value) {
-    //     NavigationService.apiCallWithData('Category/getMarketIds', value, function (data) {
-    //         // console.log(data);
-    //         if (data.value) {
-    //             if (!_.isEmpty(data.data)) {
-    //                 // console.log("data.data", data.data);
-
-    //                 // $scope.setUrl('game', '1');
-    //             } else {
-    //                 $scope.gameData = [];
-    //             }
-    //         } else {
-    //             alert("Unable get games");
-    //         }
-    //     });
-    // };
-
 
     // //Go to home menu
     $scope.goTohome = function () {

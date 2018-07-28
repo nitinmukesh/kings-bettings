@@ -33,6 +33,70 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         // }
     };
 
+    $scope.odds = function (data) {
+        var obj = {}
+        obj.eventId = [];
+        _.each(data, function (n) {
+            obj.eventId.push(n.event.id);
+        });
+
+        NavigationService.apiCallWithData('betfair/getMarketsFromBetFair', obj, function (data) {
+            // console.log(data);
+            if (data.value) {
+                if (!_.isEmpty(data.data)) {
+                    $scope.marketData = data.data.result;
+                    console.log("$scope.marketData >>>>>>>>>>>>", $scope.marketData);
+                    $scope.home = true;
+                } else {
+                    $scope.marketData = [];
+                }
+            } else {
+                alert("Unable get games");
+            }
+        });
+    };
+
+    $rootScope.getEventList = function (data) {
+        var obj = {}
+        obj.ids = [];
+        _.each(data, function (n) {
+            if (n.competition) {
+                obj.ids.push(n.competition.id);
+                obj.type = "competition";
+            } else if (n.event) {
+                obj.ids.push(n.event.id);
+                obj.type = "event";
+            }
+        });
+
+        NavigationService.apiCallWithData('betfair/getEventsFromBetFair', obj, function (data) {
+            // console.log(data);
+            if (data.value) {
+                if (!_.isEmpty(data.data)) {
+                    $scope.homeData = data.data.result;
+                    console.log("$scope.homeData >>>>>>>>>>>>", $scope.homeData);
+                    $scope.odds($scope.homeData);
+                    $scope.home = true;
+                } else {
+                    $scope.homeData = [];
+                }
+            } else {
+                alert("Unable get games");
+            }
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

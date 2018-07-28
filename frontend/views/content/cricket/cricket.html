@@ -1,6 +1,6 @@
 <div class="sport-wrapper common-heading">
     <div class="events">
-        <h1 class="">{{selectedGame}}
+        <h1 class="">cricket
             <!-- <span class="starts-in-label">Betting from 30mins before start</span> -->
         </h1>
         <div class="events-rows">
@@ -15,32 +15,31 @@
                 </thead>
                 <tbody>
 
-                    <tr class="">
+                    <tr class="" ng-repeat="event in homeData">
                         <td ng-click="getDetailedPage(selectedGame,market.parentCategory.name,market.parentCategory._id);">
                             <i class="far fa-star icon-style"></i>
-                            <a class="event-name ">{{market.parentCategory.name}} IPL Mumbai vs Banglore</a>
+                            <a class="event-name ">{{event.event.name}}</a>
                             <!-- <small class="in-play-content ">
                                 <i class="fas fa-play-circle"></i> In-Play
                             </small> -->
                         </td>
                         <td class="back" ng-click="placeBet(market.runners[0].singleBackRate,'BACK',market,market.runners[0])">
                             <strong class="odds">
-                                {{market.runners[0].singleBackRate}}
-                                30
+                                {{market.runners[0].singleBackRate}} 30
                             </strong>
                             <div class="size">
                                 <span class="">
-                                  40  {{market.runners[0].singleBackSize}}
+                                    40 {{market.runners[0].singleBackSize}}
                                 </span>
                             </div>
                         </td>
                         <td class="lay" ng-click="placeBet(market.runners[0].singleLayRate,'LAY',market,market.runners[0])">
                             <strong class="odds ">
-                               30 {{market.runners[0].singleLayRate}}
+                                30 {{market.runners[0].singleLayRate}}
                             </strong>
                             <div class="size">
                                 <span class="">
-                                 35   {{market.runners[0].singleLaySize}}
+                                    35 {{market.runners[0].singleLaySize}}
                                 </span>
                             </div>
                         </td>
@@ -50,7 +49,7 @@
                             </strong>
                             <div class="size">
                                 <span class="">
-                                   20 {{market.runners[2].singleBackSize}}
+                                    20 {{market.runners[2].singleBackSize}}
                                 </span>
                             </div>
                         </td>
@@ -60,23 +59,23 @@
                             </strong>
                             <div class="size">
                                 <span class="">
-                                   15 {{market.runners[2].singleLaySize}}
+                                    15 {{market.runners[2].singleLaySize}}
                                 </span>
                             </div>
                         </td>
                         <td class="back" ng-click="placeBet(market.runners[1].singleBackRate,'BACK',market,market.runners[1])">
                             <strong class="odds ">
-                               50 {{market.runners[1].singleBackRate}}
+                                50 {{market.runners[1].singleBackRate}}
                             </strong>
                             <div class="size">
                                 <span class="">
-                                 00   {{market.runners[1].singleBackSize}}
+                                    00 {{market.runners[1].singleBackSize}}
                                 </span>
                             </div>
                         </td>
                         <td class="lay" ng-click="placeBet(market.runners[1].singleLayRate,'LAY',market,market.runners[1])">
                             <strong class="odds ">
-                                00  {{market.runners[1].singleLayRate}}
+                                00 {{market.runners[1].singleLayRate}}
                             </strong>
                             <div class="size">
                                 <span class="">
