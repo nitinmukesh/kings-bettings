@@ -8,7 +8,7 @@ myApp.controller('MybetCtrl', function ($scope, TemplateService, NavigationServi
 
     $scope.getAccountStatement = function (data) {
         NavigationService.getAccountStatement(data, function (data) {
-            $scope.accountStatement = data.data.result.accountStatement ;
+            $scope.accountStatement = data.data.result.accountStatement;
             console.log("$scope.accountStatement", $scope.accountStatement);
         });
     };
