@@ -4,9 +4,9 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         $(window).scrollTop(0);
     });
 
-    if (!$.jStorage.get("accessToken")) {
-        $state.go('login');
-    }
+    // if (!$.jStorage.get("accessToken")) {
+    //     $state.go('login');
+    // }
 
     //To handle the reload functionality.
     window.onbeforeunload = function () {
@@ -14,10 +14,10 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     };
 
 
-    $scope.logout = function () {
-        $.jStorage.flush();
-        $state.go('login');
-    };
+    // $scope.logout = function () {
+    //     $.jStorage.flush();
+    //     $state.go('login');
+    // };
 
     $scope.home = true;
 

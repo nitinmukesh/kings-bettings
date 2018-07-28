@@ -3614,14 +3614,12 @@ hr {
 //     background-size: cover;
 //     height: 100%;
 // }
-
 // html.login-screen {
 //     overflow-y: auto;
 //     background: url('../img/bg.png') no-repeat 0 -300px;
 //     background-size: cover;
 //     height: 100%;
 // }
-
 html.login-screen body {
     height: 100%;
 }
@@ -3687,10 +3685,11 @@ header.header .wrap-dd-menu .dropdown li a {
 
 header.header a {
     color: #ffc107;
-}
-
-header.header a:hover {
-    color: #fff;
+    @include transition(all ease 300ms);
+    &:hover {
+        text-decoration: none;
+        color: darken($color: #ffc107, $amount: 20%);
+    }
 }
 
 header.header .infobar {
@@ -5437,7 +5436,7 @@ input[type="text"].ng-invalid {
     font-weight: bold;
 }
 
-.order-listing table.listing th,
+// .order-listing table.listing th,
 .pnl-listing table.listing th,
 .account-statement table.listing th {
     background: #ddd;
@@ -5542,7 +5541,8 @@ input[type="text"].ng-invalid {
 }
 
 .order-listing table.listing td span.order-event {
-    color: #a0a0ff;
+    color: #3F51B5;
+    font-weight: 600;
 }
 
 .order-listing table.listing td span.order-event::after {
