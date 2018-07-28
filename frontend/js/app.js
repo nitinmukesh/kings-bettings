@@ -40,7 +40,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             controller: 'DetailPageCtrl'
         })
         .state('login', {
-            url: "/login/1",
+            url: "/login",
             templateUrl: loginTempateURL,
             controller: 'LoginCtrl'
         })

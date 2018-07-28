@@ -21,16 +21,6 @@
             <div class="panel-body">
                 <form class="apl-form ng-pristine ng-valid" name="loginForm" ng-submit="userLogin(credentials)">
                     <fieldset>
-                        <div class="form-group">
-                            <input autocomplete="off" type="text" placeholder="Username" name="loginName" class="apl-form-large form-control login-field input-username ng-pristine ng-valid ng-empty ng-touched"
-                                autofocus="" ng-model="credentials.username">
-                            <span class="valid" ng-show="loginForm.username.$touched && loginForm.username.$invalid">* Username is required.</span>
-                        </div>
-                        <div class="form-group">
-                            <input autocomplete="off" class="apl-form-large form-control input-password ng-pristine ng-untouched ng-valid ng-empty" placeholder="Password"
-                                name="password" type="password" ng-model="credentials.password">
-                            <span class="valid" ng-show="loginForm.password.$touched && loginForm.password.$invalid">* Password is required.</span>
-                        </div>
                         <button name="login" class="apl-btn apl-btn-secondary apl-btn-large btn-login" type="submit" ng-disabled="login.$invalid">Login</button>
                     </fieldset>
                 </form>
