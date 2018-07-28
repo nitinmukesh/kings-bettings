@@ -4,4 +4,14 @@ myApp.controller('MybetCtrl', function ($scope, TemplateService, NavigationServi
     TemplateService.sidemenu2 = "";
     $scope.navigation = NavigationService.getNavigation();
 
+
+
+    $scope.getAccountStatement = function (data) {
+        NavigationService.getAccountStatement(data, function (data) {
+            $scope.accountStatement = data.data.result.accountStatement ;
+            console.log("$scope.accountStatement", $scope.accountStatement);
+        });
+    };
+    $scope.getAccountStatement();
+
 });
