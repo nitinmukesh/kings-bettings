@@ -3,7 +3,8 @@
         <div class="header">
             <h1>
                 {{market.parentCategory.name}}
-                <!-- <time timestamp="vm.eventMarket.start" type="gmtDateTime" class="">04/05/2018 20:00</time> -->
+                IPL
+                <!-- <time timestamp="vm.eventMarket.start" type="gmtDateTime" >04/05/2018 20:00</time> -->
             </h1>
             <div class="start-time  opens-in-count-down-container">
                 <!-- <span class="opens-in-count-down">
@@ -14,7 +15,7 @@
             <span class="opens-in-count-down"></span>
         </div>
         <div class="markets-rows">
-            <div class="">
+            <div >
                 <!-- <pre>{{market.runners|json}}</pre> -->
                 <table class="market-listing-table apl-table">
                     <thead>
@@ -25,17 +26,18 @@
                             </th>
                             <th class="back " colspan="2"></th>
                             <th class="back ">
-                                <span translate="" class="">Back</span>
+                                <span >Back</span>
                             </th>
                             <th class="lay ">
-                                <span translate="" class="">Lay</span>
+                                <span >Lay</span>
                             </th>
                             <th class="lay " colspan="2"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <pre>{{profits}}</pre> -->
-                        <tr class="" ng-repeat="runner in market.runners track by $index">
+                        <!-- <pre>{{runners}}</pre> -->
+                        <!-- <tr  ng-repeat="runner in market.runners track by $index"> -->
+                        <tr  ng-repeat="runner in market.runners track by $index">
                             <td>
                                 <div class="event-name ">{{runner.name}}
                                 </div>
@@ -54,7 +56,7 @@
                                     {{runner.back[2][1]}}
                                 </strong>
                                 <div class="size">
-                                    <span class="">
+                                    <span >
                                         {{runner.back[2][2]}}
                                     </span>
                                 </div>
@@ -64,7 +66,7 @@
                                     {{runner.back[1][1]}}
                                 </strong>
                                 <div class="size">
-                                    <span class="">
+                                    <span >
                                         {{runner.back[1][2]}}
                                     </span>
                                 </div>
@@ -74,7 +76,7 @@
                                     {{runner.back[0][1]}}
                                 </strong>
                                 <div class="size">
-                                    <span class="">
+                                    <span >
                                         {{runner.back[0][2]}}
                                     </span>
                                 </div>
@@ -84,7 +86,7 @@
                                     {{runner.lay[0][1]}}
                                 </strong>
                                 <div class="size">
-                                    <span class="">
+                                    <span >
                                         {{runner.lay[0][2]}}
                                     </span>
                                 </div>
@@ -94,7 +96,7 @@
                                     {{runner.lay[1][1]}}
                                 </strong>
                                 <div class="size">
-                                    <span class="">
+                                    <span >
                                         {{runner.lay[1][2]}}
                                     </span>
                                 </div>
@@ -104,7 +106,7 @@
                                     {{runner.lay[2][1]}}
                                 </strong>
                                 <div class="size">
-                                    <span class="">
+                                    <span >
                                         {{runner.lay[2][2]}}
                                     </span>
                                 </div>
@@ -114,19 +116,19 @@
                     </tbody>
                 </table>
             </div>
-            <!-- <div class="">
-                <hr class="">
+            <!-- <div >
+                <hr >
                 <div class="apl-session-runs">
                     <div>
                         <table class="market-listing-table apl-table">
-                            <thead class="">
+                            <thead >
                                 <tr>
-                                    <th class="market-name " translate="">Session Runs</th>
+                                    <th class="market-name ">Session Runs</th>
 
                                     <th class="lay ">&nbsp;</th>
                                     <th class="lay ">&nbsp;</th>
-                                    <th class="lay " translate="">No</th>
-                                    <th class="back " translate="">Yes</th>
+                                    <th class="lay ">No</th>
+                                    <th class="back ">Yes</th>
                                     <th class="back ">&nbsp;</th>
                                     <th class="back ">&nbsp;</th>
                                 </tr>
@@ -142,7 +144,7 @@
                                         </div>
                                     </td>
                                     <td class="main-container" colspan="6">
-                                        <div class="">
+                                        <div >
                                             <div class="odds-container">
                                                 <table class="market-listing-table apl-table">
                                                     <tbody>
@@ -154,7 +156,7 @@
                                                                     7
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         115
                                                                     </span>
                                                                 </div>
@@ -164,7 +166,7 @@
                                                                     7
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         85
                                                                     </span>
                                                                 </div>
@@ -197,8 +199,8 @@
                                     <div class="ng-scope">
                                         <div class="ladder-header">
                                             <div class="row">
-                                                <div class="col ng-scope" translate="">Runs</div>
-                                                <div class="col ng-scope" translate="">P&amp;L</div>
+                                                <div class="col ng-scope">Runs</div>
+                                                <div class="col ng-scope">P&amp;L</div>
                                             </div>
                                         </div>
                                         <div class="ladder-rows-container">
@@ -221,7 +223,7 @@
 
             </div> -->
 
-            <!-- <div class="">
+            <!-- <div >
 
                 <div class="apl-session-runs">
                     <div>
@@ -241,7 +243,7 @@
 
                                     <td class="main-container" colspan="1">
 
-                                        <div class="">
+                                        <div >
                                             <div class="odds-container">
                                                 <table class="market-listing-table apl-table">
                                                     <tbody>
@@ -252,7 +254,7 @@
                                                                     52
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         100
                                                                     </span>
                                                                 </div>
@@ -262,7 +264,7 @@
                                                                     54
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         100
                                                                     </span>
                                                                 </div>
@@ -306,7 +308,7 @@
 
             </div> -->
 
-            <!-- <div class="">
+            <!-- <div >
 
                 <div class="apl-session-runs">
                     <div>
@@ -326,7 +328,7 @@
 
                                     <td class="main-container" colspan="1">
 
-                                        <div class="">
+                                        <div >
                                             <div class="odds-container">
                                                 <table class="market-listing-table apl-table">
                                                     <tbody>
@@ -338,7 +340,7 @@
                                                                     178
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         100
                                                                     </span>
                                                                 </div>
@@ -348,7 +350,7 @@
                                                                     180
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         100
                                                                     </span>
                                                                 </div>
@@ -392,7 +394,7 @@
 
             </div> -->
 
-            <!-- <div ng-repeat="market in markets track by market.id" class="">
+            <!-- <div ng-repeat="market in markets track by market.id" >
 
                 <div class="apl-session-runs">
                     <div>
@@ -413,7 +415,7 @@
 
                                     <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
 
-                                        <div class="">
+                                        <div >
                                             <div class="odds-container">
                                                 <table class="market-listing-table apl-table">
                                                     <tbody>
@@ -424,7 +426,7 @@
                                                                     52
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         100
                                                                     </span>
                                                                 </div>
@@ -434,7 +436,7 @@
                                                                     54
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         100
                                                                     </span>
                                                                 </div>
@@ -478,7 +480,7 @@
 
             </div>
 
-            <div ng-repeat="market in markets track by market.id" class="">
+            <div ng-repeat="market in markets track by market.id" >
 
                 <div class="apl-session-runs">
                     <div>
@@ -499,7 +501,7 @@
 
                                     <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
 
-                                        <div class="">
+                                        <div >
                                             <div class="odds-container">
                                                 <table class="market-listing-table apl-table">
                                                     <tbody>
@@ -510,7 +512,7 @@
                                                                     179
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         100
                                                                     </span>
                                                                 </div>
@@ -520,7 +522,7 @@
                                                                     181
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         100
                                                                     </span>
                                                                 </div>
@@ -564,7 +566,7 @@
 
             </div>
 
-            <div ng-repeat="market in markets track by market.id" class="">
+            <div ng-repeat="market in markets track by market.id" >
 
                 <div class="apl-session-runs">
                     <div>
@@ -585,7 +587,7 @@
 
                                     <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
 
-                                        <div class="">
+                                        <div >
                                             <div class="odds-container">
                                                 <table class="market-listing-table apl-table">
                                                     <tbody>
@@ -596,7 +598,7 @@
                                                                     28
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         110
                                                                     </span>
                                                                 </div>
@@ -606,7 +608,7 @@
                                                                     28
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         90
                                                                     </span>
                                                                 </div>
@@ -650,7 +652,7 @@
 
             </div>
 
-            <div ng-repeat="market in markets track by market.id" class="">
+            <div ng-repeat="market in markets track by market.id" >
 
                 <div class="apl-session-runs">
                     <div>
@@ -671,7 +673,7 @@
 
                                     <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
 
-                                        <div class="">
+                                        <div >
                                             <div class="odds-container">
                                                 <table class="market-listing-table apl-table">
                                                     <tbody>
@@ -682,7 +684,7 @@
                                                                     27
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         110
                                                                     </span>
                                                                 </div>
@@ -692,7 +694,7 @@
                                                                     27
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         90
                                                                     </span>
                                                                 </div>
@@ -736,7 +738,7 @@
 
             </div>
 
-            <div ng-repeat="market in markets track by market.id" class="">
+            <div ng-repeat="market in markets track by market.id" >
 
                 <div class="apl-session-runs">
                     <div>
@@ -757,7 +759,7 @@
 
                                     <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
 
-                                        <div class="">
+                                        <div >
                                             <div class="odds-container">
                                                 <table class="market-listing-table apl-table">
                                                     <tbody>
@@ -768,7 +770,7 @@
                                                                     27
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         110
                                                                     </span>
                                                                 </div>
@@ -778,7 +780,7 @@
                                                                     27
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         90
                                                                     </span>
                                                                 </div>
@@ -822,7 +824,7 @@
 
             </div>
 
-            <div ng-repeat="market in markets track by market.id" class="">
+            <div ng-repeat="market in markets track by market.id" >
 
                 <div class="apl-session-runs">
                     <div>
@@ -843,7 +845,7 @@
 
                                     <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
 
-                                        <div class="">
+                                        <div >
                                             <div class="odds-container">
                                                 <table class="market-listing-table apl-table">
                                                     <tbody>
@@ -854,7 +856,7 @@
                                                                     27
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         110
                                                                     </span>
                                                                 </div>
@@ -864,7 +866,7 @@
                                                                     27
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         90
                                                                     </span>
                                                                 </div>
@@ -908,7 +910,7 @@
 
             </div>
 
-            <div ng-repeat="market in markets track by market.id" class="">
+            <div ng-repeat="market in markets track by market.id" >
 
                 <div class="apl-session-runs">
                     <div>
@@ -929,7 +931,7 @@
 
                                     <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
 
-                                        <div class="">
+                                        <div >
                                             <div class="odds-container">
                                                 <table class="market-listing-table apl-table">
                                                     <tbody>
@@ -940,7 +942,7 @@
                                                                     26
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         110
                                                                     </span>
                                                                 </div>
@@ -950,7 +952,7 @@
                                                                     26
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         90
                                                                     </span>
                                                                 </div>
@@ -994,7 +996,7 @@
 
             </div>
 
-            <div ng-repeat="market in markets track by market.id" class="">
+            <div ng-repeat="market in markets track by market.id" >
 
                 <div class="apl-session-runs">
                     <div>
@@ -1015,7 +1017,7 @@
 
                                     <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
 
-                                        <div class="">
+                                        <div >
                                             <div class="odds-container">
                                                 <table class="market-listing-table apl-table">
                                                     <tbody>
@@ -1026,7 +1028,7 @@
                                                                     25
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         110
                                                                     </span>
                                                                 </div>
@@ -1036,7 +1038,7 @@
                                                                     25
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         90
                                                                     </span>
                                                                 </div>
@@ -1080,7 +1082,7 @@
 
             </div>
 
-            <div ng-repeat="market in markets track by market.id" class="">
+            <div ng-repeat="market in markets track by market.id" >
 
                 <div class="apl-session-runs">
                     <div>
@@ -1101,7 +1103,7 @@
 
                                     <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
 
-                                        <div class="">
+                                        <div >
                                             <div class="odds-container">
                                                 <table class="market-listing-table apl-table">
                                                     <tbody>
@@ -1112,7 +1114,7 @@
                                                                     30
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         100
                                                                     </span>
                                                                 </div>
@@ -1122,7 +1124,7 @@
                                                                     32
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         100
                                                                     </span>
                                                                 </div>
@@ -1166,7 +1168,7 @@
 
             </div>
 
-            <div ng-repeat="market in markets track by market.id" class="">
+            <div ng-repeat="market in markets track by market.id" >
 
                 <div class="apl-session-runs">
                     <div>
@@ -1187,7 +1189,7 @@
 
                                     <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
 
-                                        <div class="">
+                                        <div >
                                             <div class="odds-container">
                                                 <table class="market-listing-table apl-table">
                                                     <tbody>
@@ -1198,7 +1200,7 @@
                                                                     16
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         100
                                                                     </span>
                                                                 </div>
@@ -1208,7 +1210,7 @@
                                                                     17
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         100
                                                                     </span>
                                                                 </div>
@@ -1252,7 +1254,7 @@
 
             </div> -->
             <!-- 
-            <div class="">
+            <div >
                 <div class="apl-session-runs">
                     <div>
                         <table class="market-listing-table apl-table">
@@ -1268,7 +1270,7 @@
                                         </div>
                                     </td>
                                     <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
-                                        <div class="">
+                                        <div >
                                             <div class="odds-container">
                                                 <table class="market-listing-table apl-table">
                                                     <tbody>
@@ -1279,7 +1281,7 @@
                                                                     345
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         110
                                                                     </span>
                                                                 </div>
@@ -1289,7 +1291,7 @@
                                                                     345
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         90
                                                                     </span>
                                                                 </div>
@@ -1326,7 +1328,7 @@
                     </div>
                 </div>
             </div>
-            <div class="">
+            <div >
                 <div class="apl-session-runs">
                     <div>
                         <table class="market-listing-table apl-table">
@@ -1342,7 +1344,7 @@
                                         </div>
                                     </td>
                                     <td class="main-container" ng-class="vm.getMainContainerClass()" colspan="1">
-                                        <div class="">
+                                        <div >
                                             <div class="odds-container">
                                                 <table class="market-listing-table apl-table">
                                                     <tbody>
@@ -1353,7 +1355,7 @@
                                                                     345
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         110
                                                                     </span>
                                                                 </div>
@@ -1363,7 +1365,7 @@
                                                                     345
                                                                 </strong>
                                                                 <div class="size">
-                                                                    <span class="">
+                                                                    <span >
                                                                         90
                                                                     </span>
                                                                 </div>

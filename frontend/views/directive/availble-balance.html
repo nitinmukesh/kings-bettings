@@ -9,16 +9,16 @@
                 <i class="pull-right icon-right fa" ng-class="{'fa-chevron-up': status.open, 'fa-chevron-down': !status.open}"></i>
             </uib-accordion-heading>
             <ul class="list-wrap shown -animate" ng-class="overviewClass">
-                <li class="ng-binding">
-                    <strong class="ng-binding">:</strong>
-                    {{balanceData.creditLimit || 0}}
-                </li>
                 <!-- <li>
-                    <strong class="ng-binding">Winnings:</strong>
+                    <strong>Net Exposure:</strong>
+                    {{balanceData.creditLimit || 0}}
+                </li> -->
+                <!-- <li>
+                    <strong>Winnings:</strong>
                     <span ng-class="{'-negative': accountInfo.totalBalance < 0, '-positive': accountInfo.totalBalance > 0}" class="ng-binding -negative">-39.13</span>
                 </li> -->
                 <li>
-                    <strong class="ng-binding">:</strong>
+                    <strong>Net Exposure:</strong>
                     <displaynumber ng-model="netExposureData"></displaynumber>
                 </li>
             </ul>

@@ -3,5 +3,4 @@ myApp.controller('CricketinnerCtrl', function ($scope, TemplateService, Navigati
     TemplateService.title = "Cricket Inner"; //This is the Title of the Website
     TemplateService.sidemenu2 = "";
     $scope.navigation = NavigationService.getNavigation();
-
 });
