@@ -18,6 +18,15 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     // $scope.visitedCategories = [];
     $scope.previousState = [];
 
+
+    $scope.getAccountFunds = function (data) {
+        NavigationService.getAccountFunds(data, function (data) {
+            $scope.accountFunds = data.data.result;
+            // console.log("getAccountFunds", $scope.accountFunds);
+        });
+    };
+    $scope.getAccountFunds();
+
     //To get games
     $scope.getCompetitionFromBetfair = function (url, data) {
         NavigationService.apiCallWithData(url, data, function (data) {

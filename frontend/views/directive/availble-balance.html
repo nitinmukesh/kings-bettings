@@ -1,10 +1,10 @@
-<div class="avilable-credit">
+<div class="avilable-credit" ng-controller="headerCtrl">
     <uib-accordion close-others="oneAtATime">
         <div uib-accordion-group class="panel-default" is-open="status.open">
             <uib-accordion-heading>
                 <span>
                     <strong class="">Available Bet Balance:</strong>
-                    <sp9an class="value ">{{(balanceData.balance || 0)| number:2}}</span>
+                    <span class="value ">{{(accountFunds.availableToBetBalance || 0)| number:2}}</span>
                 </span>
                 <i class="pull-right icon-right fa" ng-class="{'fa-chevron-up': status.open, 'fa-chevron-down': !status.open}"></i>
             </uib-accordion-heading>
@@ -19,7 +19,9 @@
                 </li> -->
                 <li>
                     <strong>Net Exposure:</strong>
-                    <displaynumber ng-model="netExposureData"></displaynumber>
+                    <span class="value ">{{(accountFunds.exposure || 0)| number:2}}</span>
+
+                    <!-- <displaynumber ng-model="netExposureData"></displaynumber> -->
                 </li>
             </ul>
         </div>
