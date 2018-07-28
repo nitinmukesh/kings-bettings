@@ -18,17 +18,13 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     // $scope.visitedCategories = [];
     $scope.previousState = [];
 
-
-
-
-
     //To get games
     $scope.getCompetitionFromBetfair = function (url, data) {
         NavigationService.apiCallWithData(url, data, function (data) {
             // console.log(data);
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
-                    $scope.gameData = data.data.result;
+                    $scope.gameData = data.data;
                     console.log("$scope.gameData >>>>>>>>>>>>", $scope.gameData);
                     $rootScope.getEventList($scope.gameData);
                     $scope.home = true;
@@ -54,7 +50,8 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     };
 
     $scope.getCompetition = function () {
-        $scope.getCompetitionFromBetfair('betfair/getCompetitionFromBetfair', {});
+        $state.go("home");
+        $state.reload();
     };
 
     $scope.getGameName = function (value) {

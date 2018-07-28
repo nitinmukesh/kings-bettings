@@ -35,7 +35,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
         })
         .state('detailPage', {
             cache: false,
-            url: "/:game/detail/:parentId",
+            url: "/:eventId",
             templateUrl: tempateURL,
             controller: 'DetailPageCtrl'
         })
@@ -54,7 +54,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             url: "/cricket-inner",
             templateUrl: tempateURL,
             controller: 'CricketinnerCtrl'
-        })        
+        })
         .state('mybet', {
             url: "/mybet",
             templateUrl: tempateURL,

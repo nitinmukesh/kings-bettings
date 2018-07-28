@@ -1,4 +1,4 @@
-myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, toastr, $http, uibDateParser, jStorageService, $location, $state, $stateParams, $rootScope) {
+myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, toastr, $http, uibDateParser, jStorageService, $location, $state, $stateParams, $rootScope, $timeout, $interval) {
     $scope.template = TemplateService.getHTML("content/home/home.html");
     TemplateService.sidemenu2 = "";
     TemplateService.title = "Home"; //This is the Title of the Website
@@ -33,10 +33,11 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         // }
     };
 
-    $scope.odds = function (data) {
+
+    $scope.odds = function () {
         var obj = {}
         obj.eventId = [];
-        _.each(data, function (n) {
+        _.each($scope.homeData, function (n) {
             obj.eventId.push(n.event.id);
         });
 
@@ -44,17 +45,25 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
             // console.log(data);
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
-                    $scope.marketData = data.data.result;
+                    $scope.marketData = data.data;
+
+                    _.each($scope.marketData, function (market) {
+                        market = _.sortBy(market.runners, ['sortPriority']);
+                    })
                     console.log("$scope.marketData >>>>>>>>>>>>", $scope.marketData);
                     $scope.home = true;
                 } else {
                     $scope.marketData = [];
                 }
             } else {
-                alert("Unable get games");
+                // alert("Unable get games");
             }
         });
     };
+
+    $interval(function () {
+        $scope.odds();
+    }, 2000);
 
     $rootScope.getEventList = function (data) {
         var obj = {}
@@ -73,9 +82,9 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
             // console.log(data);
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
-                    $scope.homeData = data.data.result;
+                    $scope.homeData = data.data;
                     console.log("$scope.homeData >>>>>>>>>>>>", $scope.homeData);
-                    $scope.odds($scope.homeData);
+                    $scope.odds();
                     $scope.home = true;
                 } else {
                     $scope.homeData = [];
@@ -84,8 +93,30 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
                 alert("Unable get games");
             }
         });
-    }
+    };
 
+    $scope.getDetailedPage = function (data) {
+        $state.go("detailPage", {
+            eventId: data.eventId
+        });
+    };
+
+    $scope.placeBet = function (price, type, market, selection) {
+        var accessToken = jStorageService.getAccessToken();
+        var userId = jStorageService.getUserId();
+        $rootScope.$broadcast('eventBroadcastedName', {
+            odds: price,
+            type: type,
+            eventId: market.eventId,
+            event: market.name,
+            selectionId: selection.selectionId,
+            selectionName: selection.runnerName,
+            sport: "Cricket",
+            marketId: market.marketId,
+            // accessToken: accessToken,
+            // userId: userId
+        });
+    }
 
 
 

@@ -1,9 +1,7 @@
 <div class="markets common-heading">
     <div class="group-event _clearfix ">
         <div class="header">
-            <h1>
-                {{market.parentCategory.name}}
-                IPL
+            <h1> {{market.eventName}}
                 <!-- <time timestamp="vm.eventMarket.start" type="gmtDateTime" >04/05/2018 20:00</time> -->
             </h1>
             <div class="start-time  opens-in-count-down-container">
@@ -15,7 +13,7 @@
             <span class="opens-in-count-down"></span>
         </div>
         <div class="markets-rows">
-            <div >
+            <div>
                 <!-- <pre>{{market.runners|json}}</pre> -->
                 <table class="market-listing-table apl-table">
                     <thead>
@@ -26,10 +24,10 @@
                             </th>
                             <th class="back " colspan="2"></th>
                             <th class="back ">
-                                <span >Back</span>
+                                <span>Back</span>
                             </th>
                             <th class="lay ">
-                                <span >Lay</span>
+                                <span>Lay</span>
                             </th>
                             <th class="lay " colspan="2"></th>
                         </tr>
@@ -37,9 +35,9 @@
                     <tbody>
                         <!-- <pre>{{runners}}</pre> -->
                         <!-- <tr  ng-repeat="runner in market.runners track by $index"> -->
-                        <tr  ng-repeat="runner in market.runners track by $index">
+                        <tr ng-repeat="runner in market.runners track by $index">
                             <td>
-                                <div class="event-name ">{{runner.name}}
+                                <div class="event-name ">{{runner.runnerName}}
                                 </div>
                                 <div class="selection-pnl">
                                     <displaynumber ng-model="profits[$index].amount"></displaynumber>
@@ -51,63 +49,63 @@
                                         ng-if="unexecutedProfit[$index].unexecutedProfit">{{unexecutedProfit[$index].unexecutedProfit}}</span> -->
                                 </div>
                             </td>
-                            <td class="back unhighlighted show-size" ng-click="placeBet(runner.back[2][1],'BACK',market,runner)">
+                            <td class="back unhighlighted show-size" ng-click="placeBet(runner.ex.availableToBack[2].price,'BACK',market,runner)">
                                 <strong class="odds ">
-                                    {{runner.back[2][1]}}
+                                    {{runner.ex.availableToBack[2].price}}
                                 </strong>
                                 <div class="size">
-                                    <span >
-                                        {{runner.back[2][2]}}
+                                    <span>
+                                        {{runner.ex.availableToBack[2].size}}
                                     </span>
                                 </div>
                             </td>
-                            <td class="back unhighlighted show-size" ng-click="placeBet(runner.back[1][1],'BACK',market,runner)">
+                            <td class="back unhighlighted show-size" ng-click="placeBet(runner.ex.availableToBack[1].price,'BACK',market,runner)">
                                 <strong class="odds ">
-                                    {{runner.back[1][1]}}
+                                    {{runner.ex.availableToBack[1].price}}
                                 </strong>
                                 <div class="size">
-                                    <span >
-                                        {{runner.back[1][2]}}
+                                    <span>
+                                        {{runner.ex.availableToBack[1].size}}
                                     </span>
                                 </div>
                             </td>
-                            <td class="back show-size" ng-click="placeBet(runner.back[0][1],'BACK',market,runner)">
+                            <td class="back show-size" ng-click="placeBet(runner.ex.availableToBack[0].price,'BACK',market,runner)">
                                 <strong class="odds ">
-                                    {{runner.back[0][1]}}
+                                    {{runner.ex.availableToBack[0].price}}
                                 </strong>
                                 <div class="size">
-                                    <span >
-                                        {{runner.back[0][2]}}
+                                    <span>
+                                        {{runner.ex.availableToBack[0].size}}
                                     </span>
                                 </div>
                             </td>
-                            <td class="lay show-size" ng-click="placeBet(runner.lay[0][1],'LAY',market,runner)">
+                            <td class="lay show-size" ng-click="placeBet(runner.ex.availableToLay[0].price,'LAY',market,runner)">
                                 <strong class="odds ">
-                                    {{runner.lay[0][1]}}
+                                    {{runner.ex.availableToLay[0].price}}
                                 </strong>
                                 <div class="size">
-                                    <span >
-                                        {{runner.lay[0][2]}}
+                                    <span>
+                                        {{runner.ex.availableToLay[0].size}}
                                     </span>
                                 </div>
                             </td>
-                            <td class="lay unhighlighted show-size" ng-click="placeBet(runner.lay[1][1],'LAY',market,runner)">
+                            <td class="lay unhighlighted show-size" ng-click="placeBet(runner.ex.availableToLay[1].price,'LAY',market,runner)">
                                 <strong class="odds ">
-                                    {{runner.lay[1][1]}}
+                                    {{runner.ex.availableToLay[1].price}}
                                 </strong>
                                 <div class="size">
-                                    <span >
-                                        {{runner.lay[1][2]}}
+                                    <span>
+                                        {{runner.ex.availableToLay[1].size}}
                                     </span>
                                 </div>
                             </td>
-                            <td class="lay unhighlighted show-size" ng-click="placeBet(runner.lay[2][1],'LAY',market,runner)">
+                            <td class="lay unhighlighted show-size" ng-click="placeBet(runner.ex.availableToLay[2].price,'LAY',market,runner)">
                                 <strong class="odds ">
-                                    {{runner.lay[2][1]}}
+                                    {{runner.ex.availableToLay[2].price}}
                                 </strong>
                                 <div class="size">
-                                    <span >
-                                        {{runner.lay[2][2]}}
+                                    <span>
+                                        {{runner.ex.availableToLay[2].size}}
                                     </span>
                                 </div>
                             </td>
