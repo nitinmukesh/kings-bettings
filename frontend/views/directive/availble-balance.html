@@ -3,10 +3,10 @@
         <div uib-accordion-group class="panel-default" is-open="status.open">
             <uib-accordion-heading>
                 <span>
-                    <strong class="">Available Bet Balance:</strong>
-                    <span class="value ">{{(accountFunds.availableToBetBalance || 0)| number:2}}</span>
+                    <strong>Available Bet Balance:</strong>
+                    <span class="value">{{(accountFunds.availableToBetBalance || 0)| number:2}}</span>
                 </span>
-                <i class="pull-right icon-right fa" ng-class="{'fa-chevron-up': status.open, 'fa-chevron-down': !status.open}"></i>
+                <i class="pull-right icon-right fas" ng-class="{'fa-angle-up': status.open, 'fa-angle-down': !status.open}"></i>
             </uib-accordion-heading>
             <ul class="list-wrap shown -animate" ng-class="overviewClass">
                 <!-- <li>
@@ -19,7 +19,9 @@
                 </li> -->
                 <li>
                     <strong>Net Exposure:</strong>
-                    <span class="value ">{{(accountFunds.exposure || 0)| number:2}}</span>
+                    <span class="value" ng-class="{'-negative': accountFunds.exposure < 0, '-positive': accountFunds.exposure > 0}">
+                        {{(accountFunds.exposure || 0)| number:2}}
+                    </span>
 
                     <!-- <displaynumber ng-model="netExposureData"></displaynumber> -->
                 </li>
