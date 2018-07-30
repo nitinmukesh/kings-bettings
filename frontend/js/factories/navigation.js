@@ -1,5 +1,5 @@
 // adminurl = "http://localhost:1337/api/";
-adminurl = "https://sportsbookb.kingsplay.co/api";
+// adminurl = "https://sportsbookb.kingsplay.co/";
 io.sails.url = adminUUU;
 io.sails.autoConnect = false;
 myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
