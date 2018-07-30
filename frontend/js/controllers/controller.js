@@ -39,3 +39,21 @@ myApp.controller('LinksCtrl', function ($scope, TemplateService, NavigationServi
             BetService.setBet(betSlip);
         };
     });
+
+
+myApp.controller('BetfairLoginCtrl', function ($scope, $rootScope, $stateParams, TemplateService, BetService, $state, $uibModal, $location, NavigationService, jStorageService, $timeout, $interval) {
+
+
+    console.log(window.location.href.split("=")[1]);
+
+    NavigationService.apiCallWithData("betfair/getBetfairAccessToken", {
+        code: window.location.href.split("=")[1]
+    }, function (data) {
+        // console.log(data);
+        if (data.value) {
+            $state.go('home');
+        } else {
+            $state.go('login');
+        }
+    });
+});

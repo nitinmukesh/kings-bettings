@@ -1,5 +1,5 @@
 // adminurl = "http://192.168.1.121:1337/api/"
-adminurl = "http://localhost:1337/api/"
+adminurl = "https://sportsbookb.kingsplay.co/"
 io.sails.url = adminUUU;
 io.sails.autoConnect = false;
 myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
@@ -38,18 +38,31 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
             });
         },
         apiCallWithData: function (url, formData, callback) {
-            $http.post(adminurl + url, formData).then(function (data) {
-                // console.log('data', data);
-                data = data.data;
-                callback(data);
-            });
+            if ($.jStorage.get("accessToken")) {
+                if (!formData) {
+                    formData = {};
+                }
+                formData.accessToken = $.jStorage.get("accessToken");
+                console.log("formData", formData);
+                $http.post(adminurl + url, formData).then(function (data) {
+                    // console.log('data', data);
+                    data = data.data;
+                    callback(data);
+                });
+            }
         },
         apiCallWithUrl: function (url, formData, callback) {
-            $http.post(url, formData).then(function (data) {
-                // console.log('data', data);
-                data = data.data;
-                callback(data);
-            });
+            if ($.jStorage.get("accessToken")) {
+                if (!formData) {
+                    formData = {};
+                }
+                formData.accessToken = $.jStorage.get("accessToken");
+                $http.post(url, formData).then(function (data) {
+                    // console.log('data', data);
+                    data = data.data;
+                    callback(data);
+                });
+            }
         },
         getMatchOddsData: function (url, formData, callback) {
             $http.post(adminurl + url, formData).then(function (data) {
@@ -59,19 +72,34 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
             });
         },
         getAccountFunds: function (formData, callback) {
-            $http.post(adminurl + 'betfair/getAccountFunds', formData).then(function (data) {
-                console.log('data', data);
-                data = data.data;
-                callback(data);
-            });
+            if ($.jStorage.get("accessToken")) {
+                if (!formData) {
+                    formData = {};
+                }
+                formData.accessToken = $.jStorage.get("accessToken");
+                console.log("formData", formData);
+                $http.post(adminurl + 'betfair/getAccountFunds', formData).then(function (data) {
+                    console.log('data', data);
+                    data = data.data;
+                    callback(data);
+                });
+            }
         },
 
         getAccountStatement: function (formData, callback) {
-            $http.post(adminurl + 'betfair/getAccountStatement', formData).then(function (data) {
-                console.log('data', data);
-                data = data.data;
-                callback(data);
-            });
+            if ($.jStorage.get("accessToken")) {
+                if (!formData) {
+                    formData = {};
+                }
+                formData.accessToken = $.jStorage.get("accessToken");
+                console.log("formData", formData);
+                $http.post(adminurl + 'betfair/getAccountStatement', formData).then(function (data) {
+                    console.log('data', data);
+                    data = data.data;
+                    callback(data);
+                });
+            }
+
         },
         calculateBet: function (formData, callback) {
             $http.post("http://192.168.1.107:1337/api/SportsBook/loseMoney", formData).then(function (data) {

@@ -9,9 +9,14 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     // }
 
     //To handle the reload functionality.
-    window.onbeforeunload = function () {
+    // window.onbeforeunload = function () {
+    //     $.jStorage.flush();
+    // };
+
+    $scope.logout = function () {
         $.jStorage.flush();
-    };
+        $state.go('login');
+    }
 
     $scope.next = true;
 
