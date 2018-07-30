@@ -15,7 +15,7 @@ var myApp = angular.module('myApp', [
 myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, $qProvider) {
     var tempateURL = "views/template/template.html"; //Default Template URL
     var accountTempateURL = "views/template/account-template.html";
-    var loginTempateURL = "views/template/login-template.html"
+    var loginTempateURL = "views/template/login-template.html";
     //Default Template URL
     // for http request with session
     $qProvider.errorOnUnhandledRejections(false);
@@ -29,13 +29,13 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
         })
         .state('homeInside', {
             cache: false,
-            url: "/:game/:parentId",
+            url: "/home/:game/:parentId",
             templateUrl: tempateURL,
             controller: 'HomeCtrl'
         })
         .state('detailPage', {
             cache: false,
-            url: "/:eventId",
+            url: "/event/:eventId",
             templateUrl: tempateURL,
             controller: 'DetailPageCtrl'
         })
@@ -63,7 +63,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
 
     ;
     $urlRouterProvider.otherwise("/");
-    $locationProvider.html5Mode(isproduction);
+    // $locationProvider.html5Mode(isproduction);
 });
 
 // For Language JS

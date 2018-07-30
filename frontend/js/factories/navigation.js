@@ -1,23 +1,24 @@
-adminurl = "http://192.168.1.121:1337/api/"
+adminurl = "http://192.168.1.121:1337/api/";
 io.sails.url = adminUUU;
 io.sails.autoConnect = false;
 myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
     var navigation = [{
-        name: "Home",
-        classis: "active",
-        anchor: "home",
-        subnav: [{
-            name: "Subnav1",
+            name: "Home",
             classis: "active",
-            anchor: "home"
-        }]
-    },
-    {
-        name: "Links",
-        classis: "active",
-        anchor: "links",
-        subnav: []
-    }];
+            anchor: "home",
+            subnav: [{
+                name: "Subnav1",
+                classis: "active",
+                anchor: "home"
+            }]
+        },
+        {
+            name: "Links",
+            classis: "active",
+            anchor: "links",
+            subnav: []
+        }
+    ];
 
     var betList = [{
         name: "Subnav1",
