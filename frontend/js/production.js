@@ -85875,7 +85875,7 @@ var myApp = angular.module('myApp', [
 myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, $qProvider) {
     var tempateURL = "views/template/template.html"; //Default Template URL
     var accountTempateURL = "views/template/account-template.html";
-    var loginTempateURL = "views/template/login-template.html"
+    var loginTempateURL = "views/template/login-template.html";
     //Default Template URL
     // for http request with session
     $qProvider.errorOnUnhandledRejections(false);
@@ -85889,61 +85889,22 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
         })
         .state('homeInside', {
             cache: false,
-            url: "/:game/:parentId",
+            url: "/home/:game/:parentId",
             templateUrl: tempateURL,
             controller: 'HomeCtrl'
         })
         .state('detailPage', {
             cache: false,
-            url: "/:game/detail/:parentId",
+            url: "/event/:eventId",
             templateUrl: tempateURL,
             controller: 'DetailPageCtrl'
         })
-        .state('placebet', {
-            url: "/placebet",
-            templateUrl: tempateURL,
-            controller: 'PlaceBetCtrl'
-        })
-        .state('match', {
-            url: "/game/:game/:category",
-            templateUrl: tempateURL,
-            controller: 'MatchCtrl'
-        })
-        .state('match-detail', {
-            url: "/match/:match",
-            templateUrl: tempateURL,
-            controller: 'MatchDetailCtrl'
-        })
-        .state('account-statement', {
-            url: "/account-statement",
-            templateUrl: accountTempateURL,
-            controller: 'AccountStatementCtrl'
-        })
-        .state('transfer-statement', {
-            url: "/transfer-statement",
-            templateUrl: accountTempateURL,
-            controller: 'TransferstatementCtrl'
-        })
-        .state('change-password', {
-            url: "/change-password",
-            templateUrl: accountTempateURL,
-            controller: 'ChangepasswordCtrl'
-        })
         .state('login', {
-            url: "/login/1",
+            url: "/login",
             templateUrl: loginTempateURL,
             controller: 'LoginCtrl'
         })
-        .state('profit-loss', {
-            url: "/profit-loss",
-            templateUrl: accountTempateURL,
-            controller: 'ProfitlossCtrl'
-        })
-        .state('mybet', {
-            url: "/mybet",
-            templateUrl: accountTempateURL,
-            controller: 'MybetCtrl'
-        })
+
         .state('cricket', {
             url: "/cricket",
             templateUrl: tempateURL,
@@ -85954,90 +85915,18 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'CricketinnerCtrl'
         })
-        .state('common-inner', {
-            url: "/common-inner/:id/:game",
+        .state('mybet', {
+            url: "/mybet",
             templateUrl: tempateURL,
-            controller: 'CommonInnerCtrl'
+            controller: 'MybetCtrl'
         })
-        .state('football', {
-            url: "/football",
+        .state('betfairLogin', {
+            url: "/betfairLogin",
             templateUrl: tempateURL,
-            controller: 'FootballCtrl'
-        })
-        .state('football-inner', {
-            url: "/football-inner",
-            templateUrl: tempateURL,
-            controller: 'FootballinnerCtrl'
-        })
-        .state('football-country', {
-            url: "/football-country",
-            templateUrl: tempateURL,
-            controller: 'FootballcountryCtrl'
+            controller: 'BetfairLoginCtrl'
         })
 
-        .state('football-league', {
-            url: "/football-league",
-            templateUrl: tempateURL,
-            controller: 'FootballleagueCtrl'
-        })
-        .state('football-fixtures', {
-            url: "/football-fixtures",
-            templateUrl: tempateURL,
-            controller: 'FootballFixturesCtrl'
-        })
-
-        .state('ipl', {
-            url: "/ipl",
-            templateUrl: tempateURL,
-            controller: 'IplCtrl'
-        })
-        .state('tennis', {
-            url: "/tennis",
-            templateUrl: tempateURL,
-            controller: 'TennisCtrl'
-        })
-        .state('tennis-inner', {
-            url: "/tennis-inner",
-            templateUrl: tempateURL,
-            controller: 'TennisinnerCtrl'
-        })
-        .state('tennis-tournament', {
-            url: "/tennis-tournament",
-            templateUrl: tempateURL,
-            controller: 'TennisinnerCtrl'
-        })
-
-        .state('ipl-inner', {
-            url: "/ipl-inner",
-            templateUrl: tempateURL,
-            controller: 'IplInnerCtrl'
-        })
-        .state('horse_racing', {
-            url: "/horse_racing",
-            templateUrl: tempateURL,
-            controller: 'HorseracingCtrl'
-        })
-        .state('greyhound-racing', {
-            url: "/greyhound-racing",
-            templateUrl: tempateURL,
-            controller: 'GreyhoundracingCtrl'
-        })
-
-        .state('ipl-winner', {
-            url: "/ipl-winner",
-            templateUrl: tempateURL,
-            controller: 'IplWinnerCtrl'
-        })
-        .state('favourites', {
-            url: "/favourites",
-            templateUrl: tempateURL,
-            controller: 'FavouritesCtrl'
-        })
-        .state('links', {
-            url: "/links",
-            templateUrl: tempateURL,
-            controller: 'LinksCtrl'
-        });
+    ;
     $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isproduction);
 });
@@ -86311,36 +86200,28 @@ myApp.service('jStorageService', function () {
     }
 
 });
-// var adminurl = adminUUU;
-// adminurl = adminurl + "/api/";
-adminUUU = "https://rates.kingsplay.co/"; //socket betfair
-sportsSocket = "https://sportsbookb.kingsplay.co/";
-// sportsSocket = "http://192.168.2.30:1337/";
-// sportsSocket = "http://192.168.43.8:1337/";
-adminurl = sportsSocket + "api/"; //sports book
-mainServer = "https://test.kingsplay.co/"; //main server
-// mainServer = "http://kingplay.online/"; //main server
-// mainServer = "http://192.168.2.31:1337/"; //main server
-// adminurl = "http://192.168.1.107:1337/api/"
+// adminurl = "http://192.168.1.121:1337/api/";
+// adminurl = "https://sportsbookb.kingsplay.co/";
 io.sails.url = adminUUU;
 io.sails.autoConnect = false;
 myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
-
     var navigation = [{
-        name: "Home",
-        classis: "active",
-        anchor: "home",
-        subnav: [{
-            name: "Subnav1",
+            name: "Home",
             classis: "active",
-            anchor: "home"
-        }]
-    }, {
-        name: "Links",
-        classis: "active",
-        anchor: "links",
-        subnav: []
-    }];
+            anchor: "home",
+            subnav: [{
+                name: "Subnav1",
+                classis: "active",
+                anchor: "home"
+            }]
+        },
+        {
+            name: "Links",
+            classis: "active",
+            anchor: "links",
+            subnav: []
+        }
+    ];
 
     var betList = [{
         name: "Subnav1",
@@ -86352,7 +86233,6 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
         getNavigation: function () {
             return navigation;
         },
-
         userLogin: function (url, formData, callback) {
             $http.post(adminurl + url, formData).then(function (data) {
                 data = data.data;
@@ -86360,18 +86240,31 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
             });
         },
         apiCallWithData: function (url, formData, callback) {
-            $http.post(adminurl + url, formData).then(function (data) {
-                // console.log('data', data);
-                data = data.data;
-                callback(data);
-            });
+            if ($.jStorage.get("accessToken")) {
+                if (!formData) {
+                    formData = {};
+                }
+                formData.accessToken = $.jStorage.get("accessToken");
+                console.log("formData", formData);
+                $http.post(adminurl + url, formData).then(function (data) {
+                    // console.log('data', data);
+                    data = data.data;
+                    callback(data);
+                });
+            }
         },
         apiCallWithUrl: function (url, formData, callback) {
-            $http.post(url, formData).then(function (data) {
-                // console.log('data', data);
-                data = data.data;
-                callback(data);
-            });
+            if ($.jStorage.get("accessToken")) {
+                if (!formData) {
+                    formData = {};
+                }
+                formData.accessToken = $.jStorage.get("accessToken");
+                $http.post(url, formData).then(function (data) {
+                    // console.log('data', data);
+                    data = data.data;
+                    callback(data);
+                });
+            }
         },
         getMatchOddsData: function (url, formData, callback) {
             $http.post(adminurl + url, formData).then(function (data) {
@@ -86380,14 +86273,42 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
                 callback(data);
             });
         },
+        getAccountFunds: function (formData, callback) {
+            if ($.jStorage.get("accessToken")) {
+                if (!formData) {
+                    formData = {};
+                }
+                formData.accessToken = $.jStorage.get("accessToken");
+                console.log("formData", formData);
+                $http.post(adminurl + 'betfair/getAccountFunds', formData).then(function (data) {
+                    console.log('data', data);
+                    data = data.data;
+                    callback(data);
+                });
+            }
+        },
 
+        getAccountStatement: function (formData, callback) {
+            if ($.jStorage.get("accessToken")) {
+                if (!formData) {
+                    formData = {};
+                }
+                formData.accessToken = $.jStorage.get("accessToken");
+                console.log("formData", formData);
+                $http.post(adminurl + 'betfair/getAccountStatement', formData).then(function (data) {
+                    console.log('data', data);
+                    data = data.data;
+                    callback(data);
+                });
+            }
+
+        },
         calculateBet: function (formData, callback) {
             $http.post("http://192.168.1.107:1337/api/SportsBook/loseMoney", formData).then(function (data) {
                 data = data.data;
                 callback(data);
             });
         },
-
         success: function () {
             var defer = $q.defer();
             $timeout(function () {
@@ -86457,7 +86378,25 @@ myApp.controller('LinksCtrl', function ($scope, TemplateService, NavigationServi
             BetService.setBet(betSlip);
         };
     });
-myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, toastr, $http, uibDateParser, jStorageService, $location, $state, $stateParams, $rootScope) {
+
+
+myApp.controller('BetfairLoginCtrl', function ($scope, $rootScope, $stateParams, TemplateService, BetService, $state, $uibModal, $location, NavigationService, jStorageService, $timeout, $interval) {
+
+
+    console.log(window.location.href.split("=")[1]);
+
+    NavigationService.apiCallWithData("betfair/getBetfairAccessToken", {
+        code: window.location.href.split("=")[1]
+    }, function (data) {
+        // console.log(data);
+        if (data.value) {
+            $state.go('home');
+        } else {
+            $state.go('login');
+        }
+    });
+});
+myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, toastr, $http, uibDateParser, jStorageService, $location, $state, $stateParams, $rootScope, $timeout, $interval) {
     $scope.template = TemplateService.getHTML("content/home/home.html");
     TemplateService.sidemenu2 = "";
     TemplateService.title = "Home"; //This is the Title of the Website
@@ -86470,125 +86409,209 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         $(window).scrollTop(0);
     });
 
-    $scope.getGamePage = function (value) {
-        switch (value) {
-            case "Greyhound Racing":
-                $scope.page = "views/content/cricket/cricket.html";
-                break;
-            case "Horse Racing":
-                $scope.page = "views/content/tennis/tennis.html";
-                break;
-            case "Tennis":
-                $scope.page = "views/content/cricket/cricket.html";
-                $scope.isDraw = false;
-                break;
+    $scope.page = "views/content/cricket/cricket.html";
 
-            default:
-                $scope.page = "views/content/cricket/cricket.html";
-        }
+
+    $scope.getGamePage = function () {
+        // $scope.page = "views/content/cricket/cricket.html";
+        // switch (value) {
+        //     case "Greyhound Racing":
+        //         $scope.page = "views/content/cricket/cricket.html";
+        //         break;
+        //     case "Horse Racing":
+        //         $scope.page = "views/content/tennis/tennis.html";
+        //         break;
+        //     case "Tennis":
+        //         $scope.page = "views/content/cricket/cricket.html";
+        //         $scope.isDraw = false;
+        //         break;
+
+        //     default:
+        //         $scope.page = "views/content/cricket/cricket.html";
+        // }
     };
 
 
+    $scope.odds = function () {
+        var obj = {}
+        obj.eventId = [];
+        _.each($scope.homeData, function (n) {
+            obj.eventId.push(n.event.id);
+        });
 
-    $scope.$on('$locationChangeSuccess', function () {
-        $scope.currentGame = ($location.path()).split('/');
-        console.log("$scope.selectedGame", $scope.currentGame);
-        if ($scope.currentGame[1] == "home") {
-            $scope.selectedGame = "Cricket";
-            $scope.page = "views/content/cricket/cricket.html";
-            $scope.getMarketIds({
-                game: "Cricket"
-            });
-        } else {
-            $scope.selectedGame = $scope.currentGame[1];
-            $scope.getMarketIds({
-                game: $scope.currentGame[1],
-                parentId: $scope.currentGame[2]
-            });
-            $scope.getGamePage($scope.currentGame[1]);
-        }
-    });
-
-    function establishSocketConnection() {
-        $scope.mySocket1 = io.sails.connect(adminUUU);
-
-        _.each($scope.marketData, function (market) {
-            $scope.mySocket1.on("market_" + market.betfairId, function onConnect(data) {
-                // console.log("socket data", data);
-                _.each(market.runners, function (runner) {
-                    _.each(data, function (rate) {
-                        // console.log(runner.betfairId, "string", (rate.id).toString());
-                        if (runner.betfairId == (rate.id).toString()) {
-                            runner.back = rate.batb;
-                            runner.lay = rate.batl;
-                            _.each(runner.back, function (backRate) {
-                                if (backRate[0] == 0) {
-                                    runner.singleBackRate = backRate[1];
-                                    runner.singleBackSize = backRate[2]
-                                }
-                            });
-
-                            _.each(runner.lay, function (layRate) {
-                                if (layRate[0] == 0) {
-                                    runner.singleLayRate = layRate[1];
-                                    runner.singleLaySize = layRate[2]
-                                }
-                            });
-                        }
-                    });
-                });
-                var sortedArray = _.sortBy(market.runners, ['sortPriority']);
-                market.runners = [];
-                _.each(sortedArray, function (n) {
-                    market.runners[n.sortPriority - 1] = n;
-                });
-                // console.log("sortedArray", sortedArray);
-                // console.log(market.betfairId + "marketodds", market);
-                $scope.$apply();
-            });
-        })
-
-    };
-
-    $scope.getMarketIds = function (value) {
-        NavigationService.apiCallWithData('Category/getMarketIds', value, function (data) {
+        NavigationService.apiCallWithData('betfair/getMarketsFromBetFair', obj, function (data) {
+            // console.log(data);
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
                     $scope.marketData = data.data;
-                    // $scope.marketId = "market_1.144792630";
-                    // console.log("$scope.marketData", $scope.marketData);
-                    // $scope.setUrl('game', '1');
+
+                    _.each($scope.marketData, function (market) {
+                        market = _.sortBy(market.runners, ['sortPriority']);
+                    })
+                    console.log("$scope.marketData >>>>>>>>>>>>", $scope.marketData);
                     $scope.home = true;
-                    establishSocketConnection();
                 } else {
                     $scope.marketData = [];
                 }
             } else {
-                // alert("Unable get markets");
+                // alert("Unable get games");
             }
         });
     };
 
-    $scope.getDetailedPage = function (game, event, id) {
-        // $scope.getGameDetailPage(game);
-        // $scope.eventName = event;
-        // $scope.getMarketIds({
-        //     game: game,
-        //     parentId: id
-        // });
+    // $interval(function () {
+    //     if ($scope.isHomeData)
+    //         $scope.odds();
+    // }, 3000);
 
-        // $scope.$emit('detailedPage', {
-        //     game: game,
-        //     parentId: id
-        // });
+    $rootScope.getEventList = function (data) {
+        console.log("$scope.homeData outside>>>>>>>>>>>>", data);
+        var obj = {}
+        obj.ids = [];
+        _.each(data, function (n) {
+            if (n.competition) {
+                obj.ids.push(n.competition.id);
+                obj.type = "competition";
+            } else if (n.event) {
+                obj.ids.push(n.event.id);
+                obj.type = "event";
+            }
+        });
 
-        // $state.go($state.current.name, {
-
-        $state.go("detailPage", {
-            game: game,
-            parentId: id
+        NavigationService.apiCallWithData('betfair/getEventsFromBetFair', obj, function (data) {
+            // console.log(data);
+            if (data.value) {
+                if (!_.isEmpty(data.data)) {
+                    $scope.homeData = data.data;
+                    console.log("$scope.homeData >>>>>>>>>>>>", $scope.homeData);
+                    $scope.isHomeData = true;
+                    $scope.odds();
+                    $scope.home = true;
+                } else {
+                    $scope.homeData = [];
+                }
+            } else {
+                alert("Unable get games");
+            }
         });
     };
+
+    $scope.getDetailedPage = function (data) {
+        $state.go("detailPage", {
+            eventId: data.eventId
+        });
+    };
+
+    $scope.placeBet = function (price, type, market, selection) {
+        var accessToken = jStorageService.getAccessToken();
+        var userId = jStorageService.getUserId();
+        $rootScope.$broadcast('eventBroadcastedName', {
+            odds: price,
+            type: type,
+            eventId: market.eventId,
+            event: market.name,
+            selectionId: selection.selectionId,
+            selectionName: selection.runnerName,
+            sport: "Cricket",
+            marketId: market.marketId,
+            // accessToken: accessToken,
+            // userId: userId
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // function establishSocketConnection() {
+    //     $scope.mySocket1 = io.sails.connect(adminUUU);
+
+    //     _.each($scope.marketData, function (market) {
+    //         $scope.mySocket1.on("market_" + market.betfairId, function onConnect(data) {
+    //             // console.log("socket data", data);
+    //             _.each(market.runners, function (runner) {
+    //                 _.each(data, function (rate) {
+    //                     // console.log(runner.betfairId, "string", (rate.id).toString());
+    //                     if (runner.betfairId == (rate.id).toString()) {
+    //                         runner.back = rate.batb;
+    //                         runner.lay = rate.batl;
+    //                         _.each(runner.back, function (backRate) {
+    //                             if (backRate[0] == 0) {
+    //                                 runner.singleBackRate = backRate[1];
+    //                                 runner.singleBackSize = backRate[2]
+    //                             }
+    //                         });
+
+    //                         _.each(runner.lay, function (layRate) {
+    //                             if (layRate[0] == 0) {
+    //                                 runner.singleLayRate = layRate[1];
+    //                                 runner.singleLaySize = layRate[2]
+    //                             }
+    //                         });
+    //                     }
+    //                 });
+    //             });
+    //             var sortedArray = _.sortBy(market.runners, ['sortPriority']);
+    //             market.runners = [];
+    //             _.each(sortedArray, function (n) {
+    //                 market.runners[n.sortPriority - 1] = n;
+    //             });
+    //             // console.log("sortedArray", sortedArray);
+    //             // console.log(market.betfairId + "marketodds", market);
+    //             $scope.$apply();
+    //         });
+    //     })
+
+    // };
+
+    // $scope.getMarketIds = function (value) {
+    //     NavigationService.apiCallWithData('Category/getMarketIds', value, function (data) {
+    //         if (data.value) {
+    //             if (!_.isEmpty(data.data)) {
+    //                 $scope.marketData = data.data;
+    //                 // $scope.marketId = "market_1.144792630";
+    //                 // console.log("$scope.marketData", $scope.marketData);
+    //                 // $scope.setUrl('game', '1');
+    //                 $scope.home = true;
+    //                 establishSocketConnection();
+    //             } else {
+    //                 $scope.marketData = [];
+    //             }
+    //         } else {
+    //             // alert("Unable get markets");
+    //         }
+    //     });
+    // };
+
+    // $scope.getDetailedPage = function (game, event, id) {
+    //     // $scope.getGameDetailPage(game);
+    //     // $scope.eventName = event;
+    //     // $scope.getMarketIds({
+    //     //     game: game,
+    //     //     parentId: id
+    //     // });
+
+    //     // $scope.$emit('detailedPage', {
+    //     //     game: game,
+    //     //     parentId: id
+    //     // });
+
+    //     // $state.go($state.current.name, {
+
+    //     $state.go("detailPage", {
+    //         game: game,
+    //         parentId: id
+    //     });
+    // };
 
 
 
@@ -86608,61 +86631,51 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     //     'game': "5afebdc3c35ebd4a630532e6"
     // });
 
-    $scope.format = 'yyyy/MM/dd';
-    $scope.date = new Date();
+    // $scope.format = 'yyyy/MM/dd';
+    // $scope.date = new Date();
 
-    $scope.placeBet = function (price, type, market, selection) {
-        var accessToken = jStorageService.getAccessToken();
-        var userId = jStorageService.getUserId();
+    // $scope.placeBet = function (price, type, market, selection) {
+    //     var accessToken = jStorageService.getAccessToken();
+    //     var userId = jStorageService.getUserId();
 
-        $rootScope.$broadcast('eventBroadcastedName', {
-            odds: price,
-            type: type,
-            eventId: market.parentCategory.betfairId,
-            event: market.parentCategory.event,
-            selectionId: selection.betfairId,
-            selectionName: selection.name,
-            sport: $scope.selectedGame,
-            marketId: market.betfairId,
-            accessToken: accessToken,
-            userId: userId
-        });
-    }
-
-});
-myApp.controller('AccountStatementCtrl', function ($scope, TemplateService, NavigationService) {
-    $scope.template = TemplateService.getHTML("content/account-statement/account-statement.html");
-    TemplateService.title = "Account Statement"; //This is the Title of the Website
-    TemplateService.sidemenu2 = "";
-    $scope.navigation = NavigationService.getNavigation();
-
-});
-myApp.controller('TransferstatementCtrl', function ($scope, TemplateService, NavigationService) {
-    $scope.template = TemplateService.getHTML("content/transfer-statement/transfer-statement.html");
-    TemplateService.title = "Transfer Statement"; //This is the Title of the Website
-    TemplateService.sidemenu2 = "";
-    $scope.navigation = NavigationService.getNavigation();
-
-});
-myApp.controller('ChangepasswordCtrl', function ($scope, TemplateService, NavigationService) {
-    $scope.template = TemplateService.getHTML("content/change-password/change-password.html");
-    TemplateService.title = "Change Password"; //This is the Title of the Website
-    TemplateService.sidemenu2 = "";
-    $scope.navigation = NavigationService.getNavigation();
+    //     $rootScope.$broadcast('eventBroadcastedName', {
+    //         odds: price,
+    //         type: type,
+    //         eventId: market.parentCategory.betfairId,
+    //         event: market.parentCategory.event,
+    //         selectionId: selection.betfairId,
+    //         selectionName: selection.name,
+    //         sport: $scope.selectedGame,
+    //         marketId: market.betfairId,
+    //         accessToken: accessToken,
+    //         userId: userId
+    //     });
+    // }
 
 });
 myApp.controller('MybetCtrl', function ($scope, TemplateService, NavigationService) {
     $scope.template = TemplateService.getHTML("content/mybet/mybet.html");
     TemplateService.title = "My Bet"; //This is the Title of the Website
     TemplateService.sidemenu2 = "";
+    TemplateService.rightsidemenu = "";
     $scope.navigation = NavigationService.getNavigation();
 
-});
-myApp.controller('PlaceBetCtrl', function ($scope, TemplateService, NavigationService) {
-    $scope.template = TemplateService.getHTML("content/place-bet.html");
-    TemplateService.title = "Place Bet"; //This is the Title of the Website
-    TemplateService.sidemenu2 = "";
-    $scope.navigation = NavigationService.getNavigation();
+
+
+    $scope.getAccountStatement = function (data) {
+        NavigationService.getAccountStatement(data, function (data) {
+            console.log("data.data.error",data.data.error);
+            console.log("data.data.error",data.data);
+            if (data.data.result.accountStatement) {
+                $scope.accountStatement = data.data.result.accountStatement;
+            } else if (data.data.error) {
+                $scope.error = data.data.error;
+            } else {
+                $scope.error = "No data Found";
+            }
+        });
+    };
+    $scope.getAccountStatement();
 
 });
 myApp.controller('CricketCtrl', function ($scope, TemplateService, NavigationService) {
@@ -86679,79 +86692,6 @@ myApp.controller('CricketinnerCtrl', function ($scope, TemplateService, Navigati
     TemplateService.title = "Cricket Inner"; //This is the Title of the Website
     TemplateService.sidemenu2 = "";
     $scope.navigation = NavigationService.getNavigation();
-
-});
-myApp.controller('CommonInnerCtrl', function ($scope, TemplateService, NavigationService, $stateParams) {
-    $scope.template = TemplateService.getHTML("content/common-inner/common-inner.html");
-    TemplateService.title = "Common Inner"; //This is the Title of the Website
-    TemplateService.sidemenu2 = "";
-    $scope.navigation = NavigationService.getNavigation();
-    $scope.pagePath = "views/content/" + $stateParams.game + "-inner/" + $stateParams.game + "-inner.html";
-    console.log(" $scope.pagePath $scope.pagePath $scope.pagePath", $scope.pagePath);
-
-});
-myApp.controller('FavouritesCtrl', function ($scope, TemplateService, NavigationService) {
-    $scope.template = TemplateService.getHTML("content/favourites/favourites.html");
-    TemplateService.title = "Favourites"; //This is the Title of the Website
-    TemplateService.sidemenu2 = "";
-    $scope.navigation = NavigationService.getNavigation();
-
-});
-myApp.controller('IplCtrl', function ($scope, TemplateService, NavigationService) {
-    $scope.template = TemplateService.getHTML("content/ipl/ipl.html");
-    TemplateService.title = "Ipl"; //This is the Title of the Website
-    TemplateService.sidemenu2 = "";
-    $scope.navigation = NavigationService.getNavigation();
-
-});
-myApp.controller('IplWinnerCtrl', function ($scope, TemplateService, NavigationService) {
-    $scope.template = TemplateService.getHTML("content/ipl-winner/ipl-winner.html");
-    TemplateService.title = "Ipl Winner"; //This is the Title of the Website
-    TemplateService.sidemenu2 = "";
-    $scope.navigation = NavigationService.getNavigation();
-
-});
-myApp.controller('FootballCtrl', function ($scope, TemplateService, NavigationService) {
-    $scope.template = TemplateService.getHTML("content/football/football.html");
-    TemplateService.title = "Football"; //This is the Title of the Website
-    TemplateService.sidemenu2 = "";
-    $scope.navigation = NavigationService.getNavigation();
-
-});
-myApp.controller('FootballinnerCtrl', function ($scope, TemplateService, NavigationService) {
-    $scope.template = TemplateService.getHTML("content/football-inner/football-inner.html");
-    TemplateService.title = "Football Inner"; //This is the Title of the Website
-    TemplateService.sidemenu2 = "";
-    $scope.navigation = NavigationService.getNavigation();
-
-});
-myApp.controller('FootballcountryCtrl', function ($scope, TemplateService, NavigationService) {
-    $scope.template = TemplateService.getHTML("content/football-country/football-country.html");
-    TemplateService.title = "Football Country"; //This is the Title of the Website
-    TemplateService.sidemenu2 = "";
-    $scope.navigation = NavigationService.getNavigation();
-
-});
-myApp.controller('FootballleagueCtrl', function ($scope, TemplateService, NavigationService) {
-    $scope.template = TemplateService.getHTML("content/football-league/football-league.html");
-    TemplateService.title = "Football League"; //This is the Title of the Website
-    TemplateService.sidemenu2 = "";
-    $scope.navigation = NavigationService.getNavigation();
-
-});
-myApp.controller('FootballFixturesCtrl', function ($scope, TemplateService, NavigationService) {
-    $scope.template = TemplateService.getHTML("content/football-fixtures/football-fixtures.html");
-    TemplateService.title = "Football Fixtures"; //This is the Title of the Website
-    TemplateService.sidemenu2 = "";
-    $scope.navigation = NavigationService.getNavigation();
-
-});
-myApp.controller('TennisCtrl', function ($scope, TemplateService, NavigationService) {
-    $scope.template = TemplateService.getHTML("content/tennis/tennis.html");
-    TemplateService.title = "Tennis"; //This is the Title of the Website
-    TemplateService.sidemenu2 = "";
-    $scope.navigation = NavigationService.getNavigation();
-
 });
 myApp.controller('LoginCtrl', function ($scope, toastr, TemplateService, NavigationService, $state) {
     $scope.template = TemplateService.getHTML("content/login/login.html");
@@ -86761,15 +86701,14 @@ myApp.controller('LoginCtrl', function ($scope, toastr, TemplateService, Navigat
     TemplateService.rightsidemenu = "";
     TemplateService.sidemenu = "";
     $scope.navigation = NavigationService.getNavigation();
-
     $scope.userLogin = function (value) {
-        console.log(value)
-        NavigationService.userLogin("BetFair/userLogin", value, function (data) {
+        // $state.go('home');
+        NavigationService.userLogin("BetFair/befairUserLogin", value, function (data) {
             console.log("data", (data.data));
-            if (data.value && !_.isEmpty(data.data)) {
-                $.jStorage.set("accessToken", data.data.accessToken);
+            if (data.value) {
+                $.jStorage.set("accessToken", data.data);
                 // $.jStorage.set("accessToken", "abc1");
-                $.jStorage.set("userId", data.data.userId);
+                // $.jStorage.set("userId", data.data.userId);
                 toastr.success("Logged in successfully!");
                 $state.go('home');
             } else {
@@ -86782,129 +86721,49 @@ myApp.controller('LoginCtrl', function ($scope, toastr, TemplateService, Navigat
         // $state.go('home');
     };
 });
-myApp.controller('MatchCtrl', function ($scope, TemplateService, NavigationService, $stateParams) {
-    $scope.template = TemplateService.getHTML("content/match/match.html");
-    TemplateService.title = $stateParams.game; //This is the Title of the Website
-    TemplateService.sidemenu2 = "";
-    $scope.navigation = NavigationService.getNavigation();
-
-    $scope.params = $stateParams;
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-myApp.controller('MatchDetailCtrl', function ($scope, TemplateService, $stateParams, NavigationService) {
-    $scope.template = TemplateService.getHTML("content/match-detail/match-detail.html");
-    TemplateService.title = $stateParams.match + " Inner"; //This is the Title of the Website
-    TemplateService.sidemenu2 = "";
-    $scope.navigation = NavigationService.getNavigation();
-
-    $scope.params = $stateParams;
-
-
-});
-myApp.controller('ProfitlossCtrl', function ($scope, TemplateService, NavigationService) {
-    $scope.template = TemplateService.getHTML("content/profit-loss/profit-loss.html");
-    TemplateService.title = "Profit Loss"; //This is the Title of the Website
-    TemplateService.sidemenu2 = "";
-    $scope.navigation = NavigationService.getNavigation();
-
-});
-myApp.controller('TennisinnerCtrl', function ($scope, TemplateService, NavigationService) {
-    $scope.template = TemplateService.getHTML("content/tennis-inner/tennis-inner.html");
-    TemplateService.title = "Tennis Inner"; //This is the Title of the Website
-    TemplateService.sidemenu2 = "";
-    $scope.navigation = NavigationService.getNavigation();
-
-});
-
-myApp.controller('HorseracingCtrl', function ($scope, TemplateService, NavigationService) {
-    $scope.template = TemplateService.getHTML("content/horse-racing/horse_racing.html");
-    TemplateService.title = "Horse Racing"; //This is the Title of the Website
-    TemplateService.sidemenu2 = "";
-    $scope.navigation = NavigationService.getNavigation();
-    $scope.oneAtATime1 = true;
-});
-myApp.controller('GreyhoundracingCtrl', function ($scope, TemplateService, NavigationService) {
-    $scope.template = TemplateService.getHTML("content/greyhound-racing/greyhound-racing.html");
-    TemplateService.title = "Greyhound Racing"; //This is the Title of the Website
-    TemplateService.sidemenu2 = "";
-    $scope.navigation = NavigationService.getNavigation();
-    $scope.oneAtATime1 = true;
-});
-myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, $state, NavigationService, $location, $timeout, $window) {
+myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, $state, NavigationService, $location, $timeout, $window, $rootScope) {
     $scope.template = TemplateService;
     $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
     });
 
-    if (!$.jStorage.get("accessToken")) {
-        $state.go('login');
-    }
+    // if (!$.jStorage.get("accessToken")) {
+    //     $state.go('login');
+    // }
 
     //To handle the reload functionality.
-    window.onbeforeunload = function () {
-        $.jStorage.flush();
-    };
-
+    // window.onbeforeunload = function () {
+    //     $.jStorage.flush();
+    // };
 
     $scope.logout = function () {
         $.jStorage.flush();
         $state.go('login');
-    };
+    }
 
-    $scope.home = true;
+    $scope.next = true;
 
     // $scope.visitedCategories = [];
     $scope.previousState = [];
+
+
+    $scope.getAccountFunds = function (data) {
+        NavigationService.getAccountFunds(data, function (data) {
+            $scope.accountFunds = data.data.result;
+            // console.log("getAccountFunds", $scope.accountFunds);
+        });
+    };
+    $scope.getAccountFunds();
+
     //To get games
-    $scope.getGames = function () {
-        NavigationService.apiCallWithData('Category/getCategoriesForNavigation', {}, function (data) {
+    $scope.getCompetitionFromBetfair = function (url, data) {
+        NavigationService.apiCallWithData(url, data, function (data) {
             // console.log(data);
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
                     $scope.gameData = data.data;
-                    // console.log("$scope.gameData >>>>>>>>>>>>", $scope.gameData);
-                    // console.log("$scope.gameData", $scope.gameData);
-                    // $scope.visitedCategories.push($scope.gameData);
-                    // $scope.setUrl('game', '1');
+                    console.log("$scope.gameData >>>>>>>>>>>>", $scope.gameData);
+                    $rootScope.getEventList($scope.gameData);
                     $scope.home = true;
                 } else {
                     $scope.gameData = [];
@@ -86914,49 +86773,22 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
             }
         });
     };
-    $scope.getGames();
+    $scope.getCompetitionFromBetfair('betfair/getCompetitionFromBetfair', {});
 
     //     });
     // };
 
     // //To get sub Category
-    $scope.getSubCategory = function (value) {
+    $scope.getSubCategory = function (value, value2) {
+        $scope.getCompetitionFromBetfair('betfair/getEventsFromBetFair', {
+            ids: [value],
+            type: value2
+        });
+    };
 
-
-        //get match odds on click
-        // $scope.getMatchOdds({
-        //     game: $scope.game,
-        //     parentId: $scope.parentId
-        // });
-
-        if (!_.isEmpty(value)) {
-            $state.go('homeInside', {
-                game: $scope.game,
-                parentId: $scope.parentId
-            }, {
-                notify: false
-            });
-            if (!$scope.next) {
-                $scope.next = true;
-                $scope.previous = false;
-            } else {
-                $scope.next = false;
-                $scope.previous = true;
-            }
-            $scope.home = false;
-
-            // $scope.previous = false;
-            if (!_.isEmpty($scope.subcategory)) {
-                $scope.previousState.push($scope.subcategory);
-            }
-
-            $scope.subcategory = value;
-        } else {
-            $state.go("detailPage", {
-                game: $scope.game,
-                parentId: $scope.parentId
-            });
-        }
+    $scope.getCompetition = function () {
+        $state.go("home");
+        $state.reload();
     };
 
     $scope.getGameName = function (value) {
@@ -87007,24 +86839,6 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         }
 
     };
-
-    // $scope.getMatchOdds = function (value) {
-    //     NavigationService.apiCallWithData('Category/getMarketIds', value, function (data) {
-    //         // console.log(data);
-    //         if (data.value) {
-    //             if (!_.isEmpty(data.data)) {
-    //                 // console.log("data.data", data.data);
-
-    //                 // $scope.setUrl('game', '1');
-    //             } else {
-    //                 $scope.gameData = [];
-    //             }
-    //         } else {
-    //             alert("Unable get games");
-    //         }
-    //     });
-    // };
-
 
     // //Go to home menu
     $scope.goTohome = function () {
@@ -87167,7 +86981,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
             $scope.$apply();
         })
     }
-    $scope.getAvailableCredit();
+    // $scope.getAvailableCredit();
     //calculate profit and liability
     $scope.calculatePL = function (type) {
         if (type == "LAY") {
@@ -87188,10 +87002,10 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
 
         $scope.liability = _.sumBy($scope.layArray, "liability") + _.sumBy($scope.backArray, "stake");
 
-        $rootScope.calculateBook({
-            lay: $scope.layArray,
-            back: $scope.backArray
-        });
+        // $rootScope.calculateBook({
+        //     lay: $scope.layArray,
+        //     back: $scope.backArray
+        // });
 
     };
 
@@ -87201,7 +87015,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
     $scope.placeBet = function () {
         $scope.promise = NavigationService.success().then(function () {
             var reqData = _.concat($scope.layArray, $scope.backArray);
-            NavigationService.apiCallWithData('Betfair/placePlayerBet', reqData, function (data) {
+            NavigationService.apiCallWithData('Betfair/placeOrders', reqData, function (data) {
                 // console.log("data", data);
                 if (data.value) {
                     $scope.betconfirm.close();
@@ -87212,6 +87026,10 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
                 }
                 // callback();
             });
+        });
+        NavigationService.getAccountFunds({}, function (data) {
+            $scope.accountFunds = data.data.result;
+            // console.log("getAccountFunds", $scope.accountFunds);
         });
     }
 
@@ -87280,23 +87098,37 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
     }
 
 });
-myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, TemplateService, BetService, $state, $uibModal, $location, NavigationService, jStorageService, $timeout) {
+myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, TemplateService, BetService, $state, $uibModal, $location, NavigationService, jStorageService, $timeout, $interval) {
 
     $scope.currentGame = ($location.path()).split('/');
     $scope.page = "content/cricket-inner/cricket-inner.html";
-    // switch ($scope.currentGame[1]) {
-    //     case "Cricket":
-    //         $scope.page = "content/cricket-inner/cricket-inner.html";
-    //         break;
-    //     case "Tennis":
-    //         $scope.page = "content/tennis-inner/tennis-inner.html";
-    //         break;
-    //     case "Soccer":
-    //         $scope.page = "content/football-inner/football-inner.html";
-    //         break;
-    //     default:
-    //         console.log("Invalid page selection");
-    // }
+
+    $scope.odds = function (data) {
+        var obj = {}
+        obj.eventId = [];
+        var id = $stateParams.eventId;
+        obj.eventId.push(id);
+
+        NavigationService.apiCallWithData('betfair/getMarketsFromBetFair', obj, function (data) {
+            // console.log(data);
+            if (data.value) {
+                if (!_.isEmpty(data.data)) {
+                    $scope.market = data.data[0];
+                    $scope.market.runners = _.sortBy($scope.market.runners, ['sortPriority']);
+                    console.log("detail page >>>>>>>>>>>>", $scope.market);
+                    $scope.home = true;
+                } else {
+                    $scope.market = [];
+                }
+            } else {
+                // alert("Unable get games");
+            }
+        });
+    };
+    $scope.odds();
+    // $interval(function () {
+    //     $scope.odds();
+    // }, 2000);
 
     var market;
     $rootScope.calculateBook = function (value) {
@@ -87381,120 +87213,6 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
         $scope.$apply();
     };
 
-    function establishSocketConnection() {
-
-        var user = jStorageService.getUserId();
-        _.each($scope.marketData, function (market) {
-
-            async.parallel([
-                function (callback) {
-                    console.log("book_" + market.betfairId + "_" + user);
-                    $scope.mySocket2 = io.sails.connect(sportsSocket);
-                    NavigationService.apiCallWithData('Book/getUserBook', {
-                        marketId: market.betfairId,
-                        user: user
-                    }, function (bookInfo) {
-                        if (bookInfo.value) {
-                            $scope.bookInfo = bookInfo.data.horse;
-                            $scope.userRate = bookInfo.data.userRate;
-                        }
-                        $scope.mySocket2 = io.sails.connect(sportsSocket);
-                        $scope.mySocket2.on("Book_" + market.betfairId + "_" + user, function onConnect(bookData) {
-                            // $scope.mySocket2.on("Book_1.145660267_5b20f7dc9730e40f79534134", function onConnect(bookData) {
-                            $scope.bookInfo = bookData.horse;
-                            $scope.userRate = 100;
-                            $scope.calculatePlacedBookAmt($scope.market, $scope.bookInfo);
-                        });
-                        callback(null, $scope.bookInfo);
-                    });
-
-                },
-                function (bookData, callback) {
-                    $scope.mySocket1 = io.sails.connect(adminUUU);
-                    $scope.mySocket1.on("market_" + market.betfairId, function onConnect(data) {
-                        // callback(null, data);
-                        _.each(market.runners, function (runner) {
-                            _.each(data, function (rate) {
-                                if (runner.betfairId == (rate.id).toString()) {
-                                    // runner.back = rate.batb;
-                                    // runner.lay = rate.batl;
-                                    var back = runner.back ? runner.back : [];
-                                    var lay = runner.lay ? runner.lay : [];
-                                    _.each(rate.batb, function (backRate) {
-                                        if (backRate[0] == 0)
-                                            back[0] = backRate;
-                                        if (backRate[0] == 1)
-                                            back[1] = backRate;
-                                        if (backRate[0] == 2)
-                                            back[2] = backRate;
-                                    });
-
-                                    _.each(rate.batl, function (layRate) {
-                                        if (layRate[0] == 0)
-                                            lay[0] = layRate;
-                                        if (layRate[0] == 1)
-                                            lay[1] = layRate;
-                                        if (layRate[0] == 2)
-                                            lay[2] = layRate;
-                                    });
-                                    runner.back = back;
-                                    runner.lay = lay;
-                                }
-                            });
-                        });
-                        var sortedArray = _.sortBy(market.runners, ['sortPriority']);
-                        market.runners = [];
-                        _.each(sortedArray, function (n) {
-                            market.runners[n.sortPriority - 1] = n;
-                        });
-                        $scope.market = market;
-                        if (!_.isEmpty($scope.bookInfo)) {
-                            $scope.calculatePlacedBookAmt($scope.market, $scope.bookInfo);
-                        }
-                        // $scope.profits = $scope.market.runners;
-                        $scope.$apply();
-                    })
-                },
-            ], function (err, result) {
-                // if (result) {
-
-                // if (!_.isEmpty($scope.bookInfo)) {
-                //     _.each($scope.market.runners, function (runner) {
-                //         _.each($scope.bookInfo, function (horse) {
-                //             if (runner.betfairId == horse.horse) {
-                //                 runner.profit = horse.amount;
-                //             }
-                //         })
-                //     });
-                //     $scope.profits = $scope.market.runners;
-                // }
-                // }
-            });
-        });
-    }
-
-    $scope.getMarketIds = function (value) {
-
-        NavigationService.apiCallWithData('Category/getMarketIds', value, function (data) {
-            if (data.value) {
-                if (!_.isEmpty(data.data)) {
-                    $scope.marketData = data.data;
-                    $scope.home = true;
-                    establishSocketConnection();
-                } else {
-                    $scope.marketData = [];
-                }
-            } else {
-                // alert("Unable get markets");
-            }
-        });
-    };
-
-    $scope.getMarketIds({
-        game: $scope.currentGame[1],
-        parentId: $scope.currentGame[3]
-    });
-
     $scope.template = TemplateService.getHTML($scope.page);
     TemplateService.title = "Cricket Inner"; //This is the Title of the Website
     TemplateService.sidemenu2 = "";
@@ -87506,14 +87224,130 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
         $rootScope.$broadcast('eventBroadcastedName', {
             odds: price,
             type: type,
-            eventId: market.parentCategory.betfairId,
-            event: market.parentCategory.name,
-            selectionId: selection.betfairId,
-            selectionName: selection.name,
-            sport: $scope.currentGame[1],
-            marketId: market.betfairId,
-            accessToken: accessToken,
-            userId: userId
+            eventId: market.eventId,
+            event: market.name,
+            selectionId: selection.selectionId,
+            selectionName: selection.runnerName,
+            sport: "Cricket",
+            marketId: market.marketId,
+            // accessToken: accessToken,
+            // userId: userId
         });
     }
+
+    // function establishSocketConnection() {
+
+    //     var user = jStorageService.getUserId();
+    //     _.each($scope.marketData, function (market) {
+
+    //         async.parallel([
+    //             function (callback) {
+    //                 console.log("book_" + market.betfairId + "_" + user);
+    //                 $scope.mySocket2 = io.sails.connect(sportsSocket);
+    //                 NavigationService.apiCallWithData('Book/getUserBook', {
+    //                     marketId: market.betfairId,
+    //                     user: user
+    //                 }, function (bookInfo) {
+    //                     if (bookInfo.value) {
+    //                         $scope.bookInfo = bookInfo.data.horse;
+    //                         $scope.userRate = bookInfo.data.userRate;
+    //                     }
+    //                     $scope.mySocket2 = io.sails.connect(sportsSocket);
+    //                     $scope.mySocket2.on("Book_" + market.betfairId + "_" + user, function onConnect(bookData) {
+    //                         // $scope.mySocket2.on("Book_1.145660267_5b20f7dc9730e40f79534134", function onConnect(bookData) {
+    //                         $scope.bookInfo = bookData.horse;
+    //                         $scope.userRate = 100;
+    //                         $scope.calculatePlacedBookAmt($scope.market, $scope.bookInfo);
+    //                     });
+    //                     callback(null, $scope.bookInfo);
+    //                 });
+
+    //             },
+    //             function (bookData, callback) {
+    //                 $scope.mySocket1 = io.sails.connect(adminUUU);
+    //                 $scope.mySocket1.on("market_" + market.betfairId, function onConnect(data) {
+    //                     // callback(null, data);
+    //                     _.each(market.runners, function (runner) {
+    //                         _.each(data, function (rate) {
+    //                             if (runner.betfairId == (rate.id).toString()) {
+    //                                 // runner.back = rate.batb;
+    //                                 // runner.lay = rate.batl;
+    //                                 var back = runner.back ? runner.back : [];
+    //                                 var lay = runner.lay ? runner.lay : [];
+    //                                 _.each(rate.batb, function (backRate) {
+    //                                     if (backRate[0] == 0)
+    //                                         back[0] = backRate;
+    //                                     if (backRate[0] == 1)
+    //                                         back[1] = backRate;
+    //                                     if (backRate[0] == 2)
+    //                                         back[2] = backRate;
+    //                                 });
+
+    //                                 _.each(rate.batl, function (layRate) {
+    //                                     if (layRate[0] == 0)
+    //                                         lay[0] = layRate;
+    //                                     if (layRate[0] == 1)
+    //                                         lay[1] = layRate;
+    //                                     if (layRate[0] == 2)
+    //                                         lay[2] = layRate;
+    //                                 });
+    //                                 runner.back = back;
+    //                                 runner.lay = lay;
+    //                             }
+    //                         });
+    //                     });
+    //                     var sortedArray = _.sortBy(market.runners, ['sortPriority']);
+    //                     market.runners = [];
+    //                     _.each(sortedArray, function (n) {
+    //                         market.runners[n.sortPriority - 1] = n;
+    //                     });
+    //                     $scope.market = market;
+    //                     if (!_.isEmpty($scope.bookInfo)) {
+    //                         $scope.calculatePlacedBookAmt($scope.market, $scope.bookInfo);
+    //                     }
+    //                     // $scope.profits = $scope.market.runners;
+    //                     $scope.$apply();
+    //                 })
+    //             },
+    //         ], function (err, result) {
+    //             // if (result) {
+
+    //             // if (!_.isEmpty($scope.bookInfo)) {
+    //             //     _.each($scope.market.runners, function (runner) {
+    //             //         _.each($scope.bookInfo, function (horse) {
+    //             //             if (runner.betfairId == horse.horse) {
+    //             //                 runner.profit = horse.amount;
+    //             //             }
+    //             //         })
+    //             //     });
+    //             //     $scope.profits = $scope.market.runners;
+    //             // }
+    //             // }
+    //         });
+    //     });
+    // }
+
+    // $scope.getMarketIds = function (value) {
+
+    //     NavigationService.apiCallWithData('Category/getMarketIds', value, function (data) {
+    //         if (data.value) {
+    //             if (!_.isEmpty(data.data)) {
+    //                 $scope.marketData = data.data;
+    //                 $scope.home = true;
+    //                 establishSocketConnection();
+    //             } else {
+    //                 $scope.marketData = [];
+    //             }
+    //         } else {
+    //             // alert("Unable get markets");
+    //         }
+    //     });
+    // };
+
+    // $scope.getMarketIds({
+    //     game: $scope.currentGame[1],
+    //     parentId: $scope.currentGame[3]
+    // });
+
+
 });
