@@ -11,7 +11,7 @@
                 <label for="">Disabled Version:</label> --
             </li>
         </ul>
-        
+
     </div>
     <div class="login-form">
         <div class="login-panel panel panel-default">
@@ -21,7 +21,7 @@
             <div class="panel-body">
                 <form class="apl-form ng-pristine ng-valid" name="loginForm" ng-submit="userLogin(credentials)">
                     <fieldset>
-                        <button name="login" class="apl-btn apl-btn-secondary apl-btn-large btn-login" type="submit" ng-disabled="login.$invalid">Login</button>
+                        <a href="betfairLogin?returnUrl={{adminurl}}user/betfairLoginRedirect" name=" login " class="apl-btn apl-btn-secondary apl-btn-large btn-login ">Betfair Login</a>
                     </fieldset>
                 </form>
                 <!-- ngRepeat: errMsg in errorList -->

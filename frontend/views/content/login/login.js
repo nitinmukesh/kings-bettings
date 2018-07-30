@@ -6,6 +6,7 @@ myApp.controller('LoginCtrl', function ($scope, toastr, TemplateService, Navigat
     TemplateService.rightsidemenu = "";
     TemplateService.sidemenu = "";
     $scope.navigation = NavigationService.getNavigation();
+    $scope.adminurl = adminurl;
     $scope.userLogin = function (value) {
         $state.go('home');
         // NavigationService.userLogin("BetFair/userLogin", value, function (data) {

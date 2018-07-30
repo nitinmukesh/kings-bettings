@@ -330,12 +330,11 @@ header {
         background: $green;
     }
     .icon-right {
-        float: right;
-        background: $white;
-        color: $green;
-        font-size: 14px;
-        padding: 3px;
-        margin-top: 2px;
+        float: right; // background: $white;
+        color: $white;
+        font-size: 20px;
+        padding: 1px;
+        margin-top: -1px;
     }
 }
 
@@ -554,4 +553,13 @@ header {
 .-negative {
     color: $red;
     font-weight: bold;
+}
+
+.login-form .login-panel .panel-body .btn-login {
+    margin-top: 15px;
+    width: 100%;
+    min-height: 50px;
+    font-size: 20px;
+    line-height: 350%;
+    text-transform: none;
 }
