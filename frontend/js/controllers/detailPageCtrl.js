@@ -26,9 +26,9 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
         });
     };
     $scope.odds();
-    $interval(function () {
-        $scope.odds();
-    }, 2000);
+    // $interval(function () {
+    //     $scope.odds();
+    // }, 2000);
 
     var market;
     $rootScope.calculateBook = function (value) {

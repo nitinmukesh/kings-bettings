@@ -142,7 +142,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
     $scope.placeBet = function () {
         $scope.promise = NavigationService.success().then(function () {
             var reqData = _.concat($scope.layArray, $scope.backArray);
-            NavigationService.apiCallWithData('Betfair/placePlayerBet', reqData, function (data) {
+            NavigationService.apiCallWithData('Betfair/placeOrders', reqData, function (data) {
                 // console.log("data", data);
                 if (data.value) {
                     $scope.betconfirm.close();
@@ -153,6 +153,10 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
                 }
                 // callback();
             });
+        });
+        NavigationService.getAccountFunds({}, function (data) {
+            $scope.accountFunds = data.data.result;
+            // console.log("getAccountFunds", $scope.accountFunds);
         });
     }
 

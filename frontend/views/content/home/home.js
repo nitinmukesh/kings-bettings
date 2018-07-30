@@ -61,11 +61,13 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         });
     };
 
-    $interval(function () {
-        $scope.odds();
-    }, 2000);
+    // $interval(function () {
+    //     if ($scope.isHomeData)
+    //         $scope.odds();
+    // }, 3000);
 
     $rootScope.getEventList = function (data) {
+        console.log("$scope.homeData outside>>>>>>>>>>>>", data);
         var obj = {}
         obj.ids = [];
         _.each(data, function (n) {
@@ -84,6 +86,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
                 if (!_.isEmpty(data.data)) {
                     $scope.homeData = data.data;
                     console.log("$scope.homeData >>>>>>>>>>>>", $scope.homeData);
+                    $scope.isHomeData = true;
                     $scope.odds();
                     $scope.home = true;
                 } else {
