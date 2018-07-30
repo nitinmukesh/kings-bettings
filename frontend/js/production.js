@@ -85927,8 +85927,8 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
         })
 
     ;
-    $urlRouterProvider.otherwise("/");
-    $locationProvider.html5Mode(isproduction);
+    $urlRouterProvider.otherwise("/login");
+    // $locationProvider.html5Mode(isproduction);
 });
 
 // For Language JS
@@ -86200,8 +86200,8 @@ myApp.service('jStorageService', function () {
     }
 
 });
-// adminurl = "http://192.168.1.121:1337/api/";
-// adminurl = "https://sportsbookb.kingsplay.co/";
+// adminurl = "http://localhost:1337/api/";
+adminurl = "https://sportsbookb.kingsplay.co/";
 io.sails.url = adminUUU;
 io.sails.autoConnect = false;
 myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
@@ -86252,6 +86252,15 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
                     callback(data);
                 });
             }
+        },
+        placeOrders: function (url, formData, callback) {
+
+            $http.post(adminurl + url, formData).then(function (data) {
+                // console.log('data', data);
+                data = data.data;
+                callback(data);
+            });
+
         },
         apiCallWithUrl: function (url, formData, callback) {
             if ($.jStorage.get("accessToken")) {
@@ -87014,8 +87023,13 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
 
     $scope.placeBet = function () {
         $scope.promise = NavigationService.success().then(function () {
+            var accessToken = $.jStorage.get("accessToken");
             var reqData = _.concat($scope.layArray, $scope.backArray);
-            NavigationService.apiCallWithData('Betfair/placeOrders', reqData, function (data) {
+            var obj = {
+                array: reqData,
+                accessToken: accessToken
+            }
+            NavigationService.placeOrders('Betfair/placeOrders', obj, function (data) {
                 // console.log("data", data);
                 if (data.value) {
                     $scope.betconfirm.close();

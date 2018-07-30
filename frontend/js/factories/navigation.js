@@ -1,5 +1,5 @@
-// adminurl = "http://192.168.1.121:1337/api/";
-// adminurl = "https://sportsbookb.kingsplay.co/";
+// adminurl = "http://localhost:1337/api/";
+adminurl = "https://sportsbookb.kingsplay.co/";
 io.sails.url = adminUUU;
 io.sails.autoConnect = false;
 myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
@@ -50,6 +50,15 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
                     callback(data);
                 });
             }
+        },
+        placeOrders: function (url, formData, callback) {
+
+            $http.post(adminurl + url, formData).then(function (data) {
+                // console.log('data', data);
+                data = data.data;
+                callback(data);
+            });
+
         },
         apiCallWithUrl: function (url, formData, callback) {
             if ($.jStorage.get("accessToken")) {

@@ -141,8 +141,13 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
 
     $scope.placeBet = function () {
         $scope.promise = NavigationService.success().then(function () {
+            var accessToken = $.jStorage.get("accessToken");
             var reqData = _.concat($scope.layArray, $scope.backArray);
-            NavigationService.apiCallWithData('Betfair/placeOrders', reqData, function (data) {
+            var obj = {
+                array: reqData,
+                accessToken: accessToken
+            }
+            NavigationService.placeOrders('Betfair/placeOrders', obj, function (data) {
                 // console.log("data", data);
                 if (data.value) {
                     $scope.betconfirm.close();
