@@ -68,7 +68,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
 
     ;
     $urlRouterProvider.otherwise("/");
-    // $locationProvider.html5Mode(isproduction);
+    $locationProvider.html5Mode(isproduction);
 });
 
 // For Language JS
