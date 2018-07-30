@@ -26,7 +26,7 @@ module.exports = {
    ***************************************************************************/
 
   port: 1337,
-  realHost: "http://sportsbook.kingplay.online:1337",
+  realHost: "https://sportsbookb.kingsplay.co",
   emails: ["chintan@wohlig.com", "jagruti@wohlig.com", "tushar@wohlig.com", "chirag@wohlig.com", "harsh@wohlig.com"]
 
   /***************************************************************************
