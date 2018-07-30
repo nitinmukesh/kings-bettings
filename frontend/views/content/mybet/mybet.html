@@ -32,6 +32,7 @@
                 </div>
             </div>
         </div> -->
+        <!-- <pre>{{accountStatement | json}}</pre> -->
         <div class="error-msg" ng-if="error == 'TEMPORARY_BAN_TOO_MANY_REQUESTS'">
             TEMPORARY LOST CONNECTION TOO MANY REQUESTS"
         </div>
@@ -90,12 +91,6 @@
                     <td class="numeric" ng-class="{'-negative': bet.amount < 0, '-positive': bet.amount > 0}">
                         {{(bet.amount|| 0)| number:2}}
                     </td>
-                    <!-- <td class="numeric  ">
-                        0.60
-                    </td> -->
-                    <!-- <td class="numeric ">
-                        {{bet.amount}}
-                    </td> -->
                     <td ng-class="{'-negative':bet.legacyData.winLose=='RESULT_LOST', '-positive': bet.legacyData.winLose=='RESULT_WON'}">
                         <span ng-if="bet.legacyData.winLose=='RESULT_WON'">
                             Won
