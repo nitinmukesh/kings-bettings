@@ -1,4 +1,4 @@
-myApp.controller('CricketinnerCtrl', function ($scope, TemplateService, NavigationService, $state, $interval, $stateParams) {
+myApp.controller('CricketinnerCtrl', function ($scope, TemplateService, NavigationService, $state, $interval, $stateParams, $rootScope) {
     $scope.template = TemplateService.getHTML("content/cricket-inner/cricket-inner.html");
     TemplateService.title = "Cricket Inner"; //This is the Title of the Website
     TemplateService.sidemenu2 = "";
