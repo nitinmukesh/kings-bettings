@@ -6,7 +6,7 @@
 // Start with assigning color names to specific hex values.
 $white: #fff !default;
 $black: #000 !default;
-$red: #d9534f !default;
+$red: #ff3f39 !default;
 $orange: #f0ad4e !default;
 $yellow: #ffd500 !default;
 $green: #1d7f1e !default;
@@ -15,9 +15,10 @@ $teal: #5bc0de !default;
 $pink: #ff5b77 !default;
 $purple: #601c78 !default;
 // Create grayscale
-$gray-dark: #292b2c !default;
-$gray: #464a4c !default;
-$gray-light: #636c72 !default;
+$navy-blue:#002346;
+$gray-dark: #1b2035 !default;
+$gray: #0e1118 !default;
+$gray-light: #2a3143 !default;
 $gray-lighter: #eceeef !default;
 $gray-lightest: #f7f7f9 !default;
 // Reassign color vars to semantic color scheme
@@ -135,18 +136,30 @@ $dropdown-box-shadow: 0 .5rem 1rem rgba($black, .175) !default;
 // @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "../../bower_components/bootstrap/scss/bootstrap";
 @import "other/font-fix";
+@font-face {
+    src: url("../fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf");
+    font-family: 'Roboto-Condensed-Regular';
+}
+
+@font-face {
+    src: url("../fonts/Roboto/Roboto-Regular.ttf");
+    font-family: 'Roboto-Regular';
+}
+
+@font-face {
+    src: url("../fonts/Roboto/Roboto-Medium.ttf");
+    font-family: 'Roboto-Medium';
+}
+
 body {
     background: url('../img/bg.png') no-repeat;
     background-size: 60%;
     background-position: center center;
+    font-family: 'Roboto-Regular';
 }
 
 .height-100 {
     height: 100vh;
-}
-
-.content {
-    min-height: calc(100vh - 153px);
 }
 
 img.loading {
@@ -324,15 +337,15 @@ header {
 
 .avilable-credit {
     .card {
-        border: 1px solid $green;
+        border: 1px solid $navy-blue;
     }
     .card-header {
-        background: $green;
+        background: $navy-blue;
     }
     .icon-right {
         float: right;
         background: $white;
-        color: $green;
+        color: $navy-blue;
         font-size: 14px;
         padding: 3px;
         margin-top: 2px;
