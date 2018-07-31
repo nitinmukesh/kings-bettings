@@ -5344,6 +5344,10 @@ input[type="text"].ng-invalid {
 .betslip .confirmation-checkbox {
     padding: 0 10px;
     cursor: pointer;
+    input[type=checkbox],
+    input[type=radio] {
+        vertical-align: middle;
+    }
 }
 
 .betslip .betslipContent button.btn:disabled {
