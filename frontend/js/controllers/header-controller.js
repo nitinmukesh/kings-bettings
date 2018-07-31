@@ -24,13 +24,13 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     $scope.previousState = [];
 
 
-    $scope.getAccountFunds = function (data) {
+    $rootScope.getAccountFunds = function (data) {
         NavigationService.getAccountFunds(data, function (data) {
             $scope.accountFunds = data.data.result;
             // console.log("getAccountFunds", $scope.accountFunds);
         });
     };
-    $scope.getAccountFunds();
+    $rootScope.getAccountFunds();
 
     //To get games
     $scope.getCompetitionFromBetfair = function (url, data) {

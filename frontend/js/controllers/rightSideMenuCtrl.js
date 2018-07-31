@@ -136,9 +136,6 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
 
     };
 
-
-
-
     $scope.placeBet = function () {
         $scope.promise = NavigationService.success().then(function () {
             var accessToken = $.jStorage.get("accessToken");
@@ -150,18 +147,16 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
             NavigationService.placeOrders('Betfair/placeOrders', obj, function (data) {
                 // console.log("data", data);
                 if (data.value) {
+                    toastr.success("Bet Placed successfully!");
+                    $rootScope.getAccountFunds();
                     $scope.betconfirm.close();
                     $scope.removeAllBets();
-                    toastr.success("Bet Placed successfully!");
                 } else {
                     toastr.error("Error while placing Bet");
+                    $rootScope.getAccountFunds();
                 }
                 // callback();
             });
-        });
-        NavigationService.getAccountFunds({}, function (data) {
-            $scope.accountFunds = data.data.result;
-            // console.log("getAccountFunds", $scope.accountFunds);
         });
     }
 
