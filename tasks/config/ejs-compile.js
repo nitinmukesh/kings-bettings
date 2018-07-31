@@ -21,7 +21,7 @@ module.exports = function (grunt) {
             options: {
                 _: require("lodash"),
                 jsFiles: jsFiles,
-                adminurl: env.realHost,
+                adminurl: env.realHost + "/api",
                 adminUUU: env.realHost,
             }
         }
