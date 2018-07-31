@@ -571,3 +571,19 @@ header {
     line-height: 180%;
     text-transform: none;
 }
+
+
+.selection {
+    background: #ddd;
+    margin-bottom: 4px;
+    padding: 5px 10px;
+}
+
+.selection-header .event-name {
+    font-weight: bold;
+}
+
+.selection-header .bet-header {
+    font-weight: 600;
+    border-bottom: 1px solid #727171;
+}
