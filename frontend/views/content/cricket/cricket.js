@@ -4,16 +4,16 @@ myApp.controller('CricketCtrl', function ($scope, TemplateService, NavigationSer
     TemplateService.sidemenu2 = "";
     $scope.navigation = NavigationService.getNavigation();
     // alert("bro its cricket",$scope.date);
-
+    console.log("Changes Cricket Ctrl");
+    
     $scope.odds = function () {
         var obj = {}
         obj.eventId = [];
         _.each($scope.homeData, function (n) {
             obj.eventId.push(n.event.id);
         });
-
+        console.log("Cricket Controller Ods Calculated");
         NavigationService.apiCallWithData('betfair/getMarketsFromBetFair', obj, function (data) {
-            // console.log(data);
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
                     $scope.marketData = data.data;
@@ -21,7 +21,6 @@ myApp.controller('CricketCtrl', function ($scope, TemplateService, NavigationSer
                     _.each($scope.marketData, function (market) {
                         market = _.sortBy(market.runners, ['sortPriority']);
                     })
-                    console.log("$scope.marketData >>>>>>>>>>>>", $scope.marketData);
                     $scope.home = true;
                 } else {
                     $scope.marketData = [];
@@ -37,7 +36,9 @@ myApp.controller('CricketCtrl', function ($scope, TemplateService, NavigationSer
     // }, 3000);
 
     $rootScope.getEventList = function (data) {
-        console.log("$scope.homeData outside>>>>>>>>>>>>", data);
+        console.log($state.current.name);
+        if($state.current.name == "home") {
+            console.log("RooTScopeCalled");
         var obj = {}
         obj.ids = [];
         _.each(data, function (n) {
@@ -51,11 +52,9 @@ myApp.controller('CricketCtrl', function ($scope, TemplateService, NavigationSer
         });
 
         NavigationService.apiCallWithData('betfair/getEventsFromBetFair', obj, function (data) {
-            // console.log(data);
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
                     $scope.homeData = data.data;
-                    console.log("$scope.homeData >>>>>>>>>>>>", $scope.homeData);
                     $scope.isHomeData = true;
                     $scope.odds();
                     $scope.home = true;
@@ -66,6 +65,8 @@ myApp.controller('CricketCtrl', function ($scope, TemplateService, NavigationSer
                 alert("Unable get games");
             }
         });
+        }
+        
     };
 
     $scope.getDetailedPage = function (data) {

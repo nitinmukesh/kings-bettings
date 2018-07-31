@@ -7690,9 +7690,9 @@ header {
 .login-form .login-panel .panel-body .btn-login {
   margin-top: 15px;
   width: 100%;
-  min-height: 50px;
+  min-height: 35px;
   font-size: 20px;
-  line-height: 350%;
+  line-height: 180%;
   text-transform: none; }
 
 /*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css */
@@ -12073,6 +12073,9 @@ input[type="text"].ng-invalid {
 .betslip .confirmation-checkbox {
   padding: 0 10px;
   cursor: pointer; }
+  .betslip .confirmation-checkbox input[type=checkbox],
+  .betslip .confirmation-checkbox input[type=radio] {
+    vertical-align: middle; }
 
 .betslip .betslipContent button.btn:disabled {
   cursor: default;
@@ -15274,3 +15277,5 @@ div .market-listing-table tbody > tr td.market-name:first-child i.apl-icon-custo
 /* Breakpoint for medium viewport */
 /* Breakpoint for medium viewport */
 /* Breakpoint for medium viewport */
+
+/*# sourceMappingURL=import.css.map */

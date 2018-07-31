@@ -28,9 +28,10 @@ myApp.controller('CricketinnerCtrl', function ($scope, TemplateService, Navigati
         });
     };
     $scope.odds();
-    // $interval(function () {
-    //     $scope.odds();
-    // }, 2000);
+    $interval.cancel(globalInteval);
+    globalInteval = $interval(function () {
+        $scope.odds();
+    }, 2000);
     $scope.placeBet = function (price, type, market, selection) {
         // var accessToken = jStorageService.getAccessToken();
         // var userId = jStorageService.getUserId();

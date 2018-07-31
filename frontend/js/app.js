@@ -11,6 +11,8 @@ var myApp = angular.module('myApp', [
     'toastr'
 ]);
 
+var globalInteval;
+
 // Define all the routes below
 myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, $qProvider) {
     var tempateURL = "views/template/template.html"; //Default Template URL

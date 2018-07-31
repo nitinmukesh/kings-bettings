@@ -1,7 +1,7 @@
 // adminurl = "http://localhost:1337/api/";
 // adminurl = "https://sportsbookb.kingsplay.co/";
-io.sails.url = adminUUU;
-io.sails.autoConnect = false;
+// io.sails.url = adminUUU;
+// io.sails.autoConnect = false;
 myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
     var navigation = [{
             name: "Home",
@@ -43,9 +43,7 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
                     formData = {};
                 }
                 formData.accessToken = $.jStorage.get("accessToken");
-                console.log("formData", formData);
                 $http.post(adminurl + url, formData).then(function (data) {
-                    // console.log('data', data);
                     data = data.data;
                     callback(data);
                 });
@@ -54,7 +52,6 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
         placeOrders: function (url, formData, callback) {
 
             $http.post(adminurl + url, formData).then(function (data) {
-                // console.log('data', data);
                 data = data.data;
                 callback(data);
             });
@@ -67,7 +64,6 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
                 }
                 formData.accessToken = $.jStorage.get("accessToken");
                 $http.post(url, formData).then(function (data) {
-                    // console.log('data', data);
                     data = data.data;
                     callback(data);
                 });
@@ -75,7 +71,6 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
         },
         getMatchOddsData: function (url, formData, callback) {
             $http.post(adminurl + url, formData).then(function (data) {
-                console.log('data', data);
                 data = data.data;
                 callback(data);
             });
@@ -86,9 +81,7 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
                     formData = {};
                 }
                 formData.accessToken = $.jStorage.get("accessToken");
-                console.log("formData", formData);
                 $http.post(adminurl + 'betfair/getAccountFunds', formData).then(function (data) {
-                    console.log('data', data);
                     data = data.data;
                     callback(data);
                 });
@@ -101,9 +94,7 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
                     formData = {};
                 }
                 formData.accessToken = $.jStorage.get("accessToken");
-                console.log("formData", formData);
                 $http.post(adminurl + 'betfair/getAccountStatement', formData).then(function (data) {
-                    console.log('data', data);
                     data = data.data;
                     callback(data);
                 });
