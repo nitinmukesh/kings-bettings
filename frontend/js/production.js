@@ -86594,8 +86594,8 @@ myApp.controller('CricketCtrl', function ($scope, TemplateService, NavigationSer
     };
 
     $scope.placeBet = function (price, type, market, selection) {
-        var accessToken = jStorageService.getAccessToken();
-        var userId = jStorageService.getUserId();
+        // var accessToken = jStorageService.getAccessToken();
+        // var userId = jStorageService.getUserId();
         $rootScope.$broadcast('eventBroadcastedName', {
             odds: price,
             type: type,
@@ -86643,6 +86643,22 @@ myApp.controller('CricketinnerCtrl', function ($scope, TemplateService, Navigati
     // $interval(function () {
     //     $scope.odds();
     // }, 2000);
+    $scope.placeBet = function (price, type, market, selection) {
+        // var accessToken = jStorageService.getAccessToken();
+        // var userId = jStorageService.getUserId();
+        $rootScope.$broadcast('eventBroadcastedName', {
+            odds: price,
+            type: type,
+            eventId: market.eventId,
+            event: market.name,
+            selectionId: selection.selectionId,
+            selectionName: selection.runnerName,
+            sport: "Cricket",
+            marketId: market.marketId,
+            // accessToken: accessToken,
+            // userId: userId
+        });
+    }
 
 });
 myApp.controller('LoginCtrl', function ($scope, toastr, TemplateService, NavigationService, $state) {

@@ -75,8 +75,8 @@ myApp.controller('CricketCtrl', function ($scope, TemplateService, NavigationSer
     };
 
     $scope.placeBet = function (price, type, market, selection) {
-        var accessToken = jStorageService.getAccessToken();
-        var userId = jStorageService.getUserId();
+        // var accessToken = jStorageService.getAccessToken();
+        // var userId = jStorageService.getUserId();
         $rootScope.$broadcast('eventBroadcastedName', {
             odds: price,
             type: type,
