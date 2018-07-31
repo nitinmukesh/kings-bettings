@@ -87034,6 +87034,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
                     $scope.removeAllBets();
                 } else {
                     toastr.error("Error while placing Bet");
+                    $scope.betconfirm.close();
                     $rootScope.getAccountFunds();
                 }
                 // callback();

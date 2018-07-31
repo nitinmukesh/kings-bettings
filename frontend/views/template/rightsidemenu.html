@@ -1,6 +1,6 @@
 <div class="row" ng-controller="rightSideMenuCtrl">
     <div class="col-sm-12">
-        <div class="">
+        <div>
             <accountbalance></accountbalance>
             <div>
                 <div class="inner-right-pane">
@@ -14,7 +14,7 @@
                                     </label>
                                 </div>
                                 <div class="one-betting" ng-if="!oneClickbet">
-                                    <strong class="">1 Click Betting</strong>
+                                    <strong>1 Click Betting</strong>
                                 </div> -->
                                 <div class="one-click-settings-animation-wrap onclick-ani" ng-if="oneClickbet">
                                     <div class="apl-form one-click-bet-form">
@@ -59,18 +59,18 @@
                                     <li id="tab-betslip" class="tab-betslip" style="height: 18px; min-height: 18px;">
                                         <div class="bets betslip  has-bets">
                                             <div>
-                                                <div class="">
+                                                <div>
                                                     <div class="betslipContent">
-                                                        <form name="betslipForm" class="">
-                                                            <div class="" ng-if="isBack">
+                                                        <form name="betslipForm">
+                                                            <div ng-if="isBack">
                                                                 <h6 class="bet-type-info back ">Back</h6>
                                                                 <ul class="market-list">
-                                                                    <li class="" ng-repeat="item in backArray track by $index">
+                                                                    <li ng-repeat="item in backArray track by $index">
                                                                         <a tabindex="-1" class="event-name">
                                                                             <span date-string="event.name">{{item.event}} Demo</span>
                                                                         </a>
                                                                         <ul class="bets-list">
-                                                                            <li class="">
+                                                                            <li>
                                                                                 <div class="bet back">
                                                                                     <span class="selection-name">{{item.selectionName}} Lay</span>
                                                                                     <div class="bet-fields">
@@ -132,15 +132,15 @@
                                                                     </li>
                                                                 </ul>
                                                             </div>
-                                                            <div class="" ng-if="isLay">
+                                                            <div ng-if="isLay">
                                                                 <h6 class="bet-type-info lay ">Lay</h6>
                                                                 <ul class="market-list">
-                                                                    <li class="" ng-repeat="item in layArray track by $index">
+                                                                    <li ng-repeat="item in layArray track by $index">
                                                                         <a tabindex="-1" class="event-name">
                                                                             <span date-string="event.name" class=" ">{{item.event}}</span>
                                                                         </a>
                                                                         <ul class="bets-list">
-                                                                            <li class="">
+                                                                            <li>
                                                                                 <div class="bet lay">
                                                                                     <span class="selection-name">{{item.selectionName}}</span>
                                                                                     <div class="bet-fields">
@@ -208,7 +208,7 @@
                                                             </div>
 
                                                             <label class="confirmation-checkbox">
-                                                                <input type="checkbox" class=""> Confirm bets before placing
+                                                                <input type="checkbox"> Confirm bets before placing
                                                             </label>
                                                         </form>
                                                     </div>
@@ -220,12 +220,15 @@
 
                                 </ul>
                             </uib-tab>
-                            <!-- <uib-tab index="1" heading="Open Bets">
+                            <uib-tab index="1" heading="Open Bets">
                                 <div class="bets-by-event-filter ">
-                                    <label class="">
-                                        <input type="checkbox" class="">Show bet Info
+                                    <label>
+                                        <input type="checkbox">Show bet Info
                                     </label>
                                 </div>
+
+
+
                                 <div class="bets unmatched-bets">
                                     <div class="_clearfix _align-right heading-wrapper btn-group ">
                                         <button class="apl-btn apl-btn-cancel" type="button">
@@ -238,6 +241,8 @@
                                             Update All
                                         </button>
                                     </div>
+
+                                    <!-- /// Un Matched Bets -->
                                     <div class="matchbets">
                                         <uib-accordion close-others="oneAtATime">
                                             <div class="text-center" uib-accordion-group class="panel-default" is-open="status.open">
@@ -315,6 +320,11 @@
                                         </uib-accordion>
                                     </div>
                                 </div>
+
+
+
+
+                                <!-- /// Matched Bets -->
                                 <div class="matchbets mt-3">
                                     <uib-accordion close-others="oneAtATime">
                                         <div uib-accordion-group class="panel-default" is-open="status.open">
@@ -323,20 +333,20 @@
                                                 <i class="pull-right icon-right fa" ng-class="{'fa-chevron-up': status.open, 'fa-chevron-down': !status.open}"></i>
                                             </uib-accordion-heading>
                                             <div class="consolidation-filter">
-                                                <label class="">
-                                                    <input type="checkbox" class="" ng-model="Consolidate">Consolidate</label>
+                                                <label>
+                                                    <input type="checkbox" ng-model="Consolidate">Consolidate</label>
                                                 <label class="pad-left ">
-                                                    <input type="checkbox" class="" ng-model="averageOdds">Average Odds</label>
+                                                    <input type="checkbox" ng-model="averageOdds">Average Odds</label>
                                                 <label class="pad-left ">
-                                                    <input type="checkbox" class="" ng-model="orderByDate">Order By Date</label>
+                                                    <input type="checkbox" ng-model="orderByDate">Order By Date</label>
                                             </div>
                                             <div>
                                                 <div class="matched-order">
                                                     <a ng-href="#/display/EVENT/4/28706813" class="event-name" href="#/display/EVENT/4/28706813">
-                                                        <span date-string="vm.order.name" timestamp="vm.order.marketTime" class="">Kings XI Punjab v Mumbai Indians</span>
+                                                        <span date-string="vm.order.name" timestamp="vm.order.marketTime">Kings XI Punjab v Mumbai Indians</span>
                                                     </a>
                                                     <ul>
-                                                        <li class="">
+                                                        <li>
                                                             <ul>
                                                                 <li>
                                                                     <ul class="selection">
@@ -345,36 +355,36 @@
                                                                             <div class="bet-header grouped">
                                                                                 <span class="market-name ">Match Odds</span>
                                                                                 <span class="odds ">Odds</span>
-                                                                                <span class="">Stake</span>
-                                                                                <span class="">Profit/Liability</span>
+                                                                                <span>Stake</span>
+                                                                                <span>Profit/Liability</span>
                                                                             </div>
                                                                         </div>
-                                                                        <li class="">
+                                                                        <li>
                                                                             <div class="selection-bet back no-info">
                                                                                 <div class="bet-fields grouped">
                                                                                     <span class="odds ">2.000</span>
-                                                                                    <span class="">25.00</span>
-                                                                                    <span class="">25.00</span>
+                                                                                    <span>25.00</span>
+                                                                                    <span>25.00</span>
                                                                                 </div>
 
                                                                             </div>
                                                                         </li>
-                                                                        <li class="">
+                                                                        <li>
                                                                             <div class="selection-bet lay no-info">
                                                                                 <div class="bet-fields grouped">
                                                                                     <span class="odds ">2.000</span>
-                                                                                    <span class="">25.00</span>
-                                                                                    <span class="">25.00</span>
+                                                                                    <span>25.00</span>
+                                                                                    <span>25.00</span>
                                                                                 </div>
 
                                                                             </div>
                                                                         </li>
-                                                                        <li class="">
+                                                                        <li>
                                                                             <div class="selection-bet back no-info">
                                                                                 <div class="bet-fields grouped">
                                                                                     <span class="odds ">1.990</span>
-                                                                                    <span class="">25.00</span>
-                                                                                    <span class="">24.75</span>
+                                                                                    <span>25.00</span>
+                                                                                    <span>24.75</span>
                                                                                 </div>
                                                                             </div>
                                                                         </li>
@@ -388,7 +398,7 @@
                                         </div>
                                     </uib-accordion>
                                 </div>
-                            </uib-tab> -->
+                            </uib-tab>
                         </uib-tabset>
                     </div>
                 </div>
