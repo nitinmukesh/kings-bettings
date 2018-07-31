@@ -5118,6 +5118,7 @@ input[type="text"].ng-invalid {
 
 .bets .bets-list li:last-child .bet {
     margin-bottom: 5px;
+    padding: 10px 0 0 10px;
     border-radius: 0 0 2px 2px;
 }
 
@@ -5157,10 +5158,23 @@ input[type="text"].ng-invalid {
 
 .bets .bet-fields .placeholder-wrapper {
     float: left;
-    top: 8px;
+    top: 19px;
     margin-right: 4px;
-    width: 40px;
-    text-align: center;
+}
+
+.bets.unmatched-bets {
+    .bets-list li:last-child .bet {
+        margin-bottom: 5px;
+        padding: 0px 0 0 10px;
+        border-radius: 0 0 2px 2px;
+    }
+    .bet-fields .placeholder-wrapper {
+        float: left;
+        top: 8px;
+        margin-right: 4px;
+        width: 40px;
+        text-align: center;
+    }
 }
 
 .bets .bet-fields .info-field.small {
@@ -9328,7 +9342,7 @@ div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-
     background-position: 0 -7904px;
 }
 
-.semi-bold{
+.semi-bold {
     font-weight: 600;
     font-size: 12px;
 }
