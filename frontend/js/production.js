@@ -86756,13 +86756,13 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     $scope.previousState = [];
 
 
-    $scope.getAccountFunds = function (data) {
+    $rootScope.getAccountFunds = function (data) {
         NavigationService.getAccountFunds(data, function (data) {
             $scope.accountFunds = data.data.result;
             // console.log("getAccountFunds", $scope.accountFunds);
         });
     };
-    $scope.getAccountFunds();
+    $rootScope.getAccountFunds();
 
     //To get games
     $scope.getCompetitionFromBetfair = function (url, data) {
@@ -86771,7 +86771,6 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
                     $scope.gameData = data.data;
-                    console.log("$scope.gameData >>>>>>>>>>>>", $scope.gameData);
                     $rootScope.getEventList($scope.gameData);
                     $scope.home = true;
                 } else {
@@ -86797,7 +86796,7 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
 
     $scope.getCompetition = function () {
         $state.go("home");
-        $state.reload();
+        // $state.reload();
     };
 
     $scope.getGameName = function (value) {
@@ -87018,9 +87017,6 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
 
     };
 
-
-
-
     $scope.placeBet = function () {
         $scope.promise = NavigationService.success().then(function () {
             var accessToken = $.jStorage.get("accessToken");
@@ -87032,18 +87028,16 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
             NavigationService.placeOrders('Betfair/placeOrders', obj, function (data) {
                 // console.log("data", data);
                 if (data.value) {
+                    toastr.success("Bet Placed successfully!");
+                    $rootScope.getAccountFunds();
                     $scope.betconfirm.close();
                     $scope.removeAllBets();
-                    toastr.success("Bet Placed successfully!");
                 } else {
                     toastr.error("Error while placing Bet");
+                    $rootScope.getAccountFunds();
                 }
                 // callback();
             });
-        });
-        NavigationService.getAccountFunds({}, function (data) {
-            $scope.accountFunds = data.data.result;
-            // console.log("getAccountFunds", $scope.accountFunds);
         });
     }
 
