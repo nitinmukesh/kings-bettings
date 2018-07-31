@@ -230,7 +230,7 @@
 
 
                                 <div class="bets unmatched-bets">
-                                    <div class="_clearfix _align-right heading-wrapper btn-group ">
+                                    <!-- <div class="_clearfix _align-right heading-wrapper btn-group ">
                                         <button class="apl-btn apl-btn-cancel" type="button">
                                             Cancel All
                                         </button>
@@ -240,7 +240,7 @@
                                         <button class="apl-btn apl-btn-update " type="button">
                                             Update All
                                         </button>
-                                    </div>
+                                    </div> -->
 
                                     <!-- /// Un Matched Bets -->
                                     <div class="matchbets">
@@ -254,66 +254,72 @@
                                                     <form name="unmatchedForm">
                                                         <ul class="orders-list">
                                                             <li class="order-wrap">
-                                                                <span>
-                                                                    <a class="event-name event-name-blue text-left">
-                                                                        <span>Swansea v Southampton</span>
-                                                                    </a>
-                                                                    <ul class="market-list">
-                                                                        <li class="market text-left">
-                                                                            <strong class="market-name">Match Odds</strong>
-                                                                            <button class="apl-btn apl-btn-link btn-cancel" type="button">Cancel</button>
-                                                                            <ul class="selection-list">
-                                                                                <li class="selection">
-                                                                                    <ul class="bets-list">
-                                                                                        <li>
-                                                                                            <span class="selection-name">Southampton</span>
-                                                                                            <div class="bet  back">
-                                                                                                <div class="bet-fields">
-                                                                                                    <div class="odds-field placeholder-wrapper  activated animatable">
-                                                                                                        <div class="placeholder ">Odds</div>
-                                                                                                        <div>
-                                                                                                            <div class="step-input-wrapper ">
-                                                                                                                <input class="step-input" type="text">
-                                                                                                                <div class="button-wrapper">
-                                                                                                                    <button type="button" class="step-up">
-                                                                                                                        <i class="fa fa-angle-up"></i>
-                                                                                                                    </button>
-                                                                                                                    <button type="button" class="step-down">
-                                                                                                                        <i class="fa fa-angle-down"></i>
-                                                                                                                    </button>
-                                                                                                                </div>
+                                                                <ul class="market-list">
+                                                                    <li class="market text-left">
+                                                                        <strong class="market-name">Match Odds</strong>
+                                                                        <!-- <button class="apl-btn apl-btn-link btn-cancel" type="button">Cancel</button> -->
+                                                                        <ul class="selection-list">
+                                                                            <li class="selection">
+                                                                                <ul class="bets-list">
+                                                                                    <li ng-repeat="currentOrder in currentOrders" ng-if="!currentOrder.status == 'EXECUTION_COMPLETE'">
+                                                                                        <a class="event-name event-name-blue text-left">
+                                                                                            <span>{{currentOrder.eventName}}</span>
+                                                                                        </a>
+                                                                                        <span class="selection-name">{{currentOrder.runnerName}}</span>
+                                                                                        <div class="bet  back">
+                                                                                            <div class="bet-fields">
+                                                                                                <div class="odds-field placeholder-wrapper  activated animatable">
+                                                                                                    <div class="placeholder ">{{currentOrder.side}}</div>
+                                                                                                    <div>
+                                                                                                        <div class="step-input-wrapper ">
+                                                                                                            <input class="step-input" type="text" disabled>
+                                                                                                            <div class="button-wrapper">
+                                                                                                                <button type="button" class="step-up">
+                                                                                                                    <i class="fa fa-angle-up"></i>
+                                                                                                                </button>
+                                                                                                                <button type="button" class="step-down">
+                                                                                                                    <i class="fa fa-angle-down"></i>
+                                                                                                                </button>
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                    <div class="placeholder-wrapper  activated animatable">
-                                                                                                        <div class="placeholder">Stake</div>
-                                                                                                        <div>
-                                                                                                            <input type="text">
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                    <div class="info-field">
-                                                                                                        <span class="title">Profit</span>
-                                                                                                        <span class="value ">225.00</span>
-                                                                                                    </div>
-                                                                                                    <div class="control-fields">
-                                                                                                        <button class="apl-btn apl-btn-mini apl-btn-update " type="button">
-                                                                                                            <i class="fa fa-check"></i>
-                                                                                                        </button>
-                                                                                                        <button class="apl-btn apl-btn-mini apl-btn-remove" type="button">
-                                                                                                            <i class="fa fa-times"></i>
-                                                                                                        </button>
+                                                                                                </div>
+                                                                                                <div class="placeholder-wrapper  activated animatable">
+                                                                                                    <div class="placeholder">Stake</div>
+                                                                                                    <div>
+                                                                                                        <span class="value">{{currentOrder.priceSize.size}}</span>
+                                                                                                        <!-- <input type="text" value="" disabled> -->
                                                                                                     </div>
                                                                                                 </div>
-
+                                                                                                <div class="placeholder-wrapper  activated animatable">
+                                                                                                    <div class="placeholder">Odds</div>
+                                                                                                    <div>
+                                                                                                        <span class="value">{{currentOrder.priceSize.price}}</span>
+                                                                                                        <!-- <input type="text" value="" disabled> -->
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <!-- <div class="info-field">
+                                                                                                    <span class="title">Profit</span>
+                                                                                                    <span class="value ">225.00</span>
+                                                                                                </div> -->
+                                                                                                <div class="control-fields">
+                                                                                                    <!-- <button class="apl-btn apl-btn-mini apl-btn-update" type="button">
+                                                                                                            <i class="fa fa-check"></i>
+                                                                                                        </button> -->
+                                                                                                    <button class="apl-btn apl-btn-mini apl-btn-remove" type="button" ng-click="betCancelation(currentOrder.betId,currentOrder.marketId)">
+                                                                                                        <i class="fa fa-times"></i>
+                                                                                                    </button>
+                                                                                                </div>
                                                                                             </div>
-                                                                                        </li>
-
-                                                                                    </ul>
-                                                                                </li>
-                                                                            </ul>
-                                                                </span>
-                                                                </li>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </li>
                                                                 </ul>
+                                                            </li>
+                                                        </ul>
                                                     </form>
                                                 </div>
                                             </div>
@@ -332,63 +338,40 @@
                                                 Matched Bets
                                                 <i class="pull-right icon-right fa" ng-class="{'fa-chevron-up': status.open, 'fa-chevron-down': !status.open}"></i>
                                             </uib-accordion-heading>
-                                            <div class="consolidation-filter">
+                                            <!-- <div class="consolidation-filter">
                                                 <label>
                                                     <input type="checkbox" ng-model="Consolidate">Consolidate</label>
                                                 <label class="pad-left ">
                                                     <input type="checkbox" ng-model="averageOdds">Average Odds</label>
                                                 <label class="pad-left ">
                                                     <input type="checkbox" ng-model="orderByDate">Order By Date</label>
-                                            </div>
+                                            </div> -->
                                             <div>
                                                 <div class="matched-order">
-                                                    <a ng-href="#/display/EVENT/4/28706813" class="event-name" href="#/display/EVENT/4/28706813">
-                                                        <span date-string="vm.order.name" timestamp="vm.order.marketTime">Kings XI Punjab v Mumbai Indians</span>
-                                                    </a>
                                                     <ul>
-                                                        <li>
-                                                            <ul>
+                                                        <li ng-repeat="currentOrder in currentOrders" ng-if="currentOrder.status == 'EXECUTION_COMPLETE'">
+                                                            <ul class="selection">
+                                                                <div class="selection-header">
+                                                                    <a class="event-name">
+                                                                        <span>{{currentOrder.eventName}}</span>
+                                                                    </a>
+                                                                    <div class="selection-name">{{currentOrder.runnerName}}</div>
+                                                                    <div class="bet-header grouped row">
+                                                                        <!-- <span class="market-name">Match Odds</span> -->
+                                                                        <div class="odds col-md-4 bold">Odds</div>
+                                                                        <div class="col-md-4 bold">Stake</div>
+                                                                        <!-- <div>Profit/Liability</div> -->
+                                                                    </div>
+                                                                </div>
                                                                 <li>
-                                                                    <ul class="selection">
-                                                                        <div class="selection-header">
-                                                                            <div class="selection-name ">Kings XI Punjab</div>
-                                                                            <div class="bet-header grouped">
-                                                                                <span class="market-name ">Match Odds</span>
-                                                                                <span class="odds ">Odds</span>
-                                                                                <span>Stake</span>
-                                                                                <span>Profit/Liability</span>
-                                                                            </div>
+                                                                    <div class="selection-bet back no-info">
+                                                                        <div class="bet-fields grouped row">
+                                                                            <!-- <div class="odds">2.000</div> -->
+                                                                            <div class="value col-md-4">{{currentOrder.priceSize.price}}</div>
+                                                                            <div class="value col-md-4">{{currentOrder.priceSize.size}}</div>
                                                                         </div>
-                                                                        <li>
-                                                                            <div class="selection-bet back no-info">
-                                                                                <div class="bet-fields grouped">
-                                                                                    <span class="odds ">2.000</span>
-                                                                                    <span>25.00</span>
-                                                                                    <span>25.00</span>
-                                                                                </div>
 
-                                                                            </div>
-                                                                        </li>
-                                                                        <li>
-                                                                            <div class="selection-bet lay no-info">
-                                                                                <div class="bet-fields grouped">
-                                                                                    <span class="odds ">2.000</span>
-                                                                                    <span>25.00</span>
-                                                                                    <span>25.00</span>
-                                                                                </div>
-
-                                                                            </div>
-                                                                        </li>
-                                                                        <li>
-                                                                            <div class="selection-bet back no-info">
-                                                                                <div class="bet-fields grouped">
-                                                                                    <span class="odds ">1.990</span>
-                                                                                    <span>25.00</span>
-                                                                                    <span>24.75</span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                    </ul>
+                                                                    </div>
                                                                 </li>
                                                             </ul>
                                                         </li>

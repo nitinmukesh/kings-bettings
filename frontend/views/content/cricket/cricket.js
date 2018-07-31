@@ -5,7 +5,7 @@ myApp.controller('CricketCtrl', function ($scope, TemplateService, NavigationSer
     $scope.navigation = NavigationService.getNavigation();
     // alert("bro its cricket",$scope.date);
     console.log("Changes Cricket Ctrl");
-    
+
     $scope.odds = function () {
         var obj = {}
         obj.eventId = [];
@@ -38,36 +38,35 @@ myApp.controller('CricketCtrl', function ($scope, TemplateService, NavigationSer
 
     $rootScope.getEventList = function (data) {
         console.log($state.current.name);
-        if($state.current.name == "home") {
+        if ($state.current.name == "home") {
             console.log("RooTScopeCalled");
-        var obj = {}
-        obj.ids = [];
-        _.each(data, function (n) {
-            if (n.competition) {
-                obj.ids.push(n.competition.id);
-                obj.type = "competition";
-            } else if (n.event) {
-                obj.ids.push(n.event.id);
-                obj.type = "event";
-            }
-        });
-
-        NavigationService.apiCallWithData('betfair/getEventsFromBetFair', obj, function (data) {
-            if (data.value) {
-                if (!_.isEmpty(data.data)) {
-                    $scope.homeData = data.data;
-                    $scope.isHomeData = true;
-                    $scope.odds();
-                    $scope.home = true;
-                } else {
-                    $scope.homeData = [];
+            var obj = {}
+            obj.ids = [];
+            _.each(data, function (n) {
+                if (n.competition) {
+                    obj.ids.push(n.competition.id);
+                    obj.type = "competition";
+                } else if (n.event) {
+                    obj.ids.push(n.event.id);
+                    obj.type = "event";
                 }
-            } else {
-                alert("Unable get games");
-            }
-        });
+            });
+
+            NavigationService.apiCallWithData('betfair/getEventsFromBetFair', obj, function (data) {
+                if (data.value) {
+                    if (!_.isEmpty(data.data)) {
+                        $scope.homeData = data.data;
+                        $scope.isHomeData = true;
+                        $scope.odds();
+                        $scope.home = true;
+                    } else {
+                        $scope.homeData = [];
+                    }
+                } else {
+                    alert("Unable get games");
+                }
+            });
         }
-        
     };
 
     $scope.getDetailedPage = function (data) {
@@ -91,5 +90,5 @@ myApp.controller('CricketCtrl', function ($scope, TemplateService, NavigationSer
             // accessToken: accessToken,
             // userId: userId
         });
-    }
+    };
 });

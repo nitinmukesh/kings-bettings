@@ -107,7 +107,6 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
             // accessToken: accessToken,
             // userId: userId
         });
-    }
-
+    };
 
 });

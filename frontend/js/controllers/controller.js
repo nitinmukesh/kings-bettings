@@ -119,10 +119,8 @@ myApp.controller('sideMenuCtrl', function ($scope, $stateParams, TemplateService
 
 });
 
-myApp.controller('availableCreditCtrl', function ($scope, $stateParams, TemplateService, $state, NavigationService, $location, $timeout, $window, $rootScope) {
+myApp.controller('availableCreditCtrl', function ($scope, TemplateService, NavigationService, $rootScope) {
     $scope.template = TemplateService;
-
-
     $rootScope.getAccountFunds = function (data) {
         NavigationService.getAccountFunds(data, function (data) {
             $scope.accountFunds = data.data.result;
