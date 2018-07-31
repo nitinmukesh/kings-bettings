@@ -57,3 +57,78 @@ myApp.controller('BetfairLoginCtrl', function ($scope, $rootScope, $stateParams,
         }
     });
 });
+myApp.controller('sideMenuCtrl', function ($scope, $stateParams, TemplateService, $state, NavigationService, $location, $timeout, $window, $rootScope) {
+    $scope.template = TemplateService;
+
+
+    $scope.next = true;
+
+    // $scope.visitedCategories = [];
+    $scope.previousState = [];
+
+    //To get games
+    $scope.getCompetitionFromBetfair = function (url, data) {
+        NavigationService.apiCallWithData(url, data, function (data) {
+            // console.log(data);
+            if (data.value) {
+                if (!_.isEmpty(data.data)) {
+                    $scope.gameData = data.data;
+                    $rootScope.getEventList($scope.gameData);
+                    $scope.home = true;
+                } else {
+                    $scope.gameData = [];
+                }
+            } else {
+                alert("Unable get games");
+            }
+        });
+    };
+    $scope.getCompetitionFromBetfair('betfair/getCompetitionFromBetfair', {});
+
+    //     });
+    // };
+
+    // //To get sub Category
+    $scope.getSubCategory = function (value, value2) {
+        $scope.getCompetitionFromBetfair('betfair/getEventsFromBetFair', {
+            ids: [value],
+            type: value2
+        });
+    };
+
+    $scope.getCompetition = function () {
+        $state.go("home");
+        // $state.reload();
+    };
+
+    $scope.getGameName = function (value) {
+        $scope.game = value;
+    };
+
+    // //Go to home menu
+    $scope.goTohome = function () {
+        $scope.subcategory = [];
+        $scope.previousState = [];
+        $scope.home = true;
+        $scope.next = false;
+        $scope.previous = false;
+        $state.go('home', {
+            notify: false
+        });
+    };
+
+});
+
+myApp.controller('availableCreditCtrl', function ($scope, $stateParams, TemplateService, $state, NavigationService, $location, $timeout, $window, $rootScope) {
+    $scope.template = TemplateService;
+
+
+    $rootScope.getAccountFunds = function (data) {
+        NavigationService.getAccountFunds(data, function (data) {
+            $scope.accountFunds = data.data.result;
+            // console.log("getAccountFunds", $scope.accountFunds);
+        });
+    };
+    $rootScope.getAccountFunds();
+
+});

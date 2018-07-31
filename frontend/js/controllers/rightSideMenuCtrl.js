@@ -75,39 +75,39 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
         });
     };
 
-    $scope.getAvailableCredit = function () {
-        var user = jStorageService.getUserId();
-        NavigationService.apiCallWithUrl(mainServer + 'api/sportsbook/getCurrentBalance', {
-                _id: user
-            },
-            function (balanceData) {
-                if (balanceData.value) {
-                    $scope.balanceData = balanceData.data;
-                }
-            });
-        NavigationService.apiCallWithUrl(mainServer + 'api/netExposure/getMemberNetExposure', {
-                _id: user
-            },
-            function (netExposureData) {
-                if (netExposureData.value) {
-                    console.log("netExposureData!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", netExposureData);
-                    $scope.netExposureData = netExposureData.data.netExposure ? (netExposureData.data.netExposure * -1) : 0;
-                    console.log("$scope.netExposureData##########################", $scope.netExposureData);
-                }
-            });
-        $scope.mySocket1 = io.sails.connect(mainServer);
-        console.log("getAvailableCredit", user);
+    // $scope.getAvailableCredit = function () {
+    //     var user = jStorageService.getUserId();
+    //     NavigationService.apiCallWithUrl(mainServer + 'api/sportsbook/getCurrentBalance', {
+    //             _id: user
+    //         },
+    //         function (balanceData) {
+    //             if (balanceData.value) {
+    //                 $scope.balanceData = balanceData.data;
+    //             }
+    //         });
+    //     NavigationService.apiCallWithUrl(mainServer + 'api/netExposure/getMemberNetExposure', {
+    //             _id: user
+    //         },
+    //         function (netExposureData) {
+    //             if (netExposureData.value) {
+    //                 console.log("netExposureData!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", netExposureData);
+    //                 $scope.netExposureData = netExposureData.data.netExposure ? (netExposureData.data.netExposure * -1) : 0;
+    //                 console.log("$scope.netExposureData##########################", $scope.netExposureData);
+    //             }
+    //         });
+    //     $scope.mySocket1 = io.sails.connect(mainServer);
+    //     console.log("getAvailableCredit", user);
 
-        $scope.mySocket1.on("Balance_" + user, function onConnect(balanceData) {
-            $scope.balanceData = balanceData;
-            $scope.$apply();
-        });
-        $scope.mySocket1.on("NetExposure_" + user, function onConnect(netExposureData) {
-            $scope.netExposureData = netExposureData.netExposure ? (netExposureData.netExposure * -1) : 0;
-            console.log("$scope.netExposureData22222222222222222222222", $scope.netExposureData);
-            $scope.$apply();
-        })
-    }
+    //     $scope.mySocket1.on("Balance_" + user, function onConnect(balanceData) {
+    //         $scope.balanceData = balanceData;
+    //         $scope.$apply();
+    //     });
+    //     $scope.mySocket1.on("NetExposure_" + user, function onConnect(netExposureData) {
+    //         $scope.netExposureData = netExposureData.netExposure ? (netExposureData.netExposure * -1) : 0;
+    //         console.log("$scope.netExposureData22222222222222222222222", $scope.netExposureData);
+    //         $scope.$apply();
+    //     })
+    // }
     // $scope.getAvailableCredit();
     //calculate profit and liability
     $scope.calculatePL = function (type) {

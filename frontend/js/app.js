@@ -35,7 +35,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
         })
         .state('detailPage', {
             cache: false,
-            url: "/event/:eventId",
+            url: "/event1/:eventId",
             templateUrl: tempateURL,
             controller: 'DetailPageCtrl'
         })
@@ -45,13 +45,13 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             controller: 'LoginCtrl'
         })
 
-        .state('cricket', {
-            url: "/cricket",
-            templateUrl: tempateURL,
-            controller: 'CricketCtrl'
-        })
+        // .state('cricket', {
+        //     url: "/cricket",
+        //     templateUrl: tempateURL,
+        //     controller: 'CricketCtrl'
+        // })
         .state('cricket-inner', {
-            url: "/cricket-inner",
+            url: "/event/:eventId",
             templateUrl: tempateURL,
             controller: 'CricketinnerCtrl'
         })

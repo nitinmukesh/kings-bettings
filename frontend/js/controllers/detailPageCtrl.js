@@ -1,34 +1,8 @@
 myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, TemplateService, BetService, $state, $uibModal, $location, NavigationService, jStorageService, $timeout, $interval) {
 
     $scope.currentGame = ($location.path()).split('/');
-    $scope.page = "content/cricket-inner/cricket-inner.html";
 
-    $scope.odds = function (data) {
-        var obj = {}
-        obj.eventId = [];
-        var id = $stateParams.eventId;
-        obj.eventId.push(id);
 
-        NavigationService.apiCallWithData('betfair/getMarketsFromBetFair', obj, function (data) {
-            // console.log(data);
-            if (data.value) {
-                if (!_.isEmpty(data.data)) {
-                    $scope.market = data.data[0];
-                    $scope.market.runners = _.sortBy($scope.market.runners, ['sortPriority']);
-                    console.log("detail page >>>>>>>>>>>>", $scope.market);
-                    $scope.home = true;
-                } else {
-                    $scope.market = [];
-                }
-            } else {
-                // alert("Unable get games");
-            }
-        });
-    };
-    $scope.odds();
-    // $interval(function () {
-    //     $scope.odds();
-    // }, 2000);
 
     var market;
     $rootScope.calculateBook = function (value) {
