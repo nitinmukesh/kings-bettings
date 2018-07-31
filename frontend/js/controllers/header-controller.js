@@ -39,7 +39,6 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
                     $scope.gameData = data.data;
-                    console.log("$scope.gameData >>>>>>>>>>>>", $scope.gameData);
                     $rootScope.getEventList($scope.gameData);
                     $scope.home = true;
                 } else {
@@ -65,7 +64,7 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
 
     $scope.getCompetition = function () {
         $state.go("home");
-        $state.reload();
+        // $state.reload();
     };
 
     $scope.getGameName = function (value) {
