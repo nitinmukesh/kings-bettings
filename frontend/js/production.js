@@ -86517,7 +86517,7 @@ myApp.controller('MybetCtrl', function ($scope, TemplateService, NavigationServi
     $scope.getAccountStatement();
 
 });
-myApp.controller('CricketCtrl', function ($scope, TemplateService, NavigationService, $rootScope, $interval, $state) {
+myApp.controller('CricketCtrl', function ($scope, TemplateService, NavigationService, $rootScope, $interval, $state, jStorageService) {
     $scope.template = TemplateService.getHTML("content/cricket/cricket.html");
     TemplateService.title = "Cricket"; //This is the Title of the Website
     TemplateService.sidemenu2 = "";
