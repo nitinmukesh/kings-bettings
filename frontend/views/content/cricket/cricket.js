@@ -31,9 +31,10 @@ myApp.controller('CricketCtrl', function ($scope, TemplateService, NavigationSer
         });
     };
 
-    // $interval(function () {
-    //     $scope.odds();
-    // }, 3000);
+    $interval.cancel(globalInteval);
+    globalInteval = $interval(function () {
+        $scope.odds();
+    }, 2000);
 
     $rootScope.getEventList = function (data) {
         console.log($state.current.name);
