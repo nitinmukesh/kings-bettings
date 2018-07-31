@@ -5072,7 +5072,7 @@ input[type="text"].ng-invalid {
 .bets .event-name {
     display: block;
     font-weight: bold;
-    margin: 6px 0 1px 10px;
+    margin: 6px 0 1px 0px;
 }
 
 .bets .market-list {
@@ -5104,7 +5104,7 @@ input[type="text"].ng-invalid {
 
 .bets .selection-name {
     display: block;
-    margin: 0 0 4px 8px;
+    margin: 0 0 4px 0px;
 }
 
 .bets .bets-list li {
@@ -5122,7 +5122,7 @@ input[type="text"].ng-invalid {
 }
 
 .bets .bet {
-    padding: 5px 10px 2px 10px;
+    // padding: 5px 10px 2px 10px;
     font-size: 10px;
     position: relative;
 }
@@ -5157,8 +5157,10 @@ input[type="text"].ng-invalid {
 
 .bets .bet-fields .placeholder-wrapper {
     float: left;
-    top: 19px;
+    top: 8px;
     margin-right: 4px;
+    width: 40px;
+    text-align: center;
 }
 
 .bets .bet-fields .info-field.small {
@@ -5255,7 +5257,7 @@ input[type="text"].ng-invalid {
 
 .bets .bet-fields .control-fields {
     float: right;
-    margin-top: 22px;
+    margin-top: 20px;
 }
 
 .bets .bet-fields .apl-btn-update {
@@ -9301,6 +9303,11 @@ div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-
     background-position: 0 -7744px;
 }
 
+.bets .bet-fields {
+    margin-bottom: 9px;
+    padding: 0 10px 10px;
+}
+
 .f32 .zw {
     background-position: 0 -7776px;
 }
@@ -9319,4 +9326,9 @@ div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-
 
 .f32 .nu {
     background-position: 0 -7904px;
+}
+
+.semi-bold{
+    font-weight: 600;
+    font-size: 12px;
 }

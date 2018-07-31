@@ -221,11 +221,11 @@
                                 </ul>
                             </uib-tab>
                             <uib-tab index="1" heading="Open Bets">
-                                <div class="bets-by-event-filter ">
+                                <!-- <div class="bets-by-event-filter ">
                                     <label>
                                         <input type="checkbox">Show bet Info
                                     </label>
-                                </div>
+                                </div> -->
 
 
 
@@ -265,39 +265,44 @@
                                                                                         <a class="event-name event-name-blue text-left">
                                                                                             <span>{{currentOrder.eventName}}</span>
                                                                                         </a>
-                                                                                        <span class="selection-name">{{currentOrder.runnerName}}</span>
-                                                                                        <div class="bet  back">
+                                                                                        <div>
+                                                                                            <div class="row">
+                                                                                                <span class="selection-name col-md-6">{{currentOrder.runnerName}}</span>
+                                                                                                <div class="placeholder col-md-6 {{currentOrder.side}}">{{currentOrder.side}}</div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="bet back">
                                                                                             <div class="bet-fields">
                                                                                                 <div class="odds-field placeholder-wrapper  activated animatable">
-                                                                                                    <div class="placeholder ">{{currentOrder.side}}</div>
+                                                                                                    <div class="semi-bold">Odds</div>
                                                                                                     <div>
                                                                                                         <div class="step-input-wrapper ">
-                                                                                                            <input class="step-input" type="text" disabled>
-                                                                                                            <div class="button-wrapper">
+                                                                                                            <div class="value">{{currentOrder.priceSize.price}}</div>
+                                                                                                            <!-- <input class="step-input" type="text" disabled> -->
+                                                                                                            <!-- <div class="button-wrapper">
                                                                                                                 <button type="button" class="step-up">
                                                                                                                     <i class="fa fa-angle-up"></i>
                                                                                                                 </button>
                                                                                                                 <button type="button" class="step-down">
                                                                                                                     <i class="fa fa-angle-down"></i>
                                                                                                                 </button>
-                                                                                                            </div>
+                                                                                                            </div> -->
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 <div class="placeholder-wrapper  activated animatable">
-                                                                                                    <div class="placeholder">Stake</div>
+                                                                                                    <div class="semi-bold">Stake</div>
                                                                                                     <div>
                                                                                                         <span class="value">{{currentOrder.priceSize.size}}</span>
                                                                                                         <!-- <input type="text" value="" disabled> -->
                                                                                                     </div>
                                                                                                 </div>
-                                                                                                <div class="placeholder-wrapper  activated animatable">
+                                                                                                <!-- <div class="placeholder-wrapper  activated animatable">
                                                                                                     <div class="placeholder">Odds</div>
                                                                                                     <div>
-                                                                                                        <span class="value">{{currentOrder.priceSize.price}}</span>
-                                                                                                        <!-- <input type="text" value="" disabled> -->
+                                                                                                        <input type="text" value="" disabled>
                                                                                                     </div>
-                                                                                                </div>
+                                                                                                </div> -->
                                                                                                 <!-- <div class="info-field">
                                                                                                     <span class="title">Profit</span>
                                                                                                     <span class="value ">225.00</span>
@@ -357,14 +362,14 @@
                                                                     </a>
                                                                     <div class="selection-name">{{currentOrder.runnerName}}</div>
                                                                     <div class="container-fluid">
-                                                                            <div class="bet-header grouped row">
-                                                                                    <!-- <span class="market-name">Match Odds</span> -->
-                                                                                    <div class="odds col-md-4 bold">Odds</div>
-                                                                                    <div class="col-md-4 bold">Stake</div>
-                                                                                    <!-- <div>Profit/Liability</div> -->
-                                                                                </div>
+                                                                        <div class="bet-header grouped row">
+                                                                            <!-- <span class="market-name">Match Odds</span> -->
+                                                                            <div class="odds col-md-4 semi-bold">Odds</div>
+                                                                            <div class="col-md-4 bold">Stake</div>
+                                                                            <!-- <div>Profit/Liability</div> -->
+                                                                        </div>
                                                                     </div>
-                                   
+
                                                                 </div>
                                                                 <li>
                                                                     <div class="selection-bet back no-info container-fluid">
