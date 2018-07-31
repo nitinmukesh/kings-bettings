@@ -75,6 +75,37 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
         });
     };
 
+
+    $scope.listCurrentOrders = function () {
+        var data = "";
+        NavigationService.getListCurrentOrders(data, function (data) {
+            $scope.currentOrders = data.data.result.currentOrders;
+        });
+    };
+    $scope.betCancelation = function (betId, marketId) {
+        var data = {}
+        data.betId = betId;
+        data.marketId = marketId;
+        var obj = {}
+        obj.array = [];
+        obj.array.push(data);
+        obj.accessToken = $.jStorage.get("accessToken");
+        NavigationService.betCancelation(obj, function (data) {
+            if (data.value) {
+                toastr.success("Bet Cancelled successfully!");
+                $scope.listCurrentOrders();
+                $rootScope.getAccountFunds();
+                $scope.removeAllBets();
+            } else {
+                toastr.error("Unable to cancel bet");
+                $scope.listCurrentOrders();
+                $rootScope.getAccountFunds();
+            }
+
+        });
+    };
+    $scope.listCurrentOrders();
+
     // $scope.getAvailableCredit = function () {
     //     var user = jStorageService.getUserId();
     //     NavigationService.apiCallWithUrl(mainServer + 'api/sportsbook/getCurrentBalance', {

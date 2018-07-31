@@ -12,12 +12,10 @@ myApp.controller('CricketinnerCtrl', function ($scope, TemplateService, Navigati
         obj.eventId.push(id);
 
         NavigationService.apiCallWithData('betfair/getMarketsFromBetFair', obj, function (data) {
-            // console.log(data);
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
                     $scope.market = data.data[0];
                     $scope.market.runners = _.sortBy($scope.market.runners, ['sortPriority']);
-                    // console.log("detail page >>>>>>>>>>>>", $scope.market);
                     $scope.home = true;
                 } else {
                     $scope.market = [];
@@ -31,7 +29,7 @@ myApp.controller('CricketinnerCtrl', function ($scope, TemplateService, Navigati
     $interval.cancel(globalInteval);
     globalInteval = $interval(function () {
         $scope.odds();
-    }, 2000);
+    }, 5000);
     $scope.placeBet = function (price, type, market, selection) {
         // var accessToken = jStorageService.getAccessToken();
         // var userId = jStorageService.getUserId();
@@ -48,23 +46,5 @@ myApp.controller('CricketinnerCtrl', function ($scope, TemplateService, Navigati
             // userId: userId
         });
     };
-    $scope.listCurrentOrders = function () {
-        var data = "";
-        NavigationService.getListCurrentOrders(data, function (data) {
-            console.log("listCurrentOrders////////////////////////////////////////////////////////", data);
-            $scope.currentOrders = data.data.result.currentOrders;
-            console.log("getAccountFunds", $scope.currentOrders);
-        });
-    };
-    $scope.betCancelation = function (betId, marketId) {
-        var data = {}
-        data.betId = betId;
-        data.marketId = marketId;
-        NavigationService.getListCurrentOrders(data, function (data) {
-            $scope.listCurrentOrders();
-            console.log("listCurrentOrders++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++", data);
-        });
-    };
-    $scope.listCurrentOrders();
 
 });

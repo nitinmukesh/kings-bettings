@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header" ng-controller="headerCtrl">
     <div class="boxed-layout-wrapper">
         <div class="logo-area">
             <div class="logo" ui-sref="home"></div>
@@ -69,10 +69,10 @@
                         <span class="" ui-sref="mybet">My Bets</span>
                     </a>
                 </li>
-                <li>
+                <li ng-click="logout()">
                     <a href="" class="qa-logout">
                         <i class="fas fa-sign-out-alt"></i>
-                        <span class="" ng-click="logout()">Logout</span>
+                        <span class="">Logout</span>
                     </a>
                 </li>
             </ul>

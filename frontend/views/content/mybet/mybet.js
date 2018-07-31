@@ -9,8 +9,6 @@ myApp.controller('MybetCtrl', function ($scope, TemplateService, NavigationServi
 
     $scope.getAccountStatement = function (data) {
         NavigationService.getAccountStatement(data, function (data) {
-            console.log("data.data.error",data.data.error);
-            console.log("data.data.error",data.data);
             if (data.data.result.accountStatement) {
                 $scope.accountStatement = data.data.result.accountStatement;
             } else if (data.data.error) {

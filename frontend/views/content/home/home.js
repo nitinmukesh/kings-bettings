@@ -7,6 +7,4 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     $scope.matches = [];
     $scope.isDraw = true;
 
-    // $scope.page = "views/content/cricket/cricket.html";
-
 });

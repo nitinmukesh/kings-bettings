@@ -119,7 +119,7 @@ myApp.controller('sideMenuCtrl', function ($scope, $stateParams, TemplateService
 
 });
 
-myApp.controller('availableCreditCtrl', function ($scope, TemplateService, NavigationService, $rootScope) {
+myApp.controller('availableCreditCtrl', function ($scope, TemplateService, NavigationService, $rootScope, $interval) {
     $scope.template = TemplateService;
     $rootScope.getAccountFunds = function (data) {
         NavigationService.getAccountFunds(data, function (data) {
@@ -128,5 +128,8 @@ myApp.controller('availableCreditCtrl', function ($scope, TemplateService, Navig
         });
     };
     $rootScope.getAccountFunds();
+    $interval(function () {
+        $rootScope.getAccountFunds();
+    }, 240000);
 
 });

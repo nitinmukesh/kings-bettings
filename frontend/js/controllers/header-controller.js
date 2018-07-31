@@ -23,5 +23,4 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
             notify: false
         });
     };
-
 });
