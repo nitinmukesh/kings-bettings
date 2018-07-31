@@ -67,12 +67,12 @@
                                                                 <ul class="market-list">
                                                                     <li ng-repeat="item in backArray track by $index">
                                                                         <a tabindex="-1" class="event-name">
-                                                                            <span date-string="event.name">{{item.event}} Demo</span>
+                                                                            <span date-string="event.name">{{item.event}}</span>
                                                                         </a>
                                                                         <ul class="bets-list">
                                                                             <li>
                                                                                 <div class="bet back">
-                                                                                    <span class="selection-name">{{item.selectionName}} Lay</span>
+                                                                                    <span class="selection-name">{{item.selectionName}}</span>
                                                                                     <div class="bet-fields">
                                                                                         <div class="odds-field placeholder-wrapper activated animatable">
                                                                                             <div class="placeholder">Odds</div>
@@ -261,7 +261,7 @@
                                                                         <ul class="selection-list">
                                                                             <li class="selection">
                                                                                 <ul class="bets-list">
-                                                                                    <li ng-repeat="currentOrder in currentOrders" ng-if="!currentOrder.status == 'EXECUTION_COMPLETE'">
+                                                                                    <li ng-repeat="currentOrder in currentOrders" ng-if="currentOrder.status == 'EXECUTABLE'">
                                                                                         <a class="event-name event-name-blue text-left">
                                                                                             <span>{{currentOrder.eventName}}</span>
                                                                                         </a>
