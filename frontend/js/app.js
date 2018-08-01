@@ -5,8 +5,6 @@ var myApp = angular.module('myApp', [
     'angulartics',
     'angulartics.google.analytics',
     'ui.bootstrap',
-    'ngAnimate',
-    'ngSanitize',
     'angularPromiseButtons',
     'toastr'
 ]);
