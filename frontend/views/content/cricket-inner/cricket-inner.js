@@ -16,7 +16,7 @@ myApp.controller('CricketinnerCtrl', function ($scope, TemplateService, Navigati
                 if (!_.isEmpty(data.data)) {
                     $scope.market = data.data[0];
                     $scope.market.runners = _.sortBy($scope.market.runners, ['sortPriority']);
-                    $scope.home = true;
+                    // $scope.home = true;
                 } else {
                     $scope.market = [];
                 }

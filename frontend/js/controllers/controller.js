@@ -42,10 +42,7 @@ myApp.controller('LinksCtrl', function ($scope, TemplateService, NavigationServi
 
 
 myApp.controller('BetfairLoginCtrl', function ($scope, $rootScope, $stateParams, TemplateService, BetService, $state, $uibModal, $location, NavigationService, jStorageService, $timeout, $interval) {
-
-
     console.log(window.location.href.split("=")[1]);
-
     NavigationService.apiCallWithData("betfair/getBetfairAccessToken", {
         code: window.location.href.split("=")[1]
     }, function (data) {
@@ -57,15 +54,32 @@ myApp.controller('BetfairLoginCtrl', function ($scope, $rootScope, $stateParams,
         }
     });
 });
+
 myApp.controller('sideMenuCtrl', function ($scope, $stateParams, TemplateService, $state, NavigationService, $location, $timeout, $window, $rootScope) {
     $scope.template = TemplateService;
 
 
     $scope.next = true;
-
     // $scope.visitedCategories = [];
     $scope.previousState = [];
 
+    $scope.getGame=function(){
+        NavigationService.apiCallWithData("BetFair/getGame", {}, function (data) {
+            if (data.value) {
+                if (!_.isEmpty(data.data)) {
+                    $scope.eventTypes = data.data.result;
+                    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",$scope.eventTypes);
+                    // $rootScope.getEventList($scope.gameData);
+                    $scope.home = true;
+                } else {
+                    $scope.eventTypes = [];
+                }
+            } else {
+                alert("Unable get games");
+            }
+        });
+    };
+    $scope.getGame();
     //To get games
     $scope.getCompetitionFromBetfair = function (url, data) {
         NavigationService.apiCallWithData(url, data, function (data) {
@@ -74,7 +88,8 @@ myApp.controller('sideMenuCtrl', function ($scope, $stateParams, TemplateService
                 if (!_.isEmpty(data.data)) {
                     $scope.gameData = data.data;
                     $rootScope.getEventList($scope.gameData);
-                    $scope.home = true;
+                    $scope.home = false;
+                    $scope.next = true;
                 } else {
                     $scope.gameData = [];
                 }
@@ -83,7 +98,13 @@ myApp.controller('sideMenuCtrl', function ($scope, $stateParams, TemplateService
             }
         });
     };
-    $scope.getCompetitionFromBetfair('betfair/getCompetitionFromBetfair', {});
+
+    $scope.getCompetitions=function(id,name){
+        $scope.getCompetitionFromBetfair('betfair/getCompetitionFromBetfair', {eventTypeId:id,name:name});
+    };
+
+
+   
 
     //     });
     // };

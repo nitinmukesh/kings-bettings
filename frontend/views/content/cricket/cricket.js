@@ -21,7 +21,7 @@ myApp.controller('CricketCtrl', function ($scope, TemplateService, NavigationSer
                     _.each($scope.marketData, function (market) {
                         market = _.sortBy(market.runners, ['sortPriority']);
                     })
-                    $scope.home = true;
+                    // $scope.home = true;
                 } else {
                     $scope.marketData = [];
                 }
@@ -58,7 +58,7 @@ myApp.controller('CricketCtrl', function ($scope, TemplateService, NavigationSer
                         $scope.homeData = data.data;
                         $scope.isHomeData = true;
                         $scope.odds();
-                        $scope.home = true;
+                        // $scope.home = true;
                     } else {
                         $scope.homeData = [];
                     }

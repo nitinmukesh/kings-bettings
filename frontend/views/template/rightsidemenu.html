@@ -261,7 +261,7 @@
                                                                         <ul class="selection-list">
                                                                             <li class="selection">
                                                                                 <ul class="bets-list">
-                                                                                    <li ng-repeat="currentOrder in currentOrders" ng-if="currentOrder.status == 'EXECUTABLE'">
+                                                                                    <li ng-repeat="currentOrder in currentOrders | orderBy:'-currentOrders.placedDate'" ng-if="currentOrder.status == 'EXECUTABLE'">
                                                                                         <a class="event-name event-name-blue text-left">
                                                                                             <span>{{currentOrder.eventName}}</span>
                                                                                         </a>
@@ -354,13 +354,17 @@
                                             <div>
                                                 <div class="matched-order">
                                                     <ul>
-                                                        <li ng-repeat="currentOrder in currentOrders" ng-if="currentOrder.status == 'EXECUTION_COMPLETE'">
+                                                        <li ng-repeat="currentOrder in currentOrders | orderBy:'-currentOrders.placedDate'" ng-if="currentOrder.status == 'EXECUTION_COMPLETE'">
                                                             <ul class="selection">
                                                                 <div class="selection-header">
                                                                     <a class="event-name">
                                                                         <span>{{currentOrder.eventName}}</span>
                                                                     </a>
-                                                                    <div class="selection-name">{{currentOrder.runnerName}}</div>
+                                                                    <div class="row">
+                                                                            <div class="selection-name col-md-4">{{currentOrder.runnerName}}     
+                                                                            </div>
+                                                                            <div class="placeholder {{currentOrder.side}} col-md-4">{{currentOrder.side}}</div>
+                                                                    </div>
                                                                     <div class="container-fluid">
                                                                         <div class="bet-header grouped row">
                                                                             <!-- <span class="market-name">Match Odds</span> -->
