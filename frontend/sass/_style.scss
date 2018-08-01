@@ -7,8 +7,12 @@
 //     src: url(../fonts/avenir/AEH.ttf);
 // }
 @font-face {
-    font-family: OpenSans;
+    font-family: 'OpenSans';
     src: url(../fonts/OpenSans-Regular.ttf);
+}
+@font-face {
+    font-family: 'CinzelBold';
+    src: url(../fonts/CinzelDecorative-Black.otf);
 }
 
 // @font-face {
@@ -3668,13 +3672,15 @@ header.header {
 }
 
 header.header .logo-area {
-    width: 178px;
+    // width: 178px;
     padding: 8px 0 8px 20px;
 }
 
 header.header .logo-area .logo {
-    background: url("../img/logo.svg") no-repeat center center;
-    background-size: contain;
+    // background: url("../img/logo.svg") no-repeat center center;
+    // background-size: contain;
+    font-size: 40px;
+    font-family: 'CinzelBold';
     width: 100%;
     height: 75px;
 }

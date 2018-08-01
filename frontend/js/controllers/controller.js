@@ -68,7 +68,7 @@ myApp.controller('sideMenuCtrl', function ($scope, $stateParams, TemplateService
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
                     $scope.eventTypes = data.data.result;
-                    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",$scope.eventTypes);
+                    // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",$scope.eventTypes);
                     // $rootScope.getEventList($scope.gameData);
                     $scope.home = true;
                 } else {
@@ -82,6 +82,7 @@ myApp.controller('sideMenuCtrl', function ($scope, $stateParams, TemplateService
     $scope.getGame();
     //To get games
     $scope.getCompetitionFromBetfair = function (url, data) {
+        $scope.getCompetitionFromBetfair('betfair/getCompetitionFromBetfair', {eventTypeId:'4'});
         NavigationService.apiCallWithData(url, data, function (data) {
             // console.log(data);
             if (data.value) {
@@ -100,6 +101,7 @@ myApp.controller('sideMenuCtrl', function ($scope, $stateParams, TemplateService
     };
 
     $scope.getCompetitions=function(id,name){
+        $scope.game=name;
         $scope.getCompetitionFromBetfair('betfair/getCompetitionFromBetfair', {eventTypeId:id,name:name});
     };
 
