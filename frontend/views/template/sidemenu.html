@@ -12,7 +12,7 @@
                             </a>
                         </li> -->
                         <li ng-repeat="game in eventTypes">
-                            <a class="menu-link sport-type-Cricket" ng-click="getCompetitions(game.eventType.id,game.eventType.name)">
+                            <a class="menu-link sport-type-Cricket" ng-if="game.eventType.name != 'Greyhound Racing' &&  game.eventType.name != 'Horse Racing'" ng-click="getCompetitions(game.eventType.id,game.eventType.name)">
                                 <!-- <a class="menu-link sport-type-Cricket" ng-click="getCategories(game._id);" ui-sref="home({game: 1, parentId: 2}) "> -->
                                 <!-- <a class="menu-link sport-type-Cricket"> -->
     
