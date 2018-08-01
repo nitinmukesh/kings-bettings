@@ -258,10 +258,10 @@
                                                                     <li class="market text-left">
                                                                         <strong class="market-name">Match Odds</strong>
                                                                         <!-- <button class="apl-btn apl-btn-link btn-cancel" type="button">Cancel</button> -->
-                                                                        <ul class="selection-list">
+                                                                        <ul class="selection-list" ng-repeat="currentOrder in currentOrders | orderBy:'-currentOrders.placedDate'" ng-if="currentOrder.status == 'EXECUTABLE'">
                                                                             <li class="selection">
                                                                                 <ul class="bets-list">
-                                                                                    <li ng-repeat="currentOrder in currentOrders | orderBy:'-currentOrders.placedDate'" ng-if="currentOrder.status == 'EXECUTABLE'">
+                                                                                    <li>
                                                                                         <a class="event-name event-name-blue text-left">
                                                                                             <span>{{currentOrder.eventName}}</span>
                                                                                         </a>
