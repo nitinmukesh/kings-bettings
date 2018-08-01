@@ -355,7 +355,7 @@
                                                 <div class="matched-order">
                                                     <ul>
                                                         <li ng-repeat="currentOrder in currentOrders | orderBy:'-currentOrders.placedDate'" ng-if="currentOrder.status == 'EXECUTION_COMPLETE'">
-                                                            <ul class="selection">
+                                                            <ul class="selection {{currentOrder.side}}">
                                                                 <div class="selection-header">
                                                                     <a class="event-name">
                                                                         <span>{{currentOrder.eventName}}</span>

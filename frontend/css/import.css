@@ -7702,6 +7702,10 @@ header {
   background: #ddd;
   margin-bottom: 4px;
   padding: 5px 10px; }
+  .selection.BACK {
+    background: #f9c9d4; }
+  .selection.LAY {
+    background: #a7d8fd; }
 
 .selection-header .event-name {
   font-weight: bold; }
@@ -10742,10 +10746,11 @@ header.header .logo-area {
   padding: 8px 0 8px 20px; }
 
 header.header .logo-area .logo {
-  font-size: 40px;
+  font-size: 42px;
   font-family: 'CinzelBold';
   width: 100%;
-  height: 75px; }
+  height: 75px;
+  line-height: 70px; }
 
 header.header .wrap-dd-menu .dropdown li a {
   color: #000; }
@@ -10916,7 +10921,7 @@ aside.menu > nav.tree-menu > ul > li > ul > li {
 .left-menu-inner .menu-lvl-0 .menu-link,
 .left-menu-inner .menu-lvl-0 .favourites-link {
   position: relative;
-  height: 60px;
+  height: 45px;
   cursor: pointer;
   transition: all 0.1s ease-out; }
 
@@ -10943,7 +10948,7 @@ aside.menu > nav.tree-menu > ul > li > ul > li {
   position: relative;
   display: inline;
   float: none;
-  top: 11px;
+  top: 6px;
   font-weight: bold; }
 
 .left-menu-inner .menu-lvl-0 .sport-icon {

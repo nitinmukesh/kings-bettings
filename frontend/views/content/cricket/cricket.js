@@ -36,7 +36,8 @@ myApp.controller('CricketCtrl', function ($scope, TemplateService, NavigationSer
         $scope.odds();
     }, 5000);
 
-    $rootScope.getEventList = function (data) {
+    $rootScope.getEventList = function (data,name) {
+        $scope.game=name;
         console.log($state.current.name);
         if ($state.current.name == "home") {
             console.log("RooTScopeCalled");

@@ -577,6 +577,12 @@ header {
     background: #ddd;
     margin-bottom: 4px;
     padding: 5px 10px;
+    &.BACK{
+        background: #f9c9d4;
+    }
+    &.LAY{
+        background: #a7d8fd;
+    }
 }
 
 .selection-header .event-name {

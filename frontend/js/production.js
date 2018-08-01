@@ -82393,12 +82393,39 @@ myApp.controller('BetfairLoginCtrl', function ($scope, $rootScope, $stateParams,
 myApp.controller('sideMenuCtrl', function ($scope, $stateParams, TemplateService, $state, NavigationService, $location, $timeout, $window, $rootScope) {
     $scope.template = TemplateService;
 
-
-    $scope.next = true;
+    $scope.home = true;
+    $scope.next = false;
     // $scope.visitedCategories = [];
     $scope.previousState = [];
+    $scope.getCompetitionFromBetfair = function (url, data) {
+        NavigationService.apiCallWithData(url, data, function (data) {
+            // console.log(data);
+            if (data.value) {
+                if (!_.isEmpty(data.data)) {
+                    $scope.gameData = data.data;
+                    $rootScope.getEventList($scope.gameData,$scope.game);
+                    if($scope.fromGame){
+                        $scope.home = true;
+                        $scope.next = false;
+                        $scope.fromGame =false;
+                    }else{
+                        $scope.home = false;
+                        $scope.next = true;
+                    }
+                   
+                } else {
+                    $scope.gameData = [];
+                }
+            } else {
+                alert("Unable get games");
+            }
+        });
+    };
 
     $scope.getGame=function(){
+        $scope.game="Cricket";
+        $scope.getCompetitionFromBetfair('betfair/getCompetitionFromBetfair', {eventTypeId:4,name: $scope.game});
+        $scope.fromGame = true;
         NavigationService.apiCallWithData("BetFair/getGame", {}, function (data) {
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
@@ -82416,24 +82443,7 @@ myApp.controller('sideMenuCtrl', function ($scope, $stateParams, TemplateService
     };
     $scope.getGame();
     //To get games
-    $scope.getCompetitionFromBetfair = function (url, data) {
-        $scope.getCompetitionFromBetfair('betfair/getCompetitionFromBetfair', {eventTypeId:'4'});
-        NavigationService.apiCallWithData(url, data, function (data) {
-            // console.log(data);
-            if (data.value) {
-                if (!_.isEmpty(data.data)) {
-                    $scope.gameData = data.data;
-                    $rootScope.getEventList($scope.gameData);
-                    $scope.home = false;
-                    $scope.next = true;
-                } else {
-                    $scope.gameData = [];
-                }
-            } else {
-                alert("Unable get games");
-            }
-        });
-    };
+   
 
     $scope.getCompetitions=function(id,name){
         $scope.game=name;
@@ -82562,7 +82572,8 @@ myApp.controller('CricketCtrl', function ($scope, TemplateService, NavigationSer
         $scope.odds();
     }, 5000);
 
-    $rootScope.getEventList = function (data) {
+    $rootScope.getEventList = function (data,name) {
+        $scope.game=name;
         console.log($state.current.name);
         if ($state.current.name == "home") {
             console.log("RooTScopeCalled");
