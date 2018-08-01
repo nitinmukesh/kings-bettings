@@ -577,10 +577,10 @@ header {
     background: #ddd;
     margin-bottom: 4px;
     padding: 5px 10px;
-    &.BACK{
+    &.LAY{
         background: #f9c9d4;
     }
-    &.LAY{
+    &.BACK{
         background: #a7d8fd;
     }
 }
@@ -598,11 +598,11 @@ header {
     font-weight: 600;
 }
 
-.placeholder.LAY {
+.placeholder.BACK {
     color: #009688;
     font-weight: 600;
 }
-.placeholder.BACK {
+.placeholder.LAY {
     color: #F44336;
     font-weight: 600;
 }

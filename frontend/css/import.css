@@ -7702,9 +7702,9 @@ header {
   background: #ddd;
   margin-bottom: 4px;
   padding: 5px 10px; }
-  .selection.BACK {
-    background: #f9c9d4; }
   .selection.LAY {
+    background: #f9c9d4; }
+  .selection.BACK {
     background: #a7d8fd; }
 
 .selection-header .event-name {
@@ -7717,11 +7717,11 @@ header {
 .selection-name {
   font-weight: 600; }
 
-.placeholder.LAY {
+.placeholder.BACK {
   color: #009688;
   font-weight: 600; }
 
-.placeholder.BACK {
+.placeholder.LAY {
   color: #F44336;
   font-weight: 600; }
 
