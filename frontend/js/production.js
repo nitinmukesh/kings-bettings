@@ -82707,6 +82707,12 @@ myApp.controller('LoginCtrl', function ($scope, toastr, TemplateService, Navigat
         // toastr.success("Logged in successfully!");
         // $state.go('home');
     };
+
+    $scope.accessToken = $.jStorage.get("accessToken");
+    console.log($scope.accessToken);
+    if ($scope.accessToken) {
+        $state.go("home");
+    };
 });
 myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, $state, NavigationService, $location, $timeout, $window, $rootScope) {
     $scope.template = TemplateService;
