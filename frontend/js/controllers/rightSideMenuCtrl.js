@@ -179,15 +179,15 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
                 // console.log("data", data);
                 if (data.value) {
                     toastr.success("Bet Placed successfully!");
+                    $scope.listCurrentOrders();
                     $rootScope.getAccountFunds();
                     $scope.betconfirm.close();
                     $scope.removeAllBets();
-                    $scope.listCurrentOrders();
                 } else {
                     toastr.error("Error while placing Bet");
                     $scope.betconfirm.close();
-                    $rootScope.getAccountFunds();
                     $scope.listCurrentOrders();
+                    $rootScope.getAccountFunds();
                 }
                 // callback();
             });
