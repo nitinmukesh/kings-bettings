@@ -183,11 +183,13 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
                     $rootScope.getAccountFunds();
                     $scope.betconfirm.close();
                     $scope.removeAllBets();
+                    $scope.$apply();
                 } else {
                     toastr.error("Error while placing Bet");
                     $scope.betconfirm.close();
                     $scope.listCurrentOrders();
                     $rootScope.getAccountFunds();
+                    $scope.$apply();
                 }
                 // callback();
             });
