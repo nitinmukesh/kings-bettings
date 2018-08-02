@@ -82949,10 +82949,12 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
                     $rootScope.getAccountFunds();
                     $scope.betconfirm.close();
                     $scope.removeAllBets();
+                    $scope.listCurrentOrders();
                 } else {
                     toastr.error("Error while placing Bet");
                     $scope.betconfirm.close();
                     $rootScope.getAccountFunds();
+                    $scope.listCurrentOrders();
                 }
                 // callback();
             });
