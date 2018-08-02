@@ -82739,6 +82739,12 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
             notify: false
         });
     };
+
+    $scope.accessToken = $.jStorage.get("accessToken");
+    // console.log($scope.accessToken);
+    if (!$scope.accessToken) {
+        $state.go("login");
+    };
 });
 myApp.controller('languageCtrl', function ($scope, TemplateService, $translate, $rootScope) {
     $scope.changeLanguage = function () {
