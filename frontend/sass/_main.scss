@@ -9,8 +9,9 @@ $black: #000 !default;
 $red: #ff3f39 !default;
 $orange: #f0ad4e !default;
 $yellow: #ffd500 !default;
-$green: #1d7f1e !default;
-$blue: #084e83 !default;
+$green: #58c370 !default;
+$blue: #00335e !default;
+$light-blue: #084e83 !default;
 $teal: #5bc0de !default;
 $pink: #ff5b77 !default;
 $purple: #601c78 !default;
@@ -18,7 +19,7 @@ $purple: #601c78 !default;
 $navy-blue:#002346;
 $gray-dark: #1b2035 !default;
 $gray: #0e1118 !default;
-$gray-light: #2a3143 !default;
+$gray-light: #828282 !default;
 $gray-lighter: #eceeef !default;
 $gray-lightest: #f7f7f9 !default;
 // Reassign color vars to semantic color scheme
@@ -149,6 +150,11 @@ $dropdown-box-shadow: 0 .5rem 1rem rgba($black, .175) !default;
 @font-face {
     src: url("../fonts/Roboto/Roboto-Medium.ttf");
     font-family: 'Roboto-Medium';
+}
+
+@font-face {
+    src: url("../fonts/Cinzel_Decorative/CinzelDecorative-Black.ttf");
+    font-family: 'CinzelBold';
 }
 
 body {
@@ -300,15 +306,17 @@ header {
 /*--------------------------rightside menu----------------*/
 
 .nav-pills .nav-link {
-    padding: 8px 20px;
-    color: $blue; // color: #d0e9fc;
-    background-color: #d0e9fc;
+    // padding: 8px 20px;
+    color: $gray-dark;
+    font-family: 'Roboto-Medium' // color: #d0e9fc;
+    // background-color: #d0e9fc;
 }
 
 .nav-pills .nav-link.active,
     {
-    background-color: $white;
-    color: $blue;
+    border-bottom: 2px solid $green;
+    color: $green;
+    background-color: transparent;
 }
 
 .nav-pills .nav-link {
@@ -317,7 +325,7 @@ header {
 
 .matchbets {
     .card-header {
-        background: $purple;
+        background: $blue;
     }
     .card-body {
         padding: 0.25rem;
@@ -344,10 +352,10 @@ header {
     }
     .icon-right {
         float: right;
-        background: $white;
-        color: $navy-blue;
-        font-size: 14px;
-        padding: 3px;
+        background: #fff;
+        color: #002346;
+        font-size: 16px;
+        width: 2rem;
         margin-top: 2px;
     }
 }

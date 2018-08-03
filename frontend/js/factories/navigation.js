@@ -2,12 +2,12 @@
 // adminurl = adminurl + "/api/";
 // adminUUU = "https://rates.kingsplay.co/"; //socket betfair
 // sportsSocket = "https://sportsbookb.kingsplay.co/";
-adminUUU = "http://192.168.1.125:1338/"; //socket betfair
-sportsSocket = "http://192.168.1.125:92/";
+adminUUU = "http://192.168.1.121:1338/"; //socket betfair
+sportsSocket = "http://192.168.1.121:1337/";
 // sportsSocket = "http://192.168.2.30:1337/";
 // sportsSocket = "http://192.168.43.8:1337/";
 adminurl = sportsSocket + "api/"; //sports book
-mainServer = "http://192.168.1.125:1337/"; //main server
+mainServer = "http://192.168.2.31:1337/"; //main server
 // mainServer = "http://kingplay.online/"; //main server
 // mainServer = "http://192.168.2.31:1337/"; //main server
 // adminurl = "http://192.168.1.107:1337/api/"

@@ -56,17 +56,17 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
         })
         .state('account-statement', {
             url: "/account-statement",
-            templateUrl: accountTempateURL,
+            templateUrl: tempateURL,
             controller: 'AccountStatementCtrl'
         })
         .state('transfer-statement', {
             url: "/transfer-statement",
-            templateUrl: accountTempateURL,
+            templateUrl: tempateURL,
             controller: 'TransferstatementCtrl'
         })
         .state('change-password', {
             url: "/change-password",
-            templateUrl: accountTempateURL,
+            templateUrl: tempateURL,
             controller: 'ChangepasswordCtrl'
         })
         .state('login', {
@@ -76,12 +76,12 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
         })
         .state('profit-loss', {
             url: "/profit-loss",
-            templateUrl: accountTempateURL,
+            templateUrl: tempateURL,
             controller: 'ProfitlossCtrl'
         })
         .state('mybet', {
             url: "/mybet",
-            templateUrl: accountTempateURL,
+            templateUrl: tempateURL,
             controller: 'MybetCtrl'
         })
         .state('cricket', {
