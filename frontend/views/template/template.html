@@ -1,10 +1,10 @@
 <div ng-include="template.header" class="template header">
 </div>
-<div class="container-fluid">
-    <div class="row no-gutters">
-        <div ng-include="template.sidemenu" class="col-sm-2 template sidemenu no-gutters"></div>
-        <div ng-include="template.content" class="col-sm-7 template content pr-4"></div>
-        <div ng-include="template.rightsidemenu" class=" col-sm-3 template rightsidemenu no-gutters"></div>
-    </div>
+
+<div class="clearfix">
+    <div ng-include="template.sidemenu" class=" template sidemenu"></div>
+    <div ng-include="template.content" class="template content container-fluid"></div>
+    <div ng-include="template.rightsidemenu" class="template rightsidemenu"></div>
 </div>
+
 <div ng-include="template.footer" class="template footer"></div>

@@ -6,12 +6,29 @@
             </span>
         </div>
         <div class="logo-area">
-            <div class="logo" ui-sref="home"></div>
+            <div class="logo" ui-sref="home" href="#!/home">
+                Kings Bet
+            </div>
         </div>
-
         <div class="clock navbar">
             <time timestamp="timestamp" type="simpleDate" class="ng-binding ng-isolate-scope">May 10, 2018</time>
             <time timestamp="timestamp" type="time" class="time ng-binding ng-isolate-scope">18:12:57</time>
+            <div class="search-container">
+                <div class="apl-form search">
+                    <div class="placeholder-wrapper ng-isolate-scope animatable">
+                        <div>
+                            <div class="apl-form-icon ">
+                                <i class="fas fa-search apl-icon-search"></i>
+                                <input type="text" class="apl-form-large -qa-search-bar" placeholder="Search Events">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clock clock-bg navbar">
+            <time timestamp="timestamp" type="simpleDate" class=" ng-isolate-scope">May 10, 2018</time>
+            <time timestamp="timestamp" type="time" class="time  ng-isolate-scope">18:12:57</time>
             <div class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
@@ -27,10 +44,10 @@
 
         <div class="infobar">
             <ul class="linkbar navbar">
-                <li class="search-container">
+                <!-- <li class="search-container">
                     <div class="apl-form search">
                         <div class="placeholder-wrapper ng-isolate-scope animatable">
-                            <div class="placeholder ng-binding">Search Events</div>
+                            <div class="placeholder ">Search Events</div>
                             <div>
                                 <div class="apl-form-icon ">
                                     <i class="fas fa-search apl-icon-search"></i>
@@ -39,21 +56,20 @@
                             </div>
                         </div>
                     </div>
-
                     <ul ng-show="searchText.name.length > 2 &amp;&amp; isSearchDropdownVisible" class="-qa-search-results ng-hide">
                         <li ng-if="searchResult.length === 0" class="-qa-item-name search-link ">
-                            <p class="ng-binding">No events found matching ''</p>
+                            <p class="">No events found matching ''</p>
                         </li>
                     </ul>
-                </li>
+                </li> -->
                 <li>
-                    <p class="ng-binding">Logged in as hk0002</p>
-                    <p class="last-login ng-binding">Last logged in:
-                        <time timestamp="userData.user.lastLoginTime" type="dateSimpleTime" class="ng-binding ng-isolate-scope">10/05/2018 13:24</time>
+                    <p class="text-right">Logged in as hk0002</p>
+                    <p class="last-login text-right">Last logged in:
+                        <time timestamp="userData.user.lastLoginTime" type="dateSimpleTime" class=" ng-isolate-scope">10/05/2018 13:24</time>
                     </p>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    <a class="nav-link dropdown-toggle account-btn" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                         <i class="fas fa-cog"></i>
                         <span class="">Account</span>

@@ -1,4 +1,3 @@
-@import url(../../bower_components/angular-bootstrap/ui-bootstrap-csp.css);
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700");
 body.compensate-for-scrollbar {
   overflow: hidden; }
@@ -7349,7 +7348,7 @@ body {
   height: 100vh; }
 
 .content {
-  min-height: 75.5vh; }
+  min-height: calc(100vh - 153px); }
 
 img.loading {
   text-align: center;
@@ -7378,7 +7377,7 @@ a,
 
 footer {
   font-size: 12px;
-  background-color: #000a40;
+  background-color: #141414;
   padding: 10px 0; }
   footer p {
     margin: 0; }
@@ -7662,6 +7661,16 @@ header {
 .positive {
   color: #2aa033;
   font-weight: bold; }
+
+.version {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  font-size: 14px; }
+  .version ul li label {
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-right: 10px; }
 
 /*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css */
 @font-face {
@@ -10688,7 +10697,7 @@ header.header {
 
 header.header .logo-area {
   width: 178px;
-  padding: 15px 0 0 20px; }
+  padding: 8px 0 8px 20px; }
 
 header.header .logo-area .logo {
   background: url("../img/logo.svg") no-repeat center center;
@@ -10719,7 +10728,8 @@ header.header .infobar > .linkbar {
 header.header .infobar > .linkbar > li {
   display: inline-table;
   vertical-align: middle;
-  padding-left: 20px; }
+  padding-left: 20px;
+  font-size: 16px; }
 
 header.header .infobar > .linkbar > li p {
   margin: 0; }
@@ -10777,7 +10787,7 @@ header.header .infobar > .linkbar .header-link {
 
 footer {
   text-align: center;
-  background: #000a40;
+  background: #141414;
   color: #fff;
   line-height: 20px;
   padding: 20px;

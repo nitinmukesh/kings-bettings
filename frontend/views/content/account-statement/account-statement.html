@@ -1,5 +1,5 @@
 <div class="available-bal">
-    <accountbalance></accountbalance>
+    <!-- <accountbalance></accountbalance> -->
     <div class="account-statement ">
         <h1 class="">Account Statement</h1>
 
@@ -7,16 +7,16 @@
         <div class="apl-report-filter ng-isolate-scope">
             <datepicker date-format="dd/MM/yyyy" selector="apl-input-datepicker-from" class="ng-isolate-scope">
                 <span class="label-title">From</span>
-                <input class="apl-input-datepicker-from ng-valid ng-not-empty ng-touched ng-dirty ng-valid-parse" type="text" readonly="">
+                <input class="apl-input-datepicker-from" type="text">
             </datepicker>
 
             <datepicker date-format="dd/MM/yyyy" selector="apl-input-datepicker-to" class="ng-isolate-scope">
                 <span class="label-title">To</span>
-                <input class="apl-input-datepicker-to ng-pristine ng-untouched ng-valid ng-not-empty" type="text" readonly="">
+                <input class="apl-input-datepicker-to" type="text">
             </datepicker>
 
             <button id="submit" class="apl-btn apl-btn-primary" type="submit">
-                <i class="apl-icon-search"></i> Search
+                <i class="fas fa-search apl-icon-search"></i> Search
             </button>
         </div>
 
@@ -71,7 +71,7 @@
         <div class="">
             <div class="breakdown-breadcrumb ">
                 <a href="" class="">Account Statement</a> &gt;
-                <span date-string="breakdown.eventName" timestamp="breakdown.marketTime" class="">Rajasthan Royals v Kings XI Punjab</span> - Completed Match
+                <span date-string="breakdown.eventName" timestamp="breakdown.marketTime" class="">Rajasthan Royals v Kings XI Punjab</span>                - Completed Match
             </div>
 
             <div class="breakdown-listing">

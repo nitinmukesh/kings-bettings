@@ -22,6 +22,7 @@ module.exports = function (grunt) {
                 _: require("lodash"),
                 jsFiles: jsFiles,
                 adminurl: env.realHost,
+                adminUUU: env.realHost,
             }
         }
     });

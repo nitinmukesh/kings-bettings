@@ -6,18 +6,20 @@
 // Start with assigning color names to specific hex values.
 $white: #fff !default;
 $black: #000 !default;
-$red: #d9534f !default;
+$red: #ff3f39 !default;
 $orange: #f0ad4e !default;
 $yellow: #ffd500 !default;
-$green: #1d7f1e !default;
-$blue: #084e83 !default;
+$green: #58c370 !default;
+$blue: #00335e !default;
+$light-blue: #084e83 !default;
 $teal: #5bc0de !default;
 $pink: #ff5b77 !default;
 $purple: #601c78 !default;
 // Create grayscale
-$gray-dark: #292b2c !default;
-$gray: #464a4c !default;
-$gray-light: #636c72 !default;
+$navy-blue:#002346;
+$gray-dark: #1b2035 !default;
+$gray: #0e1118 !default;
+$gray-light: #828282 !default;
 $gray-lighter: #eceeef !default;
 $gray-lightest: #f7f7f9 !default;
 // Reassign color vars to semantic color scheme
@@ -135,18 +137,35 @@ $dropdown-box-shadow: 0 .5rem 1rem rgba($black, .175) !default;
 // @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "../../bower_components/bootstrap/scss/bootstrap";
 @import "other/font-fix";
+@font-face {
+    src: url("../fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf");
+    font-family: 'Roboto-Condensed-Regular';
+}
+
+@font-face {
+    src: url("../fonts/Roboto/Roboto-Regular.ttf");
+    font-family: 'Roboto-Regular';
+}
+
+@font-face {
+    src: url("../fonts/Roboto/Roboto-Medium.ttf");
+    font-family: 'Roboto-Medium';
+}
+
+@font-face {
+    src: url("../fonts/Cinzel_Decorative/CinzelDecorative-Black.ttf");
+    font-family: 'CinzelBold';
+}
+
 body {
     background: url('../img/bg.png') no-repeat;
     background-size: 60%;
     background-position: center center;
+    font-family: 'Roboto-Regular';
 }
 
 .height-100 {
     height: 100vh;
-}
-
-.content {
-    min-height: 75.5vh;
 }
 
 img.loading {
@@ -182,7 +201,7 @@ a,
 
 footer {
     font-size: 12px;
-    background-color: #000a40;
+    background-color: #141414;
     padding: 10px 0;
     p {
         margin: 0;
@@ -287,15 +306,17 @@ header {
 /*--------------------------rightside menu----------------*/
 
 .nav-pills .nav-link {
-    padding: 8px 20px;
-    color: $blue; // color: #d0e9fc;
-    background-color: #d0e9fc;
+    // padding: 8px 20px;
+    color: $gray-dark;
+    font-family: 'Roboto-Medium' // color: #d0e9fc;
+    // background-color: #d0e9fc;
 }
 
 .nav-pills .nav-link.active,
     {
-    background-color: $white;
-    color: $blue;
+    border-bottom: 2px solid $green;
+    color: $green;
+    background-color: transparent;
 }
 
 .nav-pills .nav-link {
@@ -304,7 +325,7 @@ header {
 
 .matchbets {
     .card-header {
-        background: $purple;
+        background: $blue;
     }
     .card-body {
         padding: 0.25rem;
@@ -324,17 +345,17 @@ header {
 
 .avilable-credit {
     .card {
-        border: 1px solid $green;
+        border: 1px solid $navy-blue;
     }
     .card-header {
-        background: $green;
+        background: $navy-blue;
     }
     .icon-right {
         float: right;
-        background: $white;
-        color: $green;
-        font-size: 14px;
-        padding: 3px;
+        background: #fff;
+        color: #002346;
+        font-size: 16px;
+        width: 2rem;
         margin-top: 2px;
     }
 }
@@ -683,31 +704,39 @@ header {
     left: -150px !important;
 }
 
-//right side menu
-.right-side-menu {
-    width: 300px;
-    position: fixed;
-    right: 0;
-    top: 103px;
-}
-
+// //right side menu
+// .right-side-menu {
+//     width: 300px;
+//     position: fixed;
+//     right: 0;
+//     top: 103px;
+// }
+// // .main-content {
+// //     padding: 108px 300px 0px 197px;
+// // }
+// // .main-content.main-content.padd {
+// //     padding: 108px 300px 0px 47px !important;
+// // }
 // .main-content {
-//     padding: 108px 300px 0px 197px;
+//     // float: left;
+//     padding: 50px 10px 110px 185px;
+//     width: 100%;
+//     -webkit-transition: all .4s ease 0s;
+//     -moz-transition: all .4s ease 0s;
+//     -ms-transition: all .4s ease 0s;
+//     -o-transition: all .4s ease 0s;
+//     transition: all .4s ease 0s;
 // }
-// .main-content.main-content.padd {
-//     padding: 108px 300px 0px 47px !important;
+// .main-content.wide-content {
+//     padding-left: 26px;
+// .version {
+//     position: absolute;
+//     top: 30px;
+//     left: 30px;
+//     font-size: 14px;
+//     ul li label {
+//         font-weight: 600;
+//         letter-spacing: 1px;
+//         margin-right: 10px;
+//     }
 // }
-.main-content {
-    // float: left;
-    padding: 50px 10px 110px 185px;
-    width: 100%;
-    -webkit-transition: all .4s ease 0s;
-    -moz-transition: all .4s ease 0s;
-    -ms-transition: all .4s ease 0s;
-    -o-transition: all .4s ease 0s;
-    transition: all .4s ease 0s;
-}
-
-.main-content.wide-content {
-    padding-left: 26px;
-}

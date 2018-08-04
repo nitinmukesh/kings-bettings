@@ -13,6 +13,12 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         $.jStorage.flush();
     };
 
+
+    $scope.logout = function () {
+        $.jStorage.flush();
+        $state.go('login');
+    };
+
     $scope.home = true;
 
     // $scope.visitedCategories = [];
@@ -44,12 +50,7 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
 
     // //To get sub Category
     $scope.getSubCategory = function (value) {
-        $state.go('homeInside', {
-            game: $scope.game,
-            parentId: $scope.parentId
-        }, {
-            notify: false
-        });
+
 
         //get match odds on click
         // $scope.getMatchOdds({
@@ -58,6 +59,12 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         // });
 
         if (!_.isEmpty(value)) {
+            $state.go('homeInside', {
+                game: $scope.game,
+                parentId: $scope.parentId
+            }, {
+                notify: false
+            });
             if (!$scope.next) {
                 $scope.next = true;
                 $scope.previous = false;
@@ -73,6 +80,11 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
             }
 
             $scope.subcategory = value;
+        } else {
+            $state.go("detailPage", {
+                game: $scope.game,
+                parentId: $scope.parentId
+            });
         }
     };
 

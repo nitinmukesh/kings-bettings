@@ -12,12 +12,13 @@ var myApp = angular.module('myApp', [
 ]);
 
 // Define all the routes below
-myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
+myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, $qProvider) {
     var tempateURL = "views/template/template.html"; //Default Template URL
     var accountTempateURL = "views/template/account-template.html";
     var loginTempateURL = "views/template/login-template.html"
     //Default Template URL
     // for http request with session
+    $qProvider.errorOnUnhandledRejections(false);
     $httpProvider.defaults.withCredentials = true;
     $stateProvider
         .state('home', {
@@ -55,32 +56,32 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
         })
         .state('account-statement', {
             url: "/account-statement",
-            templateUrl: accountTempateURL,
+            templateUrl: tempateURL,
             controller: 'AccountStatementCtrl'
         })
         .state('transfer-statement', {
             url: "/transfer-statement",
-            templateUrl: accountTempateURL,
+            templateUrl: tempateURL,
             controller: 'TransferstatementCtrl'
         })
         .state('change-password', {
             url: "/change-password",
-            templateUrl: accountTempateURL,
+            templateUrl: tempateURL,
             controller: 'ChangepasswordCtrl'
         })
         .state('login', {
-            url: "/login",
+            url: "/login/1",
             templateUrl: loginTempateURL,
             controller: 'LoginCtrl'
         })
         .state('profit-loss', {
             url: "/profit-loss",
-            templateUrl: accountTempateURL,
+            templateUrl: tempateURL,
             controller: 'ProfitlossCtrl'
         })
         .state('mybet', {
             url: "/mybet",
-            templateUrl: accountTempateURL,
+            templateUrl: tempateURL,
             controller: 'MybetCtrl'
         })
         .state('cricket', {

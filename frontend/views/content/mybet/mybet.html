@@ -1,9 +1,9 @@
 <div class="available-bal">
-    <accountbalance></accountbalance>
+    <!-- <accountbalance></accountbalance> -->
     <div class="order-listing common-heading">
         <h1 class="ng-binding">My Bets</h1>
         <div class="row">
-            <div class="column">
+            <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="selection">
                     <div class="item ng-binding selected" ng-class="?'selected':''" ng-click="vm.selectCurrent()">Current</div>
                     <div class="item ng-binding" ng-class="?'selected':''" ng-click="vm.selectPast()">Past</div>
@@ -13,17 +13,16 @@
                     <div class="item ng-binding" ng-class="!vm.isMatched?'selected':''" ng-click="vm.selectUnmatched()">Unmatched</div>
                 </div>
             </div>
-            <div class="column">
+            <div class="col-md-12 col-sm-12 col-xs-12">
                 <div>
                     <div class="apl-report-filter ng-isolate-scope">
                         <datepicker date-format="dd/MM/yyyy" selector="apl-input-datepicker-from" class="ng-isolate-scope">
                             <span class="label-title">From</span>
-                            <input ng-model="filters.from" class="apl-input-datepicker-from ng-pristine ng-untouched ng-valid ng-not-empty" type="text"
-                                readonly="">
+                            <input ng-model="filters.from" class="apl-input-datepicker-from" type="text">
                         </datepicker>
                         <datepicker date-format="dd/MM/yyyy" selector="apl-input-datepicker-to" class="ng-isolate-scope">
                             <span class="label-title">To</span>
-                            <input ng-model="filters.to" class="apl-input-datepicker-to ng-pristine ng-untouched ng-valid ng-not-empty" type="text" readonly="">
+                            <input ng-model="filters.to" class="apl-input-datepicker-to" type="text">
                         </datepicker>
                         <button id="submit" class="apl-btn apl-btn-primary" type="submit">
                             <i class="fas fa-search"></i> Search
@@ -71,8 +70,8 @@
                         <span ng-switch="" on="order.marketBettingType">
                             <span ng-switch-default="" class="">
                                 <span class="order-selection ng-binding">No</span>
-                                <span class="order-market ng-binding">Tied Match</span>
-                            </span>
+                        <span class="order-market ng-binding">Tied Match</span>
+                        </span>
                         </span>
 
                         <span class="order-betId split ng-binding">
@@ -128,8 +127,8 @@
                         <span ng-switch="" on="order.marketBettingType">
                             <span ng-switch-default="" class="">
                                 <span class="order-selection ng-binding">No</span>
-                                <span class="order-market ng-binding">Tied Match</span>
-                            </span>
+                        <span class="order-market ng-binding">Tied Match</span>
+                        </span>
                         </span>
 
                         <span class="order-betId split ng-binding">
@@ -183,8 +182,8 @@
                         <span ng-switch="" on="order.marketBettingType">
                             <span ng-switch-default="" class="">
                                 <span class="order-selection ng-binding">No</span>
-                                <span class="order-market ng-binding">Tied Match</span>
-                            </span>
+                        <span class="order-market ng-binding">Tied Match</span>
+                        </span>
                         </span>
                         <span class="order-betId split ng-binding">
                             <label class="ng-binding">Bet ID</label>1805061652015249</span>
@@ -239,8 +238,8 @@
                         <span ng-switch="" on="order.marketBettingType">
                             <span ng-switch-default="" class="">
                                 <span class="order-selection ng-binding">No</span>
-                                <span class="order-market ng-binding">Tied Match</span>
-                            </span>
+                        <span class="order-market ng-binding">Tied Match</span>
+                        </span>
                         </span>
 
                         <span class="order-betId split ng-binding">

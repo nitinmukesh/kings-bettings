@@ -14,7 +14,7 @@
     <meta name="googlebot" content="noindex">
     <link rel="shortcut icon" href="img/favicon.ico" />
 
-    <title ng-bind="'Node Framework | '+template.title"></title>
+    <title ng-bind="'Sports Book | '+template.title"></title>
 
     <!--[if IE]> <script src="https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script> <![endif]-->
     <!--[if IE]> <script src="https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script> <![endif]-->
@@ -27,6 +27,7 @@
     <link rel="stylesheet" type="text/css" href="css/production.css" />
 
     <script>
+        var adminUUU = "<%= ((typeof adminurl) == "undefined") ? "" : adminurl  %>";
         var adminurl = "<%= ((typeof adminurl) == "undefined ") ? "" : adminurl  %>";
         var isproduction = true;
         var chintan = function (content) {
@@ -35,7 +36,7 @@
             console.log("%c ---------------------------------------", 'background: #222; color: #bada55');
         };
     </script>
-    <script src="js/production.min.js"></script>
+    <script src="js/production.js"></script>
 </body>
 
 </html>
