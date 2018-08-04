@@ -158,3 +158,19 @@ myApp.directive('img', function ($compile, $parse) {
             }
         };
     });
+myApp.directive('menuOptions', function ($document) {
+    return {
+        restrict: 'C',
+        replace: false,
+        link: function (scope, element, attr) {
+            var $element = $(element);
+            $(element).on("click", function () {
+                $(".left-pane.opened-menu").toggleClass('side-header');
+                $(".main-content").toggleClass('wide-content');
+                $("footer").toggleClass('wide-footer');
+                $(".menu-options").toggleClass('active');
+            });
+
+        }
+    };
+});

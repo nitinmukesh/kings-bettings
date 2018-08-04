@@ -1,5 +1,10 @@
-<header class="header" ng-controller="headerCtrl">
+<header class="header sticky-top" ng-controller="headerCtrl">
     <div class="boxed-layout-wrapper">
+        <div class="menu-options">
+            <span class="menu-action">
+                <i></i>
+            </span>
+        </div>
         <div class="logo-area">
             <div class="logo" ui-sref="home"></div>
         </div>
@@ -7,7 +12,6 @@
         <div class="clock navbar">
             <time timestamp="timestamp" type="simpleDate" class="ng-binding ng-isolate-scope">May 10, 2018</time>
             <time timestamp="timestamp" type="time" class="time ng-binding ng-isolate-scope">18:12:57</time>
-
             <div class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
@@ -17,7 +21,6 @@
                     <a class="dropdown-item" href="#">System time - (GMT +00:00)</a>
                     <a class="dropdown-item" href="#">Your computer time - (GMT +05:30)</a>
                     <a class="dropdown-item" href="#">India Standard time - (GMT +05:30)</a>
-
                 </div>
             </div>
         </div>

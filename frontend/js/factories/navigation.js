@@ -1,7 +1,7 @@
 var adminurl = adminUUU;
 // adminurl = adminurl + "/api/";
-adminUUU = "http://localhost:1338/"; //socket betfair
-sportsSocket = "http://localhost:1337/";
+adminUUU = "http://192.168.1.121:1338/"; //socket betfair
+sportsSocket = "http://192.168.1.121:1337/";
 // sportsSocket = "http://192.168.2.30:1337/";
 // sportsSocket = "http://192.168.43.8:1337/";
 adminurl = sportsSocket + "api/"; //sports book
