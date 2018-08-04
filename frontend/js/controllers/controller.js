@@ -41,18 +41,12 @@ myApp.controller('LinksCtrl', function ($scope, TemplateService, NavigationServi
     });
 
 
-myApp.controller('BetfairLoginCtrl', function ($scope, $rootScope, $stateParams, TemplateService, BetService, $state, $uibModal, $location, NavigationService, jStorageService, $timeout, $interval) {
-    console.log(window.location.href.split("=")[1]);
-    NavigationService.apiCallWithData("betfair/getBetfairAccessToken", {
-        code: window.location.href.split("=")[1]
-    }, function (data) {
-        // console.log(data);
-        if (data.value) {
-            $state.go('home');
-        } else {
-            $state.go('login');
-        }
-    });
+myApp.controller('RedirectToCtrl', function ($scope, $stateParams, TemplateService, $state, $uibModal, $location) {
+    var id = $stateParams.id;
+    if (id) {
+        $.jStorage.set("accessTokenId", id);
+        $state.go('home');
+    }
 });
 
 myApp.controller('sideMenuCtrl', function ($scope, $stateParams, TemplateService, $state, NavigationService, $location, $timeout, $window, $rootScope) {
@@ -68,16 +62,16 @@ myApp.controller('sideMenuCtrl', function ($scope, $stateParams, TemplateService
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
                     $scope.gameData = data.data;
-                    $rootScope.getEventList($scope.gameData,$scope.game);
-                    if($scope.fromGame){
+                    $rootScope.getEventList($scope.gameData, $scope.game);
+                    if ($scope.fromGame) {
                         $scope.home = true;
                         $scope.next = false;
-                        $scope.fromGame =false;
-                    }else{
+                        $scope.fromGame = false;
+                    } else {
                         $scope.home = false;
                         $scope.next = true;
                     }
-                   
+
                 } else {
                     $scope.gameData = [];
                 }
@@ -87,16 +81,18 @@ myApp.controller('sideMenuCtrl', function ($scope, $stateParams, TemplateService
         });
     };
 
-    $scope.getGame=function(){
-        $scope.game="Cricket";
-        $scope.getCompetitionFromBetfair('betfair/getCompetitionFromBetfair', {eventTypeId:4,name: $scope.game});
+    $scope.getGame = function () {
+        $scope.game = "Cricket";
+        $scope.getCompetitionFromBetfair('betfair/getCompetitionFromBetfair', {
+            eventTypeId: 4,
+            name: $scope.game
+        });
         $scope.fromGame = true;
         NavigationService.apiCallWithData("BetFair/getGame", {}, function (data) {
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
-                    $scope.eventTypes = data.data.result;
+                    $scope.eventTypes = data.data[0].result;
                     // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",$scope.eventTypes);
-                    // $rootScope.getEventList($scope.gameData);
                     $scope.home = true;
                 } else {
                     $scope.eventTypes = [];
@@ -108,15 +104,18 @@ myApp.controller('sideMenuCtrl', function ($scope, $stateParams, TemplateService
     };
     $scope.getGame();
     //To get games
-   
 
-    $scope.getCompetitions=function(id,name){
-        $scope.game=name;
-        $scope.getCompetitionFromBetfair('betfair/getCompetitionFromBetfair', {eventTypeId:id,name:name});
+
+    $scope.getCompetitions = function (id, name) {
+        $scope.game = name;
+        $scope.getCompetitionFromBetfair('betfair/getCompetitionFromBetfair', {
+            eventTypeId: id,
+            name: name
+        });
     };
 
 
-   
+
 
     //     });
     // };
@@ -156,7 +155,7 @@ myApp.controller('availableCreditCtrl', function ($scope, TemplateService, Navig
     $scope.template = TemplateService;
     $rootScope.getAccountFunds = function (data) {
         NavigationService.getAccountFunds(data, function (data) {
-            $scope.accountFunds = data.data.result;
+            $scope.accountFunds = data.data[0].result;
             // console.log("getAccountFunds", $scope.accountFunds);
         });
     };

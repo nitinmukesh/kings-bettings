@@ -79,7 +79,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
     $scope.listCurrentOrders = function () {
         var data = "";
         NavigationService.getListCurrentOrders(data, function (data) {
-            $scope.currentOrders = data.data.result.currentOrders;
+            $scope.currentOrders = data.data[0].result.currentOrders;
         });
     };
     $scope.betCancelation = function (betId, marketId) {
@@ -89,7 +89,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
         var obj = {}
         obj.array = [];
         obj.array.push(data);
-        obj.accessToken = $.jStorage.get("accessToken");
+        obj.accessTokenId = $.jStorage.get("accessTokenId");
         NavigationService.betCancelation(obj, function (data) {
             if (data.value) {
                 toastr.success("Bet Cancelled successfully!");
@@ -169,11 +169,11 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
 
     $scope.placeBet = function () {
         $scope.promise = NavigationService.success().then(function () {
-            var accessToken = $.jStorage.get("accessToken");
+            var accessTokenId = $.jStorage.get("accessTokenId");
             var reqData = _.concat($scope.layArray, $scope.backArray);
             var obj = {
                 array: reqData,
-                accessToken: accessToken
+                accessTokenId: accessTokenId
             }
             NavigationService.placeOrders('Betfair/placeOrders', obj, function (data) {
                 // console.log("data", data);

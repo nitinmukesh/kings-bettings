@@ -38,11 +38,11 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
             });
         },
         apiCallWithData: function (url, formData, callback) {
-            if ($.jStorage.get("accessToken")) {
+            if ($.jStorage.get("accessTokenId")) {
                 if (!formData) {
                     formData = {};
                 }
-                formData.accessToken = $.jStorage.get("accessToken");
+                formData.accessTokenId = $.jStorage.get("accessTokenId");
                 $http.post(adminurl + url, formData).then(function (data) {
                     data = data.data;
                     callback(data);
@@ -58,11 +58,11 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
 
         },
         apiCallWithUrl: function (url, formData, callback) {
-            if ($.jStorage.get("accessToken")) {
+            if ($.jStorage.get("accessTokenId")) {
                 if (!formData) {
                     formData = {};
                 }
-                formData.accessToken = $.jStorage.get("accessToken");
+                formData.accessTokenId = $.jStorage.get("accessTokenId");
                 $http.post(url, formData).then(function (data) {
                     data = data.data;
                     callback(data);
@@ -77,11 +77,11 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
         },
 
         getAccountFunds: function (formData, callback) {
-            if ($.jStorage.get("accessToken")) {
+            if ($.jStorage.get("accessTokenId")) {
                 if (!formData) {
                     formData = {};
                 }
-                formData.accessToken = $.jStorage.get("accessToken");
+                formData.accessTokenId = $.jStorage.get("accessTokenId");
                 $http.post(adminurl + 'betfair/getAccountFunds', formData).then(function (data) {
                     data = data.data;
                     callback(data);
@@ -89,11 +89,11 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
             }
         },
         getListCurrentOrders: function (formData, callback) {
-            if ($.jStorage.get("accessToken")) {
+            if ($.jStorage.get("accessTokenId")) {
                 if (!formData) {
                     formData = {};
                 }
-                formData.accessToken = $.jStorage.get("accessToken");
+                formData.accessTokenId = $.jStorage.get("accessTokenId");
                 $http.post(adminurl + 'betfair/getListCurrentOrders', formData).then(function (data) {
                     data = data.data;
                     callback(data);
@@ -108,15 +108,15 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
         },
 
         getAccountStatement: function (formData, callback) {
-            if ($.jStorage.get("accessToken")) {
+            if ($.jStorage.get("accessTokenId")) {
                 if (!formData) {
                     formData = {};
                 }
-                formData.accessToken = $.jStorage.get("accessToken");
-                $http.post(adminurl + 'betfair/getAccountStatement', formData).then(function (data) {
-                    data = data.data;
-                    callback(data);
-                });
+                formData.accessTokenId = $.jStorage.get("accessTokenId");
+                // $http.post(adminurl + 'betfair/getAccountStatement', formData).then(function (data) {
+                //     data = data.data;
+                //     callback(data);
+                // });
             }
 
         },

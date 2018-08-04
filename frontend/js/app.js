@@ -60,10 +60,10 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'MybetCtrl'
         })
-        .state('betfairLogin', {
-            url: "/betfairLogin",
+        .state('redirectTo', {
+            url: "/redirectTo/:id",
             templateUrl: tempateURL,
-            controller: 'BetfairLoginCtrl'
+            controller: 'RedirectToCtrl'
         })
 
     ;
