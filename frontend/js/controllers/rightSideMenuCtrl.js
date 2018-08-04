@@ -96,10 +96,12 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
                 $scope.listCurrentOrders();
                 $rootScope.getAccountFunds();
                 $scope.removeAllBets();
+                $scope.$apply();
             } else {
                 toastr.error("Unable to cancel bet");
                 $scope.listCurrentOrders();
                 $rootScope.getAccountFunds();
+                $scope.$apply();
             }
 
         });

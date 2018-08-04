@@ -113,10 +113,10 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
                     formData = {};
                 }
                 formData.accessTokenId = $.jStorage.get("accessTokenId");
-                // $http.post(adminurl + 'betfair/getAccountStatement', formData).then(function (data) {
-                //     data = data.data;
-                //     callback(data);
-                // });
+                $http.post(adminurl + 'betfair/getAccountStatement', formData).then(function (data) {
+                    data = data.data;
+                    callback(data);
+                });
             }
 
         },

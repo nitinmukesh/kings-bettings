@@ -25,9 +25,11 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     };
 
     $scope.accessToken = $.jStorage.get("accessToken");
-    // console.log($scope.accessToken);
-    // if (!$scope.accessToken) {
-    //     console.log("demo");
-    //     $state.go("login");
-    // };
+    console.log($state.current.name, $stateParams.id);
+    //     if (!$scope.accessToken) {
+    //         console.log("demo");
+    //         $state.go("login");
+    //     };
+
+
 });
