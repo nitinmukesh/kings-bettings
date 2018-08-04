@@ -1,6 +1,6 @@
 <div ng-controller="headerCtrl">
     <div class=" left-pane opened-menu">
-        <aside class="menu  side-header opened-menu">
+        <aside class="menu  opened-menu">
             <nav class="tree-menu">
                 <div class="left-menu-inner current-lvl-0">
 
@@ -32,9 +32,9 @@
                         </li>
                         <li class=" ">
                             <a class="menu-link sport-type-Cricket " ng-repeat="category in subcategory" ng-click="getParentId(category._id);getSubCategory(category.children)">
-                                <i class="sport-icon apl-icon-sport-cricket"></i>
-                                <span class="link-name">{{category.name}}</span>
-                                <i class="fas fa-chevron-right"></i>
+                                <i class="fas fa-chevron-circle-left"></i>
+                                <span class="link-name cat-name">{{category.name}}</span>
+                                <i class="fas fa-chevron-right cat-name"></i>
                             </a>
                         </li>
                     </ul>
@@ -53,6 +53,9 @@
                                     <i class="far fa-star icon-style "></i>
                                     <span class="px-2">{{game.name}}</span>
                                 </span>
+                                <!-- <span class="pull-right">
+                                        <i class="far fa-star icon-style "></i>
+                                </span> -->
                             </a>
                         </li>
                     </ul>
@@ -86,9 +89,9 @@
                         </li>
                         <li class=" ">
                             <a class="menu-link sport-type-Cricket" ng-repeat="category in subcategory" ng-click="getParentId(category._id);getSubCategory(category.children)">
-                                <i class="sport-icon apl-icon-sport-cricket"></i>
-                                <span class="link-name ">{{category.name}}</span>
-                                <i class="fas fa-chevron-right "></i>
+                                <span><i class="fas fa-chevron-circle-left"></i></span>
+                                <span class="link-name cat-name">{{category.name}}</span>
+                                <span><i class="fas fa-chevron-right cat-name"></i></span>
                             </a>
                         </li>
                     </ul>

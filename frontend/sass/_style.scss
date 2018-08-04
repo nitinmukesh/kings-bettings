@@ -45,27 +45,16 @@ body {
     float: left;
 }
 
-.content {
-    min-height: calc(100vh - 153px);
-    width: calc(100vw - 600px);
-    float: left;
-    padding: 0 0 0 20px;
-}
-
-.rightsidemenu {
-    width: 400px;
-    float: right;
-}
-
-/* HTML5 display definitions
-   ========================================================================== */
-
-/**
- * Add the correct display in IE 9-.
- * 1. Add the correct display in Edge, IE, and Firefox.
- * 2. Add the correct display in IE.
- */
-
+// .content {
+//     min-height: calc(100vh - 153px);
+//     width: calc(100vw - 600px);
+//     float: left;
+//     padding: 0 0 0 20px;
+// }
+// .rightsidemenu {
+//     width: 400px;
+//     float: right;
+// }
 article,
 aside,
 details,
@@ -3675,6 +3664,7 @@ a:hover {
 }
 
 header.header {
+    position: fixed;
     margin: auto auto 0;
     width: 100%; // background: $gray-dark;
     background: $gray-dark url('../img/icon/bg-img.png');
@@ -3688,12 +3678,15 @@ header.header {
     -o-border-image: -o-linear-gradient(to left, #fdffce 1%, #c28217 50%, #fffdb8 100%) 100% 0 100% 0/3px 0 3px 0 stretch;
     border-image: linear-gradient(to left, #fdffce 1%, #c28217 50%, #fffdb8 100%) 100% 0 100% 0/3px 0 3px 0 stretch;
     color: #fff;
+    .svg-inline--fa.fa-w-16 {
+        width: 1rem;
+    }
 }
 
 header.header .logo-area {
     padding: 8px 0 8px 8px;
     .logo {
-        font-size: 42px;
+        font-size: 35px;
         font-family: CinzelBold;
         width: 100%;
         height: 75px;
@@ -3725,7 +3718,7 @@ header.header a:hover {
 
 header.header .infobar {
     margin: 15px 0;
-    padding: 10px 20px;
+    padding: 10px;
 }
 
 header.header .infobar .last-login {
@@ -3740,7 +3733,7 @@ header.header .infobar>.linkbar {
 header.header .infobar>.linkbar>li {
     display: inline-table;
     vertical-align: middle;
-    padding-left: 20px;
+    padding-left: 15px;
     font-size: 16px;
 }
 
@@ -3782,7 +3775,7 @@ header.header .infobar>.linkbar .header-link {
 }
 
 .search-container .search input {
-    width: 260px;
+    width: 210px;
     border: none;
     color: $white !important;
     background: $gray;
@@ -3794,6 +3787,7 @@ header.header .infobar>.linkbar .header-link {
 
 .search-container .search .apl-form-icon .apl-icon-search {
     font-size: 14px;
+    width: 30px !important;
 }
 
 .search-container>ul {
@@ -3887,12 +3881,12 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
     float: left;
     width: 100%;
     border-bottom: 1px solid #ddd;
-    padding: 2px 8px;
+    padding: 8px 8px;
     text-decoration: none;
 }
 
 .tree-menu .menu-link>span {
-    float: left;
+    // float: left;
     width: 144px;
 }
 
@@ -3945,15 +3939,15 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
 .left-menu-inner .menu-lvl-0 .favourites-link {
     position: relative;
     font-family: 'Roboto-Medium';
-    height: 45px;
+    height: 55px;
     cursor: pointer;
     transition: all 0.1s ease-out;
 }
 
 .left-menu-inner .menu-lvl-0 .menu-link:hover,
 .left-menu-inner .menu-lvl-0 .favourites-link:hover {
-    background: $gray-light;
-    transform: scale(1.1); // border-top: 1px solid #ddd;
+    background: $gray-light; // transform: scale(1.1);
+    // border-top: 1px solid #ddd;
     text-decoration: none;
 }
 
@@ -3975,6 +3969,7 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
     display: inline;
     float: none; // margin-left: 10px;
     top: 11px;
+    left: -4px;
     font-weight: bold;
 }
 
@@ -4328,7 +4323,10 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
 }
 
 .left-pane {
-    height: 100%; // width: 190px;
+    position: fixed;
+    top: 100px;
+    height: 100%;
+    width: 180px;
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
 }
