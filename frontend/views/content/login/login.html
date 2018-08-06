@@ -32,7 +32,7 @@
                             <span class="valid" ng-show="loginForm.password.$touched && loginForm.password.$invalid">* Password is required.</span>
                         </div>
                         <button name="login" class="apl-btn apl-btn-secondary apl-btn-large btn-login" type="submit" ng-disabled="login.$invalid">Login</button> -->
-                        <a role="button" class="apl-btn apl-btn-secondary apl-btn-large btn-login" href="https://identitysso.betfair.com/view/vendor-login?client_id=61755&response_type=code&redirect_uri=http://localhost:1337/api/user/betfairLoginRedirect">
+                        <a role="button" class="apl-btn apl-btn-secondary apl-btn-large btn-login" href="https://identitysso.betfair.com/view/vendor-login?client_id=61755&response_type=code&redirect_uri={{adminurl}}user/betfairLoginRedirect">
                             Login
                         </a>
                     </fieldset>
