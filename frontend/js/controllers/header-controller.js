@@ -24,12 +24,11 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         });
     };
 
-    $scope.accessToken = $.jStorage.get("accessToken");
-    console.log($state.current.name, $stateParams.id);
-    //     if (!$scope.accessToken) {
-    //         console.log("demo");
-    //         $state.go("login");
-    //     };
+    $scope.accessTokenId = $.jStorage.get("accessTokenId");
+    if (!$scope.accessTokenId) {
+        console.log("demo");
+        $state.go("login");
+    };
 
 
 });
