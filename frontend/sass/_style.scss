@@ -4612,7 +4612,7 @@ input[type="text"].ng-invalid {
     background: url("../img/logo.svg") no-repeat center center;
     background-size: contain;
     width: 100%;
-    height: 80px;
+    height: 100px;
 }
 
 .login-form .login-panel .panel-body .form-group {
@@ -4638,7 +4638,9 @@ input[type="text"].ng-invalid {
     margin-top: 15px;
     width: 100%;
     min-height: 50px;
-    font-size: 20px;
+    font-size: 22px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
 }
 
 .bet-manager {
