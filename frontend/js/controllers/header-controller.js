@@ -7,6 +7,11 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         $state.go('login');
     }
 
+    $scope.mybet = function () {
+        var win = window.open("https://myactivity.betfair.com/#/sportsbook", '_blank');
+        win.focus();
+    }
+
     $scope.next = true;
 
     // $scope.visitedCategories = [];
@@ -29,6 +34,8 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         console.log("demo");
         $state.go("login");
     };
+
+
 
 
 });
