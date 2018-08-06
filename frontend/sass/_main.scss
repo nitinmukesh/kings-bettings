@@ -732,18 +732,3 @@ header {
     -o-transition: all .4s ease 0s;
     transition: all .4s ease 0s;
 }
-
-.main-content.wide-content {
-    padding-left: 45px;
-    .version {
-        position: absolute;
-        top: 30px;
-        left: 30px;
-        font-size: 14px;
-        ul li label {
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin-right: 10px;
-        }
-    }
-}

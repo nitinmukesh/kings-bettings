@@ -4642,6 +4642,18 @@ input[type="text"].ng-invalid {
 
 .login-view {
     background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    .version {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        font-size: 14px;
+        ul li label {
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-right: 10px;
+        }
+    }
+
 }
 
 .login-form {
