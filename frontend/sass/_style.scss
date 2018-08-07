@@ -3691,6 +3691,7 @@ header.header .logo-area {
         width: 100%;
         height: 75px;
         line-height: 70px;
+        margin-right: 10px;
     }
 }
 
@@ -3710,6 +3711,7 @@ header.header .wrap-dd-menu .dropdown li a {
 
 header.header a {
     color: $white;
+    text-decoration: none;
 }
 
 header.header a:hover {

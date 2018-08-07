@@ -570,7 +570,7 @@ header {
 }
 
 .menu-options {
-    color: #808891;
+    color: $white;
     cursor: pointer;
     float: left;
     margin-top: 30px;
@@ -598,7 +598,7 @@ header {
 }
 
 .menu-action::after {
-    background: #555555 none repeat scroll 0 0;
+    background: $white none repeat scroll 0 0;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     -ms-border-radius: 2px;
@@ -627,7 +627,7 @@ header {
 }
 
 .menu-action::before {
-    background: #555555 none repeat scroll 0 0;
+    background: $white none repeat scroll 0 0;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     -ms-border-radius: 2px;
@@ -669,7 +669,7 @@ header {
 }
 
 .menu-action>i::before {
-    background: #555555 none repeat scroll 0 0;
+    background: $white none repeat scroll 0 0;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     -ms-border-radius: 2px;
@@ -732,3 +732,7 @@ header {
     -o-transition: all .4s ease 0s;
     transition: all .4s ease 0s;
 }
+.main-content.wide-content {
+    padding-left: 45px;
+
+} 
