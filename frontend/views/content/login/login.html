@@ -19,25 +19,28 @@
                 <div class="logo"></div>
             </div>
             <div class="panel-body">
-                <form class="apl-form ng-pristine ng-valid" name="loginForm" ng-submit="userLogin(credentials)">
+                <h1>Kings Login</h1>
+                <form class="apl-form" name="loginForm" ng-submit="userLogin(credentials)">
                     <fieldset>
-                        <!-- <div class="form-group">
-                            <input autocomplete="off" type="text" placeholder="Username" name="loginName" class="apl-form-large form-control login-field input-username ng-pristine ng-valid ng-empty ng-touched"
-                                autofocus="" ng-model="credentials.username">
-                            <span class="valid" ng-show="loginForm.username.$touched && loginForm.username.$invalid">* Username is required.</span>
+                        <div class="form-group">
+                            <input autocomplete="off" type="email" placeholder="Email" name="loginName" class="apl-form-large form-control login-field input-Email"
+                                autofocus="" ng-model="credentials.email">
+                            <span class="valid" ng-show="loginForm.email.$touched && loginForm.email.$invalid">* Email is required.</span>
                         </div>
                         <div class="form-group">
-                            <input autocomplete="off" class="apl-form-large form-control input-password ng-pristine ng-untouched ng-valid ng-empty" placeholder="Password"
-                                name="password" type="password" ng-model="credentials.password">
-                            <span class="valid" ng-show="loginForm.password.$touched && loginForm.password.$invalid">* Password is required.</span>
+                            <input autocomplete="off" type="password" placeholder="Password" name="loginName" class="apl-form-large form-control login-field input-Email"
+                                autofocus="" ng-model="credentials.password">
+                            <span class="valid" ng-show="loginForm.password.$touched && loginForm.password.$invalid">* Email is required.</span>
                         </div>
-                        <button name="login" class="apl-btn apl-btn-secondary apl-btn-large btn-login" type="submit" ng-disabled="login.$invalid">Login</button> -->
-                        <a role="button" class="apl-btn apl-btn-secondary apl-btn-large btn-login" href="https://identitysso.betfair.com/view/vendor-login?client_id=61755&response_type=code&redirect_uri=api/user/betfairLoginRedirect">
+                        <!-- <a role="button" class="apl-btn apl-btn-secondary apl-btn-large btn-login" href="https://identitysso.betfair.com/view/vendor-login?client_id=61755&response_type=code&redirect_uri=api/user/betfairLoginRedirect"> -->
+                        <button class="apl-btn apl-btn-secondary apl-btn-large btn-login">
                             Login
-                        </a>
+                        </button>
                     </fieldset>
                 </form>
-                <!-- ngRepeat: errMsg in errorList -->
+                <div class="text-right signup">
+                    <a ui-sref="signup">Registration</a>
+                </div>
             </div>
         </div>
     </div>

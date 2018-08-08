@@ -44,6 +44,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: loginTempateURL,
             controller: 'LoginCtrl'
         })
+        .state('signup', {
+            url: "/signup",
+            templateUrl: loginTempateURL,
+            controller: 'SignupCtrl'
+        })
 
         // .state('cricket', {
         //     url: "/cricket",
@@ -68,7 +73,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
 
     ;
     $urlRouterProvider.otherwise("/login");
-    $locationProvider.html5Mode(isproduction);
+    // $locationProvider.html5Mode(isproduction);
 });
 
 // For Language JS

@@ -10,16 +10,13 @@ myApp.controller('LoginCtrl', function ($scope, toastr, TemplateService, Navigat
 
     $scope.userLogin = function (value) {
         // $state.go('home');
-        NavigationService.userLogin("BetFair/befairUserLogin", value, function (data) {
+       
+        NavigationService.userSignup("User/findUser", value, function (data) {
             console.log("data", (data.data));
-            if (data.value) {
-                $.jStorage.set("accessToken", data.data);
-                // $.jStorage.set("accessToken", "abc1");
-                // $.jStorage.set("userId", data.data.userId);
-                toastr.success("Logged in successfully!");
-                $state.go('home');
+            if (data.data.email == value.email && data.data.password == value.password) {
+                var win = window.open("https://identitysso.betfair.com/view/vendor-login?client_id=61755&response_type=code&redirect_uri=api/user/betfairLoginRedirect",'_self');
             } else {
-                toastr.error("Unable to login");
+                toastr.error("Invalid Creditionals");
             }
         });
         // $.jStorage.set("accessToken", "abc1");

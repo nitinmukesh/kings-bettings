@@ -37,6 +37,18 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
                 callback(data);
             });
         },
+        getUserDetail: function (url, formData, callback) {
+            $http.post(adminurl + url, formData).then(function (data) {
+                data = data.data;
+                callback(data);
+            });
+        },
+        userSignup: function (url, formData, callback) {
+            $http.post(adminurl + url, formData).then(function (data) {
+                data = data.data;
+                callback(data);
+            });
+        },
         apiCallWithData: function (url, formData, callback) {
             if ($.jStorage.get("accessTokenId")) {
                 if (!formData) {

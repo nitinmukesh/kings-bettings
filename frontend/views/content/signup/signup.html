@@ -1,0 +1,60 @@
+<div class="-full-size login-view">
+    <div class="version">
+        <ul class="list-style">
+            <li>
+                <label for="">Latest Version:</label> 1.00
+            </li>
+            <li>
+                <label for="">Earlier Version:</label> --
+            </li>
+            <li>
+                <label for="">Disabled Version:</label> --
+            </li>
+        </ul>
+
+    </div>
+    <div class="login-form">
+        <div class="login-panel panel panel-default">
+            <div class="panel-heading">
+                <div class="logo"></div>
+            </div>
+            <div class="panel-body">
+                    <h1>Kings Registration</h1>
+                <form class="apl-form ng-pristine ng-valid" name="signupForm" ng-submit="userSignup(credentials)">
+                    <div class="form-group">
+                        <input autocomplete="off" type="email" placeholder="Email*" name="email" class="apl-form-large form-control login-field input-Email"
+                            autofocus="" ng-model="credentials.email">
+                        <span class="valid" ng-show="signupForm.email.$touched && signupForm.email.$invalid">*Email is required.</span>
+                    </div>
+                    <div class="form-group">
+                        <input autocomplete="off" type="text" placeholder="Name*" name="name" class="apl-form-large form-control login-field input-Name"
+                            autofocus="" ng-model="credentials.name">
+                        <span class="valid" ng-show="signupForm.name.$touched && signupForm.name.$invalid">*Name is required.</span>
+                    </div>
+                    <div class="form-group">
+                        <input autocomplete="off" type="password" placeholder="Password" name="password" class="apl-form-large form-control login-field input-Email"
+                            autofocus="" ng-model="credentials.password">
+                        <span class="valid" ng-show="signupForm.password.$touched && signupForm.password.$invalid">*Password is required.</span>
+                    </div>
+                    <div class="form-group">
+                        <input autocomplete="off" type="password" placeholder="Confirm Password" name="confirmpassword" class="apl-form-large form-control login-field input-Email"
+                            autofocus="" ng-model="credentials.confirmPassword">
+                        <span class="valid" ng-show="signupForm.confirmPassword.$touched && signupForm.confirmPassword.$invalid">*Email is required.</span>
+                        <span class="valid" ng-show="credentials.confirmPassword != credentials.password">*Password don't match.</span>
+                    </div>
+                    <div class="form-group">
+                        <input autocomplete="off" type="tel" placeholder="Country*" name="country" class="apl-form-large form-control login-field input-Email"
+                            autofocus="" ng-model="credentials.country">
+                        <span class="valid" ng-show="signupForm.country.$touched && signupForm.country.$invalid">*Country is required.</span>
+                    </div>
+                    <button class="apl-btn apl-btn-secondary apl-btn-large btn-login" ng-disabled="signupForm.$invalid">
+                        Register
+                    </button>
+                </form>
+                <div class="text-right signup">
+                        <a ui-sref="login">Login</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
