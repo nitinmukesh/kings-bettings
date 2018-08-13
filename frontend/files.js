@@ -56,6 +56,7 @@ module.exports = [
   'frontend/views/content/cricket-inner/cricket-inner.js',
   'frontend/views/content/login/login.js',
   'frontend/views/content/signup/signup.js',
+  'frontend/views/content/subcription/subcription.js',
   'frontend/js/controllers/header-controller.js',
   'frontend/js/controllers/language-controller.js',
   'frontend/js/controllers/rightSideMenuCtrl.js',

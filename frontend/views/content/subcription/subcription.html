@@ -1,0 +1,37 @@
+<div class="-full-size login-view">
+    <div class="version">
+        <ul class="list-style">
+            <li>
+                <label for="">Latest Version:</label> 1.00
+            </li>
+            <li>
+                <label for="">Earlier Version:</label> --
+            </li>
+            <li>
+                <label for="">Disabled Version:</label> --
+            </li>
+        </ul>
+
+    </div>
+    <div class="login-form">
+        <div class="login-panel panel panel-default">
+            <div class="panel-heading">
+                <div class="logo"></div>
+            </div>
+            <div class="panel-body">
+                <!-- <h1>Kings Registration</h1> -->
+                <button class="apl-btn apl-btn-secondary apl-btn-large btn-login" ng-click="goTologin()" ng-disabled="signupForm.$invalid"
+                    ng-if="isfreeSubcription !=true">
+                    Try free subcription
+                </button>
+                <div class="text-right signup" ng-if="isfreeSubcription !=true">
+                    <p>One year free subcription*</p>
+                </div>
+                <button class="apl-btn apl-btn-secondary apl-btn-large btn-login" ng-click="payNow()">
+                    Pay Now
+                </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

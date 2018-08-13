@@ -148,5 +148,18 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
             }, 1000);
             return defer.promise;
         },
+
+        payNow: function (url, formData, callback) {
+            $http.post(adminurl + url, formData).then(function (data) {
+                data = data.data;
+                callback(data);
+            });
+        },
+        updateUser: function (url, formData, callback) {
+            $http.post(adminurl + url, formData).then(function (data) {
+                data = data.data;
+                callback(data);
+            });
+        },
     };
 });

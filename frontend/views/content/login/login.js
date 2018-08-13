@@ -10,14 +10,38 @@ myApp.controller('LoginCtrl', function ($scope, toastr, TemplateService, Navigat
 
     $scope.userLogin = function (value) {
         // $state.go('home');
-       
+
         NavigationService.userSignup("User/findUser", value, function (data) {
-            console.log("data", (data.data));
-            if (data.data.email == value.email && data.data.password == value.password) {
-                var win = window.open("https://identitysso.betfair.com/view/vendor-login?client_id=61755&response_type=code&redirect_uri=api/user/betfairLoginRedirect",'_self');
+            console.log("data", (data.error));
+            console.log("data 2", (data.data));
+            if (data.value) {
+                if (data.data.isfreeSubcription == true) {
+                    if (data.data.email == value.email && data.data.password == value.password) {
+                        var win = window.open("https://identitysso.betfair.com/view/vendor-login?client_id=61755&response_type=code&redirect_uri=api/user/betfairLoginRedirect", '_self');
+                    } else {
+                        toastr.error("Invalid Creditionals");
+                    }
+                } else {
+                    $state.go("subcription");
+                }
+
             } else {
-                toastr.error("Invalid Creditionals");
+                if (data.error.message) {
+                    toastr.error(data.error.message);
+                    if (data.error.message != "No user found") {
+                        $.jStorage.set("isfreeSubcription", data.error.isfreeSubcription);
+                        $state.go("subcription");
+                    }
+
+                } else {
+                    toastr.error("Invalid Creditionals");
+                }
             }
+            // if (data.data.email == value.email && data.data.password == value.password) {
+            //     var win = window.open("https://identitysso.betfair.com/view/vendor-login?client_id=61755&response_type=code&redirect_uri=api/user/betfairLoginRedirect",'_self');
+            // } else {
+            //     toastr.error("Invalid Creditionals");
+            // }
         });
         // $.jStorage.set("accessToken", "abc1");
         // $.jStorage.set("userId", "5ac34a2af18b0e72339c5adf");

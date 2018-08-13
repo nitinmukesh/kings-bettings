@@ -9,16 +9,17 @@ myApp.controller('SignupCtrl', function ($scope, toastr, TemplateService, Naviga
     $scope.loginAdminurl = adminurl;
 
     $scope.userSignup = function (value) {
-        console.log("save///////////",value);
+        console.log("save///////////", value);
+
         NavigationService.userSignup("User/Save", value, function (data) {
             console.log("data", (data.data));
             if (data.value) {
                 // $.jStorage.set("accessToken", "abc1");
-                // $.jStorage.set("userId", data.data.userId);
+                $.jStorage.set("userId", data.data._id);
                 toastr.success("Registration successfully!");
-                $state.go('login');
+                $state.go("subcription");
             } else {
-                toastr.error("Unable to login");
+                toastr.error("Registration failed");
             }
         });
         // $.jStorage.set("accessToken", "abc1");
@@ -32,4 +33,6 @@ myApp.controller('SignupCtrl', function ($scope, toastr, TemplateService, Naviga
     if ($scope.accessToken) {
         $state.go("home");
     };
+
+
 });
