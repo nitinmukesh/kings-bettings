@@ -10,10 +10,10 @@ myApp.controller('CricketinnerCtrl', function ($scope, TemplateService, Navigati
         var book = [];
         market = _.cloneDeep($scope.market);
 
-        if (market.betfairId) {
+        if (market.marketId) {
             if (!_.isEmpty(value.lay)) {
                 _.each(value.lay, function (n) {
-                    if (n.marketId == market.betfairId) {
+                    if (n.marketId == market.marketId) {
                         n.unexecutedProfit = undefined;
                         book.push(n);
                     }
@@ -22,7 +22,7 @@ myApp.controller('CricketinnerCtrl', function ($scope, TemplateService, Navigati
 
             if (!_.isEmpty(value.back)) {
                 _.each(value.back, function (n) {
-                    if (n.marketId == market.betfairId) {
+                    if (n.marketId == market.marketId) {
                         book.push(n);
                     }
                 });
@@ -31,7 +31,7 @@ myApp.controller('CricketinnerCtrl', function ($scope, TemplateService, Navigati
             _.each(book, function (b) {
                 if (b.type == "LAY") {
                     _.each(market.runners, function (runner) {
-                        if (b.selectionId == runner.betfairId) {
+                        if (b.selectionId == runner.selectionId) {
                             if (runner.unexecutedProfit)
                                 runner.unexecutedProfit = (runner.unexecutedProfit + (b.liability * -1));
                             else
@@ -46,7 +46,7 @@ myApp.controller('CricketinnerCtrl', function ($scope, TemplateService, Navigati
                     });
                 } else if (b.type == "BACK") {
                     _.each(market.runners, function (runner) {
-                        if (b.selectionId == runner.betfairId) {
+                        if (b.selectionId == runner.selectionId) {
                             if (runner.unexecutedProfit)
                                 runner.unexecutedProfit = (runner.unexecutedProfit + b.profit);
                             else
@@ -63,7 +63,7 @@ myApp.controller('CricketinnerCtrl', function ($scope, TemplateService, Navigati
             if (!_.isEmpty($scope.profits)) {
                 _.each(market.runners, function (n) {
                     _.each($scope.profits, function (m) {
-                        if (m.betfairId == n.betfairId) {
+                        if (m.selectionId == n.selectionId) {
                             n.unexecutedProfit = (m.ifWin + n.unexecutedProfit);
                         }
                     });
@@ -73,7 +73,7 @@ myApp.controller('CricketinnerCtrl', function ($scope, TemplateService, Navigati
                 $scope.unexecutedProfit = market.runners;
             }
             console.log("##############$scope.unexecutedProfit###################", $scope.unexecutedProfit);
-            $scope.$apply();
+            // $scope.$apply();
         }
     };
 
