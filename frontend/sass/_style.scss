@@ -10,6 +10,7 @@
     font-family: 'OpenSans';
     src: url(../fonts/OpenSans-Regular.ttf);
 }
+
 @font-face {
     font-family: 'CinzelBold';
     src: url(../fonts/CinzelDecorative-Black.otf);
@@ -3700,7 +3701,7 @@ header.header a {
 }
 
 header.header .infobar {
-    margin: 15px 0;
+    // margin: 15px 0;
     padding: 10px 20px;
 }
 
@@ -9353,4 +9354,9 @@ div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-
 .semi-bold {
     font-weight: 600;
     font-size: 12px;
+}
+
+.exp-date {
+    padding: 0.5rem 1rem;
+    text-align: right;
 }
