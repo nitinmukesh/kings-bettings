@@ -57,6 +57,8 @@ module.exports = [
   'frontend/views/content/login/login.js',
   'frontend/views/content/signup/signup.js',
   'frontend/views/content/subcription/subcription.js',
+  'frontend/views/content/thankyou/thankyou.js',
+  'frontend/views/content/cancel/cancel.js',
   'frontend/js/controllers/header-controller.js',
   'frontend/js/controllers/language-controller.js',
   'frontend/js/controllers/rightSideMenuCtrl.js',
