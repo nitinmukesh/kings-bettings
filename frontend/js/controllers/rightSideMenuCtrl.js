@@ -162,10 +162,10 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
 
         $scope.liability = _.sumBy($scope.layArray, "liability") + _.sumBy($scope.backArray, "stake");
 
-        // $rootScope.calculateBook({
-        //     lay: $scope.layArray,
-        //     back: $scope.backArray
-        // });
+        $rootScope.calculateBook({
+            lay: $scope.layArray,
+            back: $scope.backArray
+        });
 
     };
 
