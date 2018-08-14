@@ -1,65 +1,77 @@
 <div class="available-bal">
     <!-- <accountbalance></accountbalance> -->
     <div class="account-statement ">
-        <h1 class="">Account Statement</h1>
+        <h1>Account Statement</h1>
 
-
-        <div class="apl-report-filter ng-isolate-scope">
-            <datepicker date-format="dd/MM/yyyy" selector="apl-input-datepicker-from" class="ng-isolate-scope">
+        <div class="apl-report-filter ">
+            <datepicker>
                 <span class="label-title">From</span>
-                <input class="apl-input-datepicker-from" type="text">
+                <div class="input-group mb-3">
+                    <!-- <input type="date" name="" ng-model="accountStatmentFilter.fromDate"> -->
+                    <!-- <input type="date" required ng-model="accountStatmentFilter.fromDate" class="form-control" required id="basic-url" aria-describedby="basic-addon3"> -->
+                    <p class="input-group">
+                        <input type="text" class="form-control" name="fromDate" uib-datepicker-popup="dd.MM.yyyy" ng-model="accountStatmentFilter.fromDate"
+                            is-open="popup1.opened" ng-required="true" close-text="Close" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open1()">
+                                <i class="far fa-calendar-alt"></i>
+                            </button>
+                        </span>
+                        <div class="disable-input " ng-click="open1() "></div>
+                    </p>
+                </div>
             </datepicker>
 
-            <datepicker date-format="dd/MM/yyyy" selector="apl-input-datepicker-to" class="ng-isolate-scope">
+            <datepicker>
                 <span class="label-title">To</span>
-                <input class="apl-input-datepicker-to" type="text">
+                <div class="input-group mb-3">
+                    <!-- <input type="date" name="" ng-model="accountStatmentFilter.toDate"> -->
+                    <!-- <input type="date" required ng-model="accountStatmentFilter.fromDate" class="form-control" required id="basic-url" aria-describedby="basic-addon3"> -->
+                    <p class="input-group">
+                        <input type="text" class="form-control" name="toDate" uib-datepicker-popup="dd.MM.yyyy" ng-model="accountStatmentFilter.toDate"
+                            is-open="popup2.opened" ng-required="true" close-text="Close" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open2()">
+                                <i class="far fa-calendar-alt"></i>
+                            </button>
+                        </span>
+                        <div class="disable-input " ng-click="open2() "></div>
+                    </p>
+                </div>
             </datepicker>
 
-            <button id="submit" class="apl-btn apl-btn-primary" type="submit">
+            <button class="apl-btn apl-btn-primary" ng-click=accountStatements(accountStatmentFilter);>
                 <i class="fas fa-search apl-icon-search"></i> Search
             </button>
         </div>
 
+
         <p class="total-pnl">
-            <span class="">Total P&amp;L</span>:
-            <span class="numeric ">-16.22</span>
+            <span translate="" class="ng-scope">Total P&amp;L</span>:
+            <span class="numeric" ng-class="{'-negative': netProfit < 0, '-positive': netProfit  >= 0}">{{netProfit}}</span>
         </p>
-        <table class="listing apl-table ">
+
+        <!-- <p class="total-pnl">
+            <span>Total P&amp;L</span>:
+            <span class="numeric ">-16.22</span>
+        </p> -->
+        <!-- <table class="listing apl-table ">
             <tbody>
                 <tr>
-                    <th class="">Date</th>
-                    <th colspan="2" class="">Description</th>
-                    <th class="numeric " translate="">P&amp;L</th>
-                    <th class="numeric " translate="">Credit Limit</th>
-                    <th class="numeric " translate="">Balance</th>
+                    <th>Date</th>
+                    <th colspan="2">Description</th>
+                    <th class="numeric ">P&amp;L</th>
+                    <th class="numeric ">Credit Limit</th>
+                    <th class="numeric ">Balance</th>
                 </tr>
-                <tr class="">
-                    <td colspan="7" class="group-date ">
-                        <time timestamp="row.dateGroup" type="fullDate" class="">08/05/2018</time>
-                    </td>
-                </tr>
-                <tr class="">
+                <tr>
                     <td class="row-time ">
-                        <time timestamp="row.date" type="time" class=" ng-isolate-scope">23:40:11</time>
+                        <time timestamp="row.date" type="time" class=" ">23:40:11</time>
                     </td>
                     <td class=" ">Betting P&amp;L</td>
-                    <td ng-click="vm.showBreakdown(row)" class="">
+                    <td ng-click="vm.showBreakdown(row)">
                         <span class="event-link">
-                            <span date-string="vm.getDescription(row.description)" timestamp="row.description.marketTime" class=" ng-isolate-scope">Rajasthan Royals v Kings XI Punjab - Match Odds</span>
-                        </span>
-                    </td>
-                    <td class="numeric   -negative" ng-class="{'-negative': row.pnl < 0, '-positive': row.pnl  >= 0}">-20.50</td>
-                    <td class="numeric   -positive" ng-class="{'-negative': row.creditLimit < 0, '-positive': row.creditLimit  >= 0}">-</td>
-                    <td class="numeric   -positive" ng-class="{'-negative': row.balance < 0, '-positive': row.balance  >= 0}">210.87</td>
-                </tr>
-                <tr class="">
-                    <td class="row-time ">
-                        <time timestamp="row.date" type="time" class=" ng-isolate-scope">23:40:11</time>
-                    </td>
-                    <td class=" ">Betting P&amp;L</td>
-                    <td ng-click="vm.showBreakdown(row)" class="">
-                        <span class="event-link">
-                            <span date-string="vm.getDescription(row.description)" timestamp="row.description.marketTime" class=" ng-isolate-scope">Rajasthan Royals v Kings XI Punjab - Match Odds</span>
+                            <span date-string="vm.getDescription(row.description)" timestamp="row.description.marketTime" class=" ">Rajasthan Royals v Kings XI Punjab - Match Odds</span>
                         </span>
                     </td>
                     <td class="numeric   -negative" ng-class="{'-negative': row.pnl < 0, '-positive': row.pnl  >= 0}">-20.50</td>
@@ -67,167 +79,122 @@
                     <td class="numeric   -positive" ng-class="{'-negative': row.balance < 0, '-positive': row.balance  >= 0}">210.87</td>
                 </tr>
             </tbody>
-        </table>
-        <div class="">
+        </table> -->
+        <div>
             <div class="breakdown-breadcrumb ">
-                <a href="" class="">Account Statement</a> &gt;
-                <span date-string="breakdown.eventName" timestamp="breakdown.marketTime" class="">Rajasthan Royals v Kings XI Punjab</span>                - Completed Match
+                <a href="">Account Statement</a> &gt;
+                <span>Rajasthan Royals v Kings XI Punjab</span> - Completed Match
             </div>
 
             <div class="breakdown-listing">
                 <table class="listing apl-table">
                     <thead>
                         <tr>
-                            <th translate="" class="">Placed</th>
-                            <th translate="" class="">Selection</th>
-                            <th translate="" class="">Bet ID</th>
-                            <th translate="" class="">Type</th>
-                            <th translate="" class="numeric ">Odds</th>
-                            <th translate="" class="numeric ">Stake</th>
-                            <th translate="" class="numeric ">Profit/Loss</th>
-                            <th translate="" class="">Status</th>
+                            <th>Date</th>
+                            <th colspan="2">Description</th>
+                            <th class="numeric">P&amp;L</th>
+                            <!-- <th class="numeric">Credit Limit</th> -->
+                            <th class="numeric">Balance</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="">
+                        <tr ng-repeat="account in accounts">
                             <td>
                                 <span class="order-date">
-                                    <time type="fullDate" class="">08/05/2018</time>
+                                    <time type="fullDate">{{account.createdAt | date : "dd.MM.yyyy"}}</time>
                                 </span>
                                 <span class="order-time">
-                                    <time type="time" class="">16:06:25</time>
+                                    <time type="time">{{account.createdAt | date: "h:mm:ss"}}</time>
                                 </span>
                             </td>
-                            <td class=" ">Yes</td>
 
-                            <td class="">1805081036251219</td>
-                            <td translate="" class=" ">Lay</td>
-                            <td class="numeric ">
-                                1.060
+                            <td>Betting P&amp;L</td>
 
-                            </td>
-                            <td class="numeric ">100.00</td>
-                            <td class="numeric  -negative">-6.00</td>
-                            <td class=" -negative">LOST</td>
-                        </tr>
-
-                        <tr class="">
-                            <td>
-                                <span class="order-date">
-                                    <time type="fullDate" class="">08/05/2018</time>
-                                </span>
-                                <span class="order-time">
-                                    <time type="time" class="">17:11:39</time>
+                            <td ng-click="showBreakdown()">
+                                <span class="event-link">
+                                    <span>England v India (2nd Test) - Match Odds {{account.marketId}}</span>
                                 </span>
                             </td>
-                            <td class=" ">Yes</td>
 
-                            <td class="">1805081141396985</td>
-                            <td translate="" class=" ">Back</td>
-                            <td class="numeric ">
-                                1.060
-
-                            </td>
-                            <td class="numeric ">100.00</td>
-                            <td class="numeric  -positive">6.00</td>
-                            <td class=" -positive">WON</td>
-                        </tr>
-
-                        <tr class="">
-                            <td>
-                                <span class="order-date">
-                                    <time type="fullDate" class="">08/05/2018</time>
+                            <td class="numeric">
+                                <span class="-positive" ng-if="account.winAmt > 0">
+                                        {{account.winAmt * account.playerRate | number}}
                                 </span>
-                                <span class="order-time">
-                                    <time type="time" class="">18:59:08</time>
+                                <span class="-negative" ng-if="account.loseAmt > 0">
+                                        {{account.loseAmt * account.playerRate | number}}
                                 </span>
                             </td>
-                            <td class=" ">Yes</td>
-
-                            <td class="">1805081329086529</td>
-                            <td translate="" class=" ">Lay</td>
-                            <td class="numeric ">
-                                1.040
-
-                            </td>
-                            <td class="numeric ">100.00</td>
-                            <td class="numeric  -negative">-4.00</td>
-                            <td class=" -negative">LOST</td>
-                        </tr>
-
-                        <tr class="">
-                            <td>
-                                <span class="order-date">
-                                    <time type="fullDate" class="">08/05/2018</time>
-                                </span>
-                                <span class="order-time">
-                                    <time type="time" class="">19:26:19</time>
-                                </span>
-                            </td>
-                            <td class=" ">Yes</td>
-
-                            <td class="">1805081356198786</td>
-                            <td translate="" class=" ">Back</td>
-                            <td class="numeric ">
-                                1.040
-
-                            </td>
-                            <td class="numeric ">100.00</td>
-                            <td class="numeric  -positive">4.00</td>
-                            <td class=" -positive">WON</td>
-                        </tr>
-
-                        <tr class="">
-                            <td>
-                                <span class="order-date">
-                                    <time type="fullDate" class="">08/05/2018</time>
-                                </span>
-                                <span class="order-time">
-                                    <time type="time" class="">19:37:51</time>
-                                </span>
-                            </td>
-                            <td class=" ">Yes</td>
-
-                            <td class="">1805081407510052</td>
-                            <td translate="" class=" ">Lay</td>
-                            <td class="numeric ">
-                                1.030
-
-                            </td>
-                            <td class="numeric ">100.00</td>
-                            <td class="numeric  -negative">-3.00</td>
-                            <td class=" -negative">LOST</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-
-                <table class="market-summary" ng-switch="" on="breakdown.marketBets[0].marketBettingType">
-                    <tbody>
-                        <tr>
-                            <td class="label ng-scope" translate="">Back subtotal</td>
-                            <td class="ng-binding">10.00</td>
-                        </tr>
-                        <tr>
-                            <td class="label ng-scope" translate="">Lay subtotal</td>
-                            <td class="ng-binding">-13.00</td>
-                        </tr>
-                        <tr>
-                            <td class="label ng-scope" translate="">Market subtotal</td>
-                            <td class="ng-binding">-3.00</td>
-                        </tr>
-                        <tr>
-                            <td class="label ng-scope" translate="">Commission</td>
-                            <td class="underline ng-binding">0.00</td>
-                        </tr>
-                        <tr class="total">
-                            <td class="label ng-scope" translate="">Net Market Total</td>
-                            <td class="underline ng-binding">-3.00</td>
+                            <!-- <td class="numeric" ng-class="{'-negative': account.creditLimit < 0, '-positive': account.creditLimit  >= 0}">-</td> -->
+                            <td class="numeric" ng-class="{'-negative': account.netAmount < 0, '-positive': account.netAmount  >= 0}">{{account.netAmount | number}}</td>
                         </tr>
                     </tbody>
                 </table>
+                <div class="breakdown-listing">
+                    <table class="listing apl-table">
+                        <thead>
+                            <tr>
+                                <th>Placed</th>
+                                <th>Selection</th>
+                                <th>Bet ID</th>
+                                <th>Type</th>
+                                <th class="numeric">Odds</th>
+                                <th class="numeric">Stake</th>
+                                <th class="numeric">Profit/Loss</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="account in accounts">
+                                <td>
+                                    <span class="order-date">
+                                        <time type="fullDate">{{account.createdAt | date : "dd.MM.yyyy"}}</time>
+                                    </span>
+                                    <span class="order-time">
+                                        <time type="time">{{account.createdAt | date: "h:mm:ss"}}</time>
+                                    </span>
+                                </td>
+                                <td>Yes</td>
+
+                                <td>1805081036251219</td>
+                                <td>Lay</td>
+                                <td class="numeric ">
+                                    1.060
+
+                                </td>
+                                <td class="numeric ">100.00</td>
+                                <td class="numeric  -negative">-6.00</td>
+                                <td class=" -negative">LOST</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <table class="market-summary" ng-switch="" on="breakdown.marketBets[0].marketBettingType">
+                        <tbody>
+                            <tr>
+                                <td class="label">Back subtotal</td>
+                                <td class="">10.00</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Lay subtotal</td>
+                                <td class="">-13.00</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Market subtotal</td>
+                                <td class="">-3.00</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Commission</td>
+                                <td class="underline ">0.00</td>
+                            </tr>
+                            <tr class="total">
+                                <td class="label">Net Market Total</td>
+                                <td class="underline ">-3.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
 
-</div>
+    </div>

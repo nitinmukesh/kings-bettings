@@ -732,7 +732,24 @@ header {
     -o-transition: all .4s ease 0s;
     transition: all .4s ease 0s;
 }
+
 .main-content.wide-content {
     padding-left: 45px;
+}
 
-} 
+.uib-daypicker {
+    .btn-secondary:not(:disabled):not(.disabled).active,
+    .show>.btn-secondary.dropdown-toggle {
+        background-color: #1a2238;
+        border-color: #1b2035;
+        .text-info {
+            color: #ffffff !important;
+            font-weight: bold;
+        }
+    }
+}
+
+.-negative {
+    color: #F44336;
+    font-weight: bold;
+}
