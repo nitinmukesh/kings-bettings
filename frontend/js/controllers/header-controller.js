@@ -31,10 +31,10 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     };
 
     $scope.accessTokenId = $.jStorage.get("accessTokenId");
-    // if (!$scope.accessTokenId) {
-    //     console.log("demo");
-    //     $state.go("login");
-    // };
+    if (!$scope.accessTokenId) {
+        console.log("demo");
+        $state.go("login");
+    };
 
 
 
