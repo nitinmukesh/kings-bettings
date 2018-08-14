@@ -5,9 +5,10 @@ myApp.controller('CricketinnerCtrl', function ($scope, TemplateService, Navigati
     $scope.navigation = NavigationService.getNavigation();
     $scope.page = "content/cricket-inner/cricket-inner.html";
     $scope.profits = [];
+    var market;
     $rootScope.calculateBook = function (value) {
         var book = [];
-        var market = _.cloneDeep($scope.market);
+        market = _.cloneDeep($scope.market);
 
         if (market.betfairId) {
             if (!_.isEmpty(value.lay)) {
@@ -71,6 +72,8 @@ myApp.controller('CricketinnerCtrl', function ($scope, TemplateService, Navigati
             } else {
                 $scope.unexecutedProfit = market.runners;
             }
+            console.log("##############$scope.unexecutedProfit###################", $scope.unexecutedProfit);
+            $scope.$apply();
         }
     };
 
