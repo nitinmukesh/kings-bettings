@@ -1,6 +1,7 @@
 myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, $state, NavigationService, $location, $timeout, $window, $rootScope) {
     $scope.template = TemplateService;
 
+    $scope.expDate = $.jStorage.get("expDate");
 
     $scope.logout = function () {
         $.jStorage.flush();
@@ -30,10 +31,10 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     };
 
     $scope.accessTokenId = $.jStorage.get("accessTokenId");
-    if (!$scope.accessTokenId) {
-        console.log("demo");
-        $state.go("login");
-    };
+    // if (!$scope.accessTokenId) {
+    //     console.log("demo");
+    //     $state.go("login");
+    // };
 
 
 

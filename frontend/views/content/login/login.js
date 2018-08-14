@@ -17,6 +17,7 @@ myApp.controller('LoginCtrl', function ($scope, toastr, TemplateService, Navigat
             if (data.value) {
                 if (data.data.isfreeSubcription == true) {
                     if (data.data.email == value.email && data.data.password == value.password) {
+                        $.jStorage.set("expDate", data.data.expiryDate);
                         var win = window.open("https://identitysso.betfair.com/view/vendor-login?client_id=61755&response_type=code&redirect_uri=api/user/betfairLoginRedirect", '_self');
                     } else {
                         toastr.error("Invalid Creditionals");
