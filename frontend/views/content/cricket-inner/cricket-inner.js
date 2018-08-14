@@ -4,7 +4,7 @@ myApp.controller('CricketinnerCtrl', function ($scope, TemplateService, Navigati
     TemplateService.sidemenu2 = "";
     $scope.navigation = NavigationService.getNavigation();
     $scope.page = "content/cricket-inner/cricket-inner.html";
-
+    $scope.profits = [];
     $rootScope.calculateBook = function (value) {
         var book = [];
         var market = _.cloneDeep($scope.market);
@@ -63,7 +63,7 @@ myApp.controller('CricketinnerCtrl', function ($scope, TemplateService, Navigati
                 _.each(market.runners, function (n) {
                     _.each($scope.profits, function (m) {
                         if (m.betfairId == n.betfairId) {
-                            n.unexecutedProfit = (m.amount + n.unexecutedProfit);
+                            n.unexecutedProfit = (m.ifWin + n.unexecutedProfit);
                         }
                     });
                 });
@@ -84,14 +84,15 @@ myApp.controller('CricketinnerCtrl', function ($scope, TemplateService, Navigati
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
                     $scope.market = data.data[0];
-                    $scope.profits = [];
+
                     $scope.market.runners = _.sortBy($scope.market.runners, ['sortPriority']);
-                    _.each($scope.market.runners, function (runner) {
-                        if (runner.ifWin)
-                            $scope.profits.push({
-                                amount: runner.ifWin
-                            })
-                    });
+                    $scope.profits = $scope.market.runners;
+                    // _.each($scope.market.runners, function (runner) {
+                    //     if (runner.ifWin)
+                    //         $scope.profits.push({
+                    //             amount: runner.ifWin
+                    //         })
+                    // });
                     // $scope.home = true;
                 } else {
                     $scope.market = [];
