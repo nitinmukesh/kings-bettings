@@ -75,7 +75,15 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'RedirectToCtrl'
         })
-
+        .state('thankyou', {
+            url: "/thankyou",
+            templateUrl: loginTempateURL,
+            controller: 'ThankyouCtrl'
+        }).state('cancel', {
+            url: "/cancel",
+            templateUrl: loginTempateURL,
+            controller: 'CancelCtrl'
+        })
     ;
     $urlRouterProvider.otherwise("/login");
     $locationProvider.html5Mode(isproduction);
