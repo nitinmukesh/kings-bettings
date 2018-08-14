@@ -40,7 +40,7 @@
                                 <div class="event-name ">{{runner.runnerName}}
                                 </div>
                                 <div class="selection-pnl">
-                                    <displaynumber ng-model="profits[$index].amount"></displaynumber>
+                                    <displaynumber ng-model="runner.ifWin"></displaynumber>
                                     <!-- <span ng-class="{'positive':profits[$index].amount > 0 ,'negative':profits[$index].amount<0}" ng-if="profits[$index].amount">{{profits[$index].amount}}</span> -->
                                     <span ng-class="{'positive':profits[$index].amount >= 0 ,'negative':profits[$index].amount<0}" ng-if="profits[$index].amount && unexecutedProfit[$index].unexecutedProfit">>></span>
                                     <displaynumber ng-model="unexecutedProfit[$index].unexecutedProfit"></displaynumber>
