@@ -1,12 +1,18 @@
-<footer>
+<footer ng-controller="footerCtrl">
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <p>Rules Regulation  &copy; {{template.year}}.</p>
+                <p>Rules Regulation &copy; {{template.year}}.</p>
             </div>
+            <!-- <div class="col-sm-6">
+                <button>Revoke Access</button>
+            </div> -->
             <div class="col-sm-6">
                 <div class="text-right">
-                        <a href="http://www.betfair.com/www/GBR/en/aboutUs/Betfair.Charges/" target="_blank">Bet Charges.</a>
+                    <a ng-click="revokeAccess();" class="revoke-access">
+                        <span>Revoke Access</span>
+                    </a>
+                    <a href="http://www.betfair.com/www/GBR/en/aboutUs/Betfair.Charges/" target="_blank">Bet Charges.</a>
                 </div>
             </div>
         </div>

@@ -571,14 +571,15 @@ header {
     line-height: 50px;
     text-transform: none;
 }
+
 .selection {
     background: #ddd;
     margin-bottom: 4px;
     padding: 5px 10px;
-    &.LAY{
+    &.LAY {
         background: #f9c9d4;
     }
-    &.BACK{
+    &.BACK {
         background: #a7d8fd;
     }
 }
@@ -600,17 +601,29 @@ header {
     color: #009688;
     font-weight: 600;
 }
+
 .placeholder.LAY {
     color: #F44336;
     font-weight: 600;
 }
 
-.signup{
+.signup {
     font-size: 18px;
     margin-top: 10px;
-    a{
+    a {
         color: #444;
         font-weight: 600;
         letter-spacing: 1px;
+    }
+}
+
+.revoke-access {
+    color: #ffc107 !important;
+    transition: all ease 300ms !important;
+    margin-right: 10px !important;
+    font-size: 18px !important;
+    &:hover {
+        text-decoration: none !important;
+        color: #a07800 !important;
     }
 }
