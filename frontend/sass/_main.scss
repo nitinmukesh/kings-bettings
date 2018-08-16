@@ -618,10 +618,11 @@ header {
 }
 
 .revoke-access {
+    border: 1px solid;
+    margin-right: 20px;
     color: #ffc107 !important;
-    transition: all ease 300ms !important;
-    margin-right: 10px !important;
-    font-size: 18px !important;
+    transition: all ease 300ms !important; // margin-right: 10px !important;
+    // font-size: 18px !important;
     &:hover {
         text-decoration: none !important;
         color: #a07800 !important;
