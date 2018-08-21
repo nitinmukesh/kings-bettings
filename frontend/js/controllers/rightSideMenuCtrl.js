@@ -11,6 +11,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
 
     $rootScope.$on('eventBroadcastedName', function (event, data) {
         // console.log("data for bet", data);
+        $scope.activePill = 0;
         $scope.isBetSlip = true;
         if (data.type == "BACK") {
             var backFound = _.findIndex($scope.backArray, function (back) {
@@ -148,6 +149,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
                     $scope.betconfirm.close();
                     $scope.removeAllBets();
                     toastr.success("Bet Placed successfully!");
+                    $scope.activePill = 1;
                 } else {
                     toastr.error("Error while placing Bet");
                 }
