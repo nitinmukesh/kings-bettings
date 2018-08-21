@@ -29,7 +29,15 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         }
     };
 
-
+    $scope.checkDate = function (date) {
+        if (new Date(date.marketStartTime) > new Date() && date.betfairStatus == "OPEN") {
+            return true;
+        } else if (new Date(date.marketStartTime) <= new Date() && date.betfairStatus == "OPEN") {
+            return false;
+        } else if (date.betfairStatus != "OPEN") {
+            return null;
+        }
+    }
 
     $scope.$on('$locationChangeSuccess', function () {
         $scope.currentGame = ($location.path()).split('/');
