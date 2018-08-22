@@ -4,15 +4,20 @@
         <h1>My Bets</h1>
         <div class="row">
             <div class="column">
-                Bet Status:
-                <select name="betStatusIds" ng-model="formData.betStatus">
-                    <option value="EXECUTABLE">Unmatched</option>
-                    <option value="EXECUTION_COMPLETE">Matched</option>
-                    <option value="SETTLED">Settled</option>
-                    <option value="CANCELLED">Cancelled</option>
-                    <option value="VOIDED">Voided</option>
-                    <option value="LAPSED">Lapsed</option>
-                </select>
+                <div class="select-list">
+                    <div class="apl-report-filter ng-isolate-scope">
+                        Bet Status:
+                        <select name="betStatusIds" ng-model="formData.betStatus">
+                            <option value="EXECUTABLE">Unmatched</option>
+                            <option value="EXECUTION_COMPLETE">Matched</option>
+                            <option value="SETTLED">Settled</option>
+                            <option value="CANCELLED">Cancelled</option>
+                            <option value="VOIDED">Voided</option>
+                            <option value="LAPSED">Lapsed</option>
+                        </select>
+                    </div>
+                </div>
+
             </div>
             <div class="column">
                 <div>
