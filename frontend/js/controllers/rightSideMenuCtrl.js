@@ -141,6 +141,8 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
 
 
     $scope.placeBet = function () {
+        toastrConfig.positionClass = 'toast-top-center';
+        toastr.success('Your Bet will submit in 5 seconds');
         $scope.promise = NavigationService.success().then(function () {
             var reqData = _.concat($scope.layArray, $scope.backArray);
             NavigationService.apiCallWithData('Betfair/placePlayerBet', reqData, function (data) {
@@ -148,7 +150,16 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
                 if (data.value) {
                     $scope.betconfirm.close();
                     $scope.removeAllBets();
-                    toastr.success("Bet Placed successfully!");
+                    // toastr.success("Bet Placed successfully!");
+                    _.forEach(reqData, function (bet) {
+                        toastr.success("Event :" + reqData.event + "<br>" +
+                            "selection Name :" + reqData.selectionName + "<br>" +
+                            "Type :" + reqData.type + "<br>" +
+                            "Odds :" + reqData.Odds + "<br>" +
+                            "Stake :" + reqData.Stake + "<br>" +
+                            "liability :" + reqData.liability + "<br>" +
+                            "Profit :" + reqData.profit + "<br>");
+                    })
                     $scope.activePill = 1;
                 } else {
                     toastr.error("Error while placing Bet");
