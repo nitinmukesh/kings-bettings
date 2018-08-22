@@ -2,36 +2,31 @@
     <accountbalance></accountbalance>
     <div class="order-listing common-heading">
         <h1>My Bets</h1>
-        <!-- <div class="row">
+        <div class="row">
             <div class="column">
-                <div class="selection">
-                    <div class="item  selected" ng-class="?'selected':''" ng-click="vm.selectCurrent()">Current</div>
-                    <div class="item " ng-class="?'selected':''" ng-click="vm.selectPast()">Past</div>
-                </div>
-                <div class="selection alt">
-                    <div class="item  selected" ng-class="vm.isMatched?'selected':''" ng-click="vm.selectMatched()">Matched</div>
-                    <div class="item " ng-class="!vm.isMatched?'selected':''" ng-click="vm.selectUnmatched()">Unmatched</div>
-                </div>
+                Bet Status:
+                <select name="betStatusIds" ng-model="formData.betStatus">
+                    <option value="EXECUTABLE">Unmatched</option>
+                    <option value="EXECUTION_COMPLETE">Matched</option>
+                    <option value="SETTLED">Settled</option>
+                    <option value="CANCELLED">Cancelled</option>
+                    <option value="VOIDED">Voided</option>
+                    <option value="LAPSED">Lapsed</option>
+                </select>
             </div>
             <div class="column">
                 <div>
                     <div class="apl-report-filter ng-isolate-scope">
-                        <datepicker date-format="dd/MM/yyyy" selector="apl-input-datepicker-from" class="ng-isolate-scope">
-                            <span class="label-title">From</span>
-                            <input ng-model="filters.from" class="apl-input-datepicker-from ng-pristine ng-untouched ng-valid ng-not-empty" type="text"
-                                readonly="">
-                        </datepicker>
-                        <datepicker date-format="dd/MM/yyyy" selector="apl-input-datepicker-to" class="ng-isolate-scope">
-                            <span class="label-title">To</span>
-                            <input ng-model="filters.to" class="apl-input-datepicker-to ng-pristine ng-untouched ng-valid ng-not-empty" type="text" readonly="">
-                        </datepicker>
-                        <button id="submit" class="apl-btn apl-btn-primary" type="submit">
+                        From:
+                        <input type="date" ng-model="formData.DateFrom"> To:
+                        <input type="date" ng-model="formData.DateTo">
+                        <button id="submit" class="apl-btn apl-btn-primary" ng-click="filter(formData)">
                             <i class="fas fa-search"></i> Search
                         </button>
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
         <!-- <pre>{{accountStatement | json}}</pre> -->
         <div class="error-msg" ng-if="error == 'TEMPORARY_BAN_TOO_MANY_REQUESTS'">
             TEMPORARY LOST CONNECTION TOO MANY REQUESTS"
@@ -39,23 +34,25 @@
         <div class="error-msg" ng-if="error =='No data Found'">
             No data Found
         </div>
-        <table class="listing apl-table table" ng-if="accountStatement">
-            <thead class="thead-dark">
-                <tr>
-                    <!-- <th>Settled</th> -->
-                    <th>Placed</th>
-                    <th>Description</th>
-                    <th>Type</th>
-                    <th class="numeric ">Odds</th>
-                    <th class="numeric ">Stake</th>
-                    <!-- <th class="numeric  ">Liability</th> -->
-                    <th class="numeric ">Profit/Loss</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="bet in accountStatement">
-                    <!-- <td>
+        <div infinite-scroll="loadMore(formData)" ng-if="settledBets" infinite-scroll-distance="2" infinite-scroll-disabled="noData">
+            <table class="listing apl-table table">
+                <thead class="thead-dark">
+                    <tr>
+                        <!-- <th>Settled</th> -->
+                        <th>Placed</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                        <th>Selection</th>
+                        <th>Odds Matched</th>
+                        <th>Stake</th>
+                        <!-- <th class="numeric  ">Liability</th> -->
+                        <th>Profit/Loss</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="bet in clearedOrders">
+                        <!-- <td>
                         <span class="order-date">
                             <div type="fullDate">07/05/2018</div>
                         </span>
@@ -63,47 +60,120 @@
                             <div type="time">23:40:16</div>
                         </span>
                     </td> -->
-                    <td>
+                        <td>
+                            <span class="order-date">
+                                <div type="fullDate">{{bet.placedDate | date : "dd.MM.yyyy"}}</div>
+                            </span>
+                            <span class="order-time">
+                                <div type="time">{{bet.placedDate | date: "h:mm:ss"}}</div>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="order-event ">
+                                <span>{{bet.itemDescription.eventDesc}}</span>
+                            </span>
+                            <span class="order-betId split ">
+                                <label>Bet ID</label>{{bet.betId}}</span>
+                        </td>
+                        <td>
+                            <span>{{bet.side}}</span>
+                        </td>
+                        <td class="order-event ">
+                            <span class="order-event ">
+                                <span>{{bet.itemDescription.runnerDesc}}</span>
+                            </span>
+
+                        </td>
+                        <td class="numeric" ng-class="{'-negative': bet.priceMatched < 0, '-positive': bet.priceMatched > 0}">
+                            {{(bet.priceMatched || 0)| number:2}}
+                        </td>
+                        <td class="numeric" ng-class="{'-negative': bet.sizeSettled < 0, '-positive': bet.sizeSettled > 0}">
+                            {{(bet.sizeSettled || 0)| number:2}}
+                        </td>
+                        <td class="numeric" ng-class="{'-negative': bet.profit < 0, '-positive': bet.profit > 0}">
+                            {{(bet.profit|| 0)| number:2}}
+                        </td>
+                        <td ng-class="{'-negative':bet.betOutcome=='LOST', '-positive': bet.betOutcome=='WON'}">
+                            <span ng-if="bet.betOutcome=='WON'">
+                                Won
+                            </span>
+                            <span ng-if="bet.betOutcome=='LOST'">
+                                Lose
+                            </span>
+                            <span ng-if="bet.legacyData.winLose=='RESULT_NOT_APPLICABLE'">
+                                --
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div infinite-scroll="loadMore(formData)" ng-if="currentBet" infinite-scroll-distance="2" infinite-scroll-disabled="noData">
+            <table class="listing apl-table table">
+                <thead class="thead-dark">
+                    <tr>
+                        <!-- <th>Settled</th> -->
+                        <th>Placed Date</th>
+                        <th>Matched Date</th>
+                        <th>Event</th>
+                        <th>Selection</th>
+                        <th>Type</th>
+                        <th class="numeric ">Matched Priced Matched</th>
+                        <th class="numeric ">Size Matched</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="bet in currentOrders">
+                        <!-- <td>
                         <span class="order-date">
-                            <div type="fullDate">{{bet.legacyData.placedDate | date : "dd.MM.yyyy"}}</div>
+                            <div type="fullDate">07/05/2018</div>
                         </span>
                         <span class="order-time">
-                            <div type="time">{{bet.legacyData.placedDate | date: "h:mm:ss"}}</div>
+                            <div type="time">23:40:16</div>
                         </span>
-                    </td>
-                    <td>
-                        <span class="order-event ">
-                            <span date-string="order.eventName" timestamp="order.marketTime">{{bet.legacyData.fullMarketName}}</span>
-                        </span>
-                        <span class="order-betId split ">
-                            <label>Bet ID</label>{{bet.refId}}</span>
-                    </td>
-                    <td>
-                        <span ng-if="bet.legacyData.betType == 'L'"> Lay</span>
-                        <span ng-if="bet.legacyData.betType == 'B'"> Back</span>
-                    </td>
-                    <td class="numeric" ng-class="{'-negative': bet.legacyData.avgPrice < 0, '-positive': bet.legacyData.avgPrice > 0}">
-                        {{(bet.legacyData.avgPrice || 0)| number:2}}
-                    </td>
-                    <td class="numeric" ng-class="{'-negative': bet.legacyData.betSize < 0, '-positive': bet.legacyData.betSize > 0}">
-                        {{(bet.legacyData.betSize || 0)| number:2}}
-                    </td>
-                    <td class="numeric" ng-class="{'-negative': bet.amount < 0, '-positive': bet.amount > 0}">
-                        {{(bet.amount|| 0)| number:2}}
-                    </td>
-                    <td ng-class="{'-negative':bet.legacyData.winLose=='RESULT_LOST', '-positive': bet.legacyData.winLose=='RESULT_WON'}">
-                        <span ng-if="bet.legacyData.winLose=='RESULT_WON'">
-                            Won
-                        </span>
-                        <span ng-if="bet.legacyData.winLose=='RESULT_LOST'">
-                            Lose
-                        </span>
-                        <span ng-if="bet.legacyData.winLose=='RESULT_NOT_APPLICABLE'">
-                            --
-                        </span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    </td> -->
+                        <td>
+                            <span class="order-date">
+                                <div type="fullDate">{{bet.placedDate | date : "dd.MM.yyyy"}}</div>
+                            </span>
+                            <span class="order-time">
+                                <div type="time">{{bet.placedDate | date: "h:mm:ss"}}</div>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="order-date">
+                                <div type="fullDate">{{bet.matchedDate | date : "dd.MM.yyyy"}}</div>
+                            </span>
+                            <span class="order-time">
+                                <div type="time">{{bet.matchedDate | date: "h:mm:ss"}}</div>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="order-event ">
+                                <span>{{bet.eventName}}</span>
+                            </span>
+                            <span class="order-betId split ">
+                                <label>Bet ID</label>{{bet.betId}}</span>
+                        </td>
+                        <td>
+                            <span class="order-event ">
+                                <span>{{bet.runnerName}}</span>
+                            </span>
+                        </td>
+                        <td>
+                            <span>{{bet.side}}</span>
+                        </td>
+                        <td class="numeric" ng-class="{'-negative': bet.averagePriceMatched < 0, '-positive': bet.averagePriceMatched > 0}">
+                            {{(bet.priceSize.price || 0)| number:2}}
+                        </td>
+
+                        <td class="numeric" ng-class="{'-negative': bet.sizeMatched < 0, '-positive': bet.sizeMatched > 0}">
+                            {{(bet.sizeMatched || 0)| number:2}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

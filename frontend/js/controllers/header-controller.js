@@ -8,9 +8,13 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
         $state.go('login');
     }
 
-    $scope.mybet = function () {
-        var win = window.open("https://myactivity.betfair.com/#/sportsbook", '_blank');
+    $scope.myAccountStatement = function () {
+        var win = window.open("https://myaccount.betfair.com/summary/accountstatement", '_blank');
         win.focus();
+    };
+
+    $scope.mybet = function () {
+        $state.go('mybet');
     }
 
     $scope.next = true;

@@ -88,10 +88,11 @@ myApp.controller('sideMenuCtrl', function ($scope, $stateParams, TemplateService
             name: $scope.game
         });
         $scope.fromGame = true;
-        NavigationService.apiCallWithData("BetFair/getGame", {}, function (data) {
+
+        NavigationService.apiCallWithData("Navigation/getNavigation", {}, function (data) {
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
-                    $scope.eventTypes = data.data[0].result;
+                    $scope.eventTypes = data.data;
                     // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",$scope.eventTypes);
                     $scope.home = true;
                 } else {

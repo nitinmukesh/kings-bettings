@@ -119,13 +119,26 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
             });
         },
 
-        getAccountStatement: function (formData, callback) {
+        myBets: function (formData, callback) {
             if ($.jStorage.get("accessTokenId")) {
                 if (!formData) {
                     formData = {};
                 }
                 formData.accessTokenId = $.jStorage.get("accessTokenId");
-                $http.post(adminurl + 'betfair/getAccountStatement', formData).then(function (data) {
+                $http.post(adminurl + 'betfair/myBets', formData).then(function (data) {
+                    data = data.data;
+                    callback(data);
+                });
+            }
+
+        },
+        getMyCurrentOrders: function (formData, callback) {
+            if ($.jStorage.get("accessTokenId")) {
+                if (!formData) {
+                    formData = {};
+                }
+                formData.accessTokenId = $.jStorage.get("accessTokenId");
+                $http.post(adminurl + 'betfair/getMyCurrentOrders', formData).then(function (data) {
                     data = data.data;
                     callback(data);
                 });

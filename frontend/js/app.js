@@ -6,7 +6,8 @@ var myApp = angular.module('myApp', [
     'angulartics.google.analytics',
     'ui.bootstrap',
     'angularPromiseButtons',
-    'toastr'
+    'toastr',
+    'infinite-scroll'
 ]);
 
 var globalInteval;
@@ -83,9 +84,8 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             url: "/cancel",
             templateUrl: loginTempateURL,
             controller: 'CancelCtrl'
-        })
-    ;
-    $urlRouterProvider.otherwise("/login");
+        });
+    $urlRouterProvider.otherwise("/home");
     $locationProvider.html5Mode(isproduction);
 });
 

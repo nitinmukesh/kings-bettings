@@ -4,20 +4,65 @@ myApp.controller('MybetCtrl', function ($scope, TemplateService, NavigationServi
     TemplateService.sidemenu2 = "";
     TemplateService.rightsidemenu = "";
     $scope.navigation = NavigationService.getNavigation();
+    $scope.isLoadMore = false;
+    $scope.clearedOrders = [];
+    $scope.currentOrders = [];
+    $scope.formData = {};
+    $scope.formData.skip = 0;
 
 
-
-    $scope.getAccountStatement = function (data) {
-        NavigationService.getAccountStatement(data, function (data) {
-            if (data.data.result.accountStatement) {
-                $scope.accountStatement = data.data.result.accountStatement;
-            } else if (data.data.error) {
-                $scope.error = data.data.error;
-            } else {
-                $scope.error = "No data Found";
-            }
-        });
+    $scope.filter = function (value) {
+        $scope.clearedOrders = [];
+        $scope.currentOrders = [];
+        $scope.formData.skip = 0;
+        $scope.myBets(value);
     };
-    $scope.getAccountStatement();
+
+    $scope.myBets = function (formData) {
+        formData.skip = ++$scope.formData.skip;
+        if (formData.betStatus == "EXECUTION_COMPLETE" || formData.betStatus == "EXECUTABLE") {
+            $scope.settledBets = false;
+            $scope.currentBet = true;
+            NavigationService.getMyCurrentOrders(formData, function (data) {
+                if (data.data[0].result.moreAvailable == false) {
+                    $scope.noData = true;
+                }
+                if (data.data[0].result.currentOrders) {
+                    $scope.currentOrders = _.concat($scope.currentOrders, data.data[0].result.currentOrders);
+                    $scope.isLoadMore = true;
+                } else if (data.data.error) {
+                    $scope.error = data.data.error;
+                } else {
+                    $scope.noData = true;
+                    $scope.error = "No data Found";
+                }
+            });
+        } else {
+            $scope.settledBets = true;
+            $scope.currentBet = false;
+            NavigationService.myBets(formData, function (data) {
+                if (data.data[0].result.moreAvailable == false) {
+                    $scope.noData = true;
+                }
+                if (data.data[0].result.clearedOrders) {
+                    $scope.clearedOrders = _.concat($scope.clearedOrders, data.data[0].result.clearedOrders);
+                    $scope.isLoadMore = true;
+                } else if (data.data.error) {
+                    $scope.error = data.data.error;
+                } else {
+                    $scope.noData = true;
+                    $scope.error = "No data Found";
+                }
+            });
+        }
+
+    };
+    $scope.myBets($scope.formData);
+    $scope.loadMore = function (value) {
+        if ($scope.isLoadMore) {
+            $scope.myBets(value);
+            $scope.isLoadMore = false;
+        }
+    }
 
 });
