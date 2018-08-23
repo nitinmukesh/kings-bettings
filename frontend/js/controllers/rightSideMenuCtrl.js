@@ -151,6 +151,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
                     $scope.betconfirm.close();
                     $scope.removeAllBets();
                     // toastr.success("Bet Placed successfully!");
+                    toastrConfig.positionClass = 'toast-top-right';
                     _.forEach(reqData, function (bet) {
                         toastr.success("Event :" + reqData.event + "<br>" +
                             "selection Name :" + reqData.selectionName + "<br>" +
