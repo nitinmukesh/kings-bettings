@@ -29,12 +29,12 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         }
     };
 
-    $scope.checkDate = function (date) {
-        if (new Date(date.marketStartTime) > new Date() && date.betfairStatus == "OPEN") {
+    $scope.checkDate = function (data) {
+        if (new Date(data.marketStartTime) > new Date() && (data.betfairStatus == "OPEN" || data.isSuspended == "No")) {
             return true;
-        } else if (new Date(date.marketStartTime) <= new Date() && date.betfairStatus == "OPEN") {
+        } else if (new Date(data.marketStartTime) <= new Date() && (data.betfairStatus == "OPEN" || data.isSuspended == "No" || data.inPlayStatus == "Open")) {
             return false;
-        } else if (date.betfairStatus != "OPEN") {
+        } else if (data.betfairStatus != "OPEN" || data.isSuspended == "Yes") {
             return null;
         }
     }
