@@ -168,7 +168,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
             odds: price,
             type: type,
             eventId: market.parentCategory.betfairId,
-            event: market.parentCategory.event,
+            event: market.parentCategory.name,
             selectionId: selection.betfairId,
             selectionName: selection.name,
             sport: $scope.selectedGame,

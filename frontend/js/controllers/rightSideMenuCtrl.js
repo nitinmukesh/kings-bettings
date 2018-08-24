@@ -1,4 +1,4 @@
-myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams, jStorageService, TemplateService, BetService, $state, $uibModal, NavigationService, toastr) {
+myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams, jStorageService, TemplateService, BetService, $state, $uibModal, NavigationService, toastr, toastrConfig) {
     $scope.BetService = BetService;
 
     $scope.layArray = [];
@@ -30,6 +30,8 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
                     profit: 0
                 });
                 $scope.isBack = true;
+            } else {
+                $scope.backArray[backFound].odds = data.odds;
             }
         }
         if (data.type == "LAY") {
@@ -49,6 +51,8 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
                     liability: 0
                 });
                 $scope.isLay = true;
+            } else {
+                $scope.layArray[layFound].odds = data.odds;
             }
         }
     });
@@ -143,26 +147,31 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
     $scope.placeBet = function () {
         toastrConfig.positionClass = 'toast-top-center';
         toastr.success('Your Bet will submit in 5 seconds');
+        $scope.betconfirm.close();
         $scope.promise = NavigationService.success().then(function () {
             var reqData = _.concat($scope.layArray, $scope.backArray);
             NavigationService.apiCallWithData('Betfair/placePlayerBet', reqData, function (data) {
                 // console.log("data", data);
                 if (data.value) {
-                    $scope.betconfirm.close();
-                    $scope.removeAllBets();
-                    // toastr.success("Bet Placed successfully!");
+                    toastrConfig = {};
                     toastrConfig.positionClass = 'toast-top-right';
+                    toastrConfig.allowHtml = true;
                     _.forEach(reqData, function (bet) {
-                        toastr.success("Event :" + reqData.event + "<br>" +
-                            "selection Name :" + reqData.selectionName + "<br>" +
-                            "Type :" + reqData.type + "<br>" +
-                            "Odds :" + reqData.Odds + "<br>" +
-                            "Stake :" + reqData.Stake + "<br>" +
-                            "liability :" + reqData.liability + "<br>" +
-                            "Profit :" + reqData.profit + "<br>");
+                        var toastrString = 'Event :' + bet.event + '<br>' +
+                            'selection Name :' + bet.selectionName + '<br>' +
+                            'Type :' + bet.type + '<br>' +
+                            'Odds :' + bet.odds + '<br>' +
+                            'Stake :' + bet.stake + '<br>';
+                        toastrString += bet.liability ? ('liability :' + bet.liability) :
+                            ('Profit :' + bet.profit);
+                        toastr.success(toastrString);
                     })
                     $scope.activePill = 1;
+                    $scope.removeAllBets();
+                    // toastr.success("Bet Placed successfully!");
+
                 } else {
+                    toastrConfig.positionClass = 'toast-top-right';
                     toastr.error("Error while placing Bet");
                 }
                 // callback();
