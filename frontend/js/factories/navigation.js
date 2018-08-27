@@ -2,12 +2,12 @@
 // adminurl = adminurl + "/api/";
 // adminUUU = "https://rates.kingsplay.co/"; //socket betfair
 // sportsSocket = "https://sportsbookb.kingsplay.co/";
-adminUUU = "http://192.168.1.110:1338/"; //socket betfair
-sportsSocket = "http://192.168.1.110:1337/";
+adminUUU = "http://localhost:1338/"; //socket betfair
+sportsSocket = "http://localhost:1337/";
 // sportsSocket = "http://192.168.2.30:1337/";
 // sportsSocket = "http://192.168.43.8:1337/";
 adminurl = sportsSocket + "api/"; //sports book
-mainServer = "http://192.168.1.104:1337/"; //main server
+mainServer = "http://192.168.1.105:1337/"; //main server
 // mainServer = "http://kingplay.online/"; //main server
 // mainServer = "http://192.168.2.31:1337/"; //main server
 // adminurl = "http://192.168.1.107:1337/api/"
@@ -88,6 +88,25 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
         },
         getAccountStatement: function (data, callback) {
             $http.post(mainServer + 'api/SportsBook/getAccountStatement', data).then(function (data) {
+                console.log(data);
+                callback(data);
+            });
+        },
+        getUserBook: function (data1, callback) {
+            $http.post(sportsSocket + 'api/Book/getUserBook', {
+                user: data1.user,
+                marketId: data1.marketId
+            }).then(function (data) {
+                console.log(data);
+                callback(data);
+            });
+        },
+        getPlayerExecutedBets: function (data1, callback) {
+            $http.post(sportsSocket + 'api/BetsExecuted/getPlayerExecutedBets', {
+                user: data1.id,
+                marketId: data1.marketId,
+                page: data1.page
+            }).then(function (data) {
                 console.log(data);
                 callback(data);
             });

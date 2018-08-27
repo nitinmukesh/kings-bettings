@@ -93,7 +93,7 @@
                             <th>Date</th>
                             <th colspan="2">Description</th>
                             <th class="numeric">P&amp;L</th>
-                            <!-- <th class="numeric">Credit Limit</th> -->
+                            <th class="numeric">Credit Limit</th>
                             <th class="numeric">Balance</th>
                         </tr>
                     </thead>
@@ -108,28 +108,54 @@
                                 </span>
                             </td>
 
-                            <td>Betting P&amp;L</td>
-
-                            <td ng-click="showBreakdown()">
+                            <td>
+                                <span ng-if="!account.difference">Betting P&amp;L</span>
+                                <span ng-if="account.difference && account.status == 'Edit'">Credit Adjustment</span>
+                                <span ng-if="account.difference && account.status == 'Create'">Account Open</span>
+                            </td>
+                            <td ng-click="getBetList(account)">
                                 <span class="event-link">
-                                    <span>England v India (2nd Test) - Match Odds {{account.marketId}}</span>
+                                    <span>{{account.selectionName}}</span>
                                 </span>
                             </td>
 
                             <td class="numeric">
-                                <span class="-positive" ng-if="account.winAmt > 0">
-                                        {{account.winAmt * account.playerRate | number}}
+                                <span class="-positive" ng-if="account.difference && account.difference >= 0">
+                                    {{account.difference | number}}
                                 </span>
-                                <span class="-negative" ng-if="account.loseAmt > 0">
-                                        {{account.loseAmt * account.playerRate | number}}
+                                <span class="-negative" ng-if="account.difference && account.difference < 0">
+                                    {{account.difference | number}}
+                                </span>
+                                <span class="-positive" ng-if="account.netAmount && account.netAmount >= 0">
+                                    {{account.netAmount / account.playerRate | number}}
+                                </span>
+                                <span class="-negative" ng-if="account.netAmount && account.netAmount < 0">
+                                    {{account.netAmount / account.playerRate | number}}
                                 </span>
                             </td>
-                            <!-- <td class="numeric" ng-class="{'-negative': account.creditLimit < 0, '-positive': account.creditLimit  >= 0}">-</td> -->
-                            <td class="numeric" ng-class="{'-negative': account.netAmount < 0, '-positive': account.netAmount  >= 0}">{{account.netAmount | number}}</td>
+                            <td>
+                                <span class="-positive" ng-if="account.creditLimit">
+                                    {{account.creditLimit | number}}
+                                </span>
+                            </td>
+                            <td class="numeric">
+                                <span class="-positive" ng-if="account.currentBalance && account.currentBalance >= 0">
+                                    {{account.currentBalance | number}}
+                                </span>
+                                <span class="-negative" ng-if="account.currentBalance && account.currentBalance < 0">
+                                    {{account.currentBalance | number}}
+                                </span>
+                                <span class="-positive" ng-if="account.balance && account.balance >= 0">
+                                    {{account.balance | number}}
+                                </span>
+                                <span class="-negative" ng-if="account.balance && account.balance < 0">
+                                    {{account.balance | number}}
+                                </span>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
-                <div class="breakdown-listing">
+                <!-- <div class="breakdown-listing">
                     <table class="listing apl-table">
                         <thead>
                             <tr>
@@ -193,7 +219,7 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
+                </div> -->
             </div>
         </div>
 

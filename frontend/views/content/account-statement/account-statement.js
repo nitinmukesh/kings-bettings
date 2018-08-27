@@ -27,7 +27,7 @@ myApp.controller('AccountStatementCtrl', function ($scope, TemplateService, Navi
     var accountStatmentFilter = {};
     accountStatmentFilter.fromDate = moment().format();
     accountStatmentFilter.toDate = moment().format();
-    console.log("acccountFIlter outside",accountStatmentFilter);
+    console.log("acccountFIlter outside", accountStatmentFilter);
     $scope.accountStatements = function (accountStatmentFilter) {
         console.log("accountStatmentFilter", accountStatmentFilter);
         $scope.pageNo = 1;
@@ -36,9 +36,58 @@ myApp.controller('AccountStatementCtrl', function ($scope, TemplateService, Navi
         // $scope.resetStatementFilter();
         NavigationService.getAccountStatement(accountStatmentFilter, function (data) {
             console.log(data.data.data);
-            $scope.accounts = data.data.data.accounts.results;
+            $scope.accounts = _.concat(data.data.data.accounts.results, data.data.data.creditLimitLogs.results);
+            // _.sortBy($scope.accounts, ['createdAt']);
+            $scope.accounts.sort(function (a, b) {
+                return (a.createdAt > b.createdAt) ? -1 : ((a.createdAt < b.createdAt) ? 1 : 0);
+            });
             $scope.netProfit = data.data.data.netProfit;
             console.log("netProfit", $scope.netProfit);
+        });
+    };
+
+    $scope.getBetList = function (data) {
+        if (data.selectionName) {
+            data.id = $.jStorage.get("userId");;
+            data.marketId = data.marketId;
+            data.page = 1;
+
+            NavigationService.getPlayerExecutedBets(data, function (data) {
+                if (data.data.data[0]) {
+                    $scope.accountStatement = data.data.data[0].result;
+                    console.log("$scope.accountStatement", $scope.accountStatement);
+                    $scope.totalItems = data.data.data[0].countInfo.count;
+                } else {
+                    $scope.noData = "No Data Found";
+                }
+                // $scope.maxRow = data.data.data.results.length;
+            });
+        }
+    };
+
+    $scope.getUserBook = function () {
+        var data = {
+            user: globalStorage.get("profile")._id,
+            marketId: $scope.marketId
+        };
+        NavigationService.getUserBook(data, function (data) {
+            // console.log(data);
+            if (data.data.data) {
+                $scope.user = globalStorage.get("profile");
+                var books = data.data.data;
+                books.horse = _.sortBy(books.horse, ['sortPriority']);
+                $scope.user.book = books;
+                $scope.horseno = $scope.user.book.horse.length;
+                console.log("HORSEOK", $scope.horseno);
+                if (!$scope.horseno) {
+                    $scope.horseno = 3;
+                }
+                $scope.user.children = undefined;
+                console.log("getUserBook");
+                console.log($scope.user);
+            } else {
+                console.log("error");
+            }
         });
     };
 
