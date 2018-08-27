@@ -173,6 +173,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'FavouritesCtrl'
         })
+        .state('my-markets', {
+            url: "/my-markets",
+            templateUrl: tempateURL,
+            controller: 'MyMarketsCtrl'
+        })
         .state('links', {
             url: "/links",
             templateUrl: tempateURL,

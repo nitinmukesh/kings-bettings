@@ -43,12 +43,13 @@ myApp.controller('AccountStatementCtrl', function ($scope, TemplateService, Navi
             });
             $scope.netProfit = data.data.data.netProfit;
             console.log("netProfit", $scope.netProfit);
+            $scope.showAccountDetails = false;
         });
     };
 
     $scope.getBetList = function (data) {
         if (data.selectionName) {
-            data.id = $.jStorage.get("userId");;
+            data.player = $.jStorage.get("userId");;
             data.marketId = data.marketId;
             data.page = 1;
 
@@ -57,6 +58,7 @@ myApp.controller('AccountStatementCtrl', function ($scope, TemplateService, Navi
                     $scope.accountStatement = data.data.data[0].result;
                     console.log("$scope.accountStatement", $scope.accountStatement);
                     $scope.totalItems = data.data.data[0].countInfo.count;
+                    $scope.showAccountDetails = true;
                 } else {
                     $scope.noData = "No Data Found";
                 }

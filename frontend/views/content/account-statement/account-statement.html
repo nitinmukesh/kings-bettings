@@ -81,13 +81,13 @@
             </tbody>
         </table> -->
         <div>
-            <div class="breakdown-breadcrumb ">
+            <div class="breakdown-breadcrumb " ng-if="showAccountDetails">
                 <a href="">Account Statement</a> &gt;
-                <span>Rajasthan Royals v Kings XI Punjab</span> - Completed Match
+                <span>{{accountStatement[0].eventDesc.name}}</span> - {{accountStatement[0].marketDesc.name}}
             </div>
 
             <div class="breakdown-listing">
-                <table class="listing apl-table">
+                <table class="listing apl-table" ng-if="!showAccountDetails">
                     <thead>
                         <tr>
                             <th>Date</th>
@@ -133,9 +133,12 @@
                                     {{account.netAmount / account.playerRate | number}}
                                 </span>
                             </td>
-                            <td>
+                            <td class="text-center">
                                 <span class="-positive" ng-if="account.creditLimit">
                                     {{account.creditLimit | number}}
+                                </span>
+                                <span class="-positive " ng-if="!account.creditLimit">
+                                    -
                                 </span>
                             </td>
                             <td class="numeric">
@@ -155,7 +158,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <!-- <div class="breakdown-listing">
+                <div class="breakdown-listing" ng-if="showAccountDetails">
                     <table class="listing apl-table">
                         <thead>
                             <tr>
@@ -170,7 +173,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="account in accounts">
+                            <tr ng-repeat="account in accountStatement">
                                 <td>
                                     <span class="order-date">
                                         <time type="fullDate">{{account.createdAt | date : "dd.MM.yyyy"}}</time>
@@ -179,17 +182,17 @@
                                         <time type="time">{{account.createdAt | date: "h:mm:ss"}}</time>
                                     </span>
                                 </td>
-                                <td>Yes</td>
+                                <td>{{account.horse.name}}</td>
 
-                                <td>1805081036251219</td>
-                                <td>Lay</td>
+                                <td>{{account.betId}}</td>
+                                <td>{{account.type}}</td>
                                 <td class="numeric ">
-                                    1.060
+                                    {{account.betRate}}
 
                                 </td>
                                 <td class="numeric ">100.00</td>
                                 <td class="numeric  -negative">-6.00</td>
-                                <td class=" -negative">LOST</td>
+                                <td class=" -negative">{{account.betWinStatus}}</td>
                             </tr>
 
                         </tbody>
@@ -219,7 +222,7 @@
                             </tr>
                         </tbody>
                     </table>
-                </div> -->
+                </div>
             </div>
         </div>
 
