@@ -10,8 +10,9 @@
                     <!-- <input type="date" name="" ng-model="accountStatmentFilter.fromDate"> -->
                     <!-- <input type="date" required ng-model="accountStatmentFilter.fromDate" class="form-control" required id="basic-url" aria-describedby="basic-addon3"> -->
                     <p class="input-group">
-                        <input type="text" class="form-control" name="fromDate" uib-datepicker-popup="dd.MM.yyyy" ng-model="accountStatmentFilter.fromDate"
-                            is-open="popup1.opened" ng-required="true" close-text="Close" />
+                        <input type="text" class="form-control" name="fromDate" uib-datepicker-popup="dd.MM.yyyy"
+                            ng-model="accountStatmentFilter.fromDate" is-open="popup1.opened" ng-required="true"
+                            close-text="Close" />
                         <span class="input-group-btn">
                             <button type="button" class="btn btn-default" ng-click="open1()">
                                 <i class="far fa-calendar-alt"></i>
@@ -28,8 +29,9 @@
                     <!-- <input type="date" name="" ng-model="accountStatmentFilter.toDate"> -->
                     <!-- <input type="date" required ng-model="accountStatmentFilter.fromDate" class="form-control" required id="basic-url" aria-describedby="basic-addon3"> -->
                     <p class="input-group">
-                        <input type="text" class="form-control" name="toDate" uib-datepicker-popup="dd.MM.yyyy" ng-model="accountStatmentFilter.toDate"
-                            is-open="popup2.opened" ng-required="true" close-text="Close" />
+                        <input type="text" class="form-control" name="toDate" uib-datepicker-popup="dd.MM.yyyy"
+                            ng-model="accountStatmentFilter.toDate" is-open="popup2.opened" ng-required="true"
+                            close-text="Close" />
                         <span class="input-group-btn">
                             <button type="button" class="btn btn-default" ng-click="open2()">
                                 <i class="far fa-calendar-alt"></i>
@@ -117,7 +119,7 @@
                             </td>
                             <td ng-click="getBetList(account)">
                                 <span class="event-link">
-                                    <span>{{account.selectionName}}</span>
+                                    <span>{{account.eventName}}-{{account.matchName}}</span>
                                 </span>
                             </td>
                             <td class="">{{account.winningHorse}}</td>
