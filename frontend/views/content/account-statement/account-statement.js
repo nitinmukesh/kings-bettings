@@ -51,14 +51,40 @@ myApp.controller('AccountStatementCtrl', function ($scope, TemplateService, Navi
         if (data.selectionName) {
             data.player = $.jStorage.get("userId");;
             data.marketId = data.marketId;
-            data.page = 1;
-
+            // data.page = 1;
+            $scope.backSubTotal = 0;
+            $scope.laySubTotal = 0;
+            $scope.marketSubTotal = 0;
+            $scope.netMarketTotal = 0;
+            $scope.commissionAmt = data.commissionAmt;
+            $scope.winningHorse = data.winningHorse;
             NavigationService.getPlayerExecutedBets(data, function (data) {
                 if (data.data.data[0]) {
                     $scope.accountStatement = data.data.data[0].result;
                     console.log("$scope.accountStatement", $scope.accountStatement);
                     $scope.totalItems = data.data.data[0].countInfo.count;
                     $scope.showAccountDetails = true;
+                    _.forEach($scope.accountStatement, function (account) {
+                        if (account.betWinStatus == 'WON') {
+                            $scope.marketSubTotal += (account.betRate * account.betInfo[0].stake);
+                            if (account.type == 'BACK') {
+                                $scope.backSubTotal += (account.betRate * account.betInfo[0].stake);
+                            } else if (account.type == 'LAY') {
+                                $scope.laySubTotal += (account.betRate * account.betInfo[0].stake);
+                            }
+                        } else if (account.betWinStatus == 'LOST') {
+                            $scope.marketSubTotal -= (account.betRate * account.betInfo[0].stake);
+                            if (account.type == 'BACK') {
+                                $scope.backSubTotal -= (account.betRate * account.betInfo[0].stake);
+                            } else if (account.type == 'LAY') {
+                                $scope.laySubTotal -= (account.betRate * account.betInfo[0].stake);
+                            }
+                        } else {
+                            //do nothing
+                        }
+                    })
+                    $scope.netMarketTotal = $scope.commissionAmt + $scope.marketSubTotal;
+
                 } else {
                     $scope.noData = "No Data Found";
                 }

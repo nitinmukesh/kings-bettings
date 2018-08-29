@@ -44,11 +44,13 @@
                 <i class="fas fa-search apl-icon-search"></i> Search
             </button>
         </div>
-
-
-        <p class="total-pnl">
+        <p class="total-pnl d-inline-block" ng-if="netProfit">
             <span translate="" class="ng-scope">Total P&amp;L</span>:
             <span class="numeric" ng-class="{'-negative': netProfit < 0, '-positive': netProfit  >= 0}">{{netProfit}}</span>
+        </p>
+        <p class="total-pnl d-inline-block w-50 text-center" ng-if="showAccountDetails">
+            <span translate="" class="ng-scope">Winning Horse</span>:
+            <span class="">{{winningHorse}}</span>
         </p>
 
         <!-- <p class="total-pnl">
@@ -92,6 +94,7 @@
                         <tr>
                             <th>Date</th>
                             <th colspan="2">Description</th>
+                            <th>Winner</th>
                             <th class="numeric">P&amp;L</th>
                             <th class="numeric">Credit Limit</th>
                             <th class="numeric">Balance</th>
@@ -107,7 +110,6 @@
                                     <time type="time">{{account.createdAt | date: "h:mm:ss"}}</time>
                                 </span>
                             </td>
-
                             <td>
                                 <span ng-if="!account.difference">Betting P&amp;L</span>
                                 <span ng-if="account.difference && account.status == 'Edit'">Credit Adjustment</span>
@@ -118,6 +120,7 @@
                                     <span>{{account.selectionName}}</span>
                                 </span>
                             </td>
+                            <td class="">{{account.winningHorse}}</td>
 
                             <td class="numeric">
                                 <span class="-positive" ng-if="account.difference && account.difference >= 0">
@@ -187,12 +190,29 @@
                                 <td>{{account.betId}}</td>
                                 <td>{{account.type}}</td>
                                 <td class="numeric ">
-                                    {{account.betRate}}
+                                    {{account.betRate | number:2}}
 
                                 </td>
-                                <td class="numeric ">100.00</td>
-                                <td class="numeric  -negative">-6.00</td>
-                                <td class=" -negative">{{account.betWinStatus}}</td>
+                                <td class="numeric ">{{account.betInfo[0].stake | number:2}}</td>
+                                <td class="numeric">
+                                    <span class="-negative" ng-if="account.betWinStatus =='LOST'">
+                                        -{{account.betRate *account.betInfo[0].stake | number:2}}
+                                    </span>
+                                    <span class="-positive" ng-if="account.betWinStatus =='WON'">
+                                        {{account.betRate *account.betInfo[0].stake | number:2}}
+                                    </span>
+                                    <span class="-positive" ng-if="account.betWinStatus =='VOID'">
+                                        0.00
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="-negative" ng-if="account.betWinStatus =='LOST'">
+                                        {{account.betWinStatus}}
+                                    </span>
+                                    <span class="-positive" ng-if="account.betWinStatus =='WON' || account.betWinStatus =='VOID'">
+                                        {{account.betWinStatus}}
+                                    </span>
+                                </td>
                             </tr>
 
                         </tbody>
@@ -202,23 +222,23 @@
                         <tbody>
                             <tr>
                                 <td class="label">Back subtotal</td>
-                                <td class="">10.00</td>
+                                <td class="">{{backSubTotal|number:2}}</td>
                             </tr>
                             <tr>
                                 <td class="label">Lay subtotal</td>
-                                <td class="">-13.00</td>
+                                <td class="">{{laySubTotal|number:2}}</td>
                             </tr>
                             <tr>
                                 <td class="label">Market subtotal</td>
-                                <td class="">-3.00</td>
+                                <td class="">{{marketSubTotal|number:2}}</td>
                             </tr>
                             <tr>
                                 <td class="label">Commission</td>
-                                <td class="underline ">0.00</td>
+                                <td class="underline ">{{commissionAmt | number:2}}</td>
                             </tr>
                             <tr class="total">
                                 <td class="label">Net Market Total</td>
-                                <td class="underline ">-3.00</td>
+                                <td class="underline ">{{netMarketTotal|number:2}}</td>
                             </tr>
                         </tbody>
                     </table>
