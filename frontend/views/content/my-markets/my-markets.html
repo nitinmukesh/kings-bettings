@@ -10,10 +10,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
+                    <tr ng-repeat="item in myMarkets">
+                        <td ng-click="getMarket(item);">
                             <i class="fas fa-star apl-icon-star-o"></i>
-                            <a class="event-name" href="">Kings XI Punjab v Mumbai Indians</a>
+                            <a class="event-name" href="">{{item.parentCategory.name}}</a>
                             <small class="">
                                 <!-- <time timestamp="event.start" type="gmtDateTime" class="">04/05/2018 20:00</time> -->
                             </small>
