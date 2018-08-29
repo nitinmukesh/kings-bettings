@@ -1,7 +1,7 @@
 // var adminurl = adminUUU;
 // adminurl = adminurl + "/api/";
 adminUUU = "https://rates.kingsplay.co/"; //socket betfair
-sportsSocket = "https://sportsbookb.kingsplay.co/";
+sportsSocket = "https://sportsbooktest.kingsplay.co/";
 // adminUUU = "http://localhost:1338/"; //socket betfair
 // sportsSocket = "http://localhost:1337/";
 // sportsSocket = "http://192.168.2.30:1337/";
