@@ -12,10 +12,11 @@
                 <li class="ng-binding">
                     <strong class="ng-binding">Credit Limit:</strong> {{balanceData.creditLimit || 0}}
                 </li>
-                <!-- <li>
+                <li>
                     <strong class="ng-binding">Winnings:</strong>
-                    <span ng-class="{'-negative': accountInfo.totalBalance < 0, '-positive': accountInfo.totalBalance > 0}" class="ng-binding -negative">-39.13</span>
-                </li> -->
+                    <span ng-class="{'-negative': balanceData.winnings < 0, '-positive': balanceData.winnings > 0}"
+                        class="ng-binding -negative">{{(balanceData.winnings || 0)| number:2}}</span>
+                </li>
                 <li>
                     <strong class="ng-binding">Total Net Exposure:</strong>
                     <displaynumber ng-model="netExposureData"></displaynumber>
