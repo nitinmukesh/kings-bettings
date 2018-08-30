@@ -1,7 +1,6 @@
 // @import url(https://fonts.googleapis.com/css?family=Nunito:400,300,700);
 // @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700');
 /*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css */
-
 // @font-face {
 //     font-family: Avenir;
 //     src: url(../fonts/avenir/AEH.ttf);
@@ -22,7 +21,6 @@
  * 1. Change the default font family in all browsers (opinionated).
  * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
  */
-
 html {
     font-family: sans-serif;
     /* 1 */
@@ -35,7 +33,6 @@ html {
 /**
  * Remove the margin in all browsers (opinionated).
  */
-
 body {
     margin: 0;
 }
@@ -74,7 +71,6 @@ summary {
 /**
  * Add the correct display in IE 9-.
  */
-
 audio,
 canvas,
 progress,
@@ -85,7 +81,6 @@ video {
 /**
  * Add the correct display in iOS 4-7.
  */
-
 audio:not([controls]) {
     display: none;
     height: 0;
@@ -94,7 +89,6 @@ audio:not([controls]) {
 /**
  * Add the correct vertical alignment in Chrome, Firefox, and Opera.
  */
-
 progress {
     vertical-align: baseline;
 }
@@ -103,7 +97,6 @@ progress {
  * Add the correct display in IE 10-.
  * 1. Add the correct display in IE.
  */
-
 template,
 [hidden] {
     display: none;
@@ -111,11 +104,9 @@ template,
 
 /* Links
    ========================================================================== */
-
 /**
  * Remove the gray background on active links in IE 10.
  */
-
 a {
     background-color: transparent;
 }
@@ -124,7 +115,6 @@ a {
  * Remove the outline on focused links when they are also active or hovered
  * in all browsers (opinionated).
  */
-
 a:active,
 a:hover {
     outline-width: 0;
@@ -132,12 +122,10 @@ a:hover {
 
 /* Text-level semantics
    ========================================================================== */
-
 /**
  * 1. Remove the bottom border in Firefox 39-.
  * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
  */
-
 abbr[title] {
     border-bottom: none;
     /* 1 */
@@ -150,7 +138,6 @@ abbr[title] {
 /**
  * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
  */
-
 b,
 strong {
     font-weight: inherit;
@@ -159,7 +146,6 @@ strong {
 /**
  * Add the correct font weight in Chrome, Edge, and Safari.
  */
-
 b,
 strong {
     font-weight: bolder;
@@ -168,7 +154,6 @@ strong {
 /**
  * Add the correct font style in Android 4.3-.
  */
-
 dfn {
     font-style: italic;
 }
@@ -177,7 +162,6 @@ dfn {
  * Correct the font size and margin on `h1` elements within `section` and
  * `article` contexts in Chrome, Firefox, and Safari.
  */
-
 h1 {
     font-size: 2em;
     margin: 0.67em 0;
@@ -187,7 +171,6 @@ h1 {
 /**
  * Add the correct background and color in IE 9-.
  */
-
 mark {
     background-color: #ff0;
     color: #000;
@@ -196,7 +179,6 @@ mark {
 /**
  * Add the correct font size in all browsers.
  */
-
 small {
     font-size: 80%;
 }
@@ -205,7 +187,6 @@ small {
  * Prevent `sub` and `sup` elements from affecting the line height in
  * all browsers.
  */
-
 sub,
 sup {
     font-size: 75%;
@@ -224,11 +205,9 @@ sup {
 
 /* Embedded content
    ========================================================================== */
-
 /**
  * Remove the border on images inside links in IE 10-.
  */
-
 img {
     border-style: none;
 }
@@ -236,19 +215,16 @@ img {
 /**
  * Hide the overflow in IE.
  */
-
 svg:not(:root) {
     overflow: hidden;
 }
 
 /* Grouping content
    ========================================================================== */
-
 /**
  * 1. Correct the inheritance and scaling of font size in all browsers.
  * 2. Correct the odd `em` font sizing in all browsers.
  */
-
 code,
 kbd,
 pre,
@@ -262,7 +238,6 @@ samp {
 /**
  * Add the correct margin in IE 8.
  */
-
 figure {
     margin: 1em 40px;
 }
@@ -271,7 +246,6 @@ figure {
  * 1. Add the correct box sizing in Firefox.
  * 2. Show the overflow in Edge and IE.
  */
-
 hr {
     box-sizing: content-box;
     /* 1 */
@@ -283,12 +257,10 @@ hr {
 
 /* Forms
    ========================================================================== */
-
 /**
  * 1. Change font properties to `inherit` in all browsers (opinionated).
  * 2. Remove the margin in Firefox and Safari.
  */
-
 button,
 input,
 select,
@@ -302,7 +274,6 @@ textarea {
 /**
  * Restore the font weight unset by the previous rule.
  */
-
 optgroup {
     font-weight: bold;
 }
@@ -312,7 +283,6 @@ optgroup {
  * 1. Show the overflow in Edge.
  * 2. Show the overflow in Edge, Firefox, and IE.
  */
-
 button,
 input,
 select {
@@ -324,7 +294,6 @@ select {
  * Remove the inheritance of text transform in Edge, Firefox, and IE.
  * 1. Remove the inheritance of text transform in Firefox.
  */
-
 button,
 select {
     /* 1 */
@@ -336,7 +305,6 @@ select {
  *    controls in Android 4.
  * 2. Correct the inability to style clickable types in iOS.
  */
-
 button,
 html [type="button"],
 [type="reset"],
@@ -349,7 +317,6 @@ html [type="button"],
 /**
  * Remove the inner border and padding in Firefox.
  */
-
 button::-moz-focus-inner,
 input::-moz-focus-inner {
     border: 0;
@@ -359,7 +326,6 @@ input::-moz-focus-inner {
 /**
  * Restore the focus styles unset by the previous rule.
  */
-
 button:-moz-focusring,
 input:-moz-focusring {
     outline: 1px dotted ButtonText;
@@ -368,7 +334,6 @@ input:-moz-focusring {
 /**
  * Change the border, margin, and padding in all browsers (opinionated).
  */
-
 fieldset {
     border: 1px solid #c0c0c0;
     margin: 0 2px;
@@ -381,7 +346,6 @@ fieldset {
  * 3. Remove the padding so developers are not caught out when they zero out
  *    `fieldset` elements in all browsers.
  */
-
 legend {
     box-sizing: border-box;
     /* 1 */
@@ -400,7 +364,6 @@ legend {
 /**
  * Remove the default vertical scrollbar in IE.
  */
-
 textarea {
     overflow: auto;
 }
@@ -409,7 +372,6 @@ textarea {
  * 1. Add the correct box sizing in IE 10-.
  * 2. Remove the padding in IE 10-.
  */
-
 [type="checkbox"],
 [type="radio"] {
     box-sizing: border-box;
@@ -421,7 +383,6 @@ textarea {
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
     height: auto;
@@ -430,7 +391,6 @@ textarea {
 /**
  * Correct the odd appearance of search inputs in Chrome and Safari.
  */
-
 [type="search"] {
     -webkit-appearance: textfield;
 }
@@ -439,7 +399,6 @@ textarea {
  * Remove the inner padding and cancel buttons in Chrome on OS X and
  * Safari on OS X.
  */
-
 [type="search"]::-webkit-search-cancel-button,
 [type="search"]::-webkit-search-decoration {
     -webkit-appearance: none;
@@ -448,14 +407,15 @@ textarea {
 /**
  * Apl Mixins
  */
-
 @keyframes blink-animation {
     0% {
         opacity: 0.3;
     }
+
     50% {
         opacity: 1;
     }
+
     100% {
         opacity: 0.3;
     }
@@ -470,7 +430,6 @@ textarea {
 /**
  * Colours
  */
-
 // @font-face {
 //     font-family: 'Apollo';
 //     src: url(f526823cf945cecff83ae1456fa6d998.eot);
@@ -485,15 +444,12 @@ textarea {
  *                  `apl-link`,
  *                  `apl-img-preserve`
  */
-
 /**
  * Local Variables
  */
-
 /**
  * Component: Base
  */
-
 html {
     font-family: OpenSans;
     font-weight: normal;
@@ -513,11 +469,9 @@ body {
 
 /* Links
  ========================================================================== */
-
 /*
  * Remove the gray background color from active links in IE 10.
  */
-
 a {
     background: transparent;
 }
@@ -525,7 +479,6 @@ a {
 /*
  * Improve readability of focused elements when they are also in an active/hover state.
  */
-
 a:active,
 a:hover {
     outline: 0;
@@ -534,7 +487,6 @@ a:hover {
 /*
  * Style
  */
-
 a,
 .apl-link {
     color: #3F51B5;
@@ -550,11 +502,9 @@ a:hover,
 
 /* Text-level semantics
  ========================================================================== */
-
 /*
  * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
  */
-
 abbr[title] {
     border-bottom: 1px dotted;
 }
@@ -562,7 +512,6 @@ abbr[title] {
 /*
  * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
  */
-
 b,
 strong {
     font-weight: bold;
@@ -572,7 +521,6 @@ strong {
  * 1. Address odd `em`-unit font size rendering in all browsers.
  * 2. Consolas has a better baseline in running text compared to `Courier`
  */
-
 :not(pre)>code,
 :not(pre)>kbd,
 :not(pre)>samp {
@@ -588,7 +536,6 @@ strong {
 /*
  * Emphasize
  */
-
 em {
     color: #D05;
 }
@@ -596,7 +543,6 @@ em {
 /*
  * Insert
  */
-
 ins {
     background: #ffa;
     color: #444;
@@ -607,7 +553,6 @@ ins {
  * Mark
  * Note: Addresses styling not present in IE 8/9.
  */
-
 mark {
     background: #ffa;
     color: #444;
@@ -616,7 +561,6 @@ mark {
 /*
  * Quote
  */
-
 q {
     font-style: italic;
 }
@@ -624,7 +568,6 @@ q {
 /*
  * Addresses inconsistent and variable font size in all browsers.
  */
-
 small {
     font-size: 80%;
 }
@@ -632,7 +575,6 @@ small {
 /*
  * Prevents `sub` and `sup` affecting `line-height` in all browsers.
  */
-
 sub,
 sup {
     font-size: 75%;
@@ -651,11 +593,9 @@ sub {
 
 /* Embedded content
  ========================================================================== */
-
 /*
  * Remove the gap between embedded content and the bottom of their containers.
  */
-
 audio,
 canvas,
 iframe,
@@ -670,7 +610,6 @@ video {
  * 1. Sets a maximum width relative to the parent and auto scales the height
  * 2. Corrects `max-width` behavior if padding and border are used
  */
-
 audio,
 canvas,
 img,
@@ -686,7 +625,6 @@ video {
 /*
  * Preserve original dimensions
  */
-
 .apl-img-preserve,
 .apl-img-preserve audio,
 .apl-img-preserve canvas,
@@ -699,7 +637,6 @@ video {
 /*
  * Remove border when inside `a` element in IE 8/9/10.
  */
-
 img {
     border: 0;
 }
@@ -707,18 +644,15 @@ img {
 /*
  * Correct overflow not hidden in IE 9/10/11.
  */
-
 svg:not(:root) {
     overflow: hidden;
 }
 
 /* Block elements
  ========================================================================== */
-
 /*
  * Reset margin
  */
-
 blockquote,
 figure {
     margin: 0;
@@ -727,7 +661,6 @@ figure {
 /*
  * Margins
  */
-
 p,
 ul,
 ol,
@@ -754,7 +687,6 @@ figure {
 
 /* Headings
  ========================================================================== */
-
 h1,
 h2,
 h3,
@@ -770,7 +702,6 @@ h6 {
 /*
  * Margins
  */
-
 *+h1,
 *+h2,
 *+h3,
@@ -783,7 +714,6 @@ h6 {
 /*
  * Sizes
  */
-
 h1,
 .apl-h1 {
     font-size: 24px;
@@ -822,7 +752,6 @@ h6,
 
 /* Lists
  ========================================================================== */
-
 ul,
 ol {
     list-style: none;
@@ -833,7 +762,6 @@ ol {
 /*
  * Reset margin for nested lists
  */
-
 ul>li>ul,
 ul>li>ol,
 ol>li>ol,
@@ -844,7 +772,6 @@ ol>li>ul {
 
 /* Description lists
  ========================================================================== */
-
 dt {
     font-weight: bold;
 }
@@ -855,12 +782,10 @@ dd {
 
 /* Horizontal rules
  ========================================================================== */
-
 /*
  * 1. Address differences between Firefox and other browsers.
  * 2. Style
  */
-
 hr {
     /* 1 */
     box-sizing: content-box;
@@ -873,14 +798,12 @@ hr {
 
 /* Address
  ========================================================================== */
-
 address {
     font-style: normal;
 }
 
 /* Blockquotes
  ========================================================================== */
-
 blockquote {
     padding-left: 15px;
     border-left: 5px solid #ddd;
@@ -892,7 +815,6 @@ blockquote {
 /**
  * Preformatted text
  */
-
 pre {
     padding: 10px;
     background: #f5f5f5;
@@ -906,7 +828,6 @@ pre {
 /**
  * Selection pseudo-element
  */
-
 ::-moz-selection {
     background: #0b6bb3;
     color: #fff;
@@ -922,7 +843,6 @@ pre {
 /**
  * HTML5 elements
  */
-
 article,
 aside,
 details,
@@ -940,7 +860,6 @@ summary {
 /**
  * Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
  */
-
 progress {
     vertical-align: baseline;
 }
@@ -948,7 +867,6 @@ progress {
 /**
  * Prevent displaying `audio` without controls in Chrome, Safari and Opera
  */
-
 audio:not([controls]) {
     display: none;
 }
@@ -957,7 +875,6 @@ audio:not([controls]) {
  * Address `[hidden]` styling not present in IE 8/9/10.
  * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.
  */
-
 [hidden],
 template {
     display: none;
@@ -966,7 +883,6 @@ template {
 /**
  * Iframe
  */
-
 iframe {
     border: 0;
 }
@@ -974,7 +890,6 @@ iframe {
 /**
  * Fix viewport for IE10 snap mode
  */
-
 @media screen and (max-width: 400px) {
     @-ms-viewport {
         width: device-width;
@@ -1524,15 +1439,12 @@ iframe {
  *     </div>
  * </form>
  */
-
 /**
  * Local Variables
  */
-
 /**
  * Component: Form
  */
-
 .apl-form {
     /*
    * Address inconsistent `text-transform` inheritance which is only inherit in Firefox
@@ -1982,16 +1894,13 @@ iframe {
  * Note: Only works in Webkit at the moment
  *
  */
-
 /**
  * Variables
  */
-
 /**
  * Component: Form advanced
  * Note: Only works in Webkit at the moment
  */
-
 .apl-form {
     /**
      * Radio
@@ -2095,15 +2004,12 @@ iframe {
  *     <btn class="apl-btn"></btn>
  *
  */
-
 /**
  * Local Variables
  */
-
 /**
  * Component: btn
  */
-
 .apl-btn,
 html button,
 html [type="button"] {
@@ -2479,21 +2385,17 @@ html [type="button"].apl-btn-large {
  * States:          `apl-active`
  * 
  */
-
 /**
  * Local Variables
  */
-
 /* ========================================================================
    Component: Table
  ========================================================================== */
-
 /*
  * 1. Remove most spacing between table cells.
  * 2. Block element behavior
  * 3. Style
  */
-
 .apl-table {
     /* 1 */
     border-collapse: collapse;
@@ -2597,7 +2499,6 @@ html [type="button"].apl-btn-large {
 /*
  * Add margin if adjacent element
  */
-
 *+.apl-table {
     margin-top: 15px;
 }
@@ -2608,11 +2509,9 @@ html [type="button"].apl-btn-large {
  * Component:       `apl-section`
  *
  */
-
 /**
  * Local Variables
  */
-
 .apl-section {
     background: #fff;
     margin: 10px 0 0 0;
@@ -2648,15 +2547,12 @@ html [type="button"].apl-btn-large {
 /**
  * Variables
  */
-
 /**
  * Component: Utility
  */
-
 /**
  * Clearing
  */
-
 .apl-clearfix:before {
     content: "";
     display: table-cell;
@@ -2671,7 +2567,6 @@ html [type="button"].apl-btn-large {
 /**
  * Alignment of block elements
  */
-
 ._float-left {
     float: left;
 }
@@ -2707,7 +2602,6 @@ html [type="button"].apl-btn-large {
 /**
  * Vertical alignment
  */
-
 .apl-vertical-align {
     font-size: 0.001px;
 }
@@ -2737,7 +2631,6 @@ html [type="button"].apl-btn-large {
 /**
  * Margin
  */
-
 .apl-margin {
     margin-bottom: 15px;
 }
@@ -2765,7 +2658,6 @@ html [type="button"].apl-btn-large {
 /*
  * Larger margins
  */
-
 .apl-margin-large {
     margin-bottom: 50px;
 }
@@ -2793,7 +2685,6 @@ html [type="button"].apl-btn-large {
 /*
  * Smaller margins
  */
-
 .apl-margin-small {
     margin-bottom: 5px;
 }
@@ -2821,7 +2712,6 @@ html [type="button"].apl-btn-large {
 /*
  * Remove margins
  */
-
 .apl-margin-remove {
     margin: 0 !important;
 }
@@ -2837,7 +2727,6 @@ html [type="button"].apl-btn-large {
 /**
  * Padding
  */
-
 .apl-padding-remove {
     padding: 0 !important;
 }
@@ -2858,7 +2747,6 @@ html [type="button"].apl-btn-large {
 /**
  * Border
  */
-
 .apl-border-circle {
     border-radius: 50%;
 }
@@ -2870,7 +2758,6 @@ html [type="button"].apl-btn-large {
 /**
  * Link
  */
-
 .apl-link-muted,
 .apl-link-muted a {
     color: #444;
@@ -2884,7 +2771,6 @@ html [type="button"].apl-btn-large {
 /**
  * Overflow
  */
-
 .apl-overflow-hidden {
     overflow: hidden;
 }
@@ -2892,7 +2778,6 @@ html [type="button"].apl-btn-large {
 /*
  * Enable scrollbars if content is clipped
  */
-
 .apl-overflow-container {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
@@ -2905,7 +2790,6 @@ html [type="button"].apl-btn-large {
 /**
  * Position
  */
-
 .apl-position-absolute,
 [class*='apl-position-top'],
 [class*='apl-position-bottom'] {
@@ -2913,7 +2797,6 @@ html [type="button"].apl-btn-large {
 }
 
 /* Don't use `width: 100%` because it is wrong if the parent has padding. */
-
 .apl-position-top {
     top: 0;
     left: 0;
@@ -2949,7 +2832,6 @@ html [type="button"].apl-btn-large {
 /*
  * Cover
  */
-
 .apl-position-cover {
     position: absolute;
     top: 0;
@@ -2961,7 +2843,6 @@ html [type="button"].apl-btn-large {
 /*
  * Relative
  */
-
 .apl-position-relative {
     position: relative !important;
 }
@@ -2969,7 +2850,6 @@ html [type="button"].apl-btn-large {
 /**
  * Display
  */
-
 .apl-display-block {
     display: block !important;
 }
@@ -2986,22 +2866,18 @@ html [type="button"].apl-btn-large {
 /*
  * Visibility
  */
-
 /* Remove from the flow and screen readers on any device */
-
 .apl-hidden {
     display: none !important;
     visibility: hidden !important;
 }
 
 /* It's hidden, but still affects layout */
-
 .apl-invisible {
     visibility: hidden !important;
 }
 
 /* Helper classes */
-
 ._clearfix:after,
 header.header:after,
 .bet-manager>.tabs:after,
@@ -3084,7 +2960,6 @@ header.header .infobar>.linkbar {
 }
 
 /* State dependent rules */
-
 .-hidden {
     display: none;
 }
@@ -3256,11 +3131,9 @@ header.header .infobar>.linkbar {
 /**
  * Local Variables
  */
-
 /**
  * Component: btn
  */
-
 .apl-btn,
 html button,
 html [type="button"] {
@@ -3338,15 +3211,12 @@ html [type="button"].apl-btn-large {
  *     </div>
  * </form>
  */
-
 /**
  * Local Variables
  */
-
 /**
  * Component: Form
  */
-
 .apl-form {
     /**
     * Controls
@@ -3495,11 +3365,9 @@ html [type="button"].apl-btn-large {
 /**
  * Local Variables
  */
-
 /**
  * Component: Base
  */
-
 html {
     font-size: 12px;
     line-height: 17px;
@@ -3507,11 +3375,9 @@ html {
 
 /* Block elements
  ========================================================================== */
-
 /*
  * Margins
  */
-
 p,
 ul,
 ol,
@@ -3538,7 +3404,6 @@ figure {
 
 /* Headings
  ========================================================================== */
-
 h1,
 h2,
 h3,
@@ -3551,7 +3416,6 @@ h6 {
 /*
  * Margins
  */
-
 *+h1,
 *+h2,
 *+h3,
@@ -3564,7 +3428,6 @@ h6 {
 /*
  * Sizes
  */
-
 h1,
 .apl-h1 {
     font-size: 24px;
@@ -3603,12 +3466,10 @@ h6,
 
 /* Horizontal rules
  ========================================================================== */
-
 /*
  * 1. Address differences between Firefox and other browsers.
  * 2. Style
  */
-
 hr {
     margin: 13px 0;
 }
@@ -3678,6 +3539,7 @@ header.header {
     -o-border-image: -o-linear-gradient(to left, #fdffce 1%, #c28217 50%, #fffdb8 100%) 100% 0 100% 0/3px 0 3px 0 stretch;
     border-image: linear-gradient(to left, #fdffce 1%, #c28217 50%, #fffdb8 100%) 100% 0 100% 0/3px 0 3px 0 stretch;
     color: #fff;
+
     .svg-inline--fa.fa-w-16 {
         width: 1rem;
     }
@@ -3685,6 +3547,7 @@ header.header {
 
 header.header .logo-area {
     padding: 8px 0 8px 8px;
+
     .logo {
         font-size: 35px;
         font-family: CinzelBold;
@@ -3755,10 +3618,12 @@ header.header .infobar>.linkbar .header-link {
 
 .search-container .search {
     display: flex;
+
     &::-webkit-input-placeholder {
         /* Chrome */
         color: $white;
     }
+
     &::-ms-input-placeholder {
         /* IE 10+ */
         color: $white;
@@ -3781,6 +3646,7 @@ header.header .infobar>.linkbar .header-link {
     border: none;
     color: $white !important;
     background: $gray;
+
     &:focus {
         border: none;
         background: $gray;
@@ -3907,6 +3773,7 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
     width: 9999px;
     transition: 0s;
     height: 100%;
+    overflow-y: auto;
     /** top lvl menu - sport icons **/
 }
 
@@ -4608,7 +4475,6 @@ input[type="text"].ng-invalid {
 }
 
 /* styles from angular-toastr , some need overwritting*/
-
 #toast-container.toast-top-center {
     pointer-events: none !important;
 }
@@ -4644,11 +4510,13 @@ input[type="text"].ng-invalid {
 
 .login-view {
     background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+
     .version {
         position: absolute;
         top: 30px;
         left: 30px;
         font-size: 14px;
+
         ul li label {
             font-weight: 600;
             letter-spacing: 1px;
@@ -4708,6 +4576,7 @@ input[type="text"].ng-invalid {
 
 .bet-manager {
     width: 100%;
+
     h4 {
         color: #58c370;
     }
@@ -5132,6 +5001,7 @@ input[type="text"].ng-invalid {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -5220,6 +5090,7 @@ input[type="text"].ng-invalid {
 
 .bets .bet-fields {
     margin-bottom: 9px;
+
     input {
         padding: 2px;
     }
@@ -5779,6 +5650,7 @@ input[type="text"].ng-invalid {
         background: white;
         color: black;
     }
+
     .event-name {
         color: $white
     }
@@ -6191,6 +6063,7 @@ apl-ref-info .ref-info dd {
     from {
         transform: scaleY(0);
     }
+
     to {
         transform: scaleY(1);
     }
@@ -6200,6 +6073,7 @@ apl-ref-info .ref-info dd {
     from {
         transform: scaleY(1);
     }
+
     to {
         transform: scaleY(0);
     }
@@ -6564,9 +6438,11 @@ body.ngdialog-open {
     0% {
         background-color: #c0e1f2;
     }
+
     50% {
         background-color: #fff;
     }
+
     100% {
         background-color: #c0e1f2;
     }
@@ -6576,9 +6452,11 @@ body.ngdialog-open {
     0% {
         background-color: #e2b6b6;
     }
+
     50% {
         background-color: #fff;
     }
+
     100% {
         background-color: #e2b6b6;
     }
@@ -6588,9 +6466,11 @@ body.ngdialog-open {
     0% {
         background-color: #f5f5f5;
     }
+
     50% {
         background-color: #fff;
     }
+
     100% {
         background-color: #f5f5f5;
     }
@@ -8113,10 +7993,12 @@ div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-
         stroke-dasharray: 1, 200;
         stroke-dashoffset: 0;
     }
+
     50% {
         stroke-dasharray: 89, 200;
         stroke-dashoffset: -35px;
     }
+
     100% {
         stroke-dasharray: 89, 200;
         stroke-dashoffset: -124px;
