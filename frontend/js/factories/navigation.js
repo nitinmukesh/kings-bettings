@@ -27,6 +27,13 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
         anchor: "home"
     }];
 
+    function getcsrf() {
+        $http.get('http://sportsbookb.kingsplay.co/csrfToken').then(function (data) {
+            console.log("data", data);
+        });
+    }
+
+
     return {
         getNavigation: function () {
             return navigation;
@@ -44,11 +51,6 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
             });
         },
         userSignup: function (url, formData, callback) {
-            $http.post(adminurl + 'csrfToken', formData).then(function (data) {
-                console.log("data", data);
-                data = data.data;
-                callback(data);
-            });
             // $http.post(adminurl + url, formData).then(function (data) {
             //     data = data.data;
             //     callback(data);
