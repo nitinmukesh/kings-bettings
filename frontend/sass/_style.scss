@@ -3583,7 +3583,7 @@ header.header a:hover {
 
 header.header .infobar {
     margin: 15px 0;
-    padding: 7px;
+    padding: 7px 0;
 }
 
 header.header .infobar .last-login {
@@ -9292,4 +9292,8 @@ div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-
 
 .suspend-color {
     background: #dcd8d8
+}
+
+.ml-22 {
+    margin-left: 22em;
 }

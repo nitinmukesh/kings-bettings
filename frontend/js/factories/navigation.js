@@ -83,6 +83,19 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
                 callback(data);
             });
         },
+        searchPlayerTransactionData: function (data, callback) {
+            $http.post(mainServer + 'api/transaction/searchPlayerTransactionData', data).then(function (data) {
+                console.log(data);
+                callback(data);
+            });
+        },
+        userGetOne: function (data, callback) {
+            $http.post(mainServer + 'api/member/getOne', data).then(function (data) {
+                console.log(data);
+                data = data.data;
+                callback(data);
+            });
+        },
         getUserBook: function (data1, callback) {
             $http.post(sportsSocket + 'api/Book/getUserBook', {
                 user: data1.user,

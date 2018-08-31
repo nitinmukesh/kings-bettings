@@ -7,7 +7,14 @@ myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, 
     if (!$.jStorage.get("accessToken")) {
         $state.go('login');
     }
-
+    if ($.jStorage.get("userId")) {
+        NavigationService.userGetOne({
+            _id: $.jStorage.get("userId")
+        }, function (userData) {
+            console.log(userData);
+            $scope.userInfo = userData.data;
+        })
+    }
     //To handle the reload functionality.
     window.onbeforeunload = function () {
         $.jStorage.flush();

@@ -14,7 +14,7 @@
                 </li>
                 <li>
                     <strong class="ng-binding">Winnings:</strong>
-                    <span ng-class="{'-negative': balanceData.winnings < 0, '-positive': balanceData.winnings > 0}"
+                    <span ng-class="{'-negative': balanceData.winnings < 0, '-positive': balanceData.winnings >= 0}"
                         class="ng-binding -negative">{{(balanceData.winnings || 0)| number:2}}</span>
                 </li>
                 <li>
