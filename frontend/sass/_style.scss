@@ -6135,14 +6135,19 @@ apl-ref-info .ref-info dd {
 }
 
 .transfer-statement table.listing td.transfer-date::after {
-    content: " ";
+    content: "|";
     display: block;
 }
 
 .transfer-statement table.listing td.transfer-time {
     color: #909090;
     text-align: left;
-    padding-left: 45px;
+    // padding-left: 45px;
+}
+
+.transfer-date::after {
+    content: " | ";
+    // display: block;
 }
 
 .transfer-statement table.listing td.transfer-amount {

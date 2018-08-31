@@ -86,7 +86,7 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
         searchPlayerTransactionData: function (data, callback) {
             $http.post(mainServer + 'api/transaction/searchPlayerTransactionData', data).then(function (data) {
                 console.log(data);
-                callback(data);
+                callback(data.data);
             });
         },
         userGetOne: function (data, callback) {

@@ -11,23 +11,45 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="">
+                <!-- <tr class="">
                     <td colspan="3" class="transfer-date ">
                         <span>
                             <time timestamp="transfer.dateGroup" type="fullDate" class=" ng-isolate-scope">11/02/2018</time>
                         </span>
                     </td>
-                </tr>
-                <tr class="">
+                </tr> -->
+                <tr class="" ng-repeat="transaction in items">
                     <td class="transfer-time ">
-                        <span>
-                            <time timestamp="transfer.date" type="time" class=" ng-isolate-scope">15:17:45</time>
+                        <span class="transfer-date">
+                            <time type="fullDate">{{transaction.createdAt | date : "dd.MM.yyyy"}}</time>
                         </span>
+                        <span class="transfer-time">
+                            <time type="time">{{transaction.createdAt | date: "h:mm:ss"}}</time>
+                        </span>
+                        <!-- <span>
+                            <time timestamp="transfer.date" type="time" class=" ng-isolate-scope">15:17:45</time>
+                        </span> -->
                     </td>
-                    <td class=" ">Transfer Out</td>
-                    <td class="transfer-amount -negative" ng-class="{'-negative': transfer.amount < 0, '-positive': transfer.amount >= 0}">-29.00</td>
+                    <td class=" ">
+                        <span ng-if="transaction.fromUser._id === userId">Transfer Out</span>
+                        <span ng-if="transaction.toUser._id === userId">Transfer In</span>
+                    </td>
+                    <td class="transfer-amount -negative" ng-class="{'-negative': transaction.fromUser._id === userId, '-positive': transaction.toUser._id === userId}">
+                        <span ng-if="transaction.fromUser._id === userId">-</span>{{transaction.amount}}
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
+    <div class="tableData " ng-show="totalItems===0 ">
+        <h5>No data found</h5>
+    </div>
+    <div class="tableData " ng-show="totalItems===undefined ">
+        <h5>Loading Data</h5>
+    </div>
+    <ul ng-if="totalItems " ng-change="getPlayerTransaction(currentPage); " uib-pagination total-items="totalItems
+                            "
+        items-per-page="maxRow " ng-model="currentPage " max-size="template.pageMax " class="pagination-sm
+                            "
+        boundary-links="true " force-ellipses="true "></ul>
 </div>

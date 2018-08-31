@@ -3,19 +3,23 @@ myApp.controller('TransferstatementCtrl', function ($scope, TemplateService, Nav
     TemplateService.title = "Transfer Statement"; //This is the Title of the Website
     TemplateService.sidemenu2 = "";
     $scope.navigation = NavigationService.getNavigation();
-    $scope.getPlayerTransaction = function () {
+    $scope.getPlayerTransaction = function (page) {
+        $scope.userId = $.jStorage.get("userId");
         NavigationService.searchPlayerTransactionData({
-            _id: $.jStorage.get("userId")
+            _id: $scope.userId,
+            page: page
         }, function (data) {
             if (data.value) {
-                $scope.myMarkets = data.data;
+                // $scope.playerTransaction = data.data.results;
+                $scope.items = data.data.results;
+                $scope.totalItems = data.data.total;
+                $scope.maxRow = data.data.options.count;
             } else {
-                $scope.myMarkets = [];
+                $scope.playerTransaction = [];
             }
         });
 
     };
-
-    $scope.getPlayerTransaction();
+    $scope.getPlayerTransaction(1);
 
 });
