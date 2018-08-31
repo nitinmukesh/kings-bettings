@@ -1,9 +1,14 @@
-myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, $state, NavigationService, $location, $timeout, $window) {
+myApp.controller('headerCtrl', function ($scope, $stateParams, TemplateService, $interval, $state, NavigationService, $location, $timeout, $window) {
     $scope.template = TemplateService;
     $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
     });
 
+    var tick = function () {
+        $scope.clock = Date.now();
+    }
+    tick();
+    $interval(tick, 1000);
     if (!$.jStorage.get("accessToken")) {
         $state.go('login');
     }

@@ -11,11 +11,12 @@
             </span>
         </div>
         <div class="clock navbar">
-            <span>
-                <time timestamp="timestamp" type="simpleDate" class="ng-binding ng-isolate-scope">May 10, 2018</time>
-                <time timestamp="timestamp" type="time" class="time ng-binding ng-isolate-scope">18:12:57</time>
-            </span>
-            <div class="search-container ml-22">
+            <time timestamp="timestamp" type="simpleDate" class="ng-binding ng-isolate-scope"> {{clock | date:
+                'MMMM dd,yyyy'}}</time>
+            <time timestamp="timestamp" type="time" class="time ng-binding ng-isolate-scope">
+                {{clock | date :'HH:mm:ss'}}
+            </time>
+            <div class="search-container ml-18">
                 <div class="apl-form search">
                     <div class="placeholder-wrapper ng-isolate-scope animatable">
                         <div>
