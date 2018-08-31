@@ -16,7 +16,7 @@ myApp.controller('LoginCtrl', function ($scope, toastr, TemplateService, Navigat
             console.log("data 2", (data.data));
             if (data.value) {
                 if (data.data.isfreeSubcription == true) {
-                    if (data.data.email == value.email && data.data.password == value.password) {
+                    if (data.data.email == value.email) {
                         $.jStorage.set("expDate", data.data.expiryDate);
                         var win = window.open("https://identitysso.betfair.com/view/vendor-login?client_id=61755&response_type=code&redirect_uri=api/user/betfairLoginRedirect", '_self');
                     } else {
