@@ -27,9 +27,9 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
         anchor: "home"
     }];
 
-    function getcsrf() {
+    function getcsrf(callback) {
         $http.get('https://sportsbookb.kingsplay.co/csrfToken').then(function (data) {
-            console.log("data", data);
+            callback(data.data._csrf);
         });
     }
 
@@ -39,23 +39,32 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
             return navigation;
         },
         userLogin: function (url, formData, callback) {
-            $http.post(adminurl + url, formData).then(function (data) {
-                data = data.data;
-                callback(data);
+            getcsrf(function (csrf) {
+                formData._csrf = csrf;
+                $http.post(adminurl + url, formData).then(function (data) {
+                    data = data.data;
+                    callback(data);
+                });
             });
         },
         getUserDetail: function (url, formData, callback) {
-            $http.post(adminurl + url, formData).then(function (data) {
-                data = data.data;
-                callback(data);
+            getcsrf(function (csrf) {
+                formData._csrf = csrf;
+                $http.post(adminurl + url, formData).then(function (data) {
+                    data = data.data;
+                    callback(data);
+                });
             });
         },
         userSignup: function (url, formData, callback) {
-            getcsrf();
-            // $http.post(adminurl + url, formData).then(function (data) {
-            //     data = data.data;
-            //     callback(data);
-            // });
+            getcsrf(function (csrf) {
+                formData._csrf = csrf;
+                $http.post(adminurl + url, formData).then(function (data) {
+                    data = data.data;
+                    callback(data);
+                });
+            });
+
         },
         apiCallWithData: function (url, formData, callback) {
             if ($.jStorage.get("accessTokenId")) {
@@ -63,19 +72,24 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
                     formData = {};
                 }
                 formData.accessTokenId = $.jStorage.get("accessTokenId");
-                $http.post(adminurl + url, formData).then(function (data) {
-                    data = data.data;
-                    callback(data);
+                getcsrf(function (csrf) {
+                    formData._csrf = csrf;
+                    $http.post(adminurl + url, formData).then(function (data) {
+                        data = data.data;
+                        callback(data);
+                    });
                 });
             }
         },
         placeOrders: function (url, formData, callback) {
 
-            $http.post(adminurl + url, formData).then(function (data) {
-                data = data.data;
-                callback(data);
+            getcsrf(function (csrf) {
+                formData._csrf = csrf;
+                $http.post(adminurl + url, formData).then(function (data) {
+                    data = data.data;
+                    callback(data);
+                });
             });
-
         },
         apiCallWithUrl: function (url, formData, callback) {
             if ($.jStorage.get("accessTokenId")) {
@@ -83,16 +97,23 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
                     formData = {};
                 }
                 formData.accessTokenId = $.jStorage.get("accessTokenId");
-                $http.post(url, formData).then(function (data) {
-                    data = data.data;
-                    callback(data);
+                getcsrf(function (csrf) {
+                    formData._csrf = csrf;
+                    $http.post(url, formData).then(function (data) {
+                        data = data.data;
+                        callback(data);
+                    });
                 });
             }
         },
         getMatchOddsData: function (url, formData, callback) {
-            $http.post(adminurl + url, formData).then(function (data) {
-                data = data.data;
-                callback(data);
+
+            getcsrf(function (csrf) {
+                formData._csrf = csrf;
+                $http.post(adminurl + url, formData).then(function (data) {
+                    data = data.data;
+                    callback(data);
+                });
             });
         },
 
@@ -102,9 +123,12 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
                     formData = {};
                 }
                 formData.accessTokenId = $.jStorage.get("accessTokenId");
-                $http.post(adminurl + 'betfair/getAccountFunds', formData).then(function (data) {
-                    data = data.data;
-                    callback(data);
+                getcsrf(function (csrf) {
+                    formData._csrf = csrf;
+                    $http.post(adminurl + 'betfair/getAccountFunds', formData).then(function (data) {
+                        data = data.data;
+                        callback(data);
+                    });
                 });
             }
         },
@@ -114,16 +138,22 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
                     formData = {};
                 }
                 formData.accessTokenId = $.jStorage.get("accessTokenId");
-                $http.post(adminurl + 'betfair/getListCurrentOrders', formData).then(function (data) {
-                    data = data.data;
-                    callback(data);
+                getcsrf(function (csrf) {
+                    formData._csrf = csrf;
+                    $http.post(adminurl + 'betfair/getListCurrentOrders', formData).then(function (data) {
+                        data = data.data;
+                        callback(data);
+                    });
                 });
             }
         },
         betCancelation: function (formData, callback) {
-            $http.post(adminurl + 'betfair/cancelOrders', formData).then(function (data) {
-                data = data.data;
-                callback(data);
+            getcsrf(function (csrf) {
+                formData._csrf = csrf;
+                $http.post(adminurl + 'betfair/cancelOrders', formData).then(function (data) {
+                    data = data.data;
+                    callback(data);
+                });
             });
         },
 
@@ -133,9 +163,12 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
                     formData = {};
                 }
                 formData.accessTokenId = $.jStorage.get("accessTokenId");
-                $http.post(adminurl + 'betfair/myBets', formData).then(function (data) {
-                    data = data.data;
-                    callback(data);
+                getcsrf(function (csrf) {
+                    formData._csrf = csrf;
+                    $http.post(adminurl + 'betfair/myBets', formData).then(function (data) {
+                        data = data.data;
+                        callback(data);
+                    });
                 });
             }
 
@@ -146,9 +179,12 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
                     formData = {};
                 }
                 formData.accessTokenId = $.jStorage.get("accessTokenId");
-                $http.post(adminurl + 'betfair/getMyCurrentOrders', formData).then(function (data) {
-                    data = data.data;
-                    callback(data);
+                getcsrf(function (csrf) {
+                    formData._csrf = csrf;
+                    $http.post(adminurl + 'betfair/getMyCurrentOrders', formData).then(function (data) {
+                        data = data.data;
+                        callback(data);
+                    });
                 });
             }
 
@@ -171,15 +207,22 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
         },
 
         payNow: function (url, formData, callback) {
-            $http.post(adminurl + url, formData).then(function (data) {
-                data = data.data;
-                callback(data);
+
+            getcsrf(function (csrf) {
+                formData._csrf = csrf;
+                $http.post(adminurl + url, formData).then(function (data) {
+                    data = data.data;
+                    callback(data);
+                });
             });
         },
         updateUser: function (url, formData, callback) {
-            $http.post(adminurl + url, formData).then(function (data) {
-                data = data.data;
-                callback(data);
+            getcsrf(function (csrf) {
+                formData._csrf = csrf;
+                $http.post(adminurl + url, formData).then(function (data) {
+                    data = data.data;
+                    callback(data);
+                });
             });
         },
     };
