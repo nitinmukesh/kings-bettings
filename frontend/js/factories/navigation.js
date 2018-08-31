@@ -51,7 +51,7 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
             });
         },
         userSignup: function (url, formData, callback) {
-            function getcsrf();
+            getcsrf();
             // $http.post(adminurl + url, formData).then(function (data) {
             //     data = data.data;
             //     callback(data);
