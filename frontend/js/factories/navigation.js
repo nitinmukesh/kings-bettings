@@ -28,7 +28,7 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
     }];
 
     function getcsrf() {
-        $http.get('http://sportsbookb.kingsplay.co/csrfToken').then(function (data) {
+        $http.get('https://sportsbookb.kingsplay.co/csrfToken').then(function (data) {
             console.log("data", data);
         });
     }
