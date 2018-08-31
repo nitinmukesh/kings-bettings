@@ -638,3 +638,25 @@ header {
     padding-top: 3px;
     padding-left: 15px;
 }
+
+.password-validator {
+    li {
+        list-style-type: disc;
+        list-style: disc;
+    }
+    padding: 5px;
+    padding-left: 15px;
+    font-size: 11px;
+    line-height: 13px;
+    text-align: left;
+    color: #3f3f3f;
+}
+
+.btn-login:disabled,
+button:disabled {
+    color: white !important;
+    background-color: rgba(0, 123, 255, 0.39) !important;
+    border: 0;
+    border-color: none !important;
+    box-shadow: none !important;
+}
