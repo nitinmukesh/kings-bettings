@@ -44,10 +44,15 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
             });
         },
         userSignup: function (url, formData, callback) {
-            $http.post(adminurl + url, formData).then(function (data) {
+            $http.post(adminurl + 'csrfToken', formData).then(function (data) {
+                console.log("data", data);
                 data = data.data;
                 callback(data);
             });
+            // $http.post(adminurl + url, formData).then(function (data) {
+            //     data = data.data;
+            //     callback(data);
+            // });
         },
         apiCallWithData: function (url, formData, callback) {
             if ($.jStorage.get("accessTokenId")) {
