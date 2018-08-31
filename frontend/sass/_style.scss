@@ -6286,9 +6286,17 @@ body.ngdialog-open {
 
 .sport-wrapper .in-play-content {
     color: #1d7f1e;
+    font-size: 10px;
+    font-weight: bold;
 }
 
-.sport-wrapper .in-play-content>i.apl-icon-custom-play {
+.sport-wrapper .in-time-content {
+    color: black;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.in-time-content .sport-wrapper .in-play-content>i.apl-icon-custom-play {
     font-size: 16px;
     margin-top: -6px;
     vertical-align: middle;

@@ -15,17 +15,20 @@
                 </thead>
                 <tbody>
 
-                    <tr class="" ng-repeat="market in marketData" ng-class="{'op5' : market.betfairStatus != 'OPEN'}" ng-disabled="market.betfairStatus != 'OPEN'">
+                    <tr class="" ng-repeat="market in marketData" ng-class="{'op5' : market.betfairStatus != 'OPEN'}"
+                        ng-disabled="market.betfairStatus != 'OPEN'">
                         <td ng-click="market.betfairStatus != 'OPEN' ? '':getDetailedPage(selectedGame,market.parentCategory.name,market.parentCategory._id);">
                             <i class="far fa-star icon-style"></i>
                             <a class="event-name ">{{market.parentCategory.name}}</a>
-                            <small class="in-play-content ">
-                                <span ng-if="checkDate(market) == true"> {{market.marketStartTime | formatdate}}</span>
-                                <span ng-if="checkDate(market) == false">
-                                    <i class="fas fa-play-circle"></i> In-Play</span>
+                            <small class="in-play-content" ng-if="checkDate(market) == false">
+                                <i class="fas fa-play-circle"></i> In-Play
+                            </small>
+                            <small class="in-time-content" ng-if="checkDate(market) == true">{{market.marketStartTime
+                                | formatdate}}
                             </small>
                         </td>
-                        <td class="back" ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open'" ng-click=" placeBet(market.runners[0].singleBackRate,'BACK',market,market.runners[0])">
+                        <td class="back" ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open'"
+                            ng-click=" placeBet(market.runners[0].singleBackRate,'BACK',market,market.runners[0])">
                             <strong class="odds">
                                 {{market.runners[0].singleBackRate}}
                             </strong>
@@ -35,7 +38,8 @@
                                 </span>
                             </div>
                         </td>
-                        <td class="lay" ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open'" ng-click=" placeBet(market.runners[0].singleLayRate,'LAY',market,market.runners[0])">
+                        <td class="lay" ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open'"
+                            ng-click=" placeBet(market.runners[0].singleLayRate,'LAY',market,market.runners[0])">
                             <strong class="odds ">
                                 {{market.runners[0].singleLayRate}}
                             </strong>
@@ -45,8 +49,8 @@
                                 </span>
                             </div>
                         </td>
-                        <td class="back" ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open'" ng-if="isDraw == true"
-                            ng-click=" placeBet(market.runners[2].singleBackRate,'BACK',market,market.runners[2])">
+                        <td class="back" ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open'"
+                            ng-if="isDraw == true" ng-click=" placeBet(market.runners[2].singleBackRate,'BACK',market,market.runners[2])">
                             <strong class="odds ">
                                 {{market.runners[2].singleBackRate}}
                             </strong>
@@ -56,8 +60,8 @@
                                 </span>
                             </div>
                         </td>
-                        <td class="lay" ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open'" ng-if="isDraw == true"
-                            ng-click=" placeBet(market.runners[2].singleLayRate,'LAY',market,market.runners[2])">
+                        <td class="lay" ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open'"
+                            ng-if="isDraw == true" ng-click=" placeBet(market.runners[2].singleLayRate,'LAY',market,market.runners[2])">
                             <strong class="odds ">
                                 {{market.runners[2].singleLayRate}}
                             </strong>
@@ -67,7 +71,8 @@
                                 </span>
                             </div>
                         </td>
-                        <td class="back" ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open'" ng-click=" placeBet(market.runners[1].singleBackRate,'BACK',market,market.runners[1])">
+                        <td class="back" ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open'"
+                            ng-click=" placeBet(market.runners[1].singleBackRate,'BACK',market,market.runners[1])">
                             <strong class="odds ">
                                 {{market.runners[1].singleBackRate}}
                             </strong>
@@ -77,7 +82,8 @@
                                 </span>
                             </div>
                         </td>
-                        <td class="lay" ng-if="market.betfairStatus == 'OPEN' || market.isSuspended == 'No' || market.inPlayStatus == 'Open'" ng-click="placeBet(market.runners[1].singleLayRate,'LAY',market,market.runners[1])">
+                        <td class="lay" ng-if="market.betfairStatus == 'OPEN' || market.isSuspended == 'No' || market.inPlayStatus == 'Open'"
+                            ng-click="placeBet(market.runners[1].singleLayRate,'LAY',market,market.runners[1])">
                             <strong class="odds ">
                                 {{market.runners[1].singleLayRate}}
                             </strong>
