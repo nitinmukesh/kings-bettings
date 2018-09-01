@@ -4,14 +4,42 @@
         <h1 class="">Betting Profit and Loss</h1>
         <div class="column">
             <div class="apl-report-filter ng-isolate-scope">
-                <datepicker date-format="dd/MM/yyyy" selector="apl-input-datepicker-from" class="ng-isolate-scope">
+                <datepicker>
                     <span class="label-title">From</span>
-                    <input class="apl-input-datepicker-from" type="text">
-
+                    <div class="input-group mb-3">
+                        <!-- <input type="date" name="" ng-model="accountStatmentFilter.fromDate"> -->
+                        <!-- <input type="date" required ng-model="accountStatmentFilter.fromDate" class="form-control" required id="basic-url" aria-describedby="basic-addon3"> -->
+                        <p class="input-group">
+                            <input type="text" class="form-control" name="fromDate" uib-datepicker-popup="dd.MM.yyyy"
+                                ng-model="accountStatmentFilter.fromDate" is-open="popup1.opened" ng-required="true"
+                                close-text="Close" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open1()">
+                                    <i class="far fa-calendar-alt"></i>
+                                </button>
+                            </span>
+                            <div class="disable-input " ng-click="open1() "></div>
+                        </p>
+                    </div>
                 </datepicker>
-                <datepicker date-format="dd/MM/yyyy" selector="apl-input-datepicker-to" class="ng-isolate-scope">
+
+                <datepicker>
                     <span class="label-title">To</span>
-                    <input class="apl-input-datepicker-to ng-pristine ng-untouched ng-valid ng-not-empty" type="text">
+                    <div class="input-group mb-3">
+                        <!-- <input type="date" name="" ng-model="accountStatmentFilter.toDate"> -->
+                        <!-- <input type="date" required ng-model="accountStatmentFilter.fromDate" class="form-control" required id="basic-url" aria-describedby="basic-addon3"> -->
+                        <p class="input-group">
+                            <input type="text" class="form-control" name="toDate" uib-datepicker-popup="dd.MM.yyyy"
+                                ng-model="accountStatmentFilter.toDate" is-open="popup2.opened" ng-required="true"
+                                close-text="Close" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open2()">
+                                    <i class="far fa-calendar-alt"></i>
+                                </button>
+                            </span>
+                            <div class="disable-input " ng-click="open2() "></div>
+                        </p>
+                    </div>
                 </datepicker>
 
                 <button id="submit" class="apl-btn apl-btn-primary" type="submit" ng-click="setFilter()">
@@ -62,17 +90,20 @@
                 <tr class="-qa-report-data ">
                     <td ng-click="vm.showBreakdown(order, vm.activeSport.name)">
                         <span class="event-link ">
-                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Rajasthan Royals v Kings XI Punjab</span>                        - Tied Match
+                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Rajasthan
+                                Royals v Kings XI Punjab</span> - Tied Match
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">08/05/2018 20:00:00</time>
+                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">08/05/2018
+                                20:00:00</time>
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">08/05/2018 23:35:14</time>
+                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">08/05/2018
+                                23:35:14</time>
                         </span>
                     </td>
                     <td class="numeric  -positive" ng-class="{'-negative': order.memberComm > 0, '-positive': order.memberComm <= 0}">
@@ -86,17 +117,20 @@
                 <tr class="-qa-report-data ">
                     <td ng-click="vm.showBreakdown(order, vm.activeSport.name)">
                         <span class="event-link ">
-                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Rajasthan Royals v Kings XI Punjab</span>                        - Match Odds
+                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Rajasthan
+                                Royals v Kings XI Punjab</span> - Match Odds
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">08/05/2018 20:00:00</time>
+                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">08/05/2018
+                                20:00:00</time>
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">08/05/2018 23:41:04</time>
+                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">08/05/2018
+                                23:41:04</time>
                         </span>
                     </td>
                     <td class="numeric  -positive" ng-class="{'-negative': order.memberComm > 0, '-positive': order.memberComm <= 0}">
@@ -110,17 +144,20 @@
                 <tr class="-qa-report-data ">
                     <td ng-click="vm.showBreakdown(order, vm.activeSport.name)">
                         <span class="event-link ">
-                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Rajasthan Royals v Kings XI Punjab</span>                        - Completed Match
+                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Rajasthan
+                                Royals v Kings XI Punjab</span> - Completed Match
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">08/05/2018 20:00:00</time>
+                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">08/05/2018
+                                20:00:00</time>
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">08/05/2018 22:26:10</time>
+                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">08/05/2018
+                                22:26:10</time>
                         </span>
                     </td>
                     <td class="numeric  -positive" ng-class="{'-negative': order.memberComm > 0, '-positive': order.memberComm <= 0}">
@@ -145,17 +182,20 @@
                 <tr class="-qa-report-data ">
                     <td ng-click="vm.showBreakdown(order, vm.activeSport.name)">
                         <span class="event-link ">
-                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Sunrisers Hyderabad v Royal Challengers Bangalore</span>                        - Tied Match
+                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Sunrisers
+                                Hyderabad v Royal Challengers Bangalore</span> - Tied Match
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">07/05/2018 20:00:00</time>
+                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">07/05/2018
+                                20:00:00</time>
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">07/05/2018 23:40:16</time>
+                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">07/05/2018
+                                23:40:16</time>
                         </span>
                     </td>
                     <td class="numeric  -positive" ng-class="{'-negative': order.memberComm > 0, '-positive': order.memberComm <= 0}">
@@ -169,17 +209,20 @@
                 <tr class="-qa-report-data ">
                     <td ng-click="vm.showBreakdown(order, vm.activeSport.name)">
                         <span class="event-link ">
-                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Sunrisers Hyderabad v Royal Challengers Bangalore</span>                        - Match Odds
+                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Sunrisers
+                                Hyderabad v Royal Challengers Bangalore</span> - Match Odds
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">07/05/2018 20:00:00</time>
+                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">07/05/2018
+                                20:00:00</time>
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">07/05/2018 23:48:05</time>
+                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">07/05/2018
+                                23:48:05</time>
                         </span>
                     </td>
                     <td class="numeric  -negative" ng-class="{'-negative': order.memberComm > 0, '-positive': order.memberComm <= 0}">
@@ -204,17 +247,20 @@
                 <tr class="-qa-report-data ">
                     <td ng-click="vm.showBreakdown(order, vm.activeSport.name)">
                         <span class="event-link ">
-                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Kings XI Punjab v Rajasthan Royals</span>                        - Tied Match
+                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Kings
+                                XI Punjab v Rajasthan Royals</span> - Tied Match
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">06/05/2018 20:00:00</time>
+                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">06/05/2018
+                                20:00:00</time>
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">06/05/2018 23:29:50</time>
+                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">06/05/2018
+                                23:29:50</time>
                         </span>
                     </td>
                     <td class="numeric  -positive" ng-class="{'-negative': order.memberComm > 0, '-positive': order.memberComm <= 0}">
@@ -228,17 +274,20 @@
                 <tr class="-qa-report-data ">
                     <td ng-click="vm.showBreakdown(order, vm.activeSport.name)">
                         <span class="event-link ">
-                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Mumbai Indians v Kolkata Knight Riders</span>                        - Match Odds
+                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Mumbai
+                                Indians v Kolkata Knight Riders</span> - Match Odds
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">06/05/2018 16:00:00</time>
+                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">06/05/2018
+                                16:00:00</time>
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">06/05/2018 19:55:10</time>
+                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">06/05/2018
+                                19:55:10</time>
                         </span>
                     </td>
                     <td class="numeric  -negative" ng-class="{'-negative': order.memberComm > 0, '-positive': order.memberComm <= 0}">
@@ -252,17 +301,20 @@
                 <tr class="-qa-report-data ">
                     <td ng-click="vm.showBreakdown(order, vm.activeSport.name)">
                         <span class="event-link ">
-                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Mumbai Indians v Kolkata Knight Riders</span>                        - Tied Match
+                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Mumbai
+                                Indians v Kolkata Knight Riders</span> - Tied Match
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">06/05/2018 16:00:00</time>
+                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">06/05/2018
+                                16:00:00</time>
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">06/05/2018 19:47:02</time>
+                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">06/05/2018
+                                19:47:02</time>
                         </span>
                     </td>
                     <td class="numeric  -positive" ng-class="{'-negative': order.memberComm > 0, '-positive': order.memberComm <= 0}">
@@ -287,17 +339,20 @@
                 <tr class="-qa-report-data ">
                     <td ng-click="vm.showBreakdown(order, vm.activeSport.name)">
                         <span class="event-link ">
-                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Sunrisers Hyderabad v Delhi Daredevils</span>                        - Tied Match
+                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Sunrisers
+                                Hyderabad v Delhi Daredevils</span> - Tied Match
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">05/05/2018 20:00:00</time>
+                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">05/05/2018
+                                20:00:00</time>
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">05/05/2018 23:36:13</time>
+                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">05/05/2018
+                                23:36:13</time>
                         </span>
                     </td>
                     <td class="numeric  -negative" ng-class="{'-negative': order.memberComm > 0, '-positive': order.memberComm <= 0}">
@@ -311,17 +366,20 @@
                 <tr class="-qa-report-data ">
                     <td ng-click="vm.showBreakdown(order, vm.activeSport.name)">
                         <span class="event-link ">
-                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Sunrisers Hyderabad v Delhi Daredevils</span>                        - Match Odds
+                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Sunrisers
+                                Hyderabad v Delhi Daredevils</span> - Match Odds
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">05/05/2018 20:00:00</time>
+                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">05/05/2018
+                                20:00:00</time>
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">05/05/2018 23:44:18</time>
+                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">05/05/2018
+                                23:44:18</time>
                         </span>
                     </td>
                     <td class="numeric  -negative" ng-class="{'-negative': order.memberComm > 0, '-positive': order.memberComm <= 0}">
@@ -335,17 +393,20 @@
                 <tr class="-qa-report-data ">
                     <td ng-click="vm.showBreakdown(order, vm.activeSport.name)">
                         <span class="event-link ">
-                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Chennai Super Kings v Royal Challengers Bangalore</span>                        - Match Odds
+                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Chennai
+                                Super Kings v Royal Challengers Bangalore</span> - Match Odds
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">05/05/2018 16:00:00</time>
+                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">05/05/2018
+                                16:00:00</time>
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">05/05/2018 19:27:12</time>
+                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">05/05/2018
+                                19:27:12</time>
                         </span>
                     </td>
                     <td class="numeric  -positive" ng-class="{'-negative': order.memberComm > 0, '-positive': order.memberComm <= 0}">
@@ -359,17 +420,20 @@
                 <tr class="-qa-report-data ">
                     <td ng-click="vm.showBreakdown(order, vm.activeSport.name)">
                         <span class="event-link ">
-                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Chennai Super Kings v Royal Challengers Bangalore</span>                        - Tied Match
+                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Chennai
+                                Super Kings v Royal Challengers Bangalore</span> - Tied Match
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">05/05/2018 16:00:00</time>
+                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">05/05/2018
+                                16:00:00</time>
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">05/05/2018 19:22:36</time>
+                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">05/05/2018
+                                19:22:36</time>
                         </span>
                     </td>
                     <td class="numeric  -positive" ng-class="{'-negative': order.memberComm > 0, '-positive': order.memberComm <= 0}">
@@ -394,7 +458,8 @@
                 <tr class="-qa-report-data ">
                     <td ng-click="vm.showBreakdown(order, vm.activeSport.name)">
                         <span class="event-link ">
-                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Kings XI Punjab v Mumbai Indians</span>                        - Tied Match
+                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Kings
+                                XI Punjab v Mumbai Indians</span> - Tied Match
                         </span>
                     </td>
                     <td>
@@ -404,7 +469,8 @@
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">04/05/2018 23:34:50</time>
+                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">04/05/2018
+                                23:34:50</time>
                         </span>
                     </td>
                     <td class="numeric  -positive" ng-class="{'-negative': order.memberComm > 0, '-positive': order.memberComm <= 0}">
@@ -418,7 +484,8 @@
                 <tr class="-qa-report-data ">
                     <td ng-click="vm.showBreakdown(order, vm.activeSport.name)">
                         <span class="event-link ">
-                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Kings XI Punjab v Mumbai Indians</span>                        - Match Odds
+                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Kings
+                                XI Punjab v Mumbai Indians</span> - Match Odds
                         </span>
                     </td>
                     <td>
@@ -428,7 +495,8 @@
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">04/05/2018 23:41:31</time>
+                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">04/05/2018
+                                23:41:31</time>
                         </span>
                     </td>
                     <td class="numeric  -negative" ng-class="{'-negative': order.memberComm > 0, '-positive': order.memberComm <= 0}">
@@ -453,17 +521,20 @@
                 <tr class="-qa-report-data ">
                     <td ng-click="vm.showBreakdown(order, vm.activeSport.name)">
                         <span class="event-link ">
-                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Kolkata Knight Riders v Chennai Super Kings</span>                        - Completed Match
+                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Kolkata
+                                Knight Riders v Chennai Super Kings</span> - Completed Match
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">03/05/2018 20:00:00</time>
+                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">03/05/2018
+                                20:00:00</time>
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">03/05/2018 23:03:19</time>
+                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">03/05/2018
+                                23:03:19</time>
                         </span>
                     </td>
                     <td class="numeric  -positive" ng-class="{'-negative': order.memberComm > 0, '-positive': order.memberComm <= 0}">
@@ -477,17 +548,20 @@
                 <tr class="-qa-report-data ">
                     <td ng-click="vm.showBreakdown(order, vm.activeSport.name)">
                         <span class="event-link ">
-                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Kolkata Knight Riders v Chennai Super Kings</span>                        - Tied Match
+                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Kolkata
+                                Knight Riders v Chennai Super Kings</span> - Tied Match
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">03/05/2018 20:00:00</time>
+                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">03/05/2018
+                                20:00:00</time>
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">03/05/2018 23:28:06</time>
+                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">03/05/2018
+                                23:28:06</time>
                         </span>
                     </td>
                     <td class="numeric  -positive" ng-class="{'-negative': order.memberComm > 0, '-positive': order.memberComm <= 0}">
@@ -501,17 +575,20 @@
                 <tr class="-qa-report-data ">
                     <td ng-click="vm.showBreakdown(order, vm.activeSport.name)">
                         <span class="event-link ">
-                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Kolkata Knight Riders v Chennai Super Kings</span>                        - Match Odds
+                            <span date-string="order.eventName" timestamp="order.marketTime" class=" ng-isolate-scope">Kolkata
+                                Knight Riders v Chennai Super Kings</span> - Match Odds
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">03/05/2018 20:00:00</time>
+                            <time timestamp="vm.makeDate(order.marketTime)" type="datetime" class=" ng-isolate-scope">03/05/2018
+                                20:00:00</time>
                         </span>
                     </td>
                     <td>
                         <span class="order-date">
-                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">03/05/2018 23:33:05</time>
+                            <time timestamp="vm.makeDate(order.settledTime)" type="datetime" class=" ng-isolate-scope">03/05/2018
+                                23:33:05</time>
                         </span>
                     </td>
                     <td class="numeric  -positive" ng-class="{'-negative': order.memberComm > 0, '-positive': order.memberComm <= 0}">
