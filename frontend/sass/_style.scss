@@ -4399,13 +4399,11 @@ input {
 
 input[type="number"].ng-invalid,
 input[type="text"].ng-invalid {
-    border-color: #b71601;
     outline: none;
 }
 
 .apl-form .apl-input[type="number"].ng-invalid,
 .apl-form .apl-input[type="text"].ng-invalid {
-    border-color: #b71601;
     outline: none;
 }
 
@@ -4420,10 +4418,6 @@ input[type="text"].ng-invalid {
     width: 50px;
     padding: 3px;
     text-align: left;
-}
-
-.step-input-wrapper>input[type="text"].step-input.ng-invalid {
-    border-color: #b71601;
 }
 
 .step-input-wrapper>.button-wrapper {
