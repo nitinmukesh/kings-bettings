@@ -89,6 +89,13 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
                 callback(data.data);
             });
         },
+        changePassword: function (data, callback) {
+            $http.post(mainServer + 'api/member/changePassword', data).then(function (data) {
+                console.log(data);
+                data = data.data;
+                callback(data);
+            });
+        },
         userGetOne: function (data, callback) {
             $http.post(mainServer + 'api/member/getOne', data).then(function (data) {
                 console.log(data);
