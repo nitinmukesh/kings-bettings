@@ -24,6 +24,9 @@ myApp.controller('AccountStatementCtrl', function ($scope, TemplateService, Navi
     //     $scope.results = [];
     // };
 
+    $scope.accountStatmentFilter = {};
+    $scope.accountStatmentFilter.fromDate = new Date(moment().format());
+    $scope.accountStatmentFilter.toDate = new Date(moment().format());
     var accountStatmentFilter = {};
     accountStatmentFilter.fromDate = moment().format();
     accountStatmentFilter.toDate = moment().format();
