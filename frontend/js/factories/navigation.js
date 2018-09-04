@@ -216,6 +216,22 @@ myApp.factory('NavigationService', function ($http, $q, $log, $timeout) {
                 });
             });
         },
+        revokeAccessToWebApp: function (formData, callback) {
+            if ($.jStorage.get("accessTokenId")) {
+                if (!formData) {
+                    formData = {};
+                }
+                formData.accessTokenId = $.jStorage.get("accessTokenId");
+                getcsrf(function (csrf) {
+                    formData._csrf = csrf;
+                    $http.post(adminurl + 'betfair/revokeAccessToWebApp', formData).then(function (data) {
+                        data = data.data;
+                        callback(data);
+                    });
+                });
+            }
+
+        },
         updateUser: function (url, formData, callback) {
             getcsrf(function (csrf) {
                 formData._csrf = csrf;

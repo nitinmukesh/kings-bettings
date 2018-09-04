@@ -169,7 +169,10 @@ myApp.controller('availableCreditCtrl', function ($scope, TemplateService, Navig
 myApp.controller('footerCtrl', function ($scope, TemplateService, NavigationService, $rootScope, $interval) {
     $scope.template = TemplateService;
     $scope.revokeAccess = function () {
-        var revokeAccess = window.open("https://myaccount.betfair.com/accountdetails/mysecurity?showAPI=1", '_blank');
-        revokeAccess.focus();
+        // var revokeAccess = window.open("https://myaccount.betfair.com/accountdetails/mysecurity?showAPI=1", '_blank');
+        // revokeAccess.focus();
+        NavigationService.revokeAccessToWebApp(data, function (data) {
+            console.log("revokeAccessToWebApp", revokeAccessToWebApp);
+        });
     }
 });
