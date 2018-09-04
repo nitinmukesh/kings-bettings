@@ -171,7 +171,7 @@ myApp.controller('footerCtrl', function ($scope, TemplateService, NavigationServ
     $scope.revokeAccess = function () {
         // var revokeAccess = window.open("https://myaccount.betfair.com/accountdetails/mysecurity?showAPI=1", '_blank');
         // revokeAccess.focus();
-        NavigationService.revokeAccessToWebApp(data, function (data) {
+        NavigationService.revokeAccessToWebApp({}, function (data) {
             console.log("revokeAccessToWebApp", revokeAccessToWebApp);
         });
     }
