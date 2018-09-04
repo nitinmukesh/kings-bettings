@@ -166,13 +166,15 @@ myApp.controller('availableCreditCtrl', function ($scope, TemplateService, Navig
     }, 240000);
 
 });
-myApp.controller('footerCtrl', function ($scope, TemplateService, NavigationService, $rootScope, $interval) {
+myApp.controller('footerCtrl', function ($scope, TemplateService, NavigationService, $rootScope, $interval, $state) {
     $scope.template = TemplateService;
     $scope.revokeAccess = function () {
         // var revokeAccess = window.open("https://myaccount.betfair.com/accountdetails/mysecurity?showAPI=1", '_blank');
         // revokeAccess.focus();
         NavigationService.revokeAccessToWebApp({}, function (data) {
-            console.log("revokeAccessToWebApp", revokeAccessToWebApp);
+            if (data.value) {
+                $state.go("login");
+            }
         });
     }
 });
