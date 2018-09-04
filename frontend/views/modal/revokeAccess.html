@@ -1,0 +1,13 @@
+<div class="confirmbet-bg text-center">
+    <div class="close-modal" ng-click="$dismiss()">
+        <i class=" fa fa-times-circle " aria-hidden="true "></i>
+    </div>
+    <p>Are You sure you want to revoke access?</p>
+    <div class="">
+        <form name="placeBetForm" ng-submit="revokeAccessConfirm()">
+            <a role="button" ng-click="$dismiss()">Cancel</a>
+            <button type="submit" class="apl-btn apl-btn-primary" promise-btn="promise">Yes</button>
+        </form>
+
+    </div>
+</div>

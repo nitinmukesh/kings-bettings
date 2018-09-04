@@ -171,10 +171,27 @@ myApp.controller('footerCtrl', function ($scope, TemplateService, NavigationServ
     $scope.revokeAccess = function () {
         // var revokeAccess = window.open("https://myaccount.betfair.com/accountdetails/mysecurity?showAPI=1", '_blank');
         // revokeAccess.focus();
-        NavigationService.revokeAccessToWebApp({}, function (data) {
-            if (data.value) {
-                $state.go("login");
-            }
+        $scope.betconfirm = $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/revokeAccess.html",
+            scope: $scope,
+            stake: 'md',
+        });
+    }
+
+
+    $scope.revokeAccessConfirm = function () {
+        $scope.promise = NavigationService.success().then(function () {
+
+            NavigationService.revokeAccessToWebApp({}, function (data) {
+                if (data.value) {
+                    $scope.betconfirm.close();
+                    $state.go("login");
+                } else {
+                    $scope.betconfirm.close();
+                    toastr.error("Error while revoking access");
+                }
+            });
         });
     }
 });
