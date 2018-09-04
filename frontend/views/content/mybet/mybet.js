@@ -3,27 +3,32 @@ myApp.controller('MybetCtrl', function ($scope, TemplateService, NavigationServi
     TemplateService.title = "My Bet"; //This is the Title of the Website
     TemplateService.sidemenu2 = "";
     $scope.navigation = NavigationService.getNavigation();
-    $scope.userId= $.jStorage.get("userId");
+    $scope.userId = $.jStorage.get("userId");
+    $scope.open2 = function () {
+        $scope.popup2.opened = true;
+    };
+    $scope.popup2 = {
+        opened: false
+    };
+    $scope.open1 = function () {
+        $scope.popup1.opened = true;
+    };
+    $scope.popup1 = {
+        opened: false
+    };
     $scope.formData = {};
-    $scope.formData.page = 1;
-    $scope.getBetList = function (data) {
-        var data = {};
-        data.id = $scope.userId;
-        // data.marketId = $stateParams.marketId;
-        data.page = $scope.formData.page++;
-        $scope.pageNo = data.page;
-
-        NavigationService.getPlayerExecutedBets(data, function (data) {
-            if (data.data.data[0]) {
-                $scope.accountStatement = data.data.data[0].result;
-                console.log("$scope.accountStatement", $scope.accountStatement);
-                $scope.totalItems = data.data.data[0].countInfo.count;
-            } else {
-                $scope.noData = "No Data Found";
+    $scope.formData.fromDate = new Date(moment().format());
+    $scope.formData.toDate = new Date(moment().format());
+    $scope.formData.time = 'Current';
+    $scope.formData.betType = 'Matched';
+    $scope.getMyBets = function () {
+        $scope.formData.userId = $.jStorage.get("userId");
+        NavigationService.apiCallWithData("bet/getMyBets", $scope.formData, function (data) {
+            if (data.value) {
+                $scope.myBetList = data.data;
             }
-            // $scope.maxRow = data.data.data.results.length;
         });
     };
-    $scope.getBetList();
+    $scope.getMyBets();
 
 });
