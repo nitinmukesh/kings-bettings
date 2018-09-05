@@ -106,7 +106,7 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
 
             async.parallel([
                 function (callback) {
-                    console.log("book_" + market.betfairId + "_" + user);
+                    // console.log("book_" + market.betfairId + "_" + user);
                     $scope.mySocket2 = io.sails.connect(sportsSocket);
                     NavigationService.apiCallWithData('Book/getUserBook', {
                         marketId: market.betfairId,
@@ -129,8 +129,8 @@ myApp.controller('DetailPageCtrl', function ($scope, $rootScope, $stateParams, T
                 },
                 function (bookData, callback) {
                     $scope.mySocket1 = io.sails.connect(adminUUU);
+                    // console.log("market_" + market.betfairId);
                     $scope.mySocket1.on("market_" + market.betfairId, function onConnect(data) {
-                        // callback(null, data);
                         _.each(market.runners, function (runner) {
                             _.each(data, function (rate) {
                                 if (runner.betfairId == (rate.id).toString()) {
