@@ -9310,3 +9310,9 @@ div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-
 .ml-18 {
     margin-left: 18em;
 }
+
+.draw-match {
+    background-color: #f2f9ff !important;
+    pointer-events: none;
+    cursor: default;
+}
