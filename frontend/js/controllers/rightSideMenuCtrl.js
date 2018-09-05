@@ -1,4 +1,4 @@
-myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams, jStorageService, TemplateService, BetService, $state, $uibModal, NavigationService, toastr, toastrConfig) {
+myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams, jStorageService, TemplateService, BetService, $state, $uibModal, NavigationService, toastr, toastrConfig, $timeout) {
     $scope.BetService = BetService;
 
     $scope.layArray = [];
@@ -65,6 +65,15 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
             templateUrl: "views/modal/betconfirm.html",
             scope: $scope,
             stake: 'md',
+        });
+    };
+    $scope.editStake = function () {
+        $scope.betconfirm = $uibModal.open({
+            animation: true,
+            templateUrl: "views/modal/edit-stake.html",
+            scope: $scope,
+            stake: 'sm',
+            windowClass: 'edit-stake-modal'
         });
     };
     $scope.removeAllBets = function () {
@@ -145,7 +154,8 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
 
 
     $scope.placeBet = function () {
-        toastrConfig.positionClass = 'toast-top-center';
+        toastrConfig = {};
+        toastrConfig.positionClass = 'toast-top-right';
         toastr.success('Your Bet will submit in 5 seconds');
         $scope.betconfirm.close();
         $scope.promise = NavigationService.success().then(function () {
@@ -153,26 +163,13 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
             NavigationService.apiCallWithData('Betfair/placePlayerBet', reqData, function (data) {
                 // console.log("data", data);
                 if (data.value) {
-                    toastrConfig = {};
-                    toastrConfig.positionClass = 'toast-top-right';
-                    toastrConfig.allowHtml = true;
-                    _.forEach(reqData, function (bet) {
-                        var toastrString = 'Event :' + bet.event + '<br>' +
-                            'selection Name :' + bet.selectionName + '<br>' +
-                            'Type :' + bet.type + '<br>' +
-                            'Odds :' + bet.odds + '<br>' +
-                            'Stake :' + bet.stake + '<br>';
-                        toastrString += bet.liability ? ('liability :' + bet.liability) :
-                            ('Profit :' + bet.profit);
-                        toastr.success(toastrString);
-                    })
-                    $scope.activePill = 1;
-                    $scope.removeAllBets();
-                    // toastr.success("Bet Placed successfully!");
-
+                    toastr.success("Bet Placed successfully!");
                 } else {
-                    toastrConfig.positionClass = 'toast-top-right';
-                    toastr.error("Error while placing Bet");
+                    if (data.error == "MIN_BET_STAKE_REQUIRED") {
+                        toastr.error("please increase stake amount");
+                    } else {
+                        toastr.error("Error while placing Bet");
+                    }
                 }
                 // callback();
             });

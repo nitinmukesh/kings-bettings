@@ -5,49 +5,74 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="selection">
-                    <div class="item selected" ng-class="?'selected':''" ng-click="vm.selectCurrent()">Current</div>
-                    <div class="item" ng-class="?'selected':''" ng-click="vm.selectPast()">Past</div>
+                    <div class="item" ng-class="{'selected':formData.time=='Current'}" ng-click="formData.time='Current'">Current</div>
+                    <div class="item" ng-class="{'selected':formData.time=='Past'}" ng-click="formData.time='Past'">Past</div>
                 </div>
-                <div class="selection alt">
-                    <div class="item selected" ng-class="vm.isMatched?'selected':''" ng-click="vm.selectMatched()">Matched</div>
-                    <div class="item" ng-class="!vm.isMatched?'selected':''" ng-click="vm.selectUnmatched()">Unmatched</div>
+                <div class="selection alt" ng-if="formData.time=='Current'">
+                    <div class="item " ng-class="{'selected':formData.betType=='Matched'}" ng-click="formData.betType='Matched'">Matched</div>
+                    <div class="item" ng-class="{'selected':formData.betType=='Unmatched'}" ng-click="formData.betType='Unmatched'">Unmatched</div>
                 </div>
             </div>
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div>
                     <div class="apl-report-filter ng-isolate-scope">
-                        <datepicker date-format="dd/MM/yyyy" selector="apl-input-datepicker-from" class="ng-isolate-scope">
+                        <datepicker>
                             <span class="label-title">From</span>
-                            <input ng-model="filters.from" class="apl-input-datepicker-from" type="text">
+                            <div class="input-group mb-3">
+                                <p class="input-group">
+                                    <input type="text" class="form-control" name="fromDate" uib-datepicker-popup="dd.MM.yyyy"
+                                        ng-model="formData.fromDate" is-open="popup1.opened" ng-required="true"
+                                        close-text="Close" />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="open1()">
+                                            <i class="far fa-calendar-alt"></i>
+                                        </button>
+                                    </span>
+                                    <div class="disable-input " ng-click="open1() "></div>
+                                </p>
+                            </div>
                         </datepicker>
-                        <datepicker date-format="dd/MM/yyyy" selector="apl-input-datepicker-to" class="ng-isolate-scope">
+
+                        <datepicker>
                             <span class="label-title">To</span>
-                            <input ng-model="filters.to" class="apl-input-datepicker-to" type="text">
+                            <div class="input-group mb-3">
+                                <p class="input-group">
+                                    <input type="text" class="form-control" name="toDate" uib-datepicker-popup="dd.MM.yyyy"
+                                        ng-model="formData.toDate" is-open="popup2.opened" ng-required="true"
+                                        close-text="Close" />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="open2()">
+                                            <i class="far fa-calendar-alt"></i>
+                                        </button>
+                                    </span>
+                                    <div class="disable-input " ng-click="open2() "></div>
+                                </p>
+                            </div>
                         </datepicker>
-                        <button id="submit" class="apl-btn apl-btn-primary" type="submit">
+                        <button id="submit" class="apl-btn apl-btn-primary" type="submit" ng-click="getMyBets()">
                             <i class="fas fa-search"></i> Search
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-        <table class="listing apl-table" ng-if="accountStatement">
+        <table class="listing apl-table" ng-if="myBetList">
             <thead>
                 <tr>
                     <!-- <th>Settled</th> -->
                     <th>Placed</th>
                     <th>Description</th>
                     <th>Type</th>
-                    <th class="numeric">Horse</th>
                     <th class="numeric">Odds</th>
                     <th class="numeric">Stake</th>
-                    <!-- <th class="numeric ">Liability</th>
-                    <th class="numeric">Profit/Loss</th>
-                    <th>Status</th> -->
+                    <th class="numeric" ng-if="formData.time=='Current'">Liability</th>
+                    <th class="numeric" ng-if="formData.time=='Past'">Profit/Loss</th>
+                    <th class="numeric" ng-if="formData.time=='Current'">Potential Profit</th>
+                    <th class="numeric" ng-if="formData.time=='Past'">Status</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="bet in accountStatement">
+                <tr ng-repeat="bet in myBetList">
                     <td>
                         <span class="order-date">
                             <div>{{bet.placedDate | date : "dd.MM.yyyy"}}</div>
@@ -56,51 +81,46 @@
                             <div>{{bet.placedDate | date: "h:mm:ss"}}</div>
                         </span>
                     </td>
-                    <!-- <td>
-                        <span class="order-date">
-                            <time timestamp="vm.makeDate(order.betPlacedDate)" type="fullDate">07/05/2018</time>
-                        </span>
-                        <span class="order-time">
-                            <time timestamp="vm.makeDate(order.betPlacedDate)" type="time">23:37:50</time>
-                        </span>
-                    </td> -->
                     <td>
                         <span class="order-event">
-                            <span>{{bet.eventDesc.name}}</span>
+                            <span>{{bet.eventData.name}}</span>
                         </span>
-                        <span ng-switch="" on="order.marketBettingType">
-                            <span ng-switch-default="">
-                                <span class="order-selection ">No</span>
-                        <span class="order-market ">Tied Match</span>
-                        </span>
+                        <span>
+                            <span>
+                                <span class="order-selection ">{{bet.horseData.name}}</span>
+                                <span class="order-market ">{{bet.marketData.name}}</span>
+                            </span>
                         </span>
 
                         <span class="order-betId split ">
-                            <label>Bet ID</label>{{bet.bet}}</span>
+                            <label>Bet ID</label>{{bet.betfairId}}</span>
 
-                        <span class="order-placed-date split">
+                        <!-- <span class="order-placed-date split">
                             <label>Placed</label>
                             <time timestamp="order.betPlacedDate" type="datetime">07/05/2018 23:37:50</time>
-                        </span>
+                        </span> -->
                     </td>
                     <td>
                         {{bet.type}}
                     </td>
                     <td class="numeric">
-                        {{bet.horse.name}}
-                    </td>
-                    <td class="numeric" ng-class="{'-negative': bet.betRate < 0, '-positive': bet.betRate > 0}">
                         {{(bet.betRate || 0)| number:2}}
                     </td>
-                    <td class="numeric" ng-class="{'-negative': bet.executedAmount < 0, '-positive': bet.executedAmount > 0}">
-                        {{(bet.executedAmount || 0)| number:2}}
+                    <td class="numeric">
+                        {{(bet.stake || 0)| number:2}}
                     </td>
-                    <!-- <td class="numeric  -negative" ng-class=" ? '' : {'-negative': order.memberWin < 0, '-positive': order.memberWin >= 0, '-invalid': order.invalid == 1}">
-                        -0.60
+                    <td class="numeric" ng-if="formData.time=='Current'">
+                        {{bet.type == 'LAY' ? ((bet.betRate-1)*bet.stake | number:2) : '' }}
                     </td>
-                    <td ng-class="{'-negative': order.memberWin < 0, '-positive': order.memberWin >= 0, '-invalid': order.invalid == 1}" class=" -negative">
-                        LOST
-                    </td> -->
+                    <td class="numeric" ng-if="formData.time=='Past'" ng-class="{'-negative': bet.betInfo.betWinStatus == 'LOST', '-positive': bet.betInfo.betWinStatus == 'WON'}">
+                        {{bet.betInfo.betWinStatus == 'WON' ? bet.stake : -((bet.betRate-1)*bet.stake | number:2)}}
+                    </td>
+                    <td class="numeric" ng-if="formData.time=='Current'">
+                        {{bet.type == 'LAY' ? bet.stake : ((bet.betRate-1)*bet.stake | number:2)}}
+                    </td>
+                    <td class="numeric" ng-if="formData.time=='Past'" ng-class="{'-negative': bet.betInfo.betWinStatus == 'LOST', '-positive': bet.betInfo.betWinStatus == 'WON'}">
+                        {{bet.betInfo.betWinStatus}}
+                    </td>
                 </tr>
             </tbody>
         </table>
