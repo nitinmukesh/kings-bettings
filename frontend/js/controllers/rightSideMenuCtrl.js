@@ -8,6 +8,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
     $scope.isBack = false;
     $scope.oneClickbet = false;
     $scope.onclickEdit = false;
+    var user = jStorageService.getUserId();
 
     $rootScope.$on('eventBroadcastedName', function (event, data) {
         // console.log("data for bet", data);
@@ -90,7 +91,6 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
     };
 
     $scope.getAvailableCredit = function () {
-        var user = jStorageService.getUserId();
         NavigationService.apiCallWithUrl(mainServer + 'api/sportsbook/getCurrentBalance', {
                 _id: user
             },
@@ -123,6 +123,52 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
         })
     }
     $scope.getAvailableCredit();
+    $scope.resetBet = function () {
+        if ($scope.myCurrentBetData && $scope.myCurrentBetData.unMatchedbets) {
+            _.forEach($scope.myCurrentBetData.unMatchedbets, function (unMatchedbet) {
+                _.forEach(unMatchedbet.betData, function (bet) {
+                    bet.betRate = bet.oldBetRate;
+                    bet.stake = bet.oldStake;
+                })
+            })
+        }
+        $scope.changeInBet = false;
+    }
+    $scope.getMyCurrentBetStatus = function () {
+        NavigationService.apiCallWithData('bet/getMyCurrentBetStatus', {
+                playerId: "5ac34a2af18b0e72339c5adf"
+            },
+            function (betData) {
+                console.log("betData", betData);
+                if (betData.value) {
+                    $scope.myCurrentBetData = betData.data;
+                    if ($scope.myCurrentBetData && $scope.myCurrentBetData.unMatchedbets) {
+                        _.forEach($scope.myCurrentBetData.unMatchedbets, function (unMatchedbet) {
+                            _.forEach(unMatchedbet.betData, function (bet) {
+                                bet.oldBetRate = bet.betRate;
+                                bet.oldStake = bet.stake;
+                            })
+                        })
+                    }
+                }
+            });
+    }
+    $scope.checkChangeInBet = function () {
+        $scope.changeInBet = false;
+        if ($scope.myCurrentBetData && $scope.myCurrentBetData.unMatchedbets) {
+            _.forEach($scope.myCurrentBetData.unMatchedbets, function (unMatchedbet) {
+                _.forEach(unMatchedbet.betData, function (bet) {
+                    if (bet.oldBetRate !== bet.betRate) {
+                        $scope.changeInBet = true;
+                    }
+                    if (bet.oldStake !== bet.stake) {
+                        $scope.changeInBet = true;
+                    }
+                })
+            })
+        }
+    }
+    $scope.getMyCurrentBetStatus();
     //calculate profit and liability
     $scope.calculatePL = function (type) {
         if (type == "LAY") {

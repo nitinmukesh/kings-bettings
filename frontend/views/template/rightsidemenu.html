@@ -324,18 +324,19 @@
                                 <uib-tab index="1" heading="Open Bets">
                                     <div class="bets-by-event-filter ">
                                         <label class="">
-                                            <input type="checkbox" class="">Show bet Info
+                                            <input type="checkbox" class="" ng-model="showBetInfo">Show bet Info
                                         </label>
                                     </div>
-                                    <div class="bets unmatched-bets">
+                                    <div class="bets unmatched-bets" ng-if="myCurrentBetData && myCurrentBetData.unMatchedbets.length > 0">
                                         <div class="_clearfix _align-right heading-wrapper btn-group ">
                                             <button class="apl-btn apl-btn-cancel" type="button">
                                                 Cancel All
                                             </button>
-                                            <button class="apl-btn apl-btn-secondary" type="button">
+                                            <button class="apl-btn apl-btn-secondary" type="button" ng-disabled="!changeInBet"
+                                                ng-click="resetBet()">
                                                 Reset
                                             </button>
-                                            <button class="apl-btn apl-btn-update " type="button">
+                                            <button class="apl-btn apl-btn-update " type="button" ng-disabled="!changeInBet">
                                                 Update All
                                             </button>
                                         </div>
@@ -349,32 +350,34 @@
                                                     </uib-accordion-heading>
                                                     <div class="list-wrap">
                                                         <form name="unmatchedForm">
-                                                            <ul class="orders-list">
+                                                            <ul class="orders-list" ng-repeat="unMatchedbet in myCurrentBetData.unMatchedbets">
                                                                 <li class="order-wrap">
                                                                     <span>
                                                                         <a class="event-name text-left">
-                                                                            <span>Swansea v Southampton</span>
+                                                                            <span>{{unMatchedbet.betData[0].event}}</span>
                                                                         </a>
                                                                         <ul class="market-list">
                                                                             <li class="market text-left">
-                                                                                <strong class="market-name">Match Odds</strong>
+                                                                                <strong class="market-name">{{unMatchedbet.betData[0].marketName}}</strong>
                                                                                 <button class="apl-btn apl-btn-link btn-cancel"
                                                                                     type="button">Cancel</button>
-                                                                                <ul class="selection-list">
+                                                                                <ul class="selection-list" ng-repeat="bet in unMatchedbet.betData">
                                                                                     <li class="selection">
                                                                                         <ul class="bets-list">
                                                                                             <li>
-                                                                                                <span class="selection-name">Southampton</span>
+                                                                                                <span class="selection-name">{{bet.horse}}</span>
                                                                                                 <div class="bet">
                                                                                                     <div class="bet-fields">
                                                                                                         <div class="odds-field placeholder-wrapper  activated animatable">
                                                                                                             <div class="placeholder ">Odds</div>
                                                                                                             <div>
                                                                                                                 <div
-                                                                                                                    class="step-input-wrapper ">
+                                                                                                                    class="step-input-wrapper hide-spin-input">
                                                                                                                     <input
                                                                                                                         class="step-input"
-                                                                                                                        type="text">
+                                                                                                                        type="number"
+                                                                                                                        ng-model="bet.betRate"
+                                                                                                                        ng-change="checkChangeInBet()">
                                                                                                                     <div
                                                                                                                         class="button-wrapper">
                                                                                                                         <button
@@ -395,19 +398,28 @@
                                                                                                         </div>
                                                                                                         <div class="placeholder-wrapper  activated animatable">
                                                                                                             <div class="placeholder">Stake</div>
-                                                                                                            <div>
+                                                                                                            <div class="hide-spin-input">
                                                                                                                 <input
-                                                                                                                    type="text">
+                                                                                                                    type="number"
+                                                                                                                    ng-model="bet.stake"
+                                                                                                                    ng-change="checkChangeInBet()">
                                                                                                             </div>
                                                                                                         </div>
                                                                                                         <div class="info-field">
-                                                                                                            <span class="title">Profit</span>
-                                                                                                            <span class="value ">225.00</span>
+                                                                                                            <span class="title"
+                                                                                                                ng-if="bet.type == 'LAY'">Liability</span>
+                                                                                                            <span class="title"
+                                                                                                                ng-if="bet.type == 'BACK'">Profit</span>
+                                                                                                            <span class="value ">{{bet.betRate
+                                                                                                                *bet.stake
+                                                                                                                |
+                                                                                                                number:2}}</span>
                                                                                                         </div>
                                                                                                         <div class="control-fields">
                                                                                                             <button
                                                                                                                 class="apl-btn apl-btn-mini apl-btn-update "
-                                                                                                                type="button">
+                                                                                                                type="button"
+                                                                                                                ng-hide="bet.oldBetRate == bet.betRate && bet.oldStake == bet.stake">
                                                                                                                 <i
                                                                                                                     class="fa fa-check"></i>
                                                                                                             </button>
@@ -452,42 +464,36 @@
                                                         <input type="checkbox" class="" ng-model="orderByDate">Order By
                                                         Date</label>
                                                 </div>
-                                                <div>
-                                                    <div class="matched-order">
-                                                        <a ng-href="#/display/EVENT/4/28706813" class="event-name" href="#/display/EVENT/4/28706813">
-                                                            <span date-string="vm.order.name" timestamp="vm.order.marketTime"
-                                                                class="">Kings XI Punjab v Mumbai Indians</span>
-                                                        </a>
-                                                        <div class="selection-name ">Kings XI Punjab</div>
-                                                        <table class="table-striped">
-                                                            <thead>
-                                                                <th>Match Odds</th>
-                                                                <th>Odds</th>
-                                                                <th>Stake</th>
-                                                                <th>Profit/Liability</th>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>2.000</td>
-                                                                    <td>25.000</td>
-                                                                    <td>20.000</td>
-                                                                    <td>22.000</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>2.000</td>
-                                                                    <td>25.000</td>
-                                                                    <td>20.000</td>
-                                                                    <td>22.000</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>2.000</td>
-                                                                    <td>25.000</td>
-                                                                    <td>20.000</td>
-                                                                    <td>22.000</td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
+                                                <div class="matched-order" ng-repeat="matchedBet in myCurrentBetData.matchedBets">
+                                                    <a ng-href="#/display/EVENT/4/28706813" class="event-name" href="#/display/EVENT/4/28706813">
+                                                        <span date-string="vm.order.name" timestamp="vm.order.marketTime"
+                                                            class="">{{matchedBet.betData[0].event}}</span>
+                                                    </a>
+                                                    <!-- <div class="selection-name ">Kings XI Punjab</div> -->
+                                                    <table class="table-striped">
+                                                        <thead>
+                                                            <th>Match Odds</th>
+                                                            <th>Odds</th>
+                                                            <th>Stake</th>
+                                                            <th>Profit/Liability</th>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr ng-repeat-start="bet in matchedBet.betData">
+                                                                <td>{{bet.horse}}</td>
+                                                                <td>{{bet.betRate | number : 2}}</td>
+                                                                <td>{{bet.stake | number : 2}}</td>
+                                                                <td>{{(bet.betRate*bet.stake) | number : 2}}</td>
+                                                            </tr>
+                                                            <tr ng-repeat-end>
+                                                                <td colspan="4" ng-if="showBetInfo">Ref:{{bet.betId}}
+                                                                    | placed :
+                                                                    {{bet.placedDate |
+                                                                    date:'dd/MM/yyyy hh:mm:ss'}}
+
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
                                                 </div>
                                             </div>
                                         </uib-accordion>
