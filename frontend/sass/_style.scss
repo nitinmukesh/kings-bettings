@@ -9316,3 +9316,35 @@ div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-
     pointer-events: none;
     cursor: default;
 }
+
+.edit-stake {
+    position: absolute;
+    right: 17px;
+}
+
+.edit-stake-modal {
+    .modal-dialog {
+        position: absolute;
+        right: 2%;
+        top: 35%;
+        width: 250px;
+    }
+}
+
+.edit-stake-row {
+    padding: 15px 30px;
+
+    .row .col-md-4 {
+        padding: 2px;
+
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+}
+
+.stake-input {
+    width: 100%;
+}
