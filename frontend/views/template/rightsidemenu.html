@@ -484,13 +484,15 @@
                                                             <th>Match Odds</th>
                                                             <th>Odds</th>
                                                             <th>Stake</th>
-                                                            <th>Profit/Liability</th>
+                                                            <th>Type</th>
+                                                            <th>P/L</th>
                                                         </thead>
                                                         <tbody>
                                                             <tr ng-repeat-start="bet in matchedBet.betData">
                                                                 <td>{{bet.horse}}</td>
                                                                 <td>{{bet.betRate | number : 2}}</td>
                                                                 <td>{{bet.stake | number : 2}}</td>
+                                                                <td>{{bet.type.substring(0, 1)}}</td>
                                                                 <td>{{(bet.betRate*bet.stake) | number : 2}}</td>
                                                             </tr>
                                                             <tr ng-repeat-end>
