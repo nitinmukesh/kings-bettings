@@ -8,7 +8,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
     $scope.isBack = false;
     $scope.oneClickbet = false;
     $scope.onclickEdit = false;
-    $scope.userId = $.jStorage.get("userId");
+    var user = jStorageService.getUserId();
     $scope.stakeData = {};
 
     $rootScope.$on('eventBroadcastedName', function (event, data) {
@@ -92,7 +92,6 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
     };
 
     $scope.getAvailableCredit = function () {
-        var user = jStorageService.getUserId();
         NavigationService.apiCallWithUrl(mainServer + 'api/sportsbook/getCurrentBalance', {
                 _id: user
             },
@@ -125,6 +124,52 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
         })
     }
     $scope.getAvailableCredit();
+    $scope.resetBet = function () {
+        if ($scope.myCurrentBetData && $scope.myCurrentBetData.unMatchedbets) {
+            _.forEach($scope.myCurrentBetData.unMatchedbets, function (unMatchedbet) {
+                _.forEach(unMatchedbet.betData, function (bet) {
+                    bet.betRate = bet.oldBetRate;
+                    bet.stake = bet.oldStake;
+                })
+            })
+        }
+        $scope.changeInBet = false;
+    }
+    $scope.getMyCurrentBetStatus = function () {
+        NavigationService.apiCallWithData('bet/getMyCurrentBetStatus', {
+                playerId: user
+            },
+            function (betData) {
+                console.log("betData", betData);
+                if (betData.value) {
+                    $scope.myCurrentBetData = betData.data;
+                    if ($scope.myCurrentBetData && $scope.myCurrentBetData.unMatchedbets) {
+                        _.forEach($scope.myCurrentBetData.unMatchedbets, function (unMatchedbet) {
+                            _.forEach(unMatchedbet.betData, function (bet) {
+                                bet.oldBetRate = bet.betRate;
+                                bet.oldStake = bet.stake;
+                            })
+                        })
+                    }
+                }
+            });
+    }
+    $scope.checkChangeInBet = function () {
+        $scope.changeInBet = false;
+        if ($scope.myCurrentBetData && $scope.myCurrentBetData.unMatchedbets) {
+            _.forEach($scope.myCurrentBetData.unMatchedbets, function (unMatchedbet) {
+                _.forEach(unMatchedbet.betData, function (bet) {
+                    if (bet.oldBetRate !== bet.betRate) {
+                        $scope.changeInBet = true;
+                    }
+                    if (bet.oldStake !== bet.stake) {
+                        $scope.changeInBet = true;
+                    }
+                })
+            })
+        }
+    }
+    $scope.getMyCurrentBetStatus();
     //calculate profit and liability
     $scope.calculatePL = function (type) {
         if (type == "LAY") {
@@ -152,7 +197,38 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
 
     };
 
-
+    $scope.cancelBet = function (betArray, level) {
+        var reqData = [];
+        if (level == 'All') {
+            _.forEach(betArray, function (match) {
+                _.forEach(match.betData, function (bet) {
+                    reqData.push({
+                        playerId: user,
+                        betId: bet.betId
+                    })
+                })
+            })
+        } else if (level == 'Match') {
+            _.forEach(betArray, function (bet) {
+                reqData.push({
+                    playerId: user,
+                    betId: bet.betId
+                })
+            })
+        } else {
+            reqData.push({
+                playerId: user,
+                betId: betArray.betId
+            })
+        }
+        NavigationService.apiCallWithData('Betfair/cancelPlayerBet', reqData, function (data) {
+            if (data.value) {
+                toastr.success("Bet cancelled successfully!");
+            } else {
+                toastr.success("Error while cancelling Bet!");
+            }
+        })
+    }
 
 
     $scope.placeBet = function () {
@@ -246,7 +322,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
     //Edit Stakes
     $scope.getStakes = function () {
         NavigationService.apiCallWithData('UserStake/getUserStake', {
-            user: $scope.userId
+            user: user
         }, function (data) {
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
@@ -263,7 +339,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
 
     $scope.saveStake = function (value) {
         if (!value.user) {
-            value.user = $scope.userId;
+            value.user = user;
         }
         NavigationService.apiCallWithData('UserStake/saveUserStake', value, function (data) {
             if (data.value) {

@@ -9348,3 +9348,12 @@ div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-
 .stake-input {
     width: 100%;
 }
+
+.hide-spin-input {
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
