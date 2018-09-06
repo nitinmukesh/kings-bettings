@@ -8,6 +8,8 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
     $scope.isBack = false;
     $scope.oneClickbet = false;
     $scope.onclickEdit = false;
+    $scope.userId = $.jStorage.get("userId");
+    $scope.stakeData = {};
 
     $rootScope.$on('eventBroadcastedName', function (event, data) {
         // console.log("data for bet", data);
@@ -68,7 +70,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
         });
     };
     $scope.editStake = function () {
-        $scope.betconfirm = $uibModal.open({
+        $scope.editStakeModal = $uibModal.open({
             animation: true,
             templateUrl: "views/modal/edit-stake.html",
             scope: $scope,
@@ -238,6 +240,42 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
 
     $scope.saveOneClickValue = function () {
         console.log("saveOneClickValue api call");
+    }
+
+
+    //Edit Stakes
+    $scope.getStakes = function () {
+        NavigationService.apiCallWithData('UserStake/getUserStake', {
+            user: $scope.userId
+        }, function (data) {
+            if (data.value) {
+                if (!_.isEmpty(data.data)) {
+                    $scope.stakeData = data.data;
+                } else {
+                    $scope.stakeData.stake = [25, 50, 100, 150, 200, 250];
+                }
+            } else {
+                $scope.stakeData.stake = [25, 50, 100, 150, 200, 250];
+            }
+        });
+    };
+    $scope.getStakes();
+
+    $scope.saveStake = function (value) {
+        if (!value.user) {
+            value.user = $scope.userId;
+        }
+        NavigationService.apiCallWithData('UserStake/saveUserStake', value, function (data) {
+            if (data.value) {
+                if (!_.isEmpty(data.data)) {
+                    $scope.stakeData = data.data;
+                    $scope.editStakeModal.close();
+                }
+            } else {
+                toastr.error("Unable to save stake");
+                $scope.editStakeModal.close();
+            }
+        });
     }
 
 });

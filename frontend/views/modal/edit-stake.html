@@ -1,25 +1,25 @@
 <div class="edit-stake-row text-center">
-    <form name="placeBetForm" ng-submit="placeBet()">
+    <form name="placeBetForm" ng-submit="saveStake(stakeData)">
         <div class="row">
             <div class="col-md-4">
-                <input type="number" ng-value="100" class="stake-input">
+                <input type="number" ng-model="stakeData.stake[0]" class="stake-input">
             </div>
             <div class="col-md-4">
-                <input type="number" ng-value="500" class="stake-input">
+                <input type="number" ng-model="stakeData.stake[1]" class="stake-input">
             </div>
             <div class="col-md-4">
-                <input type="number" ng-value="1000" class="stake-input">
+                <input type="number" ng-model="stakeData.stake[2]" class="stake-input">
             </div>
         </div>
         <div class="row">
             <div class="col-md-4">
-                <input type="number" ng-value="5000" class="stake-input">
+                <input type="number" ng-model="stakeData.stake[3]" class="stake-input">
             </div>
             <div class="col-md-4">
-                <input type="number" ng-value="10000" class="stake-input">
+                <input type="number" ng-model="stakeData.stake[4]" class="stake-input">
             </div>
             <div class="col-md-4">
-                <input type="number" ng-value="25000" class="stake-input">
+                <input type="number" ng-model="stakeData.stake[5]" class="stake-input">
             </div>
         </div>
         <div class="mt-2">
