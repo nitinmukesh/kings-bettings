@@ -136,7 +136,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
     }
     $scope.getMyCurrentBetStatus = function () {
         NavigationService.apiCallWithData('bet/getMyCurrentBetStatus', {
-                playerId: "5ac34a2af18b0e72339c5adf"
+                playerId: user
             },
             function (betData) {
                 console.log("betData", betData);
@@ -196,7 +196,38 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
 
     };
 
-
+    $scope.cancelBet = function (betArray, level) {
+        var reqData = [];
+        if (level == 'All') {
+            _.forEach(betArray, function (match) {
+                _.forEach(match.betData, function (bet) {
+                    reqData.push({
+                        playerId: user,
+                        betId: bet.betId
+                    })
+                })
+            })
+        } else if (level == 'Match') {
+            _.forEach(betArray, function (bet) {
+                reqData.push({
+                    playerId: user,
+                    betId: bet.betId
+                })
+            })
+        } else {
+            reqData.push({
+                playerId: user,
+                betId: betArray.betId
+            })
+        }
+        NavigationService.apiCallWithData('Betfair/cancelPlayerBet', reqData, function (data) {
+            if (data.value) {
+                toastr.success("Bet cancelled successfully!");
+            } else {
+                toastr.success("Error while cancelling Bet!");
+            }
+        })
+    }
 
 
     $scope.placeBet = function () {

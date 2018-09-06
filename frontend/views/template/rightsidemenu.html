@@ -329,7 +329,7 @@
                                     </div>
                                     <div class="bets unmatched-bets" ng-if="myCurrentBetData && myCurrentBetData.unMatchedbets.length > 0">
                                         <div class="_clearfix _align-right heading-wrapper btn-group ">
-                                            <button class="apl-btn apl-btn-cancel" type="button">
+                                            <button class="apl-btn apl-btn-cancel" type="button" ng-click="cancelBet(myCurrentBetData.unMatchedbets,'All')">
                                                 Cancel All
                                             </button>
                                             <button class="apl-btn apl-btn-secondary" type="button" ng-disabled="!changeInBet"
@@ -360,7 +360,7 @@
                                                                             <li class="market text-left">
                                                                                 <strong class="market-name">{{unMatchedbet.betData[0].marketName}}</strong>
                                                                                 <button class="apl-btn apl-btn-link btn-cancel"
-                                                                                    type="button">Cancel</button>
+                                                                                    type="button" ng-click="cancelBet(unMatchedbet.betData,'Match')">Cancel</button>
                                                                                 <ul class="selection-list" ng-repeat="bet in unMatchedbet.betData">
                                                                                     <li class="selection">
                                                                                         <ul class="bets-list">
@@ -425,7 +425,8 @@
                                                                                                             </button>
                                                                                                             <button
                                                                                                                 class="apl-btn apl-btn-mini apl-btn-remove"
-                                                                                                                type="button">
+                                                                                                                type="button"
+                                                                                                                ng-click="cancelBet(bet,'')">
                                                                                                                 <i
                                                                                                                     class="fa fa-times"></i>
                                                                                                             </button>
