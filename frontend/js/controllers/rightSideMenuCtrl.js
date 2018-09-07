@@ -124,6 +124,7 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
         })
     }
     $scope.getAvailableCredit();
+
     $scope.resetBet = function () {
         if ($scope.myCurrentBetData && $scope.myCurrentBetData.unMatchedbets) {
             _.forEach($scope.myCurrentBetData.unMatchedbets, function (unMatchedbet) {
@@ -153,6 +154,11 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
                     }
                 }
             });
+        $scope.mySocket2 = io.sails.connect(sportsSocket);
+        $scope.mySocket2.on("player_" + user, function onConnect(myCurrentBetData) {
+            console.log("myCurrentBetData", myCurrentBetData);
+            $scope.myCurrentBetData = myCurrentBetData;
+        })
     }
     $scope.checkChangeInBet = function () {
         $scope.changeInBet = false;
