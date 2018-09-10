@@ -46,7 +46,7 @@
                             </div>
                         </td>
                         <td class="back" ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open' || isDraw == true"
-                            ng-class="{'draw-match' : (market.runners.length <= 1)}" ng-click=" placeBet(market.runners[2].singleBackRate,'BACK',market,market.runners[2])">
+                            ng-click=" placeBet(market.runners[2].singleBackRate,'BACK',market,market.runners[2])">
                             <strong class="odds ">
                                 {{market.runners[2].singleBackRate}}
                             </strong>
@@ -57,7 +57,7 @@
                             </div>
                         </td>
                         <td class="lay" ng-if="market.betfairStatus == 'OPEN'|| market.isSuspended == 'No' || market.inPlayStatus == 'Open' || isDraw == true"
-                            ng-click=" placeBet(market.runners[2].singleLayRate,'LAY',market,market.runners[2])" ng-class="{'draw-match' : (market.runners.length <= 1)}">
+                            ng-click=" placeBet(market.runners[2].singleLayRate,'LAY',market,market.runners[2])">
                             <strong class="odds ">
                                 {{market.runners[2].singleLayRate}}
                             </strong>
