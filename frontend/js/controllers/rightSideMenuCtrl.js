@@ -178,22 +178,36 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
     $scope.getMyCurrentBetStatus();
     //calculate profit and liability
     $scope.calculatePL = function (type) {
-        if (type == "LAY") {
-            _.each($scope.layArray, function (n) {
-                n.liability = (n.odds && n.stake) ? ((n.odds - 1) * n.stake) : 0;
-                n.updatedodds = n.odds - 1;
-                n.type = type;
-            });
-        }
+        var userInfo = jStorageService.getuserInfo();
+        $scope.memberMinRate = userInfo.minRate[0].memberMinRate;
+        $scope.minBetError = false;
+        // if (type == "LAY") {
+        _.each($scope.layArray, function (n) {
+            n.liability = (n.odds && n.stake) ? ((n.odds - 1) * n.stake) : 0;
+            n.updatedodds = n.odds - 1;
+            n.type = type;
+            if (n.stake >= $scope.memberMinRate) {
+                n.error = false;
+            } else {
+                n.error = true;
+                $scope.minBetError = true;
+            }
+        });
+        // }
 
-        if (type == "BACK") {
-            _.each($scope.backArray, function (n) {
-                n.profit = (n.odds && n.stake) ? ((n.odds - 1) * n.stake) : 0;
-                n.updatedodds = n.odds - 1;
-                n.type = type;
-            });
-        }
-
+        // if (type == "BACK") {
+        _.each($scope.backArray, function (n) {
+            n.profit = (n.odds && n.stake) ? ((n.odds - 1) * n.stake) : 0;
+            n.updatedodds = n.odds - 1;
+            n.type = type;
+            if (n.stake >= $scope.memberMinRate) {
+                n.error = false;
+            } else {
+                n.error = true;
+                $scope.minBetError = true;
+            }
+        });
+        // }
         $scope.liability = _.sumBy($scope.layArray, "liability") + _.sumBy($scope.backArray, "stake");
 
         $rootScope.calculateBook({
@@ -333,24 +347,30 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
                     $scope.stakeData = data.data;
+                    console.log("$scope.stakeData.stake", $scope.stakeData.stake);
+                    $scope.stakes = _.cloneDeep($scope.stakeData.stake);
                 } else {
                     $scope.stakeData.stake = [25, 50, 100, 150, 200, 250];
+                    $scope.stakes = _.cloneDeep($scope.stakeData.stake);
                 }
             } else {
                 $scope.stakeData.stake = [25, 50, 100, 150, 200, 250];
+                $scope.stakes = _.cloneDeep($scope.stakeData.stake);
             }
         });
     };
     $scope.getStakes();
 
     $scope.saveStake = function (value) {
-        if (!value.user) {
-            value.user = user;
-        }
+        // if (!value.user) {
+        //     value.user = user;
+        // }
+        value.user = user;
         NavigationService.apiCallWithData('UserStake/saveUserStake', value, function (data) {
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
                     $scope.stakeData = data.data;
+                    $scope.stakes = _.cloneDeep($scope.stakeData.stake);
                     $scope.editStakeModal.close();
                 }
             } else {

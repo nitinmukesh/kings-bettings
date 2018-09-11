@@ -5009,12 +5009,12 @@ input[type="text"].ng-invalid {
 
 .bets .list-wrap {
     padding: 3px;
-    background: $navy-blue;
+    // background: $navy-blue;
 }
 
 .matchbets .card-body {
-    background: $navy-blue;
-    color: $white;
+    // background: $navy-blue;
+    // color: $white;
     padding: 0.70rem;
 }
 
@@ -5288,7 +5288,7 @@ input[type="text"].ng-invalid {
 }
 
 .betslip {
-    background: #fff;
+    // background: #fff;
 }
 
 .betslip .confirmation-checkbox {
@@ -5304,7 +5304,8 @@ input[type="text"].ng-invalid {
 .bet-type-info {
     line-height: 12px;
     font-size: 12px;
-    margin: 10px;
+    // margin: 10px;
+    display: inline-block;
 }
 
 // .bet-type-info::before {
@@ -5443,7 +5444,7 @@ input[type="text"].ng-invalid {
 
 .consolidation-filter {
     padding: 6px;
-    color: white;
+    // color: white;
 }
 
 .consolidation-filter input[type="checkbox"] {
@@ -5451,8 +5452,8 @@ input[type="text"].ng-invalid {
     vertical-align: middle;
 }
 
-.consolidation-filter .pad-left {
-    padding-left: 8px;
+.consolidation-filter .pad-right {
+    padding-right: 8px;
 }
 
 .order-listing .selection .item {
@@ -5647,12 +5648,20 @@ input[type="text"].ng-invalid {
 
 .matched-order {
     table {
-        background: white;
+        // background: white;
         color: black;
+
+        thead th:first-child {
+            font-weight: bold;
+        }
+
+        thead th {
+            font-weight: normal;
+        }
     }
 
     .event-name {
-        color: $white
+        // color: $white
     }
 }
 
@@ -9356,4 +9365,40 @@ div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-
         -webkit-appearance: none;
         margin: 0;
     }
+}
+
+.lay-bg {
+    background-color: #f9c9d4 !important;
+    border-bottom: 2px solid white;
+}
+
+.back-bg {
+    background-color: #a7d8fd !important;
+    border-bottom: 2px solid white;
+}
+
+.ellip-horse-name {
+    display: block;
+    width: 100px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.min-bet-error {
+    color: #b71601;
+}
+
+.back-square {
+    background-color: #a7d8fd !important;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+}
+
+.lay-square {
+    background-color: #f9c9d4 !important;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
 }
