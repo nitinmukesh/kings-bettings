@@ -2,67 +2,132 @@
     <div class="events">
         <h1 class="">Favourites
         </h1>
-        <div class="events-rows">
-            <table class="market-listing-table apl-table">
-                <thead>
-                    <tr>
-                        <th class="title">Match</th>
-                        <th class="col-first-player _align-center" colspan="2">1</th>
-                        <th class="col-second-player _align-center" colspan="2">2</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <i class="fas fa-star apl-icon-star-o"></i>
-                            <a class="event-name" href="">Kings XI Punjab v Mumbai Indians</a>
-                            <small class="">
-                                <!-- <time timestamp="event.start" type="gmtDateTime" class="">04/05/2018 20:00</time> -->
-                            </small>
-                        </td>
-                        <td class="back betting-disabled" side="back">
-                            <strong class="odds ">
-                                2.00
-                            </strong>
-                            <div class="size">
-                                <span class="">
-                                    27,282
-                                </span>
-                            </div>
-                        </td>
-                        <td class="lay betting-disabled" side="lay">
-                            <strong class="odds ">
-                                2.02
-                            </strong>
-                            <div class="size">
-                                <span class="">
-                                    17,817
-                                </span>
-                            </div>
-                        </td>
-                        <td class="back betting-disabled" side="back">
-                            <strong class="odds ">
-                                1.99
-                            </strong>
-                            <div class="size">
-                                <span class="">
-                                    6,535
-                                </span>
-                            </div>
-                        </td>
-                        <td class="lay betting-disabled" side="lay">
-                            <strong class="odds ">
-                                2.00
-                            </strong>
-                            <div class="size">
-                                <span class="">
-                                    27,282
-                                </span>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="group-event _clearfix ">
+            <div ng-repeat="(key, value) in marketData|groupBy:'eventType.name'">
+                <div>
+                    {{key}}
+                </div>
+                <div ng-repeat="market in value">
+                    <div class="header">
+                        <h1>
+                            {{market.parentCategory.name}}
+                            <!-- <time timestamp="vm.eventMarket.start" type="gmtDateTime" class="">04/05/2018 20:00</time> -->
+                        </h1>
+                        <div class="start-time  opens-in-count-down-container">
+                            <!-- <span class="opens-in-count-down">
+                                                <i class="apl-icon-clock"></i>
+                                                Opens in 1hr 17mins
+                                            </span> -->
+                        </div>
+                        <span class="opens-in-count-down"></span>
+                    </div>
+                    <div class="markets-rows">
+                        <div class="">
+                            <!-- <pre>{{market.runners|json}}</pre> -->
+                            <table class="market-listing-table apl-table">
+                                <thead>
+                                    <tr>
+                                        <th class="market-name title ">
+                                            <i class="far fa-star icon-style"></i>
+                                            Match Odds
+                                        </th>
+                                        <th class="back " colspan="2"></th>
+                                        <th class="back ">
+                                            <span translate="" class="">Back</span>
+                                        </th>
+                                        <th class="lay ">
+                                            <span translate="" class="">Lay</span>
+                                        </th>
+                                        <th class="lay " colspan="2"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- <pre>{{profits}}</pre> -->
+                                    <tr class="" ng-repeat="runner in market.runners track by $index">
+                                        <td>
+                                            <div class="event-name">{{runner.name}}
+                                            </div>
+                                            <div class="selection-pnl">
+                                                <displaynumber ng-model="profits[$parent.$index].runner[$index].amount"></displaynumber>
+                                                <!-- <span ng-class="{'positive':profits[$index].amount > 0 ,'negative':profits[$index].amount<0}" ng-if="profits[$index].amount">{{profits[$index].amount}}</span> -->
+                                                <span ng-class="{'positive':profits[$parent.$index].runner[$index].amount >= 0 ,'negative':profits[$parent.$index].runner[$index].amount<0}"
+                                                    ng-if="profits[$parent.$index].runner[$index].amount && unexecutedProfit[$parent.$index].runner[$index].unexecutedProfit">>></span>
+                                                <displaynumber ng-model="unexecutedProfit[$parent.$index].runner[$index].unexecutedProfit"></displaynumber>
+
+                                                <!-- <span ng-class="{'positive':unexecutedProfit[$parent.$index].runner[$index].unexecutedProfit > 0 ,'negative' : unexecutedProfit[$parent.$index].runner[$index].unexecutedProfit<0}"
+                                                                    ng-if="unexecutedProfit[$index].unexecutedProfit">{{unexecutedProfit[$index].unexecutedProfit}}</span> -->
+                                            </div>
+                                        </td>
+                                        <td class="back unhighlighted show-size" ng-click="placeBet(runner.back[2][1],'BACK',market,runner,key)">
+                                            <strong class="odds ">
+                                                {{runner.back[2][1]}}
+                                            </strong>
+                                            <div class="size">
+                                                <span class="">
+                                                    {{runner.back[2][2]}}
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td class="back unhighlighted show-size" ng-click="placeBet(runner.back[1][1],'BACK',market,runner,key)">
+                                            <strong class="odds ">
+                                                {{runner.back[1][1]}}
+                                            </strong>
+                                            <div class="size">
+                                                <span class="">
+                                                    {{runner.back[1][2]}}
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td class="back show-size" ng-click="placeBet(runner.back[0][1],'BACK',market,runner,key)">
+                                            <strong class="odds ">
+                                                {{runner.back[0][1]}}
+                                            </strong>
+                                            <div class="size">
+                                                <span class="">
+                                                    {{runner.back[0][2]}}
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td class="lay show-size" ng-click="placeBet(runner.lay[0][1],'LAY',market,runner,key)">
+                                            <strong class="odds ">
+                                                {{runner.lay[0][1]}}
+                                            </strong>
+                                            <div class="size">
+                                                <span class="">
+                                                    {{runner.lay[0][2]}}
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td class="lay unhighlighted show-size" ng-click="placeBet(runner.lay[1][1],'LAY',market,runner,key)">
+                                            <strong class="odds ">
+                                                {{runner.lay[1][1]}}
+                                            </strong>
+                                            <div class="size">
+                                                <span class="">
+                                                    {{runner.lay[1][2]}}
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td class="lay unhighlighted show-size" ng-click="placeBet(runner.lay[2][1],'LAY',market,runner,key)">
+                                            <strong class="odds ">
+                                                {{runner.lay[2][1]}}
+                                            </strong>
+                                            <div class="size">
+                                                <span class="">
+                                                    {{runner.lay[2][2]}}
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </div>
 </div>

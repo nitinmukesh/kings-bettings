@@ -333,7 +333,6 @@ myApp.controller('rightSideMenuCtrl', function ($scope, $rootScope, $stateParams
             if (data.value) {
                 if (!_.isEmpty(data.data)) {
                     $scope.stakeData = data.data;
-                    console.log("$scope.stakeData.stake", $scope.stakeData.stake);
                     $scope.stakes = _.cloneDeep($scope.stakeData.stake);
                 } else {
                     $scope.stakeData.stake = [25, 50, 100, 150, 200, 250];
