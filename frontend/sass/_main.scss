@@ -137,20 +137,20 @@ $dropdown-box-shadow: 0 .5rem 1rem rgba($black, .175) !default;
 // @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "../../bower_components/bootstrap/scss/bootstrap";
 @import "other/font-fix";
-@font-face {
-    src: url("../fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf");
-    font-family: 'Roboto-Condensed-Regular';
-}
+// @font-face {
+//     src: url("../fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf");
+//     font-family: 'Roboto-Condensed-Regular';
+// }
 
-@font-face {
-    src: url("../fonts/Roboto/Roboto-Regular.ttf");
-    font-family: 'Roboto-Regular';
-}
+// @font-face {
+//     src: url("../fonts/Roboto/Roboto-Regular.ttf");
+//     font-family: 'Roboto-Regular';
+// }
 
-@font-face {
-    src: url("../fonts/Roboto/Roboto-Medium.ttf");
-    font-family: 'Roboto-Medium';
-}
+// @font-face {
+//     src: url("../fonts/Roboto/Roboto-Medium.ttf");
+//     font-family: 'Roboto-Medium';
+// }
 
 @font-face {
     src: url("../fonts/Cinzel_Decorative/CinzelDecorative-Black.ttf");
@@ -166,7 +166,7 @@ body {
     background: url('../img/bg.png') no-repeat;
     background-size: 60%;
     background-position: center center;
-    font-family: 'Roboto-Regular';
+    // font-family: 'Lato, Avenir, Verdana, Nunito';
 }
 
 .height-100 {
@@ -208,6 +208,7 @@ footer {
     font-size: 12px;
     background-color: #141414;
     padding: 10px 0;
+
     p {
         margin: 0;
     }
@@ -236,9 +237,11 @@ footer {
 
 .form-invalid {
     color: $brand-danger;
+
     .form-control {
         border-color: $brand-danger;
         color: $brand-danger;
+
         &::-webkit-input-placeholder {
             color: $brand-danger;
         }
@@ -254,9 +257,11 @@ footer {
     a {
         height: auto;
     }
+
     .flex-prev {
         left: 10px !important;
     }
+
     .flex-next {
         right: 10px !important;
     }
@@ -313,21 +318,27 @@ header {
 .nav-pills .nav-link {
     // padding: 8px 20px;
     color: $gray-dark;
-    font-family: 'Roboto-Medium' // color: #d0e9fc;
+    // font-family: 'Roboto-Medium';
+    // color: #d0e9fc;
     // background-color: #d0e9fc;
 }
 
-.nav-pills .nav-link.active,
-    {
-    border-bottom: 2px solid $green;
-    color: $green;
-    background-color: transparent;
-}
+// .nav-pills .nav-link.active,
+//     {
+//     border-bottom: 2px solid $green;
+//     color: $green;
+//     background-color: transparent;
+// }
 
 .nav-pills .nav-link {
     border-radius: 0rem;
 }
 
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: black;
+    background-color: #e8f4fe;
+}
 .nav-link {
     padding: 0.5rem 0.5rem !important;
 }
@@ -336,12 +347,15 @@ header {
     .card-header {
         background: $blue;
     }
+
     .card-body {
         padding: 0.25rem;
     }
+
     .card {
         border: none;
     }
+
     .icon-right {
         float: right;
         background: $white;
@@ -356,9 +370,11 @@ header {
     .card {
         border: 1px solid $navy-blue;
     }
+
     .card-header {
         background: $navy-blue;
     }
+
     .icon-right {
         float: right;
         background: #fff;
@@ -373,16 +389,19 @@ header {
     padding: 0rem 0.6rem;
     text-align: center;
     color: $white;
+
     h5 {
         color: $white;
         font-weight: bold;
         padding: 5px 0;
         margin: 0;
     }
+
     a:hover {
         color: $white;
         text-decoration: none;
     }
+
     a {
         color: $white;
         text-decoration: none;
@@ -415,9 +434,11 @@ header {
         width: 55px;
         height: 30px;
     }
+
     .switch input {
         display: none;
     }
+
     .slider {
         position: absolute;
         cursor: pointer;
@@ -430,6 +451,7 @@ header {
         transition: .4s;
         border-radius: 34px;
     }
+
     .slider:before {
         position: absolute;
         content: "";
@@ -443,17 +465,21 @@ header {
         transition: .4s;
         border-radius: 50%;
     }
+
     input:checked+.slider {
         background-color: #155e16;
     }
+
     input:focus+.slider {
         box-shadow: 0 0 1px #2196F3;
     }
+
     input:checked+.slider:before {
         -webkit-transform: translateX(26px);
         -ms-transform: translateX(26px);
         transform: translateX(25px);
     }
+
     /*------ ADDED CSS ---------*/
     .slider:after {
         content: 'OFF';
@@ -466,10 +492,12 @@ header {
         font-size: 10px;
         font-family: Verdana, sans-serif;
     }
+
     input:checked+.slider:after {
         content: 'ON';
         left: 30%;
     }
+
     /*--------- END --------*/
 }
 
@@ -481,6 +509,7 @@ header {
     0% {
         margin-left: -10px;
     }
+
     100% {
         margin-left: 0px;
     }
@@ -542,6 +571,7 @@ header {
     padding: 50px;
     position: relative;
     font-size: 16px;
+
     .apl-btn {
         margin: 0 20px;
         font-size: 16px;
@@ -553,6 +583,7 @@ header {
     top: 6px;
     right: 11px;
     cursor: pointer;
+
     .fa {
         font-size: 20px;
         color: #ccc;
@@ -695,6 +726,7 @@ header {
     -ms-transform: scale(0.5);
     -o-transform: scale(0.5);
     transform: scale(0.5);
+    
 }
 
 .side-header,
@@ -704,6 +736,10 @@ header {
 
 .side-header {
     width: 40px !important;
+    ­-webkit-­transition: all 0.6s ease; 
+    ­-moz-­transition: all 0.6s ease; 
+    ­-o-­transition: all 0.6s ease; 
+    transition: all 0.6s ease;
     .cat-name {
         display: none;
     }
@@ -714,7 +750,7 @@ header {
     width: 300px;
     position: absolute;
     right: 0;
-    top: 100px;
+    top: 118px;
 }
 
 .main-content.main-content.padd {
@@ -724,7 +760,7 @@ header {
 .main-content {
     // float: left;
     min-height: calc(100vh);
-    padding: 100px 300px 110px 197px; // padding: 50px 300px 110px 185px;
+    padding: 0 300px 110px 197px; // padding: 50px 300px 110px 185px;
     width: 100%;
     -webkit-transition: all .4s ease 0s;
     -moz-transition: all .4s ease 0s;
@@ -738,10 +774,12 @@ header {
 }
 
 .uib-daypicker {
+
     .btn-secondary:not(:disabled):not(.disabled).active,
     .show>.btn-secondary.dropdown-toggle {
         background-color: #1a2238;
         border-color: #1b2035;
+
         .text-info {
             color: #ffffff !important;
             font-weight: bold;
@@ -752,4 +790,8 @@ header {
 .-negative {
     color: #F44336;
     font-weight: bold;
+}
+
+.logo-img {
+    width: 12%;
 }

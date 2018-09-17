@@ -1,8 +1,10 @@
-<header class="header sticky-top" ng-controller="headerCtrl">
+<header class="header" ng-controller="headerCtrl">
+
     <div class="boxed-layout-wrapper">
+
         <div class="logo-area">
             <div class="logo" ui-sref="home" href="#!/home">
-                Kings Bet
+                <img src="img/lg.png" class="logo-img"> Kings Bet
             </div>
         </div>
         <div class="menu-options">
@@ -16,7 +18,7 @@
             <time timestamp="timestamp" type="time" class="time ng-binding ng-isolate-scope">
                 {{clock | date :'HH:mm:ss'}}
             </time>
-            <div class="search-container ml-18">
+            <div class="search-container ml-14">
                 <div class="apl-form search">
                     <div class="placeholder-wrapper ng-isolate-scope animatable">
                         <div>
@@ -66,7 +68,7 @@
                     </ul>
                 </li> -->
                 <li>
-                    <p class="text-right">Logged in as {{userInfo.username}}</p>
+                    <p class="text-left">Logged in as {{userInfo.username}}</p>
                     <p class="last-login text-right">Last logged in:
                         <time timestamp="userData.user.lastLoginTime" type="dateSimpleTime" class=" ng-isolate-scope">
                             {{userInfo.loggedInTime | date:'dd/MM/yyyy hh:mm'}}</time>

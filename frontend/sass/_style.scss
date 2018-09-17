@@ -1,28 +1,33 @@
-// @import url(https://fonts.googleapis.com/css?family=Nunito:400,300,700);
-// @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700');
+@import url(https://fonts.googleapis.com/css?family=Nunito:400,300,700);
+@import url('https:fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700');
+
 /*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css */
-// @font-face {
-//     font-family: Avenir;
-//     src: url(../fonts/avenir/AEH.ttf);
-// }
-// @font-face {
-//     font-family: OpenSans;
-//     src: url(../fonts/OpenSans-Regular.ttf);
-// }
-// @font-face {
-//     font-family: Verdana;
-//     src: url(../fonts/verdana/Verdana.ttf);
-// }
-// @font-face {
-//     font-family: Nunito;
-//     src: url(../fonts/Nunito_Sans/NunitoSans-Regular.ttf);
-// }
+@font-face {
+    font-family: Avenir;
+    src: url(../fonts/avenir/AEH.ttf);
+}
+
+@font-face {
+    font-family: OpenSans;
+    src: url(../fonts/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: Verdana;
+    src: url(../fonts/verdana/Verdana.ttf);
+}
+
+@font-face {
+    font-family: Nunito;
+    src: url(../fonts/Nunito_Sans/NunitoSans-Regular.ttf);
+}
+
 /**
  * 1. Change the default font family in all browsers (opinionated).
  * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
  */
 html {
-    font-family: sans-serif;
+    font-family: Lato, Avenir, Verdana, Nunito;
     /* 1 */
     -ms-text-size-adjust: 100%;
     /* 2 */
@@ -165,7 +170,7 @@ dfn {
 h1 {
     font-size: 2em;
     margin: 0.67em 0;
-    font-family: 'Roboto-Condensed-Regular';
+    // font-family: 'Roboto-Condensed-Regular';
 }
 
 /**
@@ -311,7 +316,7 @@ html [type="button"],
 [type="submit"] {
     -webkit-appearance: button;
     /* 2 */
-    font-family: 'Roboto-Medium';
+    // font-family: 'Roboto-Medium';
 }
 
 /**
@@ -3495,7 +3500,7 @@ body {
 }
 
 footer {
-    background: #000a40;
+    background: $gray-dark url("../img/icon/bg-img.png");
     color: #fff;
     padding: 15px;
     margin-top: 18px;
@@ -3525,7 +3530,7 @@ a:hover {
 }
 
 header.header {
-    position: fixed;
+    position: relative;
     margin: auto auto 0;
     width: 100%; // background: $gray-dark;
     background: $gray-dark url('../img/icon/bg-img.png');
@@ -3541,7 +3546,13 @@ header.header {
     color: #fff;
 
     .svg-inline--fa.fa-w-16 {
-        width: 1rem;
+        width: 1rem !important;
+    }
+}
+
+.inner-right-pane {
+    .svg-inline--fa.fa-w-16 {
+        width: 1rem !important;
     }
 }
 
@@ -3554,7 +3565,7 @@ header.header .logo-area {
         width: 100%;
         height: 75px;
         line-height: 70px;
-        margin-right: 10px;
+        margin-right: -100px;
     }
 }
 
@@ -3599,7 +3610,7 @@ header.header .infobar>.linkbar>li {
     display: inline-table;
     vertical-align: middle;
     padding-left: 15px;
-    font-size: 16px;
+    font-size: 12px;
 }
 
 header.header .infobar>.linkbar>li p {
@@ -3631,13 +3642,13 @@ header.header .infobar>.linkbar .header-link {
 }
 
 .qa-logout {
-    background: $red;
+    // background: $red;
     padding: 8px;
     font-size: 12px;
 }
 
 .account-btn {
-    background: $red;
+    // background: $red;
     font-size: 12px;
 }
 
@@ -3645,11 +3656,11 @@ header.header .infobar>.linkbar .header-link {
     width: 210px;
     border: none;
     color: $white !important;
-    background: $gray;
+    background: $white;
 
     &:focus {
         border: none;
-        background: $gray;
+        background: $white;
     }
 }
 
@@ -3697,14 +3708,7 @@ header.header .infobar>.linkbar .header-link {
     color: #fff;
 }
 
-footer {
-    text-align: center;
-    background: #141414;
-    color: #fff;
-    line-height: 20px;
-    padding: 20px;
-    margin-top: 0;
-}
+
 
 footer a {
     color: #fff;
@@ -3807,7 +3811,7 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
 .left-menu-inner .menu-lvl-0 .menu-link,
 .left-menu-inner .menu-lvl-0 .favourites-link {
     position: relative;
-    font-family: 'Roboto-Medium';
+    // font-family: 'Roboto-Medium';
     height: 55px;
     cursor: pointer;
     transition: all 0.1s ease-out;
@@ -3828,8 +3832,8 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
     display: inline;
     float: none;
     position: relative;
-    right: auto;
-    padding-left: 15px;
+    right: 5px;
+    // padding-left: 15px;
 }
 
 .left-menu-inner .menu-lvl-0 .menu-link .link-name,
@@ -4109,7 +4113,7 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
 }
 
 .clock>time.time {
-    font-size: 20px;
+    font-size: 14px;
     padding: 8px 5px 8px;
     font-weight: bold;
 }
@@ -4192,12 +4196,16 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
 }
 
 .left-pane {
-    position: fixed;
-    top: 100px;
+    position: relative;
+    top: 0px;
     height: 100%;
     width: 180px;
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
+    ­-webkit-­transition: all 0.6s ease; 
+    ­-moz-­transition: all 0.6s ease; 
+    ­-o-­transition: all 0.6s ease; 
+    transition: all 0.6s ease;
 }
 
 .mid-pane {
@@ -4210,7 +4218,11 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
     right: 0;
     width: 312px;
 }
-
+.marquee{
+    background:$gray-dark;
+    margin-bottom:-4px;
+    color:$white;
+}
 .body>.content>.right-pane {
     width: 312px;
 }
@@ -4461,6 +4473,7 @@ input[type="text"].ng-invalid {
 
 .ngdialog .ngdialog-close::before {
     font-family: 'Apollo', Arial, sans-serif;
+
     content: '\F00D';
 }
 
@@ -4577,9 +4590,9 @@ input[type="text"].ng-invalid {
 .bet-manager {
     width: 100%;
 
-    h4 {
-        color: #58c370;
-    }
+    // h4 {
+    //     color: #58c370;
+    // }
 }
 
 .bet-manager>.tabs>li {
@@ -4617,7 +4630,9 @@ input[type="text"].ng-invalid {
 .bet-manager>.tabs>li.tab-open-bets:hover {
     background: #e8f4fe;
 }
-
+.tab-content > .active{
+    background: #e8f4fe; 
+}
 .bet-manager>.tabs>li.tab-bet-slip.-active,
 .bet-manager>.tabs>li.tab-open-bets.-active,
 .bet-manager>.tabs>li.tab-bet-slip.-active:hover,
@@ -4743,7 +4758,7 @@ input[type="text"].ng-invalid {
 
 .bet-manager .bets-by-event-filter {
     padding: 6px;
-    background-color: #fff;
+    // background-color: #fff;
 }
 
 .bet-manager .bets-by-event-filter input[type="checkbox"] {
@@ -5009,13 +5024,13 @@ input[type="text"].ng-invalid {
 
 .bets .list-wrap {
     padding: 3px;
-    background: $navy-blue;
+    // background: $navy-blue;
 }
 
 .matchbets .card-body {
-    background: $navy-blue;
-    color: $white;
-    padding: 0.70rem;
+    // background: $navy-blue;
+    // color: $white;
+    padding: 0rem;
 }
 
 .bets .event-name {
@@ -5030,7 +5045,7 @@ input[type="text"].ng-invalid {
 
 .bets .market-list .market-name {
     margin: 5px 0 5px 8px;
-    color: $white;
+
 }
 
 .bets .market-list .market {
@@ -5123,7 +5138,7 @@ input[type="text"].ng-invalid {
 
 .bets .bet-fields .info-field .value {
     position: relative;
-    top: 7px;
+    top: 22px;
 }
 
 .bets .bet-fields input[type="text"],
@@ -5288,7 +5303,7 @@ input[type="text"].ng-invalid {
 }
 
 .betslip {
-    background: #fff;
+    // background: #fff;
 }
 
 .betslip .confirmation-checkbox {
@@ -5304,7 +5319,8 @@ input[type="text"].ng-invalid {
 .bet-type-info {
     line-height: 12px;
     font-size: 12px;
-    margin: 10px;
+    // margin: 10px;
+    display: inline-block;
 }
 
 // .bet-type-info::before {
@@ -5442,17 +5458,17 @@ input[type="text"].ng-invalid {
 }
 
 .consolidation-filter {
-    padding: 6px;
-    color: white;
+    padding: 6px 0;
+    // color: white;
 }
 
 .consolidation-filter input[type="checkbox"] {
-    margin-right: 5px;
+    margin-right: 4px;
     vertical-align: middle;
 }
 
-.consolidation-filter .pad-left {
-    padding-left: 8px;
+.consolidation-filter .pad-right {
+    padding-right: 0px;
 }
 
 .order-listing .selection .item {
@@ -5647,12 +5663,20 @@ input[type="text"].ng-invalid {
 
 .matched-order {
     table {
-        background: white;
+        // background: white;
         color: black;
+
+        thead th:first-child {
+            font-weight: bold;
+        }
+
+        thead th {
+            font-weight: normal;
+        }
     }
 
     .event-name {
-        color: $white
+        // color: $white
     }
 }
 
@@ -7177,7 +7201,7 @@ body.ngdialog-open {
 .market-listing-table>tbody>tr>td>.event-name {
     font-weight: bold;
     line-height: 22px;
-    font-family: 'Roboto-Medium';
+    // font-family: 'Roboto-Medium';
     color: #000;
 }
 
@@ -7724,7 +7748,7 @@ div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-
 .placeholder-wrapper.activated .placeholder {
     top: -9px;
     font-size: 10px;
-    color: $white;
+    // color: $white;
 }
 
 .toggleable-list-title {
@@ -9307,8 +9331,8 @@ div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-
     background: #dcd8d8
 }
 
-.ml-18 {
-    margin-left: 18em;
+.ml-14 {
+    margin-left: 14em;
 }
 
 .draw-match {
@@ -9356,4 +9380,40 @@ div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-
         -webkit-appearance: none;
         margin: 0;
     }
+}
+
+.lay-bg {
+    background-color: #f9c9d4 !important;
+    border-bottom: 2px solid white;
+}
+
+.back-bg {
+    background-color: #a7d8fd !important;
+    border-bottom: 2px solid white;
+}
+
+.ellip-horse-name {
+    display: block;
+    width: 100px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.min-bet-error {
+    color: #b71601;
+}
+
+.back-square {
+    background-color: #a7d8fd !important;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+}
+
+.lay-square {
+    background-color: #f9c9d4 !important;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
 }
