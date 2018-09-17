@@ -1,4 +1,4 @@
-<header class="header sticky-top" ng-controller="headerCtrl">
+<header class="header" ng-controller="headerCtrl">
 
     <div class="boxed-layout-wrapper">
 
@@ -68,7 +68,7 @@
                     </ul>
                 </li> -->
                 <li>
-                    <p class="text-right">Logged in as {{userInfo.username}}</p>
+                    <p class="text-left">Logged in as {{userInfo.username}}</p>
                     <p class="last-login text-right">Last logged in:
                         <time timestamp="userData.user.lastLoginTime" type="dateSimpleTime" class=" ng-isolate-scope">
                             {{userInfo.loggedInTime | date:'dd/MM/yyyy hh:mm'}}</time>

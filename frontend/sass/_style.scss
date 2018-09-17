@@ -170,7 +170,7 @@ dfn {
 h1 {
     font-size: 2em;
     margin: 0.67em 0;
-    font-family: 'Roboto-Condensed-Regular';
+    // font-family: 'Roboto-Condensed-Regular';
 }
 
 /**
@@ -3500,7 +3500,7 @@ body {
 }
 
 footer {
-    background: #1b2035;
+    background: $gray-dark url("../img/icon/bg-img.png");
     color: #fff;
     padding: 15px;
     margin-top: 18px;
@@ -3530,7 +3530,7 @@ a:hover {
 }
 
 header.header {
-    position: fixed;
+    position: relative;
     margin: auto auto 0;
     width: 100%; // background: $gray-dark;
     background: $gray-dark url('../img/icon/bg-img.png');
@@ -3832,8 +3832,8 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
     display: inline;
     float: none;
     position: relative;
-    right: auto;
-    padding-left: 15px;
+    right: 5px;
+    // padding-left: 15px;
 }
 
 .left-menu-inner .menu-lvl-0 .menu-link .link-name,
@@ -4196,12 +4196,16 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
 }
 
 .left-pane {
-    position: fixed;
-    top: 100px;
+    position: relative;
+    top: 0px;
     height: 100%;
     width: 180px;
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
+    ­-webkit-­transition: all 0.6s ease; 
+    ­-moz-­transition: all 0.6s ease; 
+    ­-o-­transition: all 0.6s ease; 
+    transition: all 0.6s ease;
 }
 
 .mid-pane {
@@ -4214,7 +4218,11 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
     right: 0;
     width: 312px;
 }
-
+.marquee{
+    background:$gray-dark;
+    margin-bottom:-4px;
+    color:$white;
+}
 .body>.content>.right-pane {
     width: 312px;
 }
@@ -4582,9 +4590,9 @@ input[type="text"].ng-invalid {
 .bet-manager {
     width: 100%;
 
-    h4 {
-        color: #58c370;
-    }
+    // h4 {
+    //     color: #58c370;
+    // }
 }
 
 .bet-manager>.tabs>li {
@@ -4622,7 +4630,9 @@ input[type="text"].ng-invalid {
 .bet-manager>.tabs>li.tab-open-bets:hover {
     background: #e8f4fe;
 }
-
+.tab-content > .active{
+    background: #e8f4fe; 
+}
 .bet-manager>.tabs>li.tab-bet-slip.-active,
 .bet-manager>.tabs>li.tab-open-bets.-active,
 .bet-manager>.tabs>li.tab-bet-slip.-active:hover,
@@ -4748,7 +4758,7 @@ input[type="text"].ng-invalid {
 
 .bet-manager .bets-by-event-filter {
     padding: 6px;
-    background-color: #fff;
+    // background-color: #fff;
 }
 
 .bet-manager .bets-by-event-filter input[type="checkbox"] {
