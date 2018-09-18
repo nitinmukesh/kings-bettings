@@ -192,7 +192,21 @@ img.doneLoading {
 nav li:hover .dropdown-menu {
     display: block;
 }
+.dropdown-menu{
+    // position: relative;
+    border-radius: 1rem;
+    left: 8%;
+    &:after{
+    content: "";
+    position: absolute;
+    left: 45%;
+    top: -7%;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white;
 
+    }
+}
 #map img {
     opacity: 1;
 }
@@ -407,10 +421,14 @@ header {
         text-decoration: none;
     }
 }
-
+.edit-stake-row{
+    a{
+        color: #1a69a4 !important;
+    }
+}
 .betslip-content {
     text-align: center;
-    padding: 10px;
+    padding: 10px 4px;
 }
 
 .event-name-blue {
@@ -520,7 +538,8 @@ header {
     line-height: 32px;
     height: 27px;
     font-weight: bold;
-    color: rgba(0, 0, 0, 0.65)
+    color: rgba(0, 0, 0, 0.65);
+    margin-left: 75px;
 }
 
 //scss for icon
@@ -612,7 +631,7 @@ header {
     text-align: center;
     -webkit-transition: all 0.4s ease 0s;
     transition: all 0.4s ease 0s;
-    width: 15px;
+    width: 14px;
 }
 
 .menu-action {
@@ -625,7 +644,7 @@ header {
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
     transform: translateY(-50%);
-    width: 14px;
+    width: 20px;
 }
 
 .menu-action::after {

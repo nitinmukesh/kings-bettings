@@ -20,7 +20,7 @@
                         </li>
                         <li class=" ">
                             <a class="link-lvl-sport">
-                                <i class="fas fa-baseball-ball"></i>
+                               <img src="img/icons/{{game}}.svg" class="img-fluid game-icon">
                                 <span class="link-name">{{game}}</span>
                             </a>
                         </li>
@@ -56,7 +56,7 @@
                         <li ng-repeat="game in gameData">
                             <a class="menu-link sport-type-Cricket" ng-click="getGameName(game.name);getSubCategory(game.children)">
                                 <span class="link-name ">
-                                    <i class="far fa-star icon-style "></i>
+                                    <img src="img/icons/{{game.name}}.svg" class="img-fluid game-icon">
                                     <span class="px-2">{{game.name}}</span>
                                 </span>
                                 <!-- <span class="pull-right">
@@ -83,7 +83,7 @@
                         </li>
                         <li class=" ">
                             <a class="link-lvl-sport">
-                                <i class="fas fa-baseball-ball "></i>
+                               <img src="img/icons/{{game}}.svg" class="img-fluid game-icon">
                                 <span class="link-name ">{{game}}</span>
                             </a>
                         </li>

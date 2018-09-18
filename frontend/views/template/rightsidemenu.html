@@ -8,7 +8,7 @@
                         <div class="user-settings">
                             <div class="one-click-bet-settings-wrapper">
                                 <div class="one-click-bet-settings _clearfix select-mode-on one-click-active">
-                                    <!-- <div class="toggle-custom">
+                                    <div class="toggle-custom">
                                                 <label class="switch">
                                                     <input type="checkbox" id="togBtn" ng-model="oneClickbet">
                                                     <div class="slider round"></div>
@@ -16,7 +16,7 @@
                                             </div>
                                             <div class="one-betting" ng-if="!oneClickbet">
                                                 <strong class="">1 Click Betting</strong>
-                                            </div> -->
+                                            </div>
                                     <div class="one-click-settings-animation-wrap onclick-ani" ng-if="oneClickbet">
                                         <div class="apl-form one-click-bet-form">
                                             <div class="select-mode-fields">
@@ -68,10 +68,10 @@
                                         <li id="tab-betslip" class="tab-betslip" style="height: 18px; min-height: 18px;">
                                             <div class="bets betslip  has-bets">
                                                 <div>
-                                                    <div class="">
+                                                    <div class="bg-blue-light">
                                                         <div class="betslipContent">
                                                             <form name="betslipForm" class="">
-                                                                <div class="" ng-if="isBack">
+                                                                <div class="bg-blue-light" ng-if="isBack">
                                                                     <span class="back-square"></span>
                                                                     <h6 class="bet-type-info back ">
                                                                         Back
@@ -136,7 +136,7 @@
                                                                                             </div>
                                                                                             <div class="info-field ">
                                                                                                 <span class="title ">Profit</span>
-                                                                                                <span class="value ">{{(item.profit
+                                                                                                <span class="value value-5">{{(item.profit
                                                                                                     | number :
                                                                                                     2)||0}}
                                                                                                 </span>
@@ -257,7 +257,7 @@
                                                                                             </div>
                                                                                             <div class="info-field ">
                                                                                                 <span class="title ">Liability</span>
-                                                                                                <span class="value ">{{(item.liability|number:2)||0}}</span>
+                                                                                                <span class="value value-5">{{(item.liability|number:2)||0}}</span>
                                                                                             </div>
                                                                                             <div class="control-fields">
                                                                                                 <button type="button"
@@ -430,7 +430,7 @@
                                                                                                                 ng-if="bet.type == 'LAY'">Liability</span>
                                                                                                             <span class="title"
                                                                                                                 ng-if="bet.type == 'BACK'">Profit</span>
-                                                                                                            <span class="value ">{{bet.betRate
+                                                                                                            <span class="value value-5 ">{{bet.betRate
                                                                                                                 *bet.stake
                                                                                                                 |
                                                                                                                 number:2}}

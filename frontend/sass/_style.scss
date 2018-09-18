@@ -41,9 +41,11 @@ html {
 body {
     margin: 0;
 }
-
+.game-icon{
+    width: 14%;
+}
 .sidemenu {
-    width: 180px;
+    // width: 180px;
     float: left;
 }
 
@@ -3596,7 +3598,9 @@ header.header .infobar {
     margin: 15px 0;
     padding: 7px 0;
 }
-
+.bg-blue-light{
+    background: #e8f4fe;
+}
 header.header .infobar .last-login {
     font-size: 11px;
 }
@@ -3604,6 +3608,7 @@ header.header .infobar .last-login {
 header.header .infobar>.linkbar {
     list-style: outside none none;
     margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 header.header .infobar>.linkbar>li {
@@ -4149,7 +4154,7 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
 }
 
 .navbar {
-    padding: 0rem 1rem;
+    padding: 0rem 0rem 0 4rem;
 }
 
 .clock .clock-timezone-settings .apl-icon-angle-down {
@@ -4220,8 +4225,9 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
 }
 .marquee{
     background:$gray-dark;
-    margin-bottom:-4px;
+    margin-bottom:-5px;
     color:$white;
+    padding: 5px;
 }
 .body>.content>.right-pane {
     width: 312px;
@@ -5140,6 +5146,9 @@ input[type="text"].ng-invalid {
     position: relative;
     top: 22px;
 }
+.value-5 {
+        top: 10px !important;
+    } 
 
 .bets .bet-fields input[type="text"],
 .bets .bet-fields input[type="number"] {
@@ -5759,7 +5768,7 @@ apl-ref-info .ref-info dd {
 .one-click-bet-settings .one-click-settings-animation-wrap {
     overflow: hidden;
     float: left;
-    width: 254px;
+    width: 210px;
     padding-right: 1px;
     position: relative;
     height: 30px;
@@ -5881,9 +5890,9 @@ apl-ref-info .ref-info dd {
     color: #000;
     background: rgba(29, 127, 30, 0.1);
     border: 2px solid #1d7f1e;
-    width: 54px; // line-height: 22px;
+    width: 40px; // line-height: 22px;
     min-height: 22px;
-    margin-right: 9px;
+    margin-right: 5px;
 }
 
 .one-click-bet-settings .setting-select-only .apl-btn:hover,
@@ -9332,7 +9341,7 @@ div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-
 }
 
 .ml-14 {
-    margin-left: 14em;
+    margin-left: 10em;
 }
 
 .draw-match {

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Nunito:400,300,700);
 @import url("https:fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700");
 body.compensate-for-scrollbar {
@@ -1336,7 +1337,7 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 @-ms-viewport {
   width: device-width; }
@@ -5765,12 +5766,15 @@ button.close {
   .bs-popover-top .arrow, .bs-popover-auto[x-placement^="top"] .arrow {
     bottom: calc((0.5rem + 1px) * -1); }
   .bs-popover-top .arrow::before, .bs-popover-auto[x-placement^="top"] .arrow::before,
-  .bs-popover-top .arrow::after, .bs-popover-auto[x-placement^="top"] .arrow::after {
+  .bs-popover-top .arrow::after,
+  .bs-popover-auto[x-placement^="top"] .arrow::after {
     border-width: 0.5rem 0.5rem 0; }
   .bs-popover-top .arrow::before, .bs-popover-auto[x-placement^="top"] .arrow::before {
     bottom: 0;
     border-top-color: rgba(0, 0, 0, 0.25); }
-  .bs-popover-top .arrow::after, .bs-popover-auto[x-placement^="top"] .arrow::after {
+  
+  .bs-popover-top .arrow::after,
+  .bs-popover-auto[x-placement^="top"] .arrow::after {
     bottom: 1px;
     border-top-color: #fff; }
 
@@ -5782,12 +5786,15 @@ button.close {
     height: 1rem;
     margin: 0.3rem 0; }
   .bs-popover-right .arrow::before, .bs-popover-auto[x-placement^="right"] .arrow::before,
-  .bs-popover-right .arrow::after, .bs-popover-auto[x-placement^="right"] .arrow::after {
+  .bs-popover-right .arrow::after,
+  .bs-popover-auto[x-placement^="right"] .arrow::after {
     border-width: 0.5rem 0.5rem 0.5rem 0; }
   .bs-popover-right .arrow::before, .bs-popover-auto[x-placement^="right"] .arrow::before {
     left: 0;
     border-right-color: rgba(0, 0, 0, 0.25); }
-  .bs-popover-right .arrow::after, .bs-popover-auto[x-placement^="right"] .arrow::after {
+  
+  .bs-popover-right .arrow::after,
+  .bs-popover-auto[x-placement^="right"] .arrow::after {
     left: 1px;
     border-right-color: #fff; }
 
@@ -5796,12 +5803,15 @@ button.close {
   .bs-popover-bottom .arrow, .bs-popover-auto[x-placement^="bottom"] .arrow {
     top: calc((0.5rem + 1px) * -1); }
   .bs-popover-bottom .arrow::before, .bs-popover-auto[x-placement^="bottom"] .arrow::before,
-  .bs-popover-bottom .arrow::after, .bs-popover-auto[x-placement^="bottom"] .arrow::after {
+  .bs-popover-bottom .arrow::after,
+  .bs-popover-auto[x-placement^="bottom"] .arrow::after {
     border-width: 0 0.5rem 0.5rem 0.5rem; }
   .bs-popover-bottom .arrow::before, .bs-popover-auto[x-placement^="bottom"] .arrow::before {
     top: 0;
     border-bottom-color: rgba(0, 0, 0, 0.25); }
-  .bs-popover-bottom .arrow::after, .bs-popover-auto[x-placement^="bottom"] .arrow::after {
+  
+  .bs-popover-bottom .arrow::after,
+  .bs-popover-auto[x-placement^="bottom"] .arrow::after {
     top: 1px;
     border-bottom-color: #fff; }
   .bs-popover-bottom .popover-header::before, .bs-popover-auto[x-placement^="bottom"] .popover-header::before {
@@ -5822,12 +5832,15 @@ button.close {
     height: 1rem;
     margin: 0.3rem 0; }
   .bs-popover-left .arrow::before, .bs-popover-auto[x-placement^="left"] .arrow::before,
-  .bs-popover-left .arrow::after, .bs-popover-auto[x-placement^="left"] .arrow::after {
+  .bs-popover-left .arrow::after,
+  .bs-popover-auto[x-placement^="left"] .arrow::after {
     border-width: 0.5rem 0 0.5rem 0.5rem; }
   .bs-popover-left .arrow::before, .bs-popover-auto[x-placement^="left"] .arrow::before {
     right: 0;
     border-left-color: rgba(0, 0, 0, 0.25); }
-  .bs-popover-left .arrow::after, .bs-popover-auto[x-placement^="left"] .arrow::after {
+  
+  .bs-popover-left .arrow::after,
+  .bs-popover-auto[x-placement^="left"] .arrow::after {
     right: 1px;
     border-left-color: #fff; }
 
@@ -8278,6 +8291,18 @@ img.doneLoading {
 nav li:hover .dropdown-menu {
   display: block; }
 
+.dropdown-menu {
+  border-radius: 1rem;
+  left: 8%; }
+  .dropdown-menu:after {
+    content: "";
+    position: absolute;
+    left: 45%;
+    top: -7%;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white; }
+
 #map img {
   opacity: 1; }
 
@@ -8381,6 +8406,11 @@ header {
 .nav-pills .nav-link {
   border-radius: 0rem; }
 
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: black;
+  background-color: #e8f4fe; }
+
 .nav-link {
   padding: 0.5rem 0.5rem !important; }
 
@@ -8431,9 +8461,12 @@ header {
     color: #fff;
     text-decoration: none; }
 
+.edit-stake-row a {
+  color: #1a69a4 !important; }
+
 .betslip-content {
   text-align: center;
-  padding: 10px; }
+  padding: 10px 4px; }
 
 .event-name-blue {
   color: #1a69a4 !important; }
@@ -8523,7 +8556,8 @@ header {
   line-height: 32px;
   height: 27px;
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.65); }
+  color: rgba(0, 0, 0, 0.65);
+  margin-left: 75px; }
 
 @font-face {
   font-family: 'Kingsbet';
@@ -8598,7 +8632,7 @@ header {
   text-align: center;
   -webkit-transition: all 0.4s ease 0s;
   transition: all 0.4s ease 0s;
-  width: 15px; }
+  width: 14px; }
 
 .menu-action {
   height: 12px;
@@ -8607,7 +8641,7 @@ header {
   top: 50%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
-  width: 14px; }
+  width: 20px; }
 
 .menu-action::after {
   background: #fff none repeat scroll 0 0;
@@ -8674,7 +8708,12 @@ header {
   z-index: 99 !important; }
 
 .side-header {
-  width: 40px !important; }
+  width: 40px !important;
+  ­-webkit-­transition: all 0.6s ease;
+  ­-moz-­transition: all 0.6s ease;
+  ­-o-­transition: all 0.6s ease;
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease; }
   .side-header .cat-name {
     display: none; }
 
@@ -8682,14 +8721,14 @@ header {
   width: 300px;
   position: absolute;
   right: 0;
-  top: 100px; }
+  top: 118px; }
 
 .main-content.main-content.padd {
   padding: 108px 300px 0px 47px !important; }
 
 .main-content {
   min-height: calc(100vh);
-  padding: 75px 300px 110px 197px;
+  padding: 0 300px 110px 197px;
   width: 100%;
   -webkit-transition: all .4s ease 0s;
   transition: all .4s ease 0s; }
@@ -8748,8 +8787,10 @@ html {
 body {
   margin: 0; }
 
+.game-icon {
+  width: 14%; }
+
 .sidemenu {
-  width: 180px;
   float: left; }
 
 article,
@@ -8854,8 +8895,7 @@ dfn {
  */
 h1 {
   font-size: 2em;
-  margin: 0.67em 0;
-  font-family: 'Roboto-Condensed-Regular'; }
+  margin: 0.67em 0; }
 
 /**
  * Add the correct background and color in IE 9-.
@@ -9324,12 +9364,7 @@ figure {
 
 /* Headings
  ========================================================================== */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   margin: 0 0 13px 0;
   font-weight: normal;
   color: #084e83;
@@ -11676,12 +11711,7 @@ figure {
 
 /* Headings
  ========================================================================== */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   margin: 0 0 13px 0; }
 
 /*
@@ -11744,7 +11774,7 @@ body {
   color: #000; }
 
 footer {
-  background: #1b2035;
+  background: #1b2035 url("../img/icon/bg-img.png");
   color: #fff;
   padding: 15px;
   margin-top: 18px;
@@ -11770,7 +11800,7 @@ a:hover {
   text-decoration: underline; }
 
 header.header {
-  position: fixed;
+  position: relative;
   margin: auto auto 0;
   width: 100%;
   background: #1b2035 url("../img/icon/bg-img.png");
@@ -11813,12 +11843,16 @@ header.header .infobar {
   margin: 15px 0;
   padding: 7px 0; }
 
+.bg-blue-light {
+  background: #e8f4fe; }
+
 header.header .infobar .last-login {
   font-size: 11px; }
 
 header.header .infobar > .linkbar {
   list-style: outside none none;
-  margin-bottom: 5px; }
+  margin-bottom: 5px;
+  margin-top: 5px; }
 
 header.header .infobar > .linkbar > li {
   display: inline-table;
@@ -12005,8 +12039,7 @@ aside.menu > nav.tree-menu > ul > li > ul > li {
   display: inline;
   float: none;
   position: relative;
-  right: auto;
-  padding-left: 15px; }
+  right: 5px; }
 
 .left-menu-inner .menu-lvl-0 .menu-link .link-name,
 .left-menu-inner .menu-lvl-0 .favourites-link .link-name {
@@ -12258,7 +12291,7 @@ aside.menu > nav.tree-menu > ul > li > ul > li {
   font-weight: bold; }
 
 .navbar {
-  padding: 0rem 1rem; }
+  padding: 0rem 0rem 0 4rem; }
 
 .clock .clock-timezone-settings .apl-icon-angle-down {
   font-size: 12px; }
@@ -12300,12 +12333,17 @@ aside.menu > nav.tree-menu > ul > li > ul > li {
   padding: 0; }
 
 .left-pane {
-  position: fixed;
-  top: 100px;
+  position: relative;
+  top: 0px;
   height: 100%;
   width: 180px;
   border-left: 1px solid #ddd;
-  border-right: 1px solid #ddd; }
+  border-right: 1px solid #ddd;
+  ­-webkit-­transition: all 0.6s ease;
+  ­-moz-­transition: all 0.6s ease;
+  ­-o-­transition: all 0.6s ease;
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease; }
 
 .mid-pane {
   padding: 0 20px 20px; }
@@ -12315,6 +12353,12 @@ aside.menu > nav.tree-menu > ul > li > ul > li {
   top: 0;
   right: 0;
   width: 312px; }
+
+.marquee {
+  background: #1b2035;
+  margin-bottom: -5px;
+  color: #fff;
+  padding: 5px; }
 
 .body > .content > .right-pane {
   width: 312px; }
@@ -12579,7 +12623,7 @@ input[type="text"].ng-invalid {
           box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); }
 
 .login-view {
-  background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.5) 100%); }
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%); }
   .login-view .version {
     position: absolute;
     top: 30px;
@@ -12632,8 +12676,6 @@ input[type="text"].ng-invalid {
 
 .bet-manager {
   width: 100%; }
-  .bet-manager h4 {
-    color: #58c370; }
 
 .bet-manager > .tabs > li {
   float: left;
@@ -12661,6 +12703,9 @@ input[type="text"].ng-invalid {
 
 .bet-manager > .tabs > li.tab-bet-slip:hover,
 .bet-manager > .tabs > li.tab-open-bets:hover {
+  background: #e8f4fe; }
+
+.tab-content > .active {
   background: #e8f4fe; }
 
 .bet-manager > .tabs > li.tab-bet-slip.-active,
@@ -12764,8 +12809,7 @@ input[type="text"].ng-invalid {
   margin-right: 2px; }
 
 .bet-manager .bets-by-event-filter {
-  padding: 6px;
-  background-color: #fff; }
+  padding: 6px; }
 
 .bet-manager .bets-by-event-filter input[type="checkbox"] {
   margin-right: 5px;
@@ -12918,7 +12962,7 @@ input[type="text"].ng-invalid {
   width: 68px;
   padding: 3px;
   text-align: right;
-  border-color: transparent; }
+  border-color: rgba(0, 0, 0, 0); }
 
 .bets table input[type="number"].updated,
 .bets table input[type="text"].updated {
@@ -13084,6 +13128,9 @@ input[type="text"].ng-invalid {
 .bets .bet-fields .info-field .value {
   position: relative;
   top: 22px; }
+
+.value-5 {
+  top: 10px !important; }
 
 .bets .bet-fields input[type="text"],
 .bets .bet-fields input[type="number"] {
@@ -13614,7 +13661,7 @@ apl-ref-info .ref-info dd {
 .one-click-bet-settings .one-click-settings-animation-wrap {
   overflow: hidden;
   float: left;
-  width: 254px;
+  width: 210px;
   padding-right: 1px;
   position: relative;
   height: 30px; }
@@ -13724,9 +13771,9 @@ apl-ref-info .ref-info dd {
   color: #000;
   background: rgba(29, 127, 30, 0.1);
   border: 2px solid #1d7f1e;
-  width: 54px;
+  width: 40px;
   min-height: 22px;
-  margin-right: 9px; }
+  margin-right: 5px; }
 
 .one-click-bet-settings .setting-select-only .apl-btn:hover,
 .one-click-bet-settings .setting-select-only .apl-btn:active,
@@ -16529,7 +16576,7 @@ div .market-listing-table tbody > tr td.market-name:first-child i.apl-icon-custo
   background: #dcd8d8; }
 
 .ml-14 {
-  margin-left: 14em; }
+  margin-left: 10em; }
 
 .draw-match {
   background-color: #f2f9ff !important;
