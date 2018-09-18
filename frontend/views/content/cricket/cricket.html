@@ -16,9 +16,16 @@
                 <tbody>
 
                     <tr class="" ng-repeat="market in marketData" ng-class="{'op5' : market.betfairStatus != 'OPEN'}" ng-disabled="market.betfairStatus != 'OPEN'">
-                        <td ng-click="market.betfairStatus != 'OPEN' ? '':getDetailedPage(selectedGame,market.parentCategory.name,market.parentCategory._id);">
-                            <i class="far fa-star icon-style"></i>
-                            <a class="event-name ">{{market.parentCategory.name}}</a>
+                        <td>
+                            <span ng-click="saveFavourite(market);">
+                                <span ng-if="!market.isFavourite">
+                                    <i class="far fa-star icon-style"></i>
+                                </span>
+                                <span ng-if="market.isFavourite">
+                                    <i class="fas fa-star apl-icon-star-o"></i>
+                                </span>
+                            </span>
+                            <a class="event-name " ng-click="market.betfairStatus != 'OPEN' ? '':getDetailedPage(selectedGame,market.parentCategory.name,market.parentCategory._id);">{{market.parentCategory.name}}</a>
                             <small class="in-play-content" ng-if="checkDate(market) == false">
                                 <i class="fas fa-play-circle"></i> In-Play
                             </small>

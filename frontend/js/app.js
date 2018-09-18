@@ -8,7 +8,8 @@ var myApp = angular.module('myApp', [
     'ngAnimate',
     'ngSanitize',
     'angularPromiseButtons',
-    'toastr'
+    'toastr',
+    'angular.filter'
 ]);
 
 // Define all the routes below

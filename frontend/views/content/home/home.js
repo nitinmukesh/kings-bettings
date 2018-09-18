@@ -176,6 +176,40 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
             accessToken: accessToken,
             userId: userId
         });
+    };
+
+
+    $scope.saveFavourite = function (value, isFavourite) {
+        var userId = jStorageService.getUserId();
+        console.log("favourites clicked", value, isFavourite);
+
+        var obj = {
+            marketId: value.betfairId,
+            marketMongoId: value._id,
+            game: $scope.selectedGame,
+            parentId: value.parentCategory._id,
+            marketStartTime: value.marketStartTime,
+            user: userId,
+            isFavourite: !value.isFavourite
+        }
+        if (obj.isFavourite == true) {
+            obj.status = "Open";
+        } else {
+            obj.status = "Closed";
+        }
+        NavigationService.apiCallWithData('FavouriteMatch/saveUserFavourites', obj, function (data) {
+            if (data.value) {
+                if (data.data[1]) {
+                    _.each($scope.marketData, function (n) {
+                        if (n._id == data.data[1]._id) {
+                            n.isFavourite = data.data[1].isFavourite
+                        }
+                    });
+                }
+
+            }
+
+        });
     }
 
 });
