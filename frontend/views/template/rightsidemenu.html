@@ -9,14 +9,14 @@
                             <div class="one-click-bet-settings-wrapper">
                                 <div class="one-click-bet-settings _clearfix select-mode-on one-click-active">
                                     <div class="toggle-custom">
-                                                <label class="switch">
-                                                    <input type="checkbox" id="togBtn" ng-model="oneClickbet">
-                                                    <div class="slider round"></div>
-                                                </label>
-                                            </div>
-                                            <div class="one-betting" ng-if="!oneClickbet">
-                                                <strong class="">1 Click Betting</strong>
-                                            </div>
+                                        <label class="switch">
+                                            <input type="checkbox" id="togBtn" ng-model="oneClickbet">
+                                            <div class="slider round"></div>
+                                        </label>
+                                    </div>
+                                    <div class="one-betting" ng-if="!oneClickbet">
+                                        <strong class="">1 Click Betting</strong>
+                                    </div>
                                     <div class="one-click-settings-animation-wrap onclick-ani" ng-if="oneClickbet">
                                         <div class="apl-form one-click-bet-form">
                                             <div class="select-mode-fields">
@@ -69,7 +69,7 @@
                                             <div class="bets betslip  has-bets">
                                                 <div>
                                                     <div class="bg-blue-light">
-                                                        <div class="betslipContent">
+                                                        <div class="betslipContent scroll scroll2">
                                                             <form name="betslipForm" class="">
                                                                 <div class="bg-blue-light" ng-if="isBack">
                                                                     <span class="back-square"></span>
@@ -369,7 +369,7 @@
                                                     <div class="list-wrap" ng-if="myCurrentBetData.unMatchedbets.length == 0">
                                                         No Unmatched Bets
                                                     </div>
-                                                    <div class="list-wrap">
+                                                    <div class="list-wrap scroll scroll2">
                                                         <form name="unmatchedForm">
                                                             <ul class="orders-list" ng-repeat="unMatchedbet in myCurrentBetData.unMatchedbets">
                                                                 <li class="order-wrap">
@@ -386,7 +386,8 @@
                                                                                     <li class="selection">
                                                                                         <ul class="bets-list">
                                                                                             <li>
-                                                                                                <span class="selection-name">{{bet.horse}}</span>                                                                                        <div class="bet lay">
+                                                                                                <span class="selection-name">{{bet.horse}}</span>
+                                                                                                <div class="bet lay">
                                                                                                     <div class="bet-fields">
                                                                                                         <div class="odds-field placeholder-wrapper  activated animatable">
                                                                                                             <div class="placeholder ">Odds</div>
@@ -471,12 +472,12 @@
                                     </div>
                                     <div class="matchbets mt-3">
                                         <uib-accordion close-others="oneAtATime">
-                                            <div uib-accordion-group class="panel-default" is-open="status.open">
+                                            <div uib-accordion-group class="panel-default scroll scroll2" is-open="status.open">
                                                 <uib-accordion-heading>
                                                     Matched Bets
                                                     <i class="pull-right icon-right fa" ng-class="{'fa-chevron-up': status.open, 'fa-chevron-down': !status.open}"></i>
                                                 </uib-accordion-heading>
-                                                <div class="consolidation-filter">
+                                                <div class="consolidation-filter ">
                                                     <label class="pad-right">
                                                         <input type="checkbox" class="" ng-model="Consolidate">Consolidate</label>
                                                     <label class="pad-right ">
