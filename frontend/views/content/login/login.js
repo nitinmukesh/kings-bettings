@@ -15,6 +15,7 @@ myApp.controller('LoginCtrl', function ($scope, toastr, TemplateService, Navigat
             console.log("data", (data.error));
             console.log("data 2", (data.data));
             if (data.value) {
+                $.jStorage.set("userId", data.data._id);
                 if (data.data.isfreeSubcription == true) {
                     if (data.data.email == value.email) {
                         $.jStorage.set("expDate", data.data.expiryDate);

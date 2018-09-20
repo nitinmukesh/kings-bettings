@@ -7,7 +7,8 @@ myApp.controller('SubcriptionCtrl', function ($scope, toastr, TemplateService, N
     TemplateService.sidemenu = "";
     $scope.navigation = NavigationService.getNavigation();
     $scope.loginAdminurl = adminurl;
-    $scope.isfreeSubcription = $.jStorage.get("isfreeSubcription")
+    $scope.isfreeSubcription = $.jStorage.get("isfreeSubcription");
+    var user = $.jStorage.get("userId");
 
     $scope.accessToken = $.jStorage.get("accessToken");
     console.log($scope.accessToken);
@@ -15,7 +16,6 @@ myApp.controller('SubcriptionCtrl', function ($scope, toastr, TemplateService, N
         $state.go("home");
     };
     $scope.payNow = function () {
-        var user = $.jStorage.get("userId");
         NavigationService.payNow("betfair/payNow", {
             id: user
         }, function (data) {
@@ -25,12 +25,15 @@ myApp.controller('SubcriptionCtrl', function ($scope, toastr, TemplateService, N
     };
 
     $scope.goTologin = function () {
-        var user = $.jStorage.get("userId");
         NavigationService.updateUser("User/updateUser", {
             id: user
         }, function (data) {
             console.log("data new", (data.data));
-            window.location.href = data.data;
+            if (data.value) {
+                window.location.href = data.data;
+            } else {
+                toastr.error(data.error.message);
+            }
         });
     }
 });
