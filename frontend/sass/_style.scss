@@ -42,8 +42,12 @@ body {
     margin: 0;
 }
 
+.game-icon {
+    width: 14%;
+}
+
 .sidemenu {
-    width: 180px;
+    width: 0px;
     float: left;
 }
 
@@ -207,6 +211,8 @@ sub {
 sup {
     top: -0.5em;
 }
+
+
 
 /* Embedded content
    ========================================================================== */
@@ -430,6 +436,10 @@ textarea {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.ml-12 {
+    margin-left: 12px !important;
 }
 
 /**
@@ -2089,8 +2099,8 @@ html button:not(:disabled).apl-btn-primary,
 html [type="button"]:not(:disabled).apl-btn-primary {
     background-color: #28a745;
     color: #FFFFFF;
-    border-bottom-color: #28a745;
-    border-right-color: #28a745;
+    border-bottom-color: #484848;
+    border-right-color: #484848;
 }
 
 .apl-btn:not(:disabled).apl-btn-primary:hover,
@@ -2112,8 +2122,8 @@ html button:not(:disabled).apl-btn-primary.apl-active,
 html [type="button"]:not(:disabled).apl-btn-primary.apl-active {
     background-color: #009f4b;
     color: #FFFFFF;
-    border-top-color: #007135;
-    border-left-color: #007135;
+    border-top-color: rgb(72, 72, 72);
+    border-left-color: rgb(72, 72, 72);
     box-shadow: none;
 }
 
@@ -2122,8 +2132,8 @@ html button:not(:disabled).apl-btn-secondary,
 html [type="button"]:not(:disabled).apl-btn-secondary {
     background-color: #007bff;
     color: #FFFFFF;
-    border-bottom-color: #007bff;
-    border-right-color: #007bff;
+    border-bottom-color: rgb(72, 72, 72);
+    border-right-color: rgb(72, 72, 72);
     letter-spacing: 1px;
 }
 
@@ -2146,8 +2156,8 @@ html button:not(:disabled).apl-btn-secondary.apl-active,
 html [type="button"]:not(:disabled).apl-btn-secondary.apl-active {
     background-color: #007bff;
     color: #FFFFFF;
-    border-top-color: #007bff;
-    border-left-color: #007bff;
+    border-top-color: rgb(72, 72, 72);
+    border-left-color: rgb(72, 72, 72);
     box-shadow: none;
 }
 
@@ -2159,8 +2169,8 @@ html button:not(:disabled).apl-btn-place,
 html [type="button"]:not(:disabled).apl-btn-place {
     background-color: #00a950;
     color: #FFFFFF;
-    border-bottom-color: #007638;
-    border-right-color: #007638;
+    border-bottom-color: rgb(72, 72, 72);
+    border-right-color: rgb(72, 72, 72);
 }
 
 .apl-btn:not(:disabled).apl-btn-update:hover,
@@ -2194,8 +2204,8 @@ html button:not(:disabled).apl-btn-place.apl-active,
 html [type="button"]:not(:disabled).apl-btn-place.apl-active {
     background-color: #28a745;
     color: #FFFFFF;
-    border-top-color: #28a745;
-    border-left-color: #28a745;
+    border-top-color: rgb(72, 72, 72);
+    border-left-color: rgb(72, 72, 72);
     box-shadow: none;
 }
 
@@ -2207,8 +2217,8 @@ html button:not(:disabled).apl-btn-remove,
 html [type="button"]:not(:disabled).apl-btn-remove {
     background-color: #b71601;
     color: #FFFFFF;
-    border-bottom-color: #841001;
-    border-right-color: #841001;
+    border-bottom-color: rgb(72, 72, 72);
+    border-right-color: rgb(72, 72, 72);
 }
 
 .apl-btn:not(:disabled).apl-btn-cancel:hover,
@@ -2254,6 +2264,12 @@ html [type="button"]:not(:disabled).apl-btn-secondary-alt {
     color: #FFFFFF;
     border-bottom-color: $blue;
     border-right-color: $blue;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    color: #fff;
+    text-decoration: none;
+    background-color: #f8f9fa;
 }
 
 .apl-btn:not(:disabled).apl-btn-secondary-alt:hover,
@@ -3597,6 +3613,10 @@ header.header .infobar {
     padding: 7px 0;
 }
 
+.bg-blue-light {
+    background: #e8f4fe;
+}
+
 header.header .infobar .last-login {
     font-size: 11px;
 }
@@ -3604,6 +3624,7 @@ header.header .infobar .last-login {
 header.header .infobar>.linkbar {
     list-style: outside none none;
     margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 header.header .infobar>.linkbar>li {
@@ -3652,6 +3673,14 @@ header.header .infobar>.linkbar .header-link {
     font-size: 12px;
 }
 
+.dropdown-item {
+    border-bottom: 1px solid #ccc;
+
+    &:last-child() {
+        border-bottom: 1px solid transparent;
+    }
+}
+
 .search-container .search input {
     width: 210px;
     border: none;
@@ -3667,6 +3696,7 @@ header.header .infobar>.linkbar .header-link {
 .search-container .search .apl-form-icon .apl-icon-search {
     font-size: 14px;
     width: 30px !important;
+    color: black;
 }
 
 .search-container>ul {
@@ -3819,7 +3849,8 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
 
 .left-menu-inner .menu-lvl-0 .menu-link:hover,
 .left-menu-inner .menu-lvl-0 .favourites-link:hover {
-    background: $gray-light; // transform: scale(1.1);
+    background: $gray-light;
+    transform: scale(1.1);
     // border-top: 1px solid #ddd;
     text-decoration: none;
 }
@@ -4149,7 +4180,7 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
 }
 
 .navbar {
-    padding: 0rem 1rem;
+    padding: 0rem 0rem 0 4rem;
 }
 
 .clock .clock-timezone-settings .apl-icon-angle-down {
@@ -4202,9 +4233,9 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
     width: 180px;
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
-    ­-webkit-­transition: all 0.6s ease; 
-    ­-moz-­transition: all 0.6s ease; 
-    ­-o-­transition: all 0.6s ease; 
+    ­-webkit-­transition: all 0.6s ease;
+    ­-moz-­transition: all 0.6s ease;
+    ­-o-­transition: all 0.6s ease;
     transition: all 0.6s ease;
 }
 
@@ -4218,11 +4249,14 @@ aside.menu>nav.tree-menu>ul>li>ul>li {
     right: 0;
     width: 312px;
 }
-.marquee{
-    background:$gray-dark;
-    margin-bottom:-4px;
-    color:$white;
+
+.marquee {
+    background: $gray-dark;
+    margin-bottom: -5px;
+    color: $white;
+    padding: 5px;
 }
+
 .body>.content>.right-pane {
     width: 312px;
 }
@@ -4630,9 +4664,11 @@ input[type="text"].ng-invalid {
 .bet-manager>.tabs>li.tab-open-bets:hover {
     background: #e8f4fe;
 }
-.tab-content > .active{
-    background: #e8f4fe; 
+
+.tab-content > .active {
+    background: #e8f4fe;
 }
+
 .bet-manager>.tabs>li.tab-bet-slip.-active,
 .bet-manager>.tabs>li.tab-open-bets.-active,
 .bet-manager>.tabs>li.tab-bet-slip.-active:hover,
@@ -4787,7 +4823,7 @@ input[type="text"].ng-invalid {
 
 .bets {
     position: relative;
-    padding: 15px 0;
+    padding: 5px 0;
     letter-spacing: 0;
 }
 
@@ -5024,7 +5060,8 @@ input[type="text"].ng-invalid {
 
 .bets .list-wrap {
     padding: 3px;
-    // background: $navy-blue;
+    background: #e8f4fe;
+
 }
 
 .matchbets .card-body {
@@ -5037,6 +5074,7 @@ input[type="text"].ng-invalid {
     display: block;
     font-weight: bold;
     margin: 6px 0 1px 10px;
+    color: black !important;
 }
 
 .bets .market-list {
@@ -5059,7 +5097,7 @@ input[type="text"].ng-invalid {
 
 .bets .market-list .btn-cancel {
     float: right;
-    color: $white;
+    color: black;
     min-height: auto;
     line-height: 20px;
     padding: 0;
@@ -5139,6 +5177,10 @@ input[type="text"].ng-invalid {
 .bets .bet-fields .info-field .value {
     position: relative;
     top: 22px;
+}
+
+.value-5 {
+    top: 10px !important;
 }
 
 .bets .bet-fields input[type="text"],
@@ -5239,8 +5281,8 @@ input[type="text"].ng-invalid {
 .bets.betslip .summary-buttons .apl-btn-remove {
     /* style due to changes in tabbing order - they want "confirm" button to be first,
             but still aligned to right (and tabindex is not working on those elements..) */
-    position: absolute;
-    right: 108px;
+    // position: absolute;
+    // right: 108px;
 }
 
 .bets .summary-info {
@@ -5463,7 +5505,7 @@ input[type="text"].ng-invalid {
 }
 
 .consolidation-filter input[type="checkbox"] {
-    margin-right: 4px;
+    margin-right: 2px;
     vertical-align: middle;
 }
 
@@ -5759,7 +5801,7 @@ apl-ref-info .ref-info dd {
 .one-click-bet-settings .one-click-settings-animation-wrap {
     overflow: hidden;
     float: left;
-    width: 254px;
+    width: 210px;
     padding-right: 1px;
     position: relative;
     height: 30px;
@@ -5881,9 +5923,9 @@ apl-ref-info .ref-info dd {
     color: #000;
     background: rgba(29, 127, 30, 0.1);
     border: 2px solid #1d7f1e;
-    width: 54px; // line-height: 22px;
+    width: 40px; // line-height: 22px;
     min-height: 22px;
-    margin-right: 9px;
+    margin-right: 5px;
 }
 
 .one-click-bet-settings .setting-select-only .apl-btn:hover,
@@ -9332,7 +9374,7 @@ div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-
 }
 
 .ml-14 {
-    margin-left: 14em;
+    margin-left: 10em;
 }
 
 .draw-match {
@@ -9409,11 +9451,35 @@ div .market-listing-table tbody>tr td.market-name:first-child i.apl-icon-custom-
     width: 10px;
     height: 10px;
     display: inline-block;
+
+
 }
 
 .lay-square {
     background-color: #f9c9d4 !important;
     width: 10px;
+    margin-left: 3px;
     height: 10px;
     display: inline-block;
 }
+
+//scss for scroll
+.scroll2::-webkit-scrollbar {
+    width: 5px;
+}
+
+.scroll2::-webkit-scrollbar-thumb {
+    background: #666;
+}
+
+.scroll {
+    max-height: 310px;
+    overflow: auto;
+    // margin: 0 10px;
+}
+
+
+// .betslipContent {
+//     max-height: 310px;
+//     overflow-x: hidden;
+// }

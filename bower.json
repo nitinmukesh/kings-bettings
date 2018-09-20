@@ -63,7 +63,8 @@
     "angular-promise-buttons": "^0.1.23",
     "ui-bootstrap4": "https://github.com/Morgul/ui-bootstrap4.git#^3.0.2",
     "popper.js": "^1.14.3",
-    "async": "^2.6.1"
+    "async": "^2.6.1",
+    "angular-filter": "^0.5.17"
   },
   "resolutions": {
     "angular": "1.6.10",
