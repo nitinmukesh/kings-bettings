@@ -28,7 +28,14 @@
                                 <thead>
                                     <tr>
                                         <th class="market-name title ">
-                                            <i class="far fa-star icon-style"></i>
+                                            <span ng-click="saveFavourite(market);">
+                                                <span ng-if="!market.isFavourite">
+                                                    <i class="far fa-star icon-style"></i>
+                                                </span>
+                                                <span ng-if="market.isFavourite">
+                                                    <i class="fas fa-star apl-icon-star-o"></i>
+                                                </span>
+                                            </span>
                                             Match Odds
                                         </th>
                                         <th class="back " colspan="2"></th>

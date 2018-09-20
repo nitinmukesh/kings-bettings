@@ -4,4 +4,12 @@ myApp.controller('ProfitlossCtrl', function ($scope, TemplateService, Navigation
     TemplateService.sidemenu2 = "";
     $scope.navigation = NavigationService.getNavigation();
 
+    $scope.bettingPl = function (value) {
+
+        NavigationService.bettingPl()
+
+    };
+
+    $scope.bettingPl();
+
 });

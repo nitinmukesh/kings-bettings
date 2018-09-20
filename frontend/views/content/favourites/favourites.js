@@ -10,7 +10,6 @@ myApp.controller('FavouritesCtrl', function ($scope, $rootScope, TemplateService
 
         _.each($scope.marketData, function (data, key) {
             var book = [];
-            console.log("key++++++++++++++++++++++++++", $scope.marketArray, $scope.marketData);
             $scope.marketArray[key] = _.cloneDeep(data);
             // if ((!_.isEmpty(value.lay) && value.lay[0].marketId == $scope.marketArray[key].betfairId) || (!_.isEmpty(value.back) && value.back[0].marketId == $scope.marketArray[key].betfairId)) {
             if (!_.isEmpty(value.lay)) {
@@ -302,4 +301,32 @@ myApp.controller('FavouritesCtrl', function ($scope, $rootScope, TemplateService
             userId: userId
         });
     };
+
+    $scope.saveFavourite = function (value) {
+        var userId = jStorageService.getUserId();
+
+        var obj = {
+            marketId: value.betfairId,
+            marketMongoId: value._id,
+            game: $scope.selectedGame,
+            parentId: value.parentCategory._id,
+            marketStartTime: value.marketStartTime,
+            user: userId,
+            isFavourite: !value.isFavourite
+        }
+        if (obj.isFavourite == true) {
+            obj.status = "Open";
+        } else {
+            obj.status = "Closed";
+        }
+        NavigationService.apiCallWithData('FavouriteMatch/saveUserFavourites', obj, function (data) {
+            if (data.value) {
+                if (data.data[1]) {
+                    _.remove($scope.marketData, {
+                        _id: data.data[1]._id
+                    });
+                }
+            }
+        });
+    }
 });
